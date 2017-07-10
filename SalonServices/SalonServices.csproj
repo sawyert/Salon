@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="1.1.2" />
+    <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="1.1.2" />
+    <PackageReference Include="microsoft.entityframeworkcore.tools" Version="1.1.1" />
+    <PackageReference Include="microsoft.extensions.configuration" Version="1.1.2" />
+    <PackageReference Include="microsoft.extensions.configuration.fileextensions" Version="1.1.2" />
+    <PackageReference Include="microsoft.extensions.configuration.json" Version="1.1.2" />
+  </ItemGroup>
+
+</Project>
