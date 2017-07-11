@@ -19,12 +19,21 @@ namespace SalonServices
             this.referenceRepository = referenceRepository;
         }
 
-        public Task<CountryDto> CreateCountry(CreateCountryDto pCountry)
+        public async Task<CountryDto> CreateCountry(CreateCountryDto pCountry)
+        {
+            var lCountryEntity = Mapping.Mapper.Map<CountryEntity>(pCountry);
+
+            lCountryEntity = await this.referenceRepository.Add(lCountryEntity);
+            
+            return Mapping.Mapper.Map<CountryDto>(lCountryEntity);
+        }
+
+        public Task<bool> DeleteCountry(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> DeleteCountry(int id)
+        public Task<CountryDto> GetCountryById(int id)
         {
             throw new NotImplementedException();
         }

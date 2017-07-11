@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Salon.Models;
 using SalonServices;
+using Salon.Mappings;
+using SalonServices.Dto;
 
 namespace Salon.Controllers
 {
@@ -16,62 +18,71 @@ namespace Salon.Controllers
             this._referenceServices = pReferenceServices;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string successMessage = null, string failureMessage = null)
         {
-            var lDtos = await _referenceServices.ListCountries();
-            return View(new List<CountryModel>());
+            var lDtos = await this._referenceServices.ListCountries();
+
+            var lModel = new IndexViewModel()
+            {
+                SuccessMessage = successMessage,
+                FailureMessage = failureMessage,
+                Countries = lDtos.Select(itm => Mapping.Mapper.Map<CountryViewModel>(itm)).ToList(),
+            };
+            return View(lModel);
         }
 
         [HttpGet]
         public IActionResult Add()
         {
-            return View(new CreateCountryModel());
+            return View(new CreateCountryViewModel());
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(CreateCountryModel pCreateModel)
+        public async Task<IActionResult> Add(CreateCountryViewModel pCreateModel)
         {
-            if(!ModelState.IsValid)
+            if(!this.ModelState.IsValid)
             {
-                pCreateModel.Errors = ModelState.Values.SelectMany(val => val.Errors).Select(err => err.ErrorMessage).ToList();
+                pCreateModel.Errors = this.ModelState.Values.SelectMany(val => val.Errors).Select(err => err.ErrorMessage).ToList();
                 return View(pCreateModel);
             }
 
             // map to Dto
+            var lDtoToCreate = Mapping.Mapper.Map<CreateCountryDto>(pCreateModel);
+            await this._referenceServices.CreateCountry(lDtoToCreate);
 
-            //var lCreatedDto = await _referenceServices.AddCountry(pCreateDto);
-            // map to create country model
-            pCreateModel.Id = 50;
-            return View(pCreateModel);
+            return RedirectToAction("Index", new { successMessage = "Country successfully created" });
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            return View(new CreateCountryModel());
+            CountryDto lCountryDto = await this._referenceServices.GetCountryById(id);
+            var lViewModelToEdit = Mapping.Mapper.Map<CountryViewModel>(lCountryDto);
+            //this._referenceServices.
+            return View(lViewModelToEdit);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(CreateCountryModel pCreateModel)
+        public async Task<IActionResult> Edit(CountryViewModel pViewModelToUpdate)
         {
             if (!ModelState.IsValid)
             {
-                pCreateModel.Errors = ModelState.Values.SelectMany(val => val.Errors).Select(err => err.ErrorMessage).ToList();
-                return View(pCreateModel);
+                return View(pViewModelToUpdate);
             }
 
             // map to Dto
+            CountryDto lCountryDto = Mapping.Mapper.Map<CountryDto>(pViewModelToUpdate);
 
-            //var lCreatedDto = await _referenceServices.AddCountry(pCreateDto);
-            // map to create country model
-            pCreateModel.Id = 50;
-            return View(pCreateModel);
+            await this._referenceServices.UpdateCountry(lCountryDto);
+
+            return RedirectToAction("Index", new { successMessage = "Country successfully updated" });
         }
 
         [HttpDelete]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            return View(new CreateCountryModel());
+            await this._referenceServices.DeleteCountry(id);
+            return RedirectToAction("Index", new { successMessage = "Country successfully deleted" });
         }
     }
 }

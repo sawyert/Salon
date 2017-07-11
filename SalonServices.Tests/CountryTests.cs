@@ -32,5 +32,26 @@ namespace SalonServices.Tests
             List<CountryDto> lCountries = await this.referenceServices.ListCountries();
             Assert.AreEqual(2, lCountries.Count);
         }
+
+        [Test]
+        public async Task CreateCountry()
+        {
+            this.referenceRespository.Add(Arg.Any<CountryEntity>()).Returns(info =>
+            {
+                var myEnt = info.Arg<CountryEntity>();
+                myEnt.Id = 40;
+                return myEnt;                
+            });
+
+            CreateCountryDto lCreateCountryDto = new CreateCountryDto()
+            {
+                Name = "England"
+            };
+            
+            var lNewlyCreatedCountryDto = await this.referenceServices.CreateCountry(lCreateCountryDto);
+
+            Assert.AreEqual("England", lNewlyCreatedCountryDto.Name);
+            Assert.AreEqual(40, lNewlyCreatedCountryDto.Id);
+        }
     }
 }

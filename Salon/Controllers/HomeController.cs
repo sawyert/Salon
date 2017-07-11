@@ -22,14 +22,14 @@ namespace Salon.Controllers
         }
 
         [HttpGet]
-        public async Task<List<CountryModel>> GetCountries()
+        public async Task<List<CountryViewModel>> GetCountries()
         {
             var lDtos = await _referenceServices.ListCountries();
-            return new List<CountryModel>();
+            return new List<CountryViewModel>();
         }
 
         [HttpPost]
-        public async Task<CreateCountryModel> AddCountry(CreateCountryModel pCreateModel)
+        public async Task<CreateCountryViewModel> AddCountry(CreateCountryViewModel pCreateModel)
         {
             if(!ModelState.IsValid)
             {
