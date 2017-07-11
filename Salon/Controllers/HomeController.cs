@@ -3,28 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Salon.Models;
+using SalonServices;
 
 namespace Salon.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IReferenceServices _referenceServices;
+        public HomeController(IReferenceServices pReferenceServices)
+        {
+            this._referenceServices = pReferenceServices;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
+        [HttpGet]
+        public async Task<List<CountryModel>> GetCountries()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            var lDtos = await _referenceServices.ListCountries();
+            return new List<CountryModel>();
         }
 
-        public IActionResult Contact()
+        [HttpPost]
+        public async Task<CreateCountryModel> AddCountry(CreateCountryModel pCreateModel)
         {
-            ViewData["Message"] = "Your contact page.";
+            if(!ModelState.IsValid)
+            {
+                pCreateModel.Errors = ModelState.Values.SelectMany(val => val.Errors).Select(err => err.ErrorMessage).ToList();
+                return pCreateModel;
+            }
 
-            return View();
+            // map to Dto
+
+            // var lCreatedDto = await _referenceServices.AddCountry(pCreateDto);
+            // map to create country model
+            pCreateModel.Id = 50; //lCreatedDto.Id;
+            return pCreateModel;
         }
 
         public IActionResult Error()
