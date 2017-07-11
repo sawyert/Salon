@@ -19,6 +19,16 @@ namespace SalonServices
             this.referenceRepository = referenceRepository;
         }
 
+        public Task<CountryDto> CreateCountry(CreateCountryDto pCountry)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DeleteCountry(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<List<CountryDto>> ListCountries()
         {
             List<CountryEntity> lCountries = await this.referenceRepository.ListCountries();
@@ -28,6 +38,9 @@ namespace SalonServices
             return lReturn;
         }
 
-
+        public Task UpdateCountry(CountryDto pCountryDto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

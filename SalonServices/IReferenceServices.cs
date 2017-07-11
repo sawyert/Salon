@@ -9,5 +9,11 @@ namespace SalonServices
     public interface IReferenceServices
     {
         Task<List<CountryDto>> ListCountries();
+
+        Task<CountryDto> CreateCountry(CreateCountryDto pCountry);
+
+        Task UpdateCountry(CountryDto pCountryDto);
+
+        Task<bool> DeleteCountry(int id);
     }
 }
