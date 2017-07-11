@@ -5,11 +5,8 @@ using System.Text;
 
 namespace SalonServices.Entities
 {
-    public class CompetitionEntryEntity
+    public class CompetitionEntryEntity : AbstractEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         public int SectionId { get; set; }
         public virtual SectionEntity Section { get; set; }
 

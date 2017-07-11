@@ -6,11 +6,8 @@ using System.Text;
 
 namespace SalonServices.Entities
 {
-    public class ImageEntity
+    public class ImageEntity : AbstractEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }

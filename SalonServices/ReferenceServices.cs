@@ -12,9 +12,9 @@ namespace SalonServices
 {
     public class ReferenceServices : IReferenceServices
     {
-        private readonly IReferenceRepository referenceRepository;
+        private readonly ICountryRepository referenceRepository;
 
-        public ReferenceServices(IReferenceRepository referenceRepository)
+        public ReferenceServices(ICountryRepository referenceRepository)
         {
             this.referenceRepository = referenceRepository;
         }
@@ -26,7 +26,8 @@ namespace SalonServices
             List<CountryDto> lReturn = lCountries.Select(coun => Mapping.Mapper.Map<CountryDto>(coun)).ToList();
 
             return lReturn;
-
         }
+
+
     }
 }

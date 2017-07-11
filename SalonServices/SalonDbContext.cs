@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace SalonServices
 {
-    class SalonDbContext : DbContext, ISalonDbContext
+    public class SalonDbContext : DbContext, ISalonDbContext
     {
         public virtual DbSet<CountryEntity> Countries { get; set; }
         public virtual DbSet<AccreditationEntity> Accreditations { get; set; }

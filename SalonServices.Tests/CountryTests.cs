@@ -13,13 +13,13 @@ namespace SalonServices.Tests
     [TestFixture]
     public class CountryTests
     {
-        private IReferenceRepository referenceRespository;
+        private ICountryRepository referenceRespository;
         private IReferenceServices referenceServices;
 
         [SetUp]
         public void Setup()
         {
-            this.referenceRespository = Substitute.For<IReferenceRepository>();
+            this.referenceRespository = Substitute.For<ICountryRepository>();
             this.referenceServices = new ReferenceServices(this.referenceRespository);
 
             Mapping.CreateConfiguration();

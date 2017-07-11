@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SalonServices.Repositories
 {
-    public interface IReferenceRepository
+    public interface ICountryRepository : IGenericRepository<CountryEntity>
     {
         Task<List<CountryEntity>> ListCountries();
     }

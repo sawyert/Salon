@@ -6,11 +6,8 @@ using System.Text;
 
 namespace SalonServices.Entities
 {
-    public class SectionEntity
+    public class SectionEntity : AbstractEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         public virtual SalonYearEntity SalonYear { get; set; }
 
         public List<CompetitionEntryEntity> Entries { get; set; }

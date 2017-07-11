@@ -6,11 +6,8 @@ using System.Text;
 
 namespace SalonServices.Entities
 {
-    public class SubmissionEntity
+    public class SubmissionEntity : AbstractEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         [Required]
         public DateTime EntryDate { get; set; }
 

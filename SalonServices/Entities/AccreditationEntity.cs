@@ -6,10 +6,8 @@ using System.Text;
 
 namespace SalonServices.Entities
 {
-    public class AccreditationEntity
-    {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+    public class AccreditationEntity : AbstractEntity
+    {       
 
         [Required]
         [MaxLength(20)]
