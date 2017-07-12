@@ -24,18 +24,24 @@ namespace SalonServices
             var lCountryEntity = Mapping.Mapper.Map<CountryEntity>(pCountry);
 
             lCountryEntity = await this.referenceRepository.Add(lCountryEntity);
-            
-            return Mapping.Mapper.Map<CountryDto>(lCountryEntity);
+            CountryDto lReturn = Mapping.Mapper.Map<CountryDto>(pCountry);
+            lReturn.Id = lCountryEntity.Id;
+            return lReturn;
         }
 
-        public Task<bool> DeleteCountry(int id)
+        public async Task<bool> DeleteCountry(int id)
         {
-            throw new NotImplementedException();
+            var lCountryEntity = await this.referenceRepository.GetById(id);
+            await this.referenceRepository.Delete(lCountryEntity);
+            return true;
         }
 
-        public Task<CountryDto> GetCountryById(int id)
+        public async Task<CountryDto> GetCountryById(int id)
         {
-            throw new NotImplementedException();
+            CountryEntity lCountryEntity = await this.referenceRepository.GetById(id);
+            CountryDto lReturn = Mapping.Mapper.Map<CountryDto>(lCountryEntity);
+
+            return lReturn;
         }
 
         public async Task<List<CountryDto>> ListCountries()
@@ -47,9 +53,11 @@ namespace SalonServices
             return lReturn;
         }
 
-        public Task UpdateCountry(CountryDto pCountryDto)
+        public async Task UpdateCountry(CountryDto pCountryDto)
         {
-            throw new NotImplementedException();
+            CountryEntity lCountryEntity = await this.referenceRepository.GetById(pCountryDto.Id);
+             Mapping.Mapper.Map<CountryDto, CountryEntity>(pCountryDto, lCountryEntity);
+            await this.referenceRepository.Update(lCountryEntity);
         }
     }
 }

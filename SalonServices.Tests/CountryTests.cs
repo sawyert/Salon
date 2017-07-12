@@ -53,5 +53,54 @@ namespace SalonServices.Tests
             Assert.AreEqual("England", lNewlyCreatedCountryDto.Name);
             Assert.AreEqual(40, lNewlyCreatedCountryDto.Id);
         }
+
+
+        [Test]
+        public async Task DeleteCountry()
+        {
+            this.referenceRespository.GetById(Arg.Any<int>()).Returns(new CountryEntity() {
+                Id = 123,
+                Name = "England",
+            });
+            
+            await this.referenceServices.DeleteCountry(123);
+
+            await this.referenceRespository.Received(1).Delete(Arg.Is<CountryEntity>(dto => dto.Id == 123));
+        }
+
+        [Test]
+        public async Task GetCountryById()
+        {
+            this.referenceRespository.GetById(Arg.Any<int>()).Returns(new CountryEntity()
+            {
+                Id = 123,
+                Name = "England",
+            });
+
+            var lCountryModel = await this.referenceServices.GetCountryById(123);
+            Assert.AreEqual(123, lCountryModel.Id);
+
+            await this.referenceRespository.Received(1).GetById(Arg.Is<int>(123));
+        }
+
+
+        [Test]
+        public async Task UpdateCountryTest()
+        {
+            this.referenceRespository.GetById(Arg.Any<int>()).Returns(new CountryEntity()
+            {
+                Id = 123,
+                Name = "England",
+            });
+
+            var lCountryModel = await this.referenceServices.GetCountryById(123);
+
+            lCountryModel.Name = "Scotland";
+
+            await this.referenceServices.UpdateCountry(lCountryModel);
+
+            await this.referenceRespository.Received(1).Update(Arg.Is<CountryEntity>(dto => dto.Name == "Scotland"));
+        }
+        
     }
 }
