@@ -1,4 +1,4 @@
-@model IEnumerable<Salon.Models.CountryModel>
+@model Salon.Models.IndexViewModel
 
 @{
     Layout = "_Layout";
@@ -12,16 +12,16 @@
     <thead>
         <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Id)
+                    Id
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Name)
+                    Name
                 </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Countries) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Id)

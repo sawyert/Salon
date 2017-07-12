@@ -9,7 +9,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using SalonServices;
 using SalonServices.Repositories;
-using SalonServices.Mappings;
 
 namespace Salon
 {
@@ -24,7 +23,8 @@ namespace Salon
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
 
-            Mapping.CreateConfiguration();
+            Salon.Mappings.Mapping.CreateConfiguration();
+            SalonServices.Mappings.Mapping.CreateConfiguration();
         }
 
         public IConfigurationRoot Configuration { get; }

@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalonServices", "SalonServi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalonServices.Tests.Unit", "SalonServices.Tests\SalonServices.Tests.Unit.csproj", "{91F59544-8140-4B46-B818-51C2C61DC49B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalonServices.Tests.Integration", "SalonServices.Tests.Integration\SalonServices.Tests.Integration.csproj", "{FBDD14C6-6AA3-47A5-85C3-6ED61B5ADDC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalonServices.Tests.Integration", "SalonServices.Tests.Integration\SalonServices.Tests.Integration.csproj", "{FBDD14C6-6AA3-47A5-85C3-6ED61B5ADDC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salon.Web.Tests.Unit", "Salon.Web.Tests.Unit\Salon.Web.Tests.Unit.csproj", "{C23E3289-11EB-4248-A2DE-38F8B99FB49C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{FBDD14C6-6AA3-47A5-85C3-6ED61B5ADDC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBDD14C6-6AA3-47A5-85C3-6ED61B5ADDC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBDD14C6-6AA3-47A5-85C3-6ED61B5ADDC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C23E3289-11EB-4248-A2DE-38F8B99FB49C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C23E3289-11EB-4248-A2DE-38F8B99FB49C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C23E3289-11EB-4248-A2DE-38F8B99FB49C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C23E3289-11EB-4248-A2DE-38F8B99FB49C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

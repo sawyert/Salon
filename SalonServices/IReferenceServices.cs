@@ -15,5 +15,6 @@ namespace SalonServices
         Task UpdateCountry(CountryDto pCountryDto);
 
         Task<bool> DeleteCountry(int id);
+        Task<CountryDto> GetCountryById(int id);
     }
 }

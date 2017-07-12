@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
+using Salon.Models;
 using SalonServices.Dto;
 using SalonServices.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SalonServices.Mappings
+namespace Salon.Mappings
 {
     public static class Mapping
     {
@@ -22,14 +23,13 @@ namespace SalonServices.Mappings
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<CountryEntity, CountryDto>();
-                cfg.CreateMap<CountryDto, CountryEntity>()
-                .ForMember(ent => ent.Salons, x => x.Ignore())
-                ;
-                cfg.CreateMap<CreateCountryDto, CountryEntity>()
-                .ForMember(ent => ent.Id, x => x.Ignore())
-                .ForMember(ent => ent.Salons, x => x.Ignore())
-                ;
+                cfg.CreateMap<CountryViewModel, CountryDto>();
+                cfg.CreateMap<CountryDto, CountryViewModel>();
+                cfg.CreateMap<CreateCountryViewModel, CreateCountryDto>();
+                cfg.CreateMap<CreateCountryDto, CreateCountryViewModel>()
+                        .ForMember(model => model.Id, opt => opt.Ignore())
+                        .ForMember(model => model.Errors, opt => opt.Ignore())
+                        ;
             });
             Mapper = config.CreateMapper();
             return config;

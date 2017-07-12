@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Salon.Models
 {
-    public class CreateCountryModel
+    public class CreateCountryViewModel
     {
-        public CreateCountryModel()
+        public CreateCountryViewModel()
         {
             Errors = new List<string>();
         }
