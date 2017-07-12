@@ -40,5 +40,11 @@ namespace SalonServices.Repositories
             this.dbContext.Countries.Update(pEntity);
             await this.dbContext.SaveChangesAsync();
         }
+
+        public async Task Delete(CountryEntity pEntity)
+        {
+            this.dbContext.Countries.Remove(pEntity);
+            await this.dbContext.SaveChangesAsync();
+        }
     }
 }

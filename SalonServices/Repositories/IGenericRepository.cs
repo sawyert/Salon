@@ -11,5 +11,6 @@ namespace SalonServices.Repositories
         Task<T> Add(T pEntity);
         Task Update(T pEntity);
         Task<T> GetById(int id);
+        Task Delete(T pEntity);
     }
 }
