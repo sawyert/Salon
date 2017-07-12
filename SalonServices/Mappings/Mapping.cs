@@ -23,6 +23,10 @@ namespace SalonServices.Mappings
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<CountryEntity, CountryDto>();
+                cfg.CreateMap<CreateCountryDto, CountryDto>()
+                .ForMember(ent => ent.Id, x => x.Ignore())
+                ;
+                cfg.CreateMap<CountryDto, CreateCountryDto>();
                 cfg.CreateMap<CountryDto, CountryEntity>()
                 .ForMember(ent => ent.Salons, x => x.Ignore())
                 ;
