@@ -3,6 +3,7 @@ using NSubstitute;
 using NUnit.Framework;
 using SalonServices.Dto;
 using SalonServices.Entities;
+using SalonServices.Mappings;
 using SalonServices.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace SalonServices.Tests.Unit.ServiceTests
 {
-    public class AwardServiceTests
+    public class PersonAwardServiceTests
     {
         private IPersonRepository _personRepository;
         private IPhotoOrganisationRepository _photoOrganisationRepository;
-        private AwardService awardService;
+        private PersonAwardService awardService;
 
         [SetUp]
         public void Setup()
@@ -23,10 +24,35 @@ namespace SalonServices.Tests.Unit.ServiceTests
             _personRepository = Substitute.For<IPersonRepository>();
             _photoOrganisationRepository = Substitute.For<IPhotoOrganisationRepository>();
 
-            this.awardService = new AwardService(_personRepository, _photoOrganisationRepository);
+            this.awardService = new PersonAwardService(_personRepository, _photoOrganisationRepository);
+
+            Mapping.CreateConfiguration();
         }
 
-        private PersonEntity GetAwardedPrintPersonEntity()
+        [Test]
+        public async Task GetAllPersons_MapsFromDbEntity()
+        {
+            // Arrange
+            this._personRepository.GetAll().Returns(new List<PersonEntity> {
+                new PersonEntity
+                {
+                    Name = "test"
+                },
+                new PersonEntity
+                {
+                    Name = "test"
+                }
+            });
+
+            // Act
+            var result = await this.awardService.GetAllPersons();
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(2, result.Count);
+        }
+
+            private PersonEntity GetAwardedPrintPersonEntity()
         {
             return new PersonEntity
             {

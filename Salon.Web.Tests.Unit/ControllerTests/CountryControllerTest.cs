@@ -49,6 +49,7 @@ namespace Salon.Web.Tests.Unit
             Assert.AreEqual(3, lModel.Countries.Count);
         }
 
+        [Test]
         public async Task TestCountryMessages()
         {
             IActionResult lResult = await this.countryController.Index(successMessage: "TestSuccess", failureMessage: "TestFailure");

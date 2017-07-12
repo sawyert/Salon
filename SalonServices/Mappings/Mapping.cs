@@ -34,6 +34,13 @@ namespace SalonServices.Mappings
                 .ForMember(ent => ent.Id, x => x.Ignore())
                 .ForMember(ent => ent.Salons, x => x.Ignore())
                 ;
+
+                cfg.CreateMap<PersonEntity, BasicPersonDto>()
+                ;
+                cfg.CreateMap<BasicPersonDto, PersonEntity>()
+                    .ForMember(ent => ent.Submissions, x => x.Ignore())
+                    .ForMember(ent => ent.Images, x => x.Ignore())
+                ;
             });
             Mapper = config.CreateMapper();
             return config;

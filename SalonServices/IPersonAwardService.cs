@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace SalonServices
 {
-    public interface IAwardService
+    public interface IPersonAwardService
     {
         Task<PersonAwardTableDto> GetAwardLevelsForPerson(int pPersonId);
+
+        Task<List<BasicPersonDto>> GetAllPersons();
     }
 }

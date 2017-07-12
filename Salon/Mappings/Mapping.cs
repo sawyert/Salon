@@ -30,6 +30,19 @@ namespace Salon.Mappings
                         .ForMember(model => model.Id, opt => opt.Ignore())
                         .ForMember(model => model.Errors, opt => opt.Ignore())
                         ;
+
+                cfg.CreateMap<BasicPersonViewModel, BasicPersonDto>();
+                cfg.CreateMap<BasicPersonDto, BasicPersonViewModel>();
+
+                cfg.CreateMap<PersonAwardTableOrgViewModel, PersonAwardTableOrgDto>();
+                cfg.CreateMap<PersonAwardTableOrgDto, PersonAwardTableOrgViewModel>();
+
+                cfg.CreateMap<PersonAwardTableRowViewModel, PersonAwardTableRowDto>();
+                cfg.CreateMap<PersonAwardTableRowDto, PersonAwardTableRowViewModel>();
+
+                cfg.CreateMap<PersonAwardTableViewModel, PersonAwardTableDto>();
+                cfg.CreateMap<PersonAwardTableDto, PersonAwardTableViewModel>();
+
             });
             Mapper = config.CreateMapper();
             return config;

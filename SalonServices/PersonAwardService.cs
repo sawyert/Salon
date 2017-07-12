@@ -6,18 +6,25 @@ using SalonServices.Repositories;
 using System.Threading.Tasks;
 using SalonServices.Entities;
 using System.Linq;
+using SalonServices.Mappings;
 
 namespace SalonServices
 {
-    public class AwardService : IAwardService
+    public class PersonAwardService : IPersonAwardService
     {
         private readonly IPersonRepository _personRepository;
         private readonly IPhotoOrganisationRepository _photoOrganisationRepository;
 
-        public AwardService(IPersonRepository pPersonRepository, IPhotoOrganisationRepository pPhotoOrganisationRepository)
+        public PersonAwardService(IPersonRepository pPersonRepository, IPhotoOrganisationRepository pPhotoOrganisationRepository)
         {
             this._personRepository = pPersonRepository;
             this._photoOrganisationRepository = pPhotoOrganisationRepository;
+        }
+        
+        public async Task<List<BasicPersonDto>> GetAllPersons()
+        {
+            var lPersonEntities = await this._personRepository.GetAll();
+            return lPersonEntities.Select(per => Mapping.Mapper.Map<BasicPersonDto>(per)).ToList();
         }
 
         public async Task<PersonAwardTableDto> GetAwardLevelsForPerson(int pPersonId)
