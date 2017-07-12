@@ -22,6 +22,7 @@ namespace SalonServices
         DbSet<SectionEntity> SalonSections { get; set; }
         DbSet<SectionTypeEntity> SectionTypes { get; set; }
         DbSet<PersonEntity> People { get; set; }
+        DbSet<SubmissionEntity> Submissions { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }

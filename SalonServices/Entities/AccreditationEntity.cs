@@ -13,8 +13,12 @@ namespace SalonServices.Entities
         [MaxLength(20)]
         public string SalonNumber { get; set; }
 
+        public int PhotoOrganisationId { get; set; }
+
         public virtual PhotoOrganisationEntity PhotoOrganisation { get; set; }
 
+        public int SalonYearId { get; set; }
+        
         public virtual SalonYearEntity SalonYear { get; set; }
 
 
