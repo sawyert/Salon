@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SalonServices.Tests.Integration
+namespace SalonServices.Tests.Integration.RepositoryTests
 {
     public class CountryRepositoryTests : AbstractDbTest<SalonDbContext>
     {
@@ -49,7 +49,7 @@ namespace SalonServices.Tests.Integration
         }
 
         [Test]
-        public async Task UpdateCountry_SetsNameFromDb()
+        public async Task UpdateCountry_SetsNameInDb()
         {
             // Arrange
             var lCreatedEntity = await countryRepository.Add(new Entities.CountryEntity { Name = "test" });

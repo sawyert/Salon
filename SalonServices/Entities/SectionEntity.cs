@@ -8,9 +8,12 @@ namespace SalonServices.Entities
 {
     public class SectionEntity : AbstractEntity
     {
+        public int SalonYearId { get; set; }
         public virtual SalonYearEntity SalonYear { get; set; }
 
         public List<CompetitionEntryEntity> Entries { get; set; }
+
+        public int SectionTypeId { get; set; }
 
         public virtual SectionTypeEntity SectionType { get; set; }
     }

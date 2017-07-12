@@ -22,6 +22,7 @@ namespace SalonServices
         public virtual DbSet<SectionEntity> SalonSections { get; set; }
         public virtual DbSet<SectionTypeEntity> SectionTypes { get; set; }
         public virtual DbSet<PersonEntity> People { get; set; }
+        public virtual DbSet<SubmissionEntity> Submissions { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
