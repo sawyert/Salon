@@ -7,6 +7,15 @@ namespace SalonServices.Tests.Integration.RepositoryTests
 {
     internal static class EntitiesHelper
     {
+        internal static PhotoOrganisationEntity GetPhotoOrganisation()
+        {
+            return new PhotoOrganisationEntity
+            {
+                Name = "org",
+
+            };
+        }
+
         internal static SalonYearEntity GetSalonYear()
         {
             return new SalonYearEntity
@@ -55,7 +64,7 @@ namespace SalonServices.Tests.Integration.RepositoryTests
 
         internal static PersonEntity GetPerson()
         {
-            return  new PersonEntity { Name = "george" };
+            return new PersonEntity { Name = "george" };
         }
     }
 }
