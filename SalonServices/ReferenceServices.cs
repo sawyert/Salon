@@ -7,6 +7,7 @@ using SalonServices.Entities;
 using System.Linq;
 using SalonServices.Mappings;
 using System.Threading.Tasks;
+using SalonServices.Dto.Submission;
 
 namespace SalonServices
 {
@@ -17,6 +18,11 @@ namespace SalonServices
         public ReferenceServices(ICountryRepository referenceRepository)
         {
             this.referenceRepository = referenceRepository;
+        }
+
+        public Task<CreateCircuitDto> CreateCircuit(CreateCircuitDto pCreateCircuit)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<CountryDto> CreateCountry(CreateCountryDto pCountry)
@@ -36,12 +42,22 @@ namespace SalonServices
             return true;
         }
 
+        public Task<List<CircuitDto>> GetCircuits()
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<CountryDto> GetCountryById(int id)
         {
             CountryEntity lCountryEntity = await this.referenceRepository.GetById(id);
             CountryDto lReturn = Mapping.Mapper.Map<CountryDto>(lCountryEntity);
 
             return lReturn;
+        }
+
+        public Task<List<OrganisationDto>> GetOrganisations()
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<List<CountryDto>> ListCountries()

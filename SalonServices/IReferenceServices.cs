@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using SalonServices.Dto;
 using System.Threading.Tasks;
+using SalonServices.Dto.Submission;
 
 namespace SalonServices
 {
@@ -16,5 +17,11 @@ namespace SalonServices
 
         Task<bool> DeleteCountry(int id);
         Task<CountryDto> GetCountryById(int id);
+
+        Task<List<OrganisationDto>> GetOrganisations();
+
+        Task<List<CircuitDto>> GetCircuits();
+
+        Task<CreateCircuitDto> CreateCircuit(CreateCircuitDto pCreateCircuit);
     }
 }
