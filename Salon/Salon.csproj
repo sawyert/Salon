@@ -34,6 +34,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Submission\" />
     <Folder Include="Views\Person\" />
   </ItemGroup>
 

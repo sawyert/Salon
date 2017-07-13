@@ -52,7 +52,13 @@ namespace Salon.Web.Tests.Unit
         [Test]
         public async Task TestCountryMessages()
         {
+            // Arrange
+            this.ReferenceServices.ListCountries().Returns(new List<CountryDto> { });
+            
+            // Act
             IActionResult lResult = await this.countryController.Index(successMessage: "TestSuccess", failureMessage: "TestFailure");
+
+            // Assert
             ViewResult lViewResult = lResult as ViewResult;
             var lModel = lViewResult.Model as IndexViewModel;
             Assert.AreEqual("TestSuccess", lModel.SuccessMessage);
