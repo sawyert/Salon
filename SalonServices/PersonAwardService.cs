@@ -76,7 +76,7 @@ namespace SalonServices
 
         private int GetPrints(List<SubmissionEntity> submissions, int minimumRequired, int orgId)
         {
-            var acceptedEntries = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAccepted.Value && ent.Section.SectionType.IsPrint && OrganisationMatches(ent.Section, orgId)));
+            var acceptedEntries = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && ent.Section.SectionType.IsPrint && OrganisationMatches(ent.Section, orgId)));
 
             if (acceptedEntries > minimumRequired)
             {
@@ -87,7 +87,7 @@ namespace SalonServices
         }
         private int GetDistinctImages(List<SubmissionEntity> submissions, int minimumRequired, int orgId)
         {
-            var acceptedEntries = submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId)).Select(ent => ent.ImageId)).Distinct().Count();
+            var acceptedEntries = submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId)).Select(ent => ent.ImageId)).Distinct().Count();
 
             if (acceptedEntries > minimumRequired)
             {
@@ -98,7 +98,7 @@ namespace SalonServices
         }
         private int GetSalons(List<SubmissionEntity> submissions, int minimumRequired, int orgId)
         {
-            var acceptedEntries = submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId)).Select(ent => ent.Section.SalonYear.SalonId)).Distinct().Count();
+            var acceptedEntries = submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId)).Select(ent => ent.Section.SalonYear.SalonId)).Distinct().Count();
 
             if (acceptedEntries > minimumRequired)
             {
@@ -110,7 +110,7 @@ namespace SalonServices
 
         private int GetCountries(List<SubmissionEntity> submissions, int minimumRequired, int orgId)
         {
-            var acceptedEntries = submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId)).Select(ent => ent.Section.SalonYear.Salon.CountryId)).Distinct().Count();
+            var acceptedEntries = submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId)).Select(ent => ent.Section.SalonYear.Salon.CountryId)).Distinct().Count();
 
             if (acceptedEntries > minimumRequired)
             {
@@ -122,7 +122,7 @@ namespace SalonServices
 
         private int GetAwards(List<SubmissionEntity> submissions, int minimumRequired, int orgId)
         {
-            var acceptedEntries = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAwarded.Value && OrganisationMatches(ent.Section, orgId)));
+            var acceptedEntries = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAwarded.HasValue && ent.IsAwarded.Value && OrganisationMatches(ent.Section, orgId)));
 
             if (acceptedEntries > minimumRequired)
             {
@@ -134,7 +134,7 @@ namespace SalonServices
 
         private int GetAcceptances(List<SubmissionEntity> submissions, int minimumRequired, int orgId)
         {
-            var acceptedEntries = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId)));
+            var acceptedEntries = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId)));
 
             if (acceptedEntries > minimumRequired)
             {
