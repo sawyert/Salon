@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Salon.Models;
 using SalonServices;
+using Salon.Models.Submission;
 
 namespace Salon.Controllers
 {
@@ -86,15 +87,21 @@ namespace Salon.Controllers
             }
             return true;
         }
-        
+
         [HttpGet]
-        public async Task<List<SalonYearAccreditationsViewModel>> GetSalonInformation()
+        public async Task<List<OrganisationViewModel>> GetOrganisations()
         {
-            return new List<SalonYearAccreditationsViewModel>();
+            return new List<OrganisationViewModel>();
+        }
+
+        [HttpGet]
+        public async Task<List<FullSalonInformationViewModel>> GetSalons()
+        {
+            return new List<FullSalonInformationViewModel>();
         }
 
         [HttpPost]
-        public async Task<SalonYearAccreditationsViewModel> AddSalonInformation(SalonYearAccreditationsViewModel pAddSalon)
+        public async Task<CreateSalonViewModel> AddSalon(CreateSalonViewModel pAddSalon)
         {
             if (!ModelState.IsValid)
             {
@@ -103,6 +110,24 @@ namespace Salon.Controllers
             }
             
             return pAddSalon;
+        }
+
+        [HttpGet]
+        public async Task<List<SalonYearInformationViewModel>> GetSalonYears(int salonId)
+        {
+            return new List<SalonYearInformationViewModel>();
+        }
+
+        [HttpPost]
+        public async Task<CreateSalonYearViewModel> AddSalonYear(CreateSalonYearViewModel pAddSalonYear)
+        {
+            if (!ModelState.IsValid)
+            {
+                pAddSalonYear.Errors = ModelState.Values.SelectMany(val => val.Errors).Select(err => err.ErrorMessage).ToList();
+                return pAddSalonYear;
+            }
+
+            return pAddSalonYear;
         }
 
         [HttpPost]

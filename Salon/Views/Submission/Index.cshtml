@@ -16,7 +16,8 @@
 
 Add/edit a salon year
 <br />
-<input type="text" placeholder="Salon autocomplete" /> <input type="text" placeholder="Website" />  <input type="text" placeholder="Country autocomplete" />  <input type="text" placeholder="Circuit autocomplete" /> <input type="text" placeholder="Salon Year autocomplete" /> 
+<input type="text" placeholder="Salon autocomplete" /> <input type="text" placeholder="Website" />  <input type="text" placeholder="Country autocomplete" />  <br/>
+<input type="text" placeholder="Circuit autocomplete (optional)" /> <input type="text" placeholder="Salon Year autocomplete" /> 
 <br />
 <br />
 <hr />
@@ -45,12 +46,19 @@ Add/edit a salon year
 </table>
 <br />
 <br />
-Hidden fileds for Salon ID, Country ID, Circuit ID
+Hidden fileds for Salon ID, Country ID, Circuit ID, Salon Year ID
+<br />
+<br />
+Website and country autocomplete on appear if salon manually entered
+<br />
+<br />
+By default all salon year fields (salon year autocomplete, circuit autocomplete, closing date, year, notification date, catalogue posted date) disabled until salon selected
 <br />
 <br />
 When Salon Selected:
-Country autocomplete and website becomes disabled
+Country autocomplete and website becomes disabled (ko binding of disabled:SalonId > 0) <br/>
+Enable all salon year fields
 <br />
 <br />
 When Salon Year Selected:
-Year, Closing Date, Notification Date, Catalogue Posted Date all become disabled
+Year, Closing Date, Notification Date, Catalogue Posted Date all become disabled (ko binding of disabled:SalonYearId > 0)

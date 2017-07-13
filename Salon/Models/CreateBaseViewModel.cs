@@ -5,8 +5,12 @@ using System.Threading.Tasks;
 
 namespace Salon.Models
 {
-    public class SalonYearAccreditationsViewModel
+    public abstract class CreateBaseViewModel
     {
+        public CreateBaseViewModel()
+        {
+            Errors = new List<string>();
+        }
         public List<string> Errors { get; set; }
     }
 }
