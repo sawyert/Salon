@@ -52,7 +52,7 @@ namespace SalonServices.Tests.Unit.ServiceTests
             Assert.AreEqual(2, result.Count);
         }
 
-            private PersonEntity GetAwardedPrintPersonEntity()
+        private PersonEntity GetAwardedPrintPersonEntity()
         {
             return new PersonEntity
             {
@@ -297,6 +297,71 @@ namespace SalonServices.Tests.Unit.ServiceTests
             });
 
             var lPerson = GetAwardedPrintPersonEntity();
+            this._personRepository.GetWithSubmissionsSalonsAccreditationSections(5).Returns(lPerson);
+
+
+            // Act
+            var lResult = await this.awardService.GetAwardLevelsForPerson(5);
+
+            // Assert
+            lExpected.ShouldBeEquivalentTo(lResult);
+        }
+
+        [Test]
+        public async Task GetAwardLevelsForPerson_NonAcceptedDoesntCountForCountriesImagesPrintsSalons()
+        {
+            // Arrange
+            var lExpected = new PersonAwardTableDto
+            {
+                PersonName = "fred",
+                Organisations = new List<PersonAwardTableOrgDto>
+                 {
+                     new PersonAwardTableOrgDto
+                     {
+                         OrginisationName = "org 1",
+                         Awards = new List<PersonAwardTableRowDto>
+                         {
+                             new PersonAwardTableRowDto
+                             {
+                                AwardName = "award 1",
+                                AcceptancesMissing = 1,
+                                // Not a possible scenario where an entry is awarded but not accepted. However, helpful for testing to know that it is not something else that is ruling all of the items out (such as different org)
+                                AwardsMissing = 0,
+                                CountriesMissing = 1,
+                                DistinctImagesMissing = 1,
+                                PrintsMissing = 1,
+                                SalonsMissing = 1
+                             }
+                         }
+                     }
+                 }
+            };
+
+            this._photoOrganisationRepository.GetAllWithAwards().Returns(new List<PhotoOrganisationEntity>
+            {
+                new PhotoOrganisationEntity
+                {
+                    Id = 1,
+                    Name = "org 1",
+                    AwardLevels = new List<AwardLevelEntity>
+                    {
+                        new AwardLevelEntity
+                        {
+                            Name = "award 1",
+                            MinimumAcceptances = 1,
+                            MinimumAwards = 1,
+                            MinimumCountries = 1,
+                            MinimumDistinctImages = 1,
+                            MinimumPrints =1,
+                            MinimumSalons = 1,
+                        }
+                    }
+                }
+            });
+
+            var lPerson = GetAwardedPrintPersonEntity();
+            lPerson.Submissions[0].Entries[0].IsAccepted = false;
+            lPerson.Submissions[0].Entries[0].IsAwarded = true;
             this._personRepository.GetWithSubmissionsSalonsAccreditationSections(5).Returns(lPerson);
 
 
