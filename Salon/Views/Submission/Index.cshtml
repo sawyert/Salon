@@ -1,0 +1,56 @@
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    input
+    {
+        padding-right:15px;
+    }
+</style>
+
+<h2>Index</h2>
+
+
+Add/edit a salon year
+<br />
+<input type="text" placeholder="Salon autocomplete" /> <input type="text" placeholder="Website" />  <input type="text" placeholder="Country autocomplete" />  <input type="text" placeholder="Circuit autocomplete" /> <input type="text" placeholder="Salon Year autocomplete" /> 
+<br />
+<br />
+<hr />
+
+<input type="text" placeholder="Year" /><input type="text" placeholder="Closing Date" /><input type="text" placeholder="Notification Date" /> <input type="text" placeholder="Catalogue Posted Date" /> 
+
+<br/>
+<br />
+<hr />
+<table class="table">
+    <tr><th></th><th>Organisation</th><th>Salon Number</th></tr>
+    <tr><td><a href="#">Remove</a></td><td>FIAP</td><td>ABD/2017</td></tr>
+    <tr>
+        <td>Add new (only exists if there are available orgs to add)</td>
+        <td>
+            <select>                
+                <option>Select Organisation</option>
+                <option>PSA</option>
+                <option>BPE</option>
+            </select>
+        </td>
+        <td>
+            <input type="text" placeholder="Salon Number" />
+        </td>
+    </tr>
+</table>
+<br />
+<br />
+Hidden fileds for Salon ID, Country ID, Circuit ID
+<br />
+<br />
+When Salon Selected:
+Country autocomplete and website becomes disabled
+<br />
+<br />
+When Salon Year Selected:
+Year, Closing Date, Notification Date, Catalogue Posted Date all become disabled
