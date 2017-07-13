@@ -58,7 +58,7 @@ namespace Salon.Web.Tests.Unit
                 lDto
             );
 
-            IActionResult lResult = await this.personController.View(10);
+            IActionResult lResult = await this.personController.Details(10);
             ViewResult lViewResult = lResult as ViewResult;
             var lCountryViewModel = lViewResult.Model as PersonAwardTableViewModel;
             Assert.AreEqual(lDto.PersonName, lCountryViewModel.PersonName);

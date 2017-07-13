@@ -34,8 +34,20 @@ namespace Salon
         {
             // Add framework services.
             services.AddMvc();
+            services.AddScoped<IAccreditationRepository, AccreditationRepository>();
+            services.AddScoped<IAwardLevelRepository, AwardLevelRepository>();
+            services.AddScoped<ICompetitionEntryRepository, CompetitionEntryRepository>();
             services.AddScoped<ICountryRepository, CountryRepository>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<IPhotoOrganisationRepository, PhotoOrganisationRepository>();
+            services.AddScoped<ISalonRepository, SalonRepository>();
+            services.AddScoped<ISalonYearRepository, SalonYearRepository>();
+            services.AddScoped<ISectionRepository, SectionRepository>();
+            services.AddScoped<ISectionTypeRepository, SectionTypeRepository>();
+            services.AddScoped<ISubmissionRepository, SubmissionRepository>();
+
             services.AddScoped<IReferenceServices, ReferenceServices>();
+            services.AddScoped<IPersonAwardService, PersonAwardService>();
             services.AddScoped<ISalonDbContext, SalonDbContext>();
         }
 

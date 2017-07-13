@@ -30,7 +30,7 @@ namespace Salon.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> View(int id)
+        public async Task<IActionResult> Details(int id)
         {
             var lAwardLevelDto = await this._personAwardService.GetAwardLevelsForPerson(id);
             return View(Mapping.Mapper.Map<PersonAwardTableViewModel>(lAwardLevelDto));

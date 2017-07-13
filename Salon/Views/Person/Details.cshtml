@@ -1,0 +1,62 @@
+@model Salon.Models.PersonAwardTableViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Person Award Achievement Progress for @Model.PersonName</h2>
+
+<div>
+    <div class="panel-group" id="achievement-accordion">
+        @foreach (var item in Model.Organisations.Select((value, i) => new { i, value }))
+        {
+            var organisation = item.value;
+            var orgNameWithoutSpace = organisation.OrginisationName.Replace(" ", "");
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#achievement-accordion" href="#@orgNameWithoutSpace-body">Organisation: @organisation.OrginisationName</a>
+                    </h4>
+                </div>
+                <div  id="@orgNameWithoutSpace-body" class="panel-collapse collapse @(item.i == 0 ? "in" : "")">
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Award Name</th>
+                                    <th>Has been awarded</th>
+                                    <th>Acceptances Missing</th>
+                                    <th>Awards Missing</th>
+                                    <th>Countries Missing</th>
+                                    <th>Distinct Images Missing</th>
+                                    <th>Prints Missing</th>
+                                    <th>Salons Missing</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var award in organisation.Awards)
+                                {
+                                    <tr class="@(award.IsAwarded ? "success" : "danger")">
+                                        <td>@award.AwardName</td>
+                                        <td><span class="glyphicon @(award.IsAwarded ? "glyphicon-ok" : "glyphicon-remove")"></span></td>
+                                        <td>@award.AcceptancesMissing</td>
+                                        <td>@award.AwardsMissing</td>
+                                        <td>@award.CountriesMissing</td>
+                                        <td>@award.DistinctImagesMissing</td>
+                                        <td>@award.PrintsMissing</td>
+                                        <td>@award.SalonsMissing</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
