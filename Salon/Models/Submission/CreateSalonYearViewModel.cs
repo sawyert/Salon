@@ -7,6 +7,7 @@ namespace Salon.Models
 {
     public class CreateSalonYearViewModel : CreateBaseViewModel
     {
+        public int? Id { get; set; }
         public int SalonId { get; set; }
         public string Name { get; set; }
         public int Year { get; set; }

@@ -47,13 +47,14 @@ namespace Salon.Controllers
         }
 
         [HttpPost]
-        public async Task<bool> AddCircuit(CircuitViewModel pCircuitViewModel)
+        public async Task<CreateCircuitViewModel> AddCircuit(CreateCircuitViewModel pCircuitViewModel)
         {
             if (!ModelState.IsValid)
             {
-                return false;
+                //todo set errors
+                return pCircuitViewModel;
             }
-            return true;
+            return pCircuitViewModel;
         }
 
         [HttpGet]
@@ -113,9 +114,10 @@ namespace Salon.Controllers
         }
 
         [HttpGet]
-        public async Task<List<SalonYearInformationViewModel>> GetSalonYears(int salonId)
+        public async Task<List<SalonYearInformationViewModel>> GetSalonYears(int pYear)
         {
-            return new List<SalonYearInformationViewModel>();
+            return new List<SalonYearInformationViewModel>() { new SalonYearInformationViewModel{
+             Name = "salon year" } };
         }
 
         [HttpPost]
@@ -131,13 +133,14 @@ namespace Salon.Controllers
         }
 
         [HttpPost]
-        public bool AddSubmission()
+        public SubmissionSaveViewModel AddSubmission(SubmissionSaveViewModel pSaveViewModel)
         {
             if (!ModelState.IsValid)
             {
-                return false;
+                return pSaveViewModel;
             }
-            return true;
+            pSaveViewModel.SubmissionCreated = true;
+            return pSaveViewModel;
         }
 
         [HttpGet]
@@ -145,24 +148,7 @@ namespace Salon.Controllers
         {
             var lDtos = await _referenceServices.ListCountries();
             return new List<CountryViewModel>();
-        }
-
-        [HttpPost]
-        public async Task<CreateCountryViewModel> AddCountry(CreateCountryViewModel pCreateModel)
-        {
-            if(!ModelState.IsValid)
-            {
-                pCreateModel.Errors = ModelState.Values.SelectMany(val => val.Errors).Select(err => err.ErrorMessage).ToList();
-                return pCreateModel;
-            }
-
-            // map to Dto
-
-            // var lCreatedDto = await _referenceServices.AddCountry(pCreateDto);
-            // map to create country model
-            pCreateModel.Id = 50; //lCreatedDto.Id;
-            return pCreateModel;
-        }
+        }      
 
     }
 }

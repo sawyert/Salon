@@ -1,0 +1,41 @@
+
+@{
+    ViewData["Title"] = "AddSubmission";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Submission</h2>
+<select>
+    <option>2017</option>
+    <option>2016</option>
+
+</select>
+<br />
+<br />
+<input type="text" placeholder="Salon year dropdown"  data-bind="enabled : CircuitId > 0" /> <button>Add Salon/Year</button>
+<input type="text" placeholder="Circuit dropdown" data-bind="enabled : SalonId > 0" />
+<br />
+<br />
+
+
+
+<div data-bind="visible : SalonId > 0 || CircuitId > 0">
+    <input type="text" placeholder="Entry date (default to today)" />
+    <input type="text" placeholder="Entry cost"  />
+    <br />
+    <br />
+
+    <h3>Add sections</h3>
+    <input type="text" placeholder="Section type dropdown" />
+    <br />
+    <br />
+    <h4>Add entries</h4>
+    <input type="text" placeholder="Image autocomplete" />
+    <br />
+    If new add thumbnail and notes as well:
+    <input type="file" />    
+    <input type="text" placeholder="Notes" />
+</div>
+
+
+

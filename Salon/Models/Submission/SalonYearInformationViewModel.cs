@@ -13,6 +13,7 @@ namespace Salon.Models
             Accreditations = new List<SalonYearAccreditationViewModel>();
         }
 
+        public int SalonId { get; set; }
         public int SalonYearId { get; set; }
         public string Name { get; set; }
         public int Year { get; set; }
