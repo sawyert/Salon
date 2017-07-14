@@ -8,6 +8,6 @@ namespace SalonServices.Repositories
 {
     public interface ISalonYearRepository : IGenericRepository<SalonYearEntity>
     {
-        Task<List<SalonYearEntity>> GetSalonYearsWithAccreditations();
+        Task<List<SalonYearEntity>> GetSalonYearsWithAccreditations(int pYear);
     }
 }

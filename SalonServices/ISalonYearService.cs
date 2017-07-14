@@ -10,7 +10,7 @@ namespace SalonServices
     {
         Task<List<FullSalonInformationDto>> GetFullSalonInformation();
 
-        Task<List<SalonYearInformationDto>> GetSalonYears();
+        Task<List<SalonYearInformationDto>> GetSalonYears(int pYear);
 
         Task<CreateSalonYearDto> CreateSalonYear(CreateSalonYearDto pSalonYearDto);
 

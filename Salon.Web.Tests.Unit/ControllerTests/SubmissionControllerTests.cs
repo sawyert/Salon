@@ -51,9 +51,9 @@ namespace Salon.Web.Tests.Unit
         {
             var lSalonYearDtos = A.ListOf<SalonYearInformationDto>();
 
-            this._salonYearService.GetSalonYears().Returns(lSalonYearDtos);
+            this._salonYearService.GetSalonYears(2017).Returns(lSalonYearDtos);
 
-            List<SalonYearInformationViewModel> lResult = await this.submissionController.GetSalonYears();
+            List<SalonYearInformationViewModel> lResult = await this.submissionController.GetSalonYears(2017);
 
             Assert.AreEqual(lSalonYearDtos.Count, lResult.Count);
             Assert.AreEqual(lSalonYearDtos[0].Name, lResult[0].Name);

@@ -96,7 +96,7 @@ namespace SalonServices.Tests.Unit.ServiceTests
         public async Task GetSalonYears_GetsInfoFromDbAndMaps()
         {
             // Arrange
-            this.salonYearRepository.GetSalonYearsWithAccreditations().Returns(new List<SalonYearEntity> { new SalonYearEntity
+            this.salonYearRepository.GetSalonYearsWithAccreditations(2017).Returns(new List<SalonYearEntity> { new SalonYearEntity
                 {
                     Name = "test1",
                     Salon = GetSalon(),
@@ -115,7 +115,7 @@ namespace SalonServices.Tests.Unit.ServiceTests
 
 
             // Act
-            var lResult = await this.salonYearService.GetSalonYears();
+            var lResult = await this.salonYearService.GetSalonYears(2017);
 
             // Assert
             Assert.IsNotNull(lResult);

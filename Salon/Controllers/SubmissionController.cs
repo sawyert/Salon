@@ -99,7 +99,7 @@ namespace Salon.Controllers
         [HttpGet]
         public async Task<List<OrganisationViewModel>> GetOrganisations()
         {
-            
+
             return new List<OrganisationViewModel>();
         }
 
@@ -118,14 +118,14 @@ namespace Salon.Controllers
                 pAddSalon.Errors = ModelState.Values.SelectMany(val => val.Errors).Select(err => err.ErrorMessage).ToList();
                 return pAddSalon;
             }
-            
+
             return pAddSalon;
         }
 
         [HttpGet]
-        public async Task<List<SalonYearInformationViewModel>> GetSalonYears()
+        public async Task<List<SalonYearInformationViewModel>> GetSalonYears(int pYear)
         {
-            var lDtos = await this._salonYearService.GetSalonYears();
+            var lDtos = await this._salonYearService.GetSalonYears(pYear);
             return lDtos.Select(dto => Mapping.Mapper.Map<SalonYearInformationViewModel>(dto)).ToList();
         }
 
@@ -157,7 +157,7 @@ namespace Salon.Controllers
         {
             var lDtos = await _referenceServices.ListCountries();
             return new List<CountryViewModel>();
-        }      
+        }
 
     }
 }

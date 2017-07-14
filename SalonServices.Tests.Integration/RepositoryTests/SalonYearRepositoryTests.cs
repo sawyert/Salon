@@ -52,23 +52,32 @@ namespace SalonServices.Tests.Integration.RepositoryTests
         public async Task GetSalonYearsWithAccreditations_GetsFromDb()
         {
             // Arrange
-            var lCreatedEntity1 = await salonYearRepository.Add(new SalonYearEntity
+            await salonYearRepository.Add(new SalonYearEntity
             {
                 Name = "test1",
+                Year = 2017,
                 Salon = EntitiesHelper.GetSalon(),
                 Accreditations = new List<AccreditationEntity> {
                 new AccreditationEntity { SalonNumber = "1", PhotoOrganisation = EntitiesHelper.GetPhotoOrganisation() },
                 new AccreditationEntity { SalonNumber = "1", PhotoOrganisation = EntitiesHelper.GetPhotoOrganisation() } }
             });
-            var lCreatedEntity2 = await salonYearRepository.Add(new SalonYearEntity
+            await salonYearRepository.Add(new SalonYearEntity
             {
                 Name = "test2",
+                Year = 2016,
+                Salon = EntitiesHelper.GetSalon(),
+                Accreditations = new List<AccreditationEntity> { }
+            });
+            await salonYearRepository.Add(new SalonYearEntity
+            {
+                Name = "test3",
+                Year = 2017,
                 Salon = EntitiesHelper.GetSalon(),
                 Accreditations = new List<AccreditationEntity> { }
             });
 
             // Act
-            var lResult = await salonYearRepository.GetSalonYearsWithAccreditations();
+            var lResult = await salonYearRepository.GetSalonYearsWithAccreditations(2017);
 
             // Assert
             Assert.IsNotNull(lResult);

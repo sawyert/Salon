@@ -37,9 +37,9 @@ namespace SalonServices
             return await this._salonRepository.GetFullSalonInformation();
         }
 
-        public async Task<List<SalonYearInformationDto>> GetSalonYears()
+        public async Task<List<SalonYearInformationDto>> GetSalonYears(int pYear)
         {
-            var lSalonYearEntities = await this._salonYearRepository.GetSalonYearsWithAccreditations();
+            var lSalonYearEntities = await this._salonYearRepository.GetSalonYearsWithAccreditations(pYear);
 
             return lSalonYearEntities.Select(sye => Mapping.Mapper.Map<SalonYearInformationDto>(sye)).ToList();
         }

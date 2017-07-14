@@ -3,6 +3,7 @@ using SalonServices.Entities;
 using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SalonServices.Repositories
 {
@@ -39,9 +40,9 @@ namespace SalonServices.Repositories
             await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task<List<SalonYearEntity>> GetSalonYearsWithAccreditations()
+        public async Task<List<SalonYearEntity>> GetSalonYearsWithAccreditations(int pYear)
         {
-            return await this.dbContext.SalonYears.Include(sy => sy.Accreditations).ToListAsync();
+            return await this.dbContext.SalonYears.Where(sy => sy.Year == pYear).Include(sy => sy.Accreditations).ToListAsync();
         }
     }
 }
