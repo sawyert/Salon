@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Salon.Models.Submission
+namespace SalonServices.Dto.Submission
 {
-    public class SalonYearAccreditationViewModel
+    public class SalonYearAccreditationDto
     {
         public int Id { get; set; }
         public string SalonNumber { get; set; }

@@ -8,6 +8,8 @@ namespace SalonServices.Repositories
 {
     public interface IPhotoOrganisationRepository : IGenericRepository<PhotoOrganisationEntity>
     {
-        Task<List<PhotoOrganisationEntity>> GetAllWithAwards(); 
+        Task<List<PhotoOrganisationEntity>> GetAllWithAwards();
+
+        Task<List<PhotoOrganisationEntity>> GetAllBasic();
     }
 }

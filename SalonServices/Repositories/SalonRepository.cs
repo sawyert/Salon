@@ -1,6 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SalonServices.Entities;
 using System.Threading.Tasks;
+using SalonServices.Dto.Submission;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SalonServices.Repositories
 {
@@ -32,9 +36,21 @@ namespace SalonServices.Repositories
         }
 
         public async Task Delete(SalonEntity pEntity)
-        { 
+        {
             this.dbContext.Salons.Remove(pEntity);
             await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<List<FullSalonInformationDto>> GetFullSalonInformation()
+        {
+            return await this.dbContext.Salons.Select(sal => new FullSalonInformationDto
+            {
+                CountryId = sal.CountryId,
+                CountryName = sal.Country.Name,
+                SalonId = sal.Id,
+                SalonName = sal.Name,
+                Website = sal.Website
+            }).ToListAsync();
         }
     }
 }

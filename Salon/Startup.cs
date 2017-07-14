@@ -45,7 +45,9 @@ namespace Salon
             services.AddScoped<ISectionRepository, SectionRepository>();
             services.AddScoped<ISectionTypeRepository, SectionTypeRepository>();
             services.AddScoped<ISubmissionRepository, SubmissionRepository>();
+            services.AddScoped<ICircuitRepository, CircuitRepository>();
 
+            services.AddScoped<ISalonYearService, SalonYearService>();
             services.AddScoped<ISubmissionService, SubmissionService>();
             services.AddScoped<IReferenceServices, ReferenceServices>();
             services.AddScoped<IPersonAwardService, PersonAwardService>();

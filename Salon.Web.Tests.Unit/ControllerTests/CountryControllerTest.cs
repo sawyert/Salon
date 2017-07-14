@@ -27,9 +27,9 @@ namespace Salon.Web.Tests.Unit
         }
 
         [Test]
-        public async Task TestListCountries()
+        public async Task TestGetCountries()
         {
-            this.ReferenceServices.ListCountries().Returns(new List<CountryDto> {
+            this.ReferenceServices.GetCountries().Returns(new List<CountryDto> {
                 new CountryDto(){
                     Name = "England"
                 },
@@ -53,7 +53,7 @@ namespace Salon.Web.Tests.Unit
         public async Task TestCountryMessages()
         {
             // Arrange
-            this.ReferenceServices.ListCountries().Returns(new List<CountryDto> { });
+            this.ReferenceServices.GetCountries().Returns(new List<CountryDto> { });
             
             // Act
             IActionResult lResult = await this.countryController.Index(successMessage: "TestSuccess", failureMessage: "TestFailure");

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Salon.Models
+namespace SalonServices.Dto.Submission
 {
-    public class SectionViewModel
+    public class SubmissionResultsDto
     {
     }
 }

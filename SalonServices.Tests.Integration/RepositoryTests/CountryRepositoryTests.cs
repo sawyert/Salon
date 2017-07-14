@@ -83,7 +83,7 @@ namespace SalonServices.Tests.Integration.RepositoryTests
              );
 
             // Assert
-            var lResult = await countryRepository.ListCountries();
+            var lResult = await countryRepository.GetCountries();
             Assert.IsNotNull(lResult);
             // There are some items that are in the DB by default
             Assert.IsTrue(lResult.Count > 5);

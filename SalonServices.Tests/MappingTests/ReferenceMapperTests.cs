@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using SalonServices.Dto;
+using SalonServices.Dto.Submission;
 using SalonServices.Entities;
 using SalonServices.Mappings;
 using SalonServices.Tests.Helper;
@@ -23,6 +24,23 @@ namespace SalonServices.Tests
         {
             MappingTestHelpers.MapFromModelAndBack<CountryDto, CountryEntity>();
         }
+        
+        [Test]
+        public void MapOrgs()
+        {
+            MappingTestHelpers.MapFromModelAndBack<OrganisationDto, PhotoOrganisationEntity > ();
+        }
 
+        [Test]
+        public void MapSectionTypes()
+        {
+            MappingTestHelpers.MapFromModelAndBack<SectionTypeDto, SectionTypeEntity>();
+        }
+
+        [Test]
+        public void MapCircuits()
+        {
+            MappingTestHelpers.MapFromModelAndBack<CircuitDto, CircuitDto>();
+        }
     }
 }

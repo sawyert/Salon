@@ -43,5 +43,10 @@ namespace SalonServices.Repositories
         {
             return await this.dbContext.PhotoOrganisations.Include(org => org.AwardLevels).ToListAsync();
         }
+
+        public async Task<List<PhotoOrganisationEntity>> GetAllBasic()
+        {
+            return await this.dbContext.PhotoOrganisations.ToListAsync();
+        }
     }
 }

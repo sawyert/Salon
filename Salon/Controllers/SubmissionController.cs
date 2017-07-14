@@ -6,15 +6,22 @@ using Microsoft.AspNetCore.Mvc;
 using Salon.Models;
 using SalonServices;
 using Salon.Models.Submission;
+using Salon.Mappings;
 
 namespace Salon.Controllers
 {
     public class SubmissionController : Controller
     {
         private readonly IReferenceServices _referenceServices;
-        public SubmissionController(IReferenceServices pReferenceServices)
+        private readonly ISubmissionService _submissionService;
+        private readonly ISalonYearService _salonYearService;
+
+
+        public SubmissionController(IReferenceServices pReferenceServices, ISubmissionService pSubmissionService, ISalonYearService pSalonYearService)
         {
             this._referenceServices = pReferenceServices;
+            this._submissionService = pSubmissionService;
+            this._salonYearService = pSalonYearService;
         }
 
         public IActionResult Index()
@@ -43,7 +50,8 @@ namespace Salon.Controllers
         [HttpGet]
         public async Task<List<CircuitViewModel>> GetCircuits()
         {
-            return new List<CircuitViewModel>();
+            var lCircuitDtos = await this._referenceServices.GetCircuits();
+            return lCircuitDtos.Select(dto => Mapping.Mapper.Map<CircuitViewModel>(dto)).ToList();
         }
 
         [HttpPost]
@@ -56,27 +64,12 @@ namespace Salon.Controllers
             }
             return pCircuitViewModel;
         }
-
-        [HttpGet]
-        public async Task<List<SectionViewModel>> GetSections()
-        {
-            return new List<SectionViewModel>();
-        }
-
-        [HttpPost]
-        public async Task<bool> AddSection(SectionViewModel pSectionViewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                return false;
-            }
-            return true;
-        }
-
+        
         [HttpGet]
         public async Task<List<SectionTypeViewModel>> GetSectionTypes()
         {
-            return new List<SectionTypeViewModel>();
+            var lSectionTypeDtos = await this._referenceServices.GetSectionTypes();
+            return lSectionTypeDtos.Select(dto => Mapping.Mapper.Map<SectionTypeViewModel>(dto)).ToList();
         }
 
         [HttpPost]
@@ -92,21 +85,15 @@ namespace Salon.Controllers
         [HttpGet]
         public async Task<List<OrganisationViewModel>> GetOrganisations()
         {
-            return new List<OrganisationViewModel>();
+            var lOrganisationDtos = await this._referenceServices.GetOrganisations();
+            return lOrganisationDtos.Select(dto => Mapping.Mapper.Map<OrganisationViewModel>(dto)).ToList();
         }
 
         [HttpGet]
         public async Task<List<FullSalonInformationViewModel>> GetSalons()
         {
-            return new List<FullSalonInformationViewModel>() {
-                new FullSalonInformationViewModel {
-                SalonName = "Varna",
-                SalonId = 1,
-                CountryId = 1,
-                CountryName = "England",
-                Website = "http://salon.com/",
-                },
-            };
+            var lDtos = await this._salonYearService.GetFullSalonInformation();
+            return lDtos.Select(dto => Mapping.Mapper.Map<FullSalonInformationViewModel>(dto)).ToList();
         }
 
         [HttpPost]
@@ -117,15 +104,15 @@ namespace Salon.Controllers
                 pAddSalon.Errors = ModelState.Values.SelectMany(val => val.Errors).Select(err => err.ErrorMessage).ToList();
                 return pAddSalon;
             }
-            
+
             return pAddSalon;
         }
 
         [HttpGet]
         public async Task<List<SalonYearInformationViewModel>> GetSalonYears(int pYear)
         {
-            return new List<SalonYearInformationViewModel>() { new SalonYearInformationViewModel{
-             Name = "salon year" } };
+            var lDtos = await this._salonYearService.GetSalonYears(pYear);
+            return lDtos.Select(dto => Mapping.Mapper.Map<SalonYearInformationViewModel>(dto)).ToList();
         }
 
         [HttpPost]
@@ -154,9 +141,9 @@ namespace Salon.Controllers
         [HttpGet]
         public async Task<List<CountryViewModel>> GetCountries()
         {
-            var lDtos = await _referenceServices.ListCountries();
-            return new List<CountryViewModel>();
-        }      
+            var lCountryDtos = await this._referenceServices.GetCountries();
+            return lCountryDtos.Select(dto => Mapping.Mapper.Map<CountryViewModel>(dto)).ToList();
+        }
 
     }
 }
