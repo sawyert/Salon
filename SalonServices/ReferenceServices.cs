@@ -27,9 +27,12 @@ namespace SalonServices
             this._circuitRepository = pCircuitRepository;
         }
 
-        public Task<CreateCircuitDto> CreateCircuit(CreateCircuitDto pCreateCircuit)
+        public async Task<CreateCircuitDto> CreateCircuit(CreateCircuitDto pCreateCircuit)
         {
-            throw new NotImplementedException();
+            var lCircuitEntity = Mapping.Mapper.Map<CircuitEntity>(pCreateCircuit);
+            var lReturnedCircuitEntity = await this._circuitRepository.Add(lCircuitEntity);
+            var lReturn = Mapping.Mapper.Map<CreateCircuitDto>(lReturnedCircuitEntity);
+            return lReturn;
         }
 
         public async Task<CountryDto> CreateCountry(CreateCountryDto pCountry)

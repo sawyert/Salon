@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using GenFu;
+using NUnit.Framework;
 using SalonServices.Dto;
 using SalonServices.Dto.Submission;
 using SalonServices.Entities;
@@ -40,7 +41,16 @@ namespace SalonServices.Tests
         [Test]
         public void MapCircuits()
         {
-            MappingTestHelpers.MapFromModelAndBack<CircuitDto, CircuitDto>();
+            MappingTestHelpers.MapFromModelAndBack<CircuitDto, CircuitEntity>();
+        }
+
+        [Test]
+        public void MapCreateCircuits()
+        {
+            A.Configure<CreateCircuitDto>()
+                   .Fill(p => p.Id, () => 40);
+
+            MappingTestHelpers.MapFromModelAndBack<CreateCircuitDto, CircuitEntity>();
         }
     }
 }

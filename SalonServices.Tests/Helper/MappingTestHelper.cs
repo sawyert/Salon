@@ -9,7 +9,7 @@ using FluentAssertions.Equivalency;
 namespace SalonServices.Tests.Helper
 {
     public static class MappingTestHelpers
-    {
+    { 
         public static void MapFromModelAndBack<TModel, TEntity>(Func<TModel, TEntity, TEntity> pEntitySetup = null, Func<EquivalencyAssertionOptions<TModel>, EquivalencyAssertionOptions<TModel>> pConfig = null) where TModel : new()
         {
             // Arrange

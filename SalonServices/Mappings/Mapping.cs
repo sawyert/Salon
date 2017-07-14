@@ -69,6 +69,13 @@ namespace SalonServices.Mappings
                     .ForMember(ent => ent.SalonYears, x => x.Ignore())
                 ;
 
+                cfg.CreateMap<CircuitEntity, CreateCircuitDto>()
+                .ForMember(ent => ent.Errors, x => x.Ignore())
+               ;
+                cfg.CreateMap<CreateCircuitDto, CircuitEntity>()
+                    .ForMember(ent => ent.SalonYears, x => x.Ignore())
+                ;
+
                 cfg.CreateMap<PhotoOrganisationEntity, OrganisationDto>()
                ;
                 cfg.CreateMap<OrganisationDto, PhotoOrganisationEntity>()

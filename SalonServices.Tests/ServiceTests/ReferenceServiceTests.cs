@@ -16,7 +16,7 @@ namespace SalonServices.Tests.Unit.ServiceTests
     [TestFixture]
     public class ReferenceServiceTests
     {
-        private ICountryRepository _referenceRepository;
+        private ICountryRepository _countryRepository;
         private ISectionTypeRepository _sectionTypeRepository;
         private IPhotoOrganisationRepository _photoOrganisationRepository;
         private ICircuitRepository _circuitRepository;
@@ -25,12 +25,12 @@ namespace SalonServices.Tests.Unit.ServiceTests
         [SetUp]
         public void Setup()
         {
-            this._referenceRepository = Substitute.For<ICountryRepository>();
+            this._countryRepository = Substitute.For<ICountryRepository>();
             this._sectionTypeRepository = Substitute.For<ISectionTypeRepository>();
             this._photoOrganisationRepository = Substitute.For<IPhotoOrganisationRepository>();
             this._circuitRepository = Substitute.For<ICircuitRepository>();
 
-            this.referenceServices = new ReferenceServices(this._referenceRepository, this._sectionTypeRepository, this._photoOrganisationRepository, this._circuitRepository);
+            this.referenceServices = new ReferenceServices(this._countryRepository, this._sectionTypeRepository, this._photoOrganisationRepository, this._circuitRepository);
 
             Mapping.CreateConfiguration();
         }
@@ -110,9 +110,30 @@ namespace SalonServices.Tests.Unit.ServiceTests
         }
 
         [Test]
+        public async Task CreateCircuit()
+        {
+            this._circuitRepository.Add(Arg.Any<CircuitEntity>()).Returns(info =>
+            {
+                var myEnt = info.Arg<CircuitEntity>();
+                myEnt.Id = 40;
+                return myEnt;
+            });
+
+            CreateCircuitDto lCreateCircuit = new CreateCircuitDto()
+            {
+                Name = "England"
+            };
+
+            var lNewlyCreatedCircuitDto = await this.referenceServices.CreateCircuit(lCreateCircuit);
+
+            Assert.AreEqual("England", lNewlyCreatedCircuitDto.Name);
+            Assert.AreEqual(40, lNewlyCreatedCircuitDto.Id);
+        }
+
+        [Test]
         public async Task GetCountries()
         {
-            this._referenceRepository.GetCountries().Returns(new List<CountryEntity>() { new CountryEntity(), new CountryEntity() });
+            this._countryRepository.GetCountries().Returns(new List<CountryEntity>() { new CountryEntity(), new CountryEntity() });
             List<CountryDto> lCountries = await this.referenceServices.GetCountries();
             Assert.AreEqual(2, lCountries.Count);
         }
@@ -120,7 +141,7 @@ namespace SalonServices.Tests.Unit.ServiceTests
         [Test]
         public async Task CreateCountry()
         {
-            this._referenceRepository.Add(Arg.Any<CountryEntity>()).Returns(info =>
+            this._countryRepository.Add(Arg.Any<CountryEntity>()).Returns(info =>
             {
                 var myEnt = info.Arg<CountryEntity>();
                 myEnt.Id = 40;
@@ -142,7 +163,7 @@ namespace SalonServices.Tests.Unit.ServiceTests
         [Test]
         public async Task DeleteCountry()
         {
-            this._referenceRepository.GetById(Arg.Any<int>()).Returns(new CountryEntity()
+            this._countryRepository.GetById(Arg.Any<int>()).Returns(new CountryEntity()
             {
                 Id = 123,
                 Name = "England",
@@ -150,13 +171,13 @@ namespace SalonServices.Tests.Unit.ServiceTests
 
             await this.referenceServices.DeleteCountry(123);
 
-            await this._referenceRepository.Received(1).Delete(Arg.Is<CountryEntity>(dto => dto.Id == 123));
+            await this._countryRepository.Received(1).Delete(Arg.Is<CountryEntity>(dto => dto.Id == 123));
         }
 
         [Test]
         public async Task GetCountryById()
         {
-            this._referenceRepository.GetById(Arg.Any<int>()).Returns(new CountryEntity()
+            this._countryRepository.GetById(Arg.Any<int>()).Returns(new CountryEntity()
             {
                 Id = 123,
                 Name = "England",
@@ -165,14 +186,14 @@ namespace SalonServices.Tests.Unit.ServiceTests
             var lCountryModel = await this.referenceServices.GetCountryById(123);
             Assert.AreEqual(123, lCountryModel.Id);
 
-            await this._referenceRepository.Received(1).GetById(Arg.Is<int>(123));
+            await this._countryRepository.Received(1).GetById(Arg.Is<int>(123));
         }
 
 
         [Test]
         public async Task UpdateCountryTest()
         {
-            this._referenceRepository.GetById(Arg.Any<int>()).Returns(new CountryEntity()
+            this._countryRepository.GetById(Arg.Any<int>()).Returns(new CountryEntity()
             {
                 Id = 123,
                 Name = "England",
@@ -184,7 +205,7 @@ namespace SalonServices.Tests.Unit.ServiceTests
 
             await this.referenceServices.UpdateCountry(lCountryModel);
 
-            await this._referenceRepository.Received(1).Update(Arg.Is<CountryEntity>(dto => dto.Name == "Scotland"));
+            await this._countryRepository.Received(1).Update(Arg.Is<CountryEntity>(dto => dto.Name == "Scotland"));
         }
     }
 }
