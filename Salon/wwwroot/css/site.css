@@ -35,3 +35,8 @@ textarea {
         display: none;
     }
 }
+
+.knockout-autocomplete.menu
+{
+    z-index: 2000;
+}
