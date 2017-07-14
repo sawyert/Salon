@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using SalonServices.Dto;
+using SalonServices.Dto.Submission;
 using SalonServices.Entities;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,26 @@ namespace SalonServices.Mappings
                 cfg.CreateMap<BasicPersonDto, PersonEntity>()
                     .ForMember(ent => ent.Submissions, x => x.Ignore())
                     .ForMember(ent => ent.Images, x => x.Ignore())
+                ;
+
+
+                cfg.CreateMap<SalonYearEntity, SalonYearInformationDto>()
+                    .ForMember(ent => ent.SalonYearId, x => x.MapFrom(t => t.Id))
+                ;
+                cfg.CreateMap<SalonYearInformationDto, SalonYearEntity>()
+                    .ForMember(ent => ent.Id, x => x.MapFrom(t => t.SalonYearId))
+                    .ForMember(ent => ent.Circuit, x => x.Ignore())
+                    .ForMember(ent => ent.CircuitId, x => x.Ignore())
+                    .ForMember(ent => ent.Salon, x => x.Ignore())
+
+                ;
+
+                cfg.CreateMap<AccreditationEntity, SalonYearAccreditationDto>()
+               ;
+                cfg.CreateMap<SalonYearAccreditationDto, AccreditationEntity>()
+                    .ForMember(ent => ent.SalonYear, x => x.Ignore())
+                    .ForMember(ent => ent.PhotoOrganisation, x => x.Ignore())
+                    .ForMember(ent => ent.SalonYearId, x => x.Ignore())
                 ;
             });
             Mapper = config.CreateMapper();

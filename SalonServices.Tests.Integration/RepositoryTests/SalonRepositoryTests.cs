@@ -49,6 +49,27 @@ namespace SalonServices.Tests.Integration.RepositoryTests
         }
 
         [Test]
+        public async Task GetFullSalonInformation_GetsFromDb()
+        {
+            // Arrange
+            var lCreatedEntity1 = await salonRepository.Add(new SalonEntity { Name = "test1",Website ="www.1", Country = EntitiesHelper.GetCountry() });
+            var lCreatedEntity2 = await salonRepository.Add(new SalonEntity { Name = "test2", Website = "www.1", Country = EntitiesHelper.GetCountry() });
+
+            // Act
+            var lResult = await salonRepository.GetFullSalonInformation();
+
+            // Assert
+            Assert.IsNotNull(lResult);
+            Assert.IsTrue(lResult.Count > 1);
+            Assert.IsTrue(lResult.All(se => se.SalonId > 0));
+            Assert.IsTrue(lResult.All(se => se.CountryId > 0));
+            Assert.IsTrue(lResult.All(se => !string.IsNullOrEmpty(se.CountryName)));
+            Assert.IsTrue(lResult.All(se => !string.IsNullOrEmpty(se.SalonName)));
+            Assert.IsTrue(lResult.Where(se => se.SalonName.StartsWith("test")).All(se => !string.IsNullOrEmpty(se.Website)));
+        }
+        
+
+        [Test]
         public async Task UpdateSalon_SetsNameInDb()
         {
             // Arrange

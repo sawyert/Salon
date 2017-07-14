@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SalonServices.Entities;
 using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
 
 namespace SalonServices.Repositories
 {
@@ -35,6 +37,11 @@ namespace SalonServices.Repositories
         {
             this.dbContext.SalonYears.Remove(pEntity);
             await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<List<SalonYearEntity>> GetSalonYearsWithAccreditations()
+        {
+            return await this.dbContext.SalonYears.Include(sy => sy.Accreditations).ToListAsync();
         }
     }
 }

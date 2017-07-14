@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Salon.Models;
+using Salon.Models.Submission;
 using SalonServices.Dto;
+using SalonServices.Dto.Submission;
 using SalonServices.Entities;
 using System;
 using System.Collections.Generic;
@@ -43,6 +45,16 @@ namespace Salon.Mappings
                 cfg.CreateMap<PersonAwardTableViewModel, PersonAwardTableDto>();
                 cfg.CreateMap<PersonAwardTableDto, PersonAwardTableViewModel>();
 
+
+                cfg.CreateMap<SalonYearInformationViewModel, SalonYearInformationDto>();
+                cfg.CreateMap<SalonYearInformationDto, SalonYearInformationViewModel>();
+
+                cfg.CreateMap<SalonYearAccreditationViewModel, SalonYearAccreditationDto>();
+                cfg.CreateMap<SalonYearAccreditationDto, SalonYearAccreditationViewModel>();
+
+                cfg.CreateMap<FullSalonInformationViewModel, FullSalonInformationDto>();
+                cfg.CreateMap<FullSalonInformationDto, FullSalonInformationViewModel>();
+                
             });
             Mapper = config.CreateMapper();
             return config;

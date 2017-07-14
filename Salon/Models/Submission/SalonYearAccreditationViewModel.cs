@@ -7,7 +7,8 @@ namespace Salon.Models.Submission
 {
     public class SalonYearAccreditationViewModel
     {
+        public int Id { get; set; }
         public string SalonNumber { get; set; }
-        public int OrganisationId { get; set; }
+        public int PhotoOrganisationId { get; set; }
     }
 }

@@ -6,15 +6,22 @@ using Microsoft.AspNetCore.Mvc;
 using Salon.Models;
 using SalonServices;
 using Salon.Models.Submission;
+using Salon.Mappings;
 
 namespace Salon.Controllers
 {
     public class SubmissionController : Controller
     {
         private readonly IReferenceServices _referenceServices;
-        public SubmissionController(IReferenceServices pReferenceServices)
+        private readonly ISubmissionService _submissionService;
+        private readonly ISalonYearService _salonYearService;
+
+
+        public SubmissionController(IReferenceServices pReferenceServices, ISubmissionService pSubmissionService, ISalonYearService pSalonYearService)
         {
             this._referenceServices = pReferenceServices;
+            this._submissionService = pSubmissionService;
+            this._salonYearService = pSalonYearService;
         }
 
         public IActionResult Index()
@@ -92,13 +99,15 @@ namespace Salon.Controllers
         [HttpGet]
         public async Task<List<OrganisationViewModel>> GetOrganisations()
         {
+            
             return new List<OrganisationViewModel>();
         }
 
         [HttpGet]
         public async Task<List<FullSalonInformationViewModel>> GetSalons()
         {
-            return new List<FullSalonInformationViewModel>();
+            var lDtos = await this._salonYearService.GetFullSalonInformation();
+            return lDtos.Select(dto => Mapping.Mapper.Map<FullSalonInformationViewModel>(dto)).ToList();
         }
 
         [HttpPost]
@@ -114,10 +123,10 @@ namespace Salon.Controllers
         }
 
         [HttpGet]
-        public async Task<List<SalonYearInformationViewModel>> GetSalonYears(int pYear)
+        public async Task<List<SalonYearInformationViewModel>> GetSalonYears()
         {
-            return new List<SalonYearInformationViewModel>() { new SalonYearInformationViewModel{
-             Name = "salon year" } };
+            var lDtos = await this._salonYearService.GetSalonYears();
+            return lDtos.Select(dto => Mapping.Mapper.Map<SalonYearInformationViewModel>(dto)).ToList();
         }
 
         [HttpPost]

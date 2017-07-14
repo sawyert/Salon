@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using SalonServices.Dto.Submission;
-using SalonServices.Dto.Submission.Submission;
 
 namespace SalonServices
 {
