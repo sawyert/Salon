@@ -6,6 +6,7 @@ using SalonServices.Dto.Submission;
 using SalonServices.Repositories;
 using System.Linq;
 using SalonServices.Mappings;
+using SalonServices.Entities;
 
 namespace SalonServices
 {
@@ -24,12 +25,16 @@ namespace SalonServices
 
         public async Task<CreateSalonDto> CreateSalon(CreateSalonDto pSalonDto)
         {
-            throw new NotImplementedException();
+            var lEntityToAdd = Mapping.Mapper.Map<SalonEntity>(pSalonDto);
+            var lEntityCreated = await this._salonRepository.Add(lEntityToAdd);
+            return Mapping.Mapper.Map<CreateSalonDto>(lEntityCreated);
         }
 
         public async Task<CreateSalonYearDto> CreateSalonYear(CreateSalonYearDto pSalonYearDto)
         {
-            throw new NotImplementedException();
+            var lEntityToAdd = Mapping.Mapper.Map<SalonYearEntity>(pSalonYearDto);
+            var lEntityCreated = await this._salonYearRepository.Add(lEntityToAdd);
+            return Mapping.Mapper.Map<CreateSalonYearDto>(lEntityCreated);
         }
 
         public async Task<List<FullSalonInformationDto>> GetFullSalonInformation()

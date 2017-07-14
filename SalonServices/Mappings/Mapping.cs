@@ -52,7 +52,29 @@ namespace SalonServices.Mappings
                     .ForMember(ent => ent.Circuit, x => x.Ignore())
                     .ForMember(ent => ent.CircuitId, x => x.Ignore())
                     .ForMember(ent => ent.Salon, x => x.Ignore())
+                ;
 
+                cfg.CreateMap<SalonYearEntity, CreateSalonYearDto>()
+                 .ForMember(dto => dto.Errors, x => x.Ignore())
+                ;
+                cfg.CreateMap<CreateSalonYearDto, SalonYearEntity>()
+                    .ForMember(ent => ent.Circuit, x => x.Ignore())
+                    .ForMember(ent => ent.Salon, x => x.Ignore())
+                 .ForMember(ent => ent.Accreditations, x => x.Ignore())
+
+                ;
+
+                cfg.CreateMap<SalonEntity, CreateSalonDto>()
+                 .ForMember(dto => dto.SalonName, x => x.MapFrom(ent => ent.Name))
+                 .ForMember(dto => dto.SalonId, x => x.MapFrom(ent => ent.Id))
+                 .ForMember(dto => dto.CountryName, x => x.MapFrom(ent => ent.Country != null ? ent.Country.Name : null))
+                 .ForMember(dto => dto.Errors, x => x.Ignore())
+                ;
+                cfg.CreateMap<CreateSalonDto, SalonEntity>()
+                 .ForMember(ent => ent.Name, x => x.MapFrom(dto => dto.SalonName))
+                 .ForMember(ent => ent.Id, x => x.MapFrom(dto => dto.SalonId))
+                 .ForMember(ent => ent.Country, x => x.ResolveUsing(dto => !string.IsNullOrEmpty(dto.CountryName) ? new CountryEntity { Name = dto.CountryName } : null))
+                 .ForMember(ent => ent.SalonYears, x => x.Ignore())
                 ;
 
                 cfg.CreateMap<AccreditationEntity, SalonYearAccreditationDto>()

@@ -7,7 +7,13 @@ using SalonServices.Dto.Submission;
 namespace SalonServices
 {
     public class SubmissionService : ISubmissionService
-    {
+    {       
+
+        public SubmissionService()
+        {
+
+        }
+
         public Task<SubmissionSaveDto> CreateSubmission(SubmissionSaveDto pCreateSubmission)
         {
             throw new NotImplementedException();

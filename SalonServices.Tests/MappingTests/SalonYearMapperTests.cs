@@ -27,5 +27,24 @@ namespace SalonServices.Tests.Unit.MappingTests
 
             MappingTestHelpers.MapFromModelAndBack<SalonYearInformationDto, SalonYearEntity>();
         }
+
+        [Test]
+        public void MapCreateSalonYearToEntityAndBack()
+        {
+            A.Configure<CreateSalonYearDto>()
+                .Fill(p => p.Id, () => 40);
+
+            MappingTestHelpers.MapFromModelAndBack<CreateSalonYearDto, SalonYearEntity>();
+        }
+
+        [Test]
+        public void MapSalonToEntityAndBack()
+        {
+            A.Configure<CreateSalonDto>()
+                .Fill(p => p.SalonId, () => 40)
+                .Fill(p => p.CountryId, () => 50);
+
+            MappingTestHelpers.MapFromModelAndBack<CreateSalonDto, SalonEntity>(null, exp => exp.Excluding(prop => prop.CountryName));
+        }
     }
 }
