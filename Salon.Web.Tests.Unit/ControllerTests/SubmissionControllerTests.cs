@@ -110,6 +110,154 @@ namespace Salon.Web.Tests.Unit
 
             Assert.AreEqual(lCircuitDtos.Count, lResult.Count);
             Assert.AreEqual(lCircuitDtos[0].Name, lResult[0].Name);
-        }        
+        }
+
+        [Test]
+        public async Task AddCircuit()
+        {
+            // Arrange
+            this._referenceServices.CreateCircuit(Arg.Any<CreateCircuitDto>()).Returns(new CreateCircuitDto { Id = 50 });
+
+            CreateCircuitViewModel lCreateCircuitViewModel = new CreateCircuitViewModel()
+            {
+                Name = "England"
+            };
+
+            // Act
+            var lResult = await this.submissionController.AddCircuit(lCreateCircuitViewModel);
+
+            // Assert
+            Assert.AreEqual(50, lResult.Id);
+            await this._referenceServices.Received(1).CreateCircuit(Arg.Is<CreateCircuitDto>(dto => dto.Name == "England"));
+        }
+
+        [Test]
+        public async Task AddCircuit_Error()
+        {
+            // Arrange
+            CreateCircuitViewModel lCreateCircuitViewModel = new CreateCircuitViewModel()
+            {
+                Name = "England"
+            };
+
+            this.submissionController.ModelState.AddModelError("aa", "error");
+            var lResult = await this.submissionController.AddCircuit(lCreateCircuitViewModel);
+           
+            // Assert
+            Assert.AreEqual("England", lResult.Name);
+            Assert.IsNull(lResult.Id);
+            await this._referenceServices.Received(0).CreateCircuit(Arg.Any<CreateCircuitDto>());
+        }
+
+        [Test]
+        public async Task AddSalon()
+        {
+            // Arrange
+            this._salonYearService.CreateSalon(Arg.Any<CreateSalonDto>()).Returns(new CreateSalonDto { SalonId = 50 });
+
+            CreateSalonViewModel lCreateSalonVm = new CreateSalonViewModel()
+            {
+                SalonName = "England"
+            };
+
+            // Act
+            var lResult = await this.submissionController.AddSalon(lCreateSalonVm);
+
+            // Assert
+            Assert.AreEqual(50, lResult.SalonId);
+            await this._salonYearService.Received(1).CreateSalon(Arg.Is<CreateSalonDto>(dto => dto.SalonName == "England"));
+        }
+
+        [Test]
+        public async Task AddSalon_Error()
+        {
+            // Arrange
+            CreateSalonViewModel lCreateSalonVm = new CreateSalonViewModel()
+            {
+                SalonName = "England"
+            };
+
+            this.submissionController.ModelState.AddModelError("aa", "error");
+            var lResult = await this.submissionController.AddSalon(lCreateSalonVm);
+
+            // Assert
+            Assert.AreEqual("England", lResult.SalonName);
+            Assert.IsNull(lResult.SalonId);
+            await this._salonYearService.Received(0).CreateSalon(Arg.Any<CreateSalonDto>());
+        }
+
+        [Test]
+        public async Task AddSalonYear()
+        {
+            // Arrange
+            this._salonYearService.CreateSalonYear(Arg.Any<CreateSalonYearDto>()).Returns(new CreateSalonYearDto { Id = 50 });
+
+            CreateSalonYearViewModel lCreateSalonYearVm = new CreateSalonYearViewModel()
+            {
+                Name = "England"
+            };
+
+            // Act
+            var lResult = await this.submissionController.AddSalonYear(lCreateSalonYearVm);
+
+            // Assert
+            Assert.AreEqual(50, lResult.Id);
+            await this._salonYearService.Received(1).CreateSalonYear(Arg.Is<CreateSalonYearDto>(dto => dto.Name == "England"));
+        }
+
+        [Test]
+        public async Task AddSalonYear_Error()
+        {
+            // Arrange
+            CreateSalonYearViewModel lCreateSalonYearVm = new CreateSalonYearViewModel()
+            {
+                Name = "England"
+            };
+
+            this.submissionController.ModelState.AddModelError("aa", "error");
+            var lResult = await this.submissionController.AddSalonYear(lCreateSalonYearVm);
+
+            // Assert
+            Assert.AreEqual("England", lResult.Name);
+            Assert.IsNull(lResult.Id);
+            await this._salonYearService.Received(0).CreateSalonYear(Arg.Any<CreateSalonYearDto>());
+        }
+
+        [Test]
+        public async Task AddSubmission()
+        {
+            // Arrange
+            this._submissionService.CreateSubmission(Arg.Any<SubmissionSaveDto>()).Returns(new SubmissionSaveDto { SubmissionCreated = true});
+
+            SubmissionSaveViewModel lSubmissionSaveVm = new SubmissionSaveViewModel()
+            {
+                  Cost = (decimal)40.13
+            };
+
+            // Act
+            var lResult = await this.submissionController.AddSubmission(lSubmissionSaveVm);
+
+            // Assert
+            Assert.IsTrue(lResult.SubmissionCreated);
+            await this._submissionService.Received(1).CreateSubmission(Arg.Is<SubmissionSaveDto>(dto => dto.Cost == (decimal)40.13));
+        }
+
+        [Test]
+        public async Task AddSubmission_Error()
+        {
+            // Arrange
+            SubmissionSaveViewModel lSubmissionSaveVm = new SubmissionSaveViewModel()
+            {
+                Cost = (decimal)40.13
+            };
+
+            this.submissionController.ModelState.AddModelError("aa", "error");
+            var lResult = await this.submissionController.AddSubmission(lSubmissionSaveVm);
+
+            // Assert
+            Assert.AreEqual((decimal)40.13, lResult.Cost);
+            Assert.IsFalse(lResult.SubmissionCreated);
+            await this._submissionService.Received(0).CreateSubmission(Arg.Any<SubmissionSaveDto>());
+        }
     }
 }

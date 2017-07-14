@@ -7,6 +7,8 @@ using Salon.Models;
 using SalonServices;
 using Salon.Models.Submission;
 using Salon.Mappings;
+using SalonServices.Dto.Submission;
+using SalonServices.Dto;
 
 namespace Salon.Controllers
 {
@@ -24,6 +26,7 @@ namespace Salon.Controllers
             this._salonYearService = pSalonYearService;
         }
 
+        #region Pages
         public IActionResult Index()
         {
             return View();
@@ -46,7 +49,9 @@ namespace Salon.Controllers
         {
             return View();
         }
+        #endregion
 
+        #region Reference Data
         [HttpGet]
         public async Task<List<CircuitViewModel>> GetCircuits()
         {
@@ -59,29 +64,21 @@ namespace Salon.Controllers
         {
             if (!ModelState.IsValid)
             {
-                //todo set errors
+                pCircuitViewModel.Errors = ModelState.Values.SelectMany(val => val.Errors).Select(err => err.ErrorMessage).ToList();
                 return pCircuitViewModel;
             }
-            return pCircuitViewModel;
+            var lDto = Mapping.Mapper.Map<CreateCircuitDto>(pCircuitViewModel);
+            var lReturnedDto = await this._referenceServices.CreateCircuit(lDto);
+            return Mapping.Mapper.Map<CreateCircuitViewModel>(lReturnedDto);
         }
-        
+
         [HttpGet]
         public async Task<List<SectionTypeViewModel>> GetSectionTypes()
         {
             var lSectionTypeDtos = await this._referenceServices.GetSectionTypes();
             return lSectionTypeDtos.Select(dto => Mapping.Mapper.Map<SectionTypeViewModel>(dto)).ToList();
         }
-
-        [HttpPost]
-        public async Task<bool> AddSectionType(SectionTypeViewModel pSectionTypeViewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                return false;
-            }
-            return true;
-        }
-
+        
         [HttpGet]
         public async Task<List<OrganisationViewModel>> GetOrganisations()
         {
@@ -90,6 +87,15 @@ namespace Salon.Controllers
         }
 
         [HttpGet]
+        public async Task<List<CountryViewModel>> GetCountries()
+        {
+            var lCountryDtos = await this._referenceServices.GetCountries();
+            return lCountryDtos.Select(dto => Mapping.Mapper.Map<CountryViewModel>(dto)).ToList();
+        }
+        #endregion
+
+        #region Salon and Salon Year
+        [HttpGet]
         public async Task<List<FullSalonInformationViewModel>> GetSalons()
         {
             var lDtos = await this._salonYearService.GetFullSalonInformation();
@@ -97,15 +103,16 @@ namespace Salon.Controllers
         }
 
         [HttpPost]
-        public async Task<CreateSalonViewModel> AddSalon(CreateSalonViewModel pAddSalon)
+        public async Task<CreateSalonViewModel> AddSalon(CreateSalonViewModel pAddSalonVm)
         {
             if (!ModelState.IsValid)
             {
-                pAddSalon.Errors = ModelState.Values.SelectMany(val => val.Errors).Select(err => err.ErrorMessage).ToList();
-                return pAddSalon;
+                pAddSalonVm.Errors = ModelState.Values.SelectMany(val => val.Errors).Select(err => err.ErrorMessage).ToList();
+                return pAddSalonVm;
             }
-
-            return pAddSalon;
+            var lDto = Mapping.Mapper.Map<CreateSalonDto>(pAddSalonVm);
+            var lReturnedDto = await this._salonYearService.CreateSalon(lDto);
+            return Mapping.Mapper.Map<CreateSalonViewModel>(lReturnedDto);
         }
 
         [HttpGet]
@@ -116,34 +123,30 @@ namespace Salon.Controllers
         }
 
         [HttpPost]
-        public async Task<CreateSalonYearViewModel> AddSalonYear(CreateSalonYearViewModel pAddSalonYear)
+        public async Task<CreateSalonYearViewModel> AddSalonYear(CreateSalonYearViewModel pAddSalonYearVm)
         {
             if (!ModelState.IsValid)
             {
-                pAddSalonYear.Errors = ModelState.Values.SelectMany(val => val.Errors).Select(err => err.ErrorMessage).ToList();
-                return pAddSalonYear;
+                pAddSalonYearVm.Errors = ModelState.Values.SelectMany(val => val.Errors).Select(err => err.ErrorMessage).ToList();
+                return pAddSalonYearVm;
             }
-
-            return pAddSalonYear;
+            var lDto = Mapping.Mapper.Map<CreateSalonYearDto>(pAddSalonYearVm);
+            var lReturnedDto = await this._salonYearService.CreateSalonYear(lDto);
+            return Mapping.Mapper.Map<CreateSalonYearViewModel>(lReturnedDto);
         }
+        #endregion
 
         [HttpPost]
-        public SubmissionSaveViewModel AddSubmission(SubmissionSaveViewModel pSaveViewModel)
+        public async Task<SubmissionSaveViewModel> AddSubmission(SubmissionSaveViewModel pSaveViewModel)
         {
             if (!ModelState.IsValid)
             {
+                pSaveViewModel.Errors = ModelState.Values.SelectMany(val => val.Errors).Select(err => err.ErrorMessage).ToList();
                 return pSaveViewModel;
             }
-            pSaveViewModel.SubmissionCreated = true;
-            return pSaveViewModel;
+            var lDto = Mapping.Mapper.Map<SubmissionSaveDto>(pSaveViewModel);
+            var lReturnedSubmissionDto = await this._submissionService.CreateSubmission(lDto);
+            return Mapping.Mapper.Map<SubmissionSaveViewModel>(lReturnedSubmissionDto);            ;
         }
-
-        [HttpGet]
-        public async Task<List<CountryViewModel>> GetCountries()
-        {
-            var lCountryDtos = await this._referenceServices.GetCountries();
-            return lCountryDtos.Select(dto => Mapping.Mapper.Map<CountryViewModel>(dto)).ToList();
-        }
-
     }
 }

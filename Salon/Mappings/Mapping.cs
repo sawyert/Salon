@@ -6,6 +6,7 @@ using SalonServices.Dto.Submission;
 using SalonServices.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Salon.Mappings
@@ -64,6 +65,40 @@ namespace Salon.Mappings
                 cfg.CreateMap<OrganisationViewModel, OrganisationDto>();
                 cfg.CreateMap<OrganisationDto, OrganisationViewModel>();
 
+                cfg.CreateMap<CreateCircuitViewModel, CreateCircuitDto>();
+                cfg.CreateMap<CreateCircuitDto, CreateCircuitViewModel>();
+
+                cfg.CreateMap<CreateSalonViewModel, CreateSalonDto>();
+                cfg.CreateMap<CreateSalonDto, CreateSalonViewModel>();
+
+                cfg.CreateMap<CreateSalonYearViewModel, CreateSalonYearDto>();
+                cfg.CreateMap<CreateSalonYearDto, CreateSalonYearViewModel>();
+
+                cfg.CreateMap<SubmissionSaveViewModel, SubmissionSaveDto>();
+                cfg.CreateMap<SubmissionSaveDto, SubmissionSaveViewModel>();
+
+                cfg.CreateMap<SubmissionSaveSectionViewModel, SubmissionSaveSectionDto>();
+                cfg.CreateMap<SubmissionSaveSectionDto, SubmissionSaveSectionViewModel>();
+
+                cfg.CreateMap<SubmissionSaveSectionImagesViewModel, SubmissionSaveSectionImagesDto>()
+                .ForMember(dto => dto.ImageThumbnail, opt => opt.ResolveUsing(vm =>
+                {
+                    if (vm.ImageThumbnail != null)
+                    {
+                        using (var fileStream = vm.ImageThumbnail.OpenReadStream())
+                        using (var ms = new MemoryStream())
+                        {
+                            fileStream.CopyTo(ms);
+                            var fileBytes = ms.ToArray();
+                            return fileBytes;
+                        }
+                    }
+                    return null;
+                }))
+                ;
+                cfg.CreateMap<SubmissionSaveSectionImagesDto, SubmissionSaveSectionImagesViewModel>()
+                    .ForMember(dto => dto.ImageThumbnail, opt => opt.Ignore())
+                ;
             });
             Mapper = config.CreateMapper();
             return config;

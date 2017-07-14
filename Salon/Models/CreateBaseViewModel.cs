@@ -12,5 +12,7 @@ namespace Salon.Models
             Errors = new List<string>();
         }
         public List<string> Errors { get; set; }
+
+        public bool HasErrors { get { return Errors.Any(); } }
     }
 }

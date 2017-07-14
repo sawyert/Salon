@@ -10,6 +10,7 @@ namespace SalonServices.Dto.Submission
         public bool SubmissionCreated { get; set; }
         public int? SalonYearId { get; set; }
         public int? CircuitId { get; set; }
+        public int PersonId { get; set; }
 
         public DateTime EntryDate { get; set; }
         public decimal Cost { get; set; }

@@ -6,6 +6,7 @@ using Salon.Mappings;
 using Salon.Web.Tests.Helper;
 using SalonServices.Dto.Submission;
 using Salon.Models.Submission;
+using System.Text.RegularExpressions;
 
 namespace Salon.Web.Tests.Unit.MappingTests
 {
@@ -32,5 +33,28 @@ namespace Salon.Web.Tests.Unit.MappingTests
 
             MappingTestHelpers.MapFromModelAndBack<SalonYearInformationViewModel, SalonYearInformationDto>();
         }
+
+        [Test]
+        public void MapCreateSalonDtoToViewModel()
+        {
+            MappingTestHelpers.MapFromModelAndBack<CreateSalonViewModel, CreateSalonDto>();
+        }
+
+        [Test]
+        public void MapCreateSalonYearDtoToViewModel()
+        {
+            MappingTestHelpers.MapFromModelAndBack<CreateSalonYearViewModel, CreateSalonYearDto>();
+        }
+
+        [Test]
+        public void MapCreateSubmissionDtoToViewModel()
+        {
+            A.Configure<SubmissionSaveViewModel>()
+                    .Fill(p => p.Sections, () => A.ListOf<SubmissionSaveSectionViewModel>());
+
+            A.Configure<SubmissionSaveSectionViewModel>()
+                    .Fill(p => p.Images, () => A.ListOf<SubmissionSaveSectionImagesViewModel>());
+            MappingTestHelpers.MapFromModelAndBack<SubmissionSaveViewModel, SubmissionSaveDto>();
+        }        
     }
 }

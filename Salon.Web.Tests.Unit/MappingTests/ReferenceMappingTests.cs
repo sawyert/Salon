@@ -26,6 +26,12 @@ namespace Salon.Web.Tests.Unit.MappingTests
         }
 
         [Test]
+        public void MapCreateCircuitViewModelToDto()
+        {
+            MappingTestHelpers.MapFromModelAndBack<CreateCircuitViewModel, CreateCircuitDto>();
+        }
+
+        [Test]
         public void MapOrgModelToDtoAndBack()
         {
             MappingTestHelpers.MapFromModelAndBack<OrganisationViewModel, OrganisationDto>();
