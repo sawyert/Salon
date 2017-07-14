@@ -1,0 +1,69 @@
+﻿<div id="AddSalonYearPopup" class="modal">
+    <div class="model-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Salon</h4>
+            </div>
+            <div class="modal-body">
+                <style>
+                    input {
+                        padding-right: 15px;
+                    }
+                </style>
+
+                <br />
+                <input type="text" placeholder="Salon Name" data-bind="autocomplete: { data: salonNamesList, maxItems: 6 }" /> 
+                <input type="text" placeholder="Salon Website" />  
+                <input type="text" placeholder="Country autocomplete" />
+                <button>Create salon</button><br />
+                <input type="text" placeholder="Circuit autocomplete (optional)" /> <input type="text" placeholder="Salon Year autocomplete" />
+                <br />
+                <br />
+                <hr />
+
+                <input type="text" placeholder="Year" /><input type="text" placeholder="Closing Date" /><input type="text" placeholder="Notification Date" /> <input type="text" placeholder="Catalogue Posted Date" />
+
+                <br />
+                <br />
+                <hr />
+                <table class="table">
+                    <tr><th></th><th>Organisation</th><th>Salon Number</th></tr>
+                    <tr><td><a href="#">Remove</a></td><td>FIAP</td><td>ABD/2017</td></tr>
+                    <tr>
+                        <td>Add new (only exists if there are available orgs to add)</td>
+                        <td>
+                            <select>
+                                <option>Select Organisation</option>
+                                <option>PSA</option>
+                                <option>BPE</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Salon Number" />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                Hidden fileds for Salon ID, Country ID, Circuit ID, Salon Year ID
+                <br />
+                <br />
+                Website and country autocomplete on appear if salon manually entered
+                <br />
+                <br />
+                By default all salon year fields (salon year autocomplete, circuit autocomplete, closing date, year, notification date, catalogue posted date) disabled until salon selected
+                <br />
+                <br />
+                When Salon Selected:
+                Country autocomplete and website becomes disabled (ko binding of disabled:SalonId > 0) <br />
+                Enable all salon year fields
+                <br />
+                <br />
+                When Salon Year Selected:
+                Year, Closing Date, Notification Date, Catalogue Posted Date all become disabled (ko binding of disabled:SalonYearId > 0)
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/Submission/AddSalonYear.js"></script>
