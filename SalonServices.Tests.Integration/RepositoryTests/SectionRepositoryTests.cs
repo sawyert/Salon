@@ -47,6 +47,27 @@ namespace SalonServices.Tests.Integration.RepositoryTests
         }
 
         [Test]
+        public async Task GetSectionsBySalonYearSectionTypeIds_GetsFromDb()
+        {
+            // Arrange
+            var salonYear = EntitiesHelper.GetSalonYear();
+            var sectionType1 = EntitiesHelper.GetSectionType();
+            var sectionType2 = EntitiesHelper.GetSectionType();
+            var lCreatedEntity1 = await sectionRepository.Add(new Entities.SectionEntity { SalonYear = salonYear, SectionType = sectionType1 });
+            var lCreatedEntity2 = await sectionRepository.Add(new Entities.SectionEntity { SalonYear = salonYear, SectionType = sectionType2 });
+            var lCreatedEntity3 = await sectionRepository.Add(new Entities.SectionEntity { SalonYear = EntitiesHelper.GetSalonYear(), SectionType = sectionType2 });
+            var lCreatedEntity4 = await sectionRepository.Add(new Entities.SectionEntity { SalonYear = salonYear, SectionType = EntitiesHelper.GetSectionType() });
+
+
+            // Act
+            var lResult = await sectionRepository.GetSectionsBySalonYearSectionTypeIds(salonYear.Id, new List<int> { sectionType1.Id, sectionType2.Id });
+
+            // Assert
+            Assert.IsNotNull(lResult);
+            Assert.AreEqual(2, lResult.Count);
+        }
+
+        [Test]
         public async Task UpdateSection_SetsNameInDb()
         {
             // Arrange
@@ -64,7 +85,7 @@ namespace SalonServices.Tests.Integration.RepositoryTests
             Assert.IsTrue(lResult.Id > 0);
             Assert.AreEqual("new salon year", lResult.SalonYear.Name);
         }
-        
+
         [Test]
         public async Task DeleteSection_RemovesFromDb()
         {

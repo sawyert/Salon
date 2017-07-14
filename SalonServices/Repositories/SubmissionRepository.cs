@@ -22,7 +22,7 @@ namespace SalonServices.Repositories
 
         public async Task<SubmissionEntity> GetById(int id)
         {
-            return await this.dbContext.Submissions.FirstOrDefaultAsync(coun => coun.Id == id);
+            return await this.dbContext.Submissions.FirstOrDefaultAsync(sub => sub.Id == id);
         }
 
         public async Task Update(SubmissionEntity pEntity)
