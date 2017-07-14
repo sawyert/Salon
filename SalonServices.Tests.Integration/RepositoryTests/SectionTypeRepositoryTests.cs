@@ -49,6 +49,21 @@ namespace SalonServices.Tests.Integration.RepositoryTests
         }
 
         [Test]
+        public async Task GetSectionTypes_GetsFromDb()
+        {
+            // Arrange
+            await sectionTypeRepository.Add(new SectionTypeEntity { Name = "test1" });
+            await sectionTypeRepository.Add(new SectionTypeEntity { Name = "test2" });
+
+            // Act
+            var lResult = await sectionTypeRepository.GetAll();
+
+            // Assert
+            Assert.IsNotNull(lResult);
+            Assert.AreEqual(2, lResult.Count(t => t.Name.StartsWith("test")));
+        }
+
+        [Test]
         public async Task UpdateSectionType_SetsNameInDb()
         {
             // Arrange

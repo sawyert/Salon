@@ -9,6 +9,6 @@ namespace SalonServices.Repositories
 {
     public interface ICountryRepository : IGenericRepository<CountryEntity>
     {
-        Task<List<CountryEntity>> ListCountries();
+        Task<List<CountryEntity>> GetCountries();
     }
 }

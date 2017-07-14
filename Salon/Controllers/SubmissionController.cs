@@ -50,7 +50,8 @@ namespace Salon.Controllers
         [HttpGet]
         public async Task<List<CircuitViewModel>> GetCircuits()
         {
-            return new List<CircuitViewModel>();
+            var lCircuitDtos = await this._referenceServices.GetCircuits();
+            return lCircuitDtos.Select(dto => Mapping.Mapper.Map<CircuitViewModel>(dto)).ToList();
         }
 
         [HttpPost]
@@ -63,27 +64,12 @@ namespace Salon.Controllers
             }
             return pCircuitViewModel;
         }
-
-        [HttpGet]
-        public async Task<List<SectionViewModel>> GetSections()
-        {
-            return new List<SectionViewModel>();
-        }
-
-        [HttpPost]
-        public async Task<bool> AddSection(SectionViewModel pSectionViewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                return false;
-            }
-            return true;
-        }
-
+        
         [HttpGet]
         public async Task<List<SectionTypeViewModel>> GetSectionTypes()
         {
-            return new List<SectionTypeViewModel>();
+            var lSectionTypeDtos = await this._referenceServices.GetSectionTypes();
+            return lSectionTypeDtos.Select(dto => Mapping.Mapper.Map<SectionTypeViewModel>(dto)).ToList();
         }
 
         [HttpPost]
@@ -99,8 +85,8 @@ namespace Salon.Controllers
         [HttpGet]
         public async Task<List<OrganisationViewModel>> GetOrganisations()
         {
-
-            return new List<OrganisationViewModel>();
+            var lOrganisationDtos = await this._referenceServices.GetOrganisations();
+            return lOrganisationDtos.Select(dto => Mapping.Mapper.Map<OrganisationViewModel>(dto)).ToList();
         }
 
         [HttpGet]
@@ -155,8 +141,8 @@ namespace Salon.Controllers
         [HttpGet]
         public async Task<List<CountryViewModel>> GetCountries()
         {
-            var lDtos = await _referenceServices.ListCountries();
-            return new List<CountryViewModel>();
+            var lCountryDtos = await this._referenceServices.GetCountries();
+            return lCountryDtos.Select(dto => Mapping.Mapper.Map<CountryViewModel>(dto)).ToList();
         }
 
     }

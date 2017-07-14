@@ -54,7 +54,16 @@ namespace Salon.Mappings
 
                 cfg.CreateMap<FullSalonInformationViewModel, FullSalonInformationDto>();
                 cfg.CreateMap<FullSalonInformationDto, FullSalonInformationViewModel>();
-                
+
+                cfg.CreateMap<CircuitViewModel, CircuitDto>();
+                cfg.CreateMap<CircuitDto, CircuitViewModel>();
+
+                cfg.CreateMap<SectionTypeViewModel, SectionTypeDto>();
+                cfg.CreateMap<SectionTypeDto, SectionTypeViewModel>();
+
+                cfg.CreateMap<OrganisationViewModel, OrganisationDto>();
+                cfg.CreateMap<OrganisationDto, OrganisationViewModel>();
+
             });
             Mapper = config.CreateMapper();
             return config;

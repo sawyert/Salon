@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SalonServices.Repositories
 {
-    public interface ISectionTypeRepository : IGenericRepository<SectionTypeEntity>
+    public interface ICircuitRepository : IGenericRepository<CircuitEntity>
     {
-        Task<List<SectionTypeEntity>> GetAll();
+        Task<List<CircuitEntity>> GetAll();
     }
 }

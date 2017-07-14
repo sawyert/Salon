@@ -49,6 +49,21 @@ namespace SalonServices.Tests.Integration.RepositoryTests
         }
 
         [Test]
+        public async Task GetPhotoOrganisations_GetsFromDb()
+        {
+            // Arrange
+            await photoOrganisationRepository.Add(new PhotoOrganisationEntity { Name = "test1" });
+            await photoOrganisationRepository.Add(new PhotoOrganisationEntity { Name = "test2" });
+
+            // Act
+            var lResult = await photoOrganisationRepository.GetAllBasic();
+
+            // Assert
+            Assert.IsNotNull(lResult);
+            Assert.AreEqual(2, lResult.Count(t => t.Name.StartsWith("test")));
+        }
+
+        [Test]
         public async Task UpdatePhotoOrganisation_SetsNameInDb()
         {
             // Arrange

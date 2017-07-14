@@ -30,7 +30,7 @@ namespace SalonServices.Repositories
             return await this.dbContext.Countries.FirstOrDefaultAsync(coun => coun.Id == id);
         }
 
-        public async Task<List<CountryEntity>> ListCountries()
+        public async Task<List<CountryEntity>> GetCountries()
         {
             return await this.dbContext.Countries.ToListAsync();
         }

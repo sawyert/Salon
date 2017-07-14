@@ -20,7 +20,7 @@ namespace Salon.Controllers
 
         public async Task<IActionResult> Index(string successMessage = null, string failureMessage = null)
         {
-            var lDtos = await this._referenceServices.ListCountries();
+            var lDtos = await this._referenceServices.GetCountries();
 
             var lModel = new IndexViewModel()
             {

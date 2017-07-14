@@ -28,7 +28,7 @@ namespace Salon.Web.Tests.Unit
         }
 
         [Test]
-        public async Task TestListCountries()
+        public async Task TestGetCountries()
         {
             this.personAwardService.GetAllPersons().Returns(new List<BasicPersonDto> {
                 new BasicPersonDto(){

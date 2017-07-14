@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SalonServices.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SalonServices.Repositories
@@ -35,6 +36,11 @@ namespace SalonServices.Repositories
         {
             this.dbContext.SectionTypes.Remove(pEntity);
             await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<List<SectionTypeEntity>> GetAll()
+        {
+            return await this.dbContext.SectionTypes.ToListAsync();
         }
     }
 }

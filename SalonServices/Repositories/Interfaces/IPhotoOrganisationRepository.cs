@@ -11,6 +11,5 @@ namespace SalonServices.Repositories
         Task<List<PhotoOrganisationEntity>> GetAllWithAwards();
 
         Task<List<PhotoOrganisationEntity>> GetAllBasic();
-
     }
 }

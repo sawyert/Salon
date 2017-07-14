@@ -9,7 +9,7 @@ namespace SalonServices
 {
     public interface IReferenceServices
     {
-        Task<List<CountryDto>> ListCountries();
+        Task<List<CountryDto>> GetCountries();
 
         Task<CountryDto> CreateCountry(CreateCountryDto pCountry);
 
@@ -21,6 +21,8 @@ namespace SalonServices
         Task<List<OrganisationDto>> GetOrganisations();
 
         Task<List<CircuitDto>> GetCircuits();
+
+        Task<List<SectionTypeDto>> GetSectionTypes();
 
         Task<CreateCircuitDto> CreateCircuit(CreateCircuitDto pCreateCircuit);
     }
