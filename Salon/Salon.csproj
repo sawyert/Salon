@@ -7,6 +7,15 @@
   <PropertyGroup>
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\js\knockout\knockout.autocomplete.css" />
+    <Content Include="wwwroot\js\knockout\knockout.autocomplete.js" />
+    <Content Include="wwwroot\js\Submission\AddSalonYear.js" />
+    <Content Include="wwwroot\js\Submission\AddSubmission.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.1.1" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
@@ -34,7 +43,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Submission\" />
     <Folder Include="Views\Person\" />
   </ItemGroup>
 

@@ -98,7 +98,15 @@ namespace Salon.Controllers
         [HttpGet]
         public async Task<List<FullSalonInformationViewModel>> GetSalons()
         {
-            return new List<FullSalonInformationViewModel>();
+            return new List<FullSalonInformationViewModel>() {
+                new FullSalonInformationViewModel {
+                SalonName = "Varna",
+                SalonId = 1,
+                CountryId = 1,
+                CountryName = "England",
+                Website = "http://salon.com/",
+                },
+            };
         }
 
         [HttpPost]
