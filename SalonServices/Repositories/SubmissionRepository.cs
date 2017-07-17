@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using SalonServices.Dto.Submission;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SalonServices.Repositories
 {
@@ -58,6 +59,17 @@ namespace SalonServices.Repositories
                             }).FirstOrDefaultAsync();
         }
 
+        public async Task<List<SubmissionItemDto>> GetBasicSubmissionInfoByPersonId(int pPersonId)
+        {
+            return await this.dbContext.Submissions.Where(sub => sub.PersonId == pPersonId).Select(sub =>
+                            new SubmissionItemDto
+                            {
+                                DisplayName = sub.SalonYear.Salon.Name + " - " + sub.SalonYear.Name + " (" + sub.SalonYear.Year + ")",
+                                NumberOfEntries = sub.Entries.Count,
+                                SubmissionId = sub.Id
+                            }).ToListAsync();
+        }
+        
         public async Task<SubmissionEntity> GetSubmissionWithEntries(int pSubmissionId)
         {
             return await this.dbContext.Submissions.Include(sub => sub.Entries).FirstOrDefaultAsync(sub => sub.Id == pSubmissionId);

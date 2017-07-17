@@ -10,8 +10,10 @@ namespace Salon.Models.Submission
     {
         public int Id { get; set; }
         public string ImageName { get; set; }
+        [Display(ResourceType =typeof(Strings), Name = "Submission_IsAwarded")]
         [Required]
         public bool? IsAwarded { get; set; }
+        [Display(ResourceType = typeof(Strings), Name = "Submission_IsAccepted")]
         [Required]
         public bool? IsAccepted { get; set; }
         [Required]

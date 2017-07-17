@@ -40,6 +40,8 @@
                                 <label class="radio-inline">
                                     <input asp-for="@Model.Entries[i].IsAwarded" value="false" type="radio" id="@nameof(SubmissionResultsEntryViewModel.IsAwarded)@(i)false" />No
                                 </label>
+                            </div>
+                            <div class="col-md-10 col-md-offset-2">
                                 <span asp-validation-for="@Model.Entries[i].IsAwarded" class="text-danger"></span>
                             </div>
                         </div>
@@ -52,6 +54,8 @@
                                 <label class="radio-inline">
                                     <input asp-for="@Model.Entries[i].IsAccepted" value="false" type="radio" id="@nameof(SubmissionResultsEntryViewModel.IsAccepted)@(i)false" />No
                                 </label>
+                            </div>
+                            <div class="col-md-10 col-md-offset-2">
                                 <span asp-validation-for="@Model.Entries[i].IsAccepted" class="text-danger"></span>
                             </div>
                         </div>
@@ -65,13 +69,17 @@
                     </div>
                 </div>
             }
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="panel panel-default">
+                <div class="panel-footer">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        </div>
 </form>
 
 <div>

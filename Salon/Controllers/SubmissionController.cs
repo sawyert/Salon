@@ -27,9 +27,13 @@ namespace Salon.Controllers
         }
 
         #region Pages
-        public IActionResult Index()
+        public IActionResult Index(int pPersonId)
         {
-            return View();
+            var lVm = new SubmissionListViewModel
+            {
+                PersonId = pPersonId
+            };
+            return View(lVm);
         }
 
         [HttpGet]

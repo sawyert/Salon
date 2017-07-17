@@ -12,5 +12,8 @@ namespace SalonServices.Repositories
         Task<SubmissionResultsDto> GetSubmissionResults(int pSubmissionId);
 
         Task<SubmissionEntity> GetSubmissionWithEntries(int pSubmissionId);
+
+        Task<List<SubmissionItemDto>> GetBasicSubmissionInfoByPersonId(int pPersonId);
+
     }
 }
