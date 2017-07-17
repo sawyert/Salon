@@ -39,15 +39,23 @@ namespace Salon.Controllers
         }
 
         [HttpGet]
-        public IActionResult SubmissionResults(int pSubmissionId)
+        public async Task<IActionResult> SubmissionResults(int pSubmissionId)
         {
-            return View();
+            var lResultsDto = await this._submissionService.GetSubmissionResults(pSubmissionId);
+            var lVm = Mapping.Mapper.Map<SubmissionResultsViewModel>(lResultsDto);
+            return View(lVm);
         }
 
         [HttpPost]
-        public IActionResult SubmissionResults(SubmissionResultsViewModel pResultsVm)
+        public async Task<IActionResult> SubmissionResults([FromForm]SubmissionResultsViewModel pResultsVm)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(pResultsVm);
+            }
+            await this._submissionService.UpdateSubmissionResults(Mapping.Mapper.Map<SubmissionResultsDto>(pResultsVm));
+            pResultsVm.ResultsUpdated = true;
+            return View(pResultsVm);
         }
         #endregion
 

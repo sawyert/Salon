@@ -1,0 +1,80 @@
+@using Salon.Models.Submission
+@model SubmissionResultsViewModel
+
+@{
+    ViewData["Title"] = "SubmissionResults";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Update Submission Results for @Model.DisplayName</h2>
+
+<form asp-action="SubmissionResults">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input asp-for="@Model.SubmissionId" type="hidden" class="form-control" />
+        <input asp-for="@Model.DisplayName" type="hidden" />
+
+
+        @if (Model.ResultsUpdated)
+        {
+            <div class="alert alert-success">
+                Results successfully updated
+            </div>
+        }
+        <div class="panel-group">
+            @for (int i = 0; i < Model.Entries.Count; i++)
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">@Model.Entries[i].ImageName</div>
+                    <div class="panel-body">
+                        <input asp-for="@Model.Entries[i].Id" type="hidden" />
+                        <input asp-for="@Model.Entries[i].ImageName" type="hidden" />
+
+                        <div class="form-group">
+                            <label asp-for="@Model.Entries[i].IsAwarded" class="col-md-2 control-label"></label>
+                            <div class="col-md-10 radio">
+                                <label class="radio-inline">
+                                    <input asp-for="@Model.Entries[i].IsAwarded" value="true" type="radio" id="@nameof(SubmissionResultsEntryViewModel.IsAwarded)@(i)true" />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input asp-for="@Model.Entries[i].IsAwarded" value="false" type="radio" id="@nameof(SubmissionResultsEntryViewModel.IsAwarded)@(i)false" />No
+                                </label>
+                                <span asp-validation-for="@Model.Entries[i].IsAwarded" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Entries[i].IsAccepted" class="col-md-2 control-label"></label>
+                            <div class="col-md-10 radio">
+                                <label class="radio-inline">
+                                    <input asp-for="@Model.Entries[i].IsAccepted" value="true" type="radio" id="@nameof(SubmissionResultsEntryViewModel.IsAccepted)@(i)true" />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input asp-for="@Model.Entries[i].IsAccepted" value="false" type="radio" id="@nameof(SubmissionResultsEntryViewModel.IsAccepted)@(i)false" />No
+                                </label>
+                                <span asp-validation-for="@Model.Entries[i].IsAccepted" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Entries[i].Score" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <input asp-for="@Model.Entries[i].Score" class="form-control" />
+                                <span asp-validation-for="@Model.Entries[i].Score" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

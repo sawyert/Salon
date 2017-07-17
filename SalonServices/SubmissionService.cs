@@ -95,7 +95,7 @@ namespace SalonServices
                     }
                     lTransaction.Commit();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     lTransaction.Rollback();
                     throw;
@@ -106,14 +106,29 @@ namespace SalonServices
             return pCreateSubmission;
         }
 
-        public Task<SubmissionResultsDto> GetSubmissionResults(int pSubmissionId)
+        public async Task<SubmissionResultsDto> GetSubmissionResults(int pSubmissionId)
         {
-            throw new NotImplementedException();
+            return await this._submissionRepository.GetSubmissionResults(pSubmissionId);
         }
 
-        public Task UpdateSubmissionResults(SubmissionResultsDto pSubmissionResults)
+        public async Task UpdateSubmissionResults(SubmissionResultsDto pSubmissionResults)
         {
-            throw new NotImplementedException();
+            var lSubmissionEntity = await this._submissionRepository.GetSubmissionWithEntries(pSubmissionResults.SubmissionId);
+            lSubmissionEntity.IsJudged = true;
+            for (int i = 0; i < lSubmissionEntity.Entries.Count; i++)
+            {
+                var lSubmissionEntryDto = pSubmissionResults.Entries.FirstOrDefault(ent => ent.Id == lSubmissionEntity.Entries[i].Id);
+                if (lSubmissionEntryDto != null)
+                {
+                    // Set the item in the list so that it is updated on the save
+                    lSubmissionEntity.Entries[i] = Mapping.Mapper.Map(lSubmissionEntryDto, lSubmissionEntity.Entries[i]);
+                }
+                else
+                {
+                    throw new ArgumentException($"Competition entry with id of {lSubmissionEntity.Entries[i].Id} was missing in the update for submission with id of {pSubmissionResults.SubmissionId}");
+                }
+            }
+            await this._submissionRepository.Update(lSubmissionEntity);
         }
     }
 }

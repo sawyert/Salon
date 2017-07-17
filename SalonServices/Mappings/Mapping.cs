@@ -143,6 +143,15 @@ namespace SalonServices.Mappings
                     .ForMember(ent => ent.Entries, x => x.Ignore())
                 ;
 
+                cfg.CreateMap<SubmissionResultsEntryDto, CompetitionEntryEntity>()
+                .ForMember(ent => ent.ImageId, x => x.Ignore())
+                .ForMember(ent => ent.Image, x => x.Ignore())
+                .ForMember(ent => ent.SectionId, x => x.Ignore())
+                .ForMember(ent => ent.Section, x => x.Ignore())
+                ;
+                cfg.CreateMap<CompetitionEntryEntity, SubmissionResultsEntryDto>()
+                ;
+
             });
             Mapper = config.CreateMapper();
             return config;

@@ -40,5 +40,17 @@ namespace SalonServices.Tests.Unit.MappingTests
 
             MappingTestHelpers.MapFromModelAndBack<SubmissionSaveSectionImagesDto, ImageEntity>(null, conf => conf.Excluding(d => d.Extension));
         }
+
+        [Test]
+        public void MapSubmissionResultsEntryToEntityAndBack()
+        {
+            A.Configure<SubmissionResultsEntryDto>()
+                .Fill(p => p.Score, () => 40)
+                .Fill(p => p.IsAccepted, () => true)
+                .Fill(p => p.IsAwarded, () => true)
+                ;
+
+            MappingTestHelpers.MapFromModelAndBack<SubmissionResultsEntryDto, CompetitionEntryEntity>();
+        }        
     }
 }

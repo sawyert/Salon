@@ -90,22 +90,76 @@ namespace SalonServices.Tests.Unit.ServiceTests
         [Test]
         public async Task GetSubmissionResults_ReturnsInfoAndCallsDb()
         {
+            // Arrange
+            this._submissionRepository.GetSubmissionResults(40).Returns(new SubmissionResultsDto
+            {
+                Entries = new List<SubmissionResultsEntryDto>
+                {
+                    new SubmissionResultsEntryDto
+                    {
+
+                    },
+                    new SubmissionResultsEntryDto
+                    {
+
+                    },
+                }
+            });
+
             // Act
             var lResult = await this.submissionService.GetSubmissionResults(40);
 
             // Assert
             Assert.IsNotNull(lResult);
+            Assert.AreEqual(2, lResult.Entries.Count());
         }
-
-
+        
         [Test]
         public async Task UpdateSubmissionResults_ReturnsInfoAndCallsDb()
         {
+            // Arrange
+            this._submissionRepository.GetSubmissionWithEntries(40).Returns(new SubmissionEntity
+            {
+                IsJudged = false,
+                Entries = new List<CompetitionEntryEntity>
+                {
+                    new CompetitionEntryEntity
+                    {
+                        Id = 50
+                    },
+                    new CompetitionEntryEntity
+                    {
+                        Id = 70
+                    },
+                }
+            });
             // Act
-            await this.submissionService.UpdateSubmissionResults(new SubmissionResultsDto ());
+            await this.submissionService.UpdateSubmissionResults(new SubmissionResultsDto() {
+                SubmissionId = 40,
+                Entries = new List<SubmissionResultsEntryDto>
+                {
+                    new SubmissionResultsEntryDto
+                    {
+                        Id = 70, 
+                        IsAccepted = true,
+                        IsAwarded = true,
+                        Score = 50
+                    },
+                    new SubmissionResultsEntryDto
+                    {
+                        Id = 50,
+                        IsAccepted = false,
+                        IsAwarded = false,
+                        Score = 99
+                    }
+                } });
 
             // Assert
-            Assert.IsTrue(false);
+            await this._submissionRepository.Received(1).Update(Arg.Is<SubmissionEntity>(sub => sub.IsJudged 
+                && sub.Entries.Count == 2
+                && sub.Entries.Count(ent => ent.Id == 50 && ent.IsAccepted == false && ent.IsAwarded == false && ent.Score == 99) == 1
+                && sub.Entries.Count(ent => ent.Id == 70 && ent.IsAccepted == true && ent.IsAwarded == true && ent.Score == 50) == 1
+            ));
         }
     }
 }

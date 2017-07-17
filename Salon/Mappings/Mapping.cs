@@ -101,6 +101,15 @@ namespace Salon.Mappings
                 cfg.CreateMap<SubmissionSaveSectionImagesDto, SubmissionSaveSectionImagesViewModel>()
                     .ForMember(dto => dto.ImageThumbnail, opt => opt.Ignore())
                 ;
+
+
+                cfg.CreateMap<SubmissionResultsViewModel, SubmissionResultsDto>();
+                cfg.CreateMap<SubmissionResultsDto, SubmissionResultsViewModel>()
+                    .ForMember(vm => vm.ResultsUpdated, opt => opt.Ignore())
+                ;
+
+                cfg.CreateMap<SubmissionResultsEntryViewModel, SubmissionResultsEntryDto>();
+                cfg.CreateMap<SubmissionResultsEntryDto, SubmissionResultsEntryViewModel>();
             });
             Mapper = config.CreateMapper();
             return config;

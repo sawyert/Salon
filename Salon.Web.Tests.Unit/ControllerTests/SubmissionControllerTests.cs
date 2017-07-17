@@ -9,7 +9,7 @@ using Salon.Models.Submission;
 using SalonServices;
 using SalonServices.Dto;
 using SalonServices.Dto.Submission;
-using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -258,6 +258,73 @@ namespace Salon.Web.Tests.Unit
             Assert.AreEqual((decimal)40.13, lResult.Cost);
             Assert.IsFalse(lResult.SubmissionCreated);
             await this._submissionService.Received(0).CreateSubmission(Arg.Any<SubmissionSaveDto>());
+        }
+
+        [Test]
+        public async Task SubmissionResults_GetsFromServiceAndMaps()
+        {
+            // Arrange
+            var lDto = A.New<SubmissionResultsDto>();
+            lDto.Entries = A.ListOf<SubmissionResultsEntryDto>();
+            
+            this._submissionService.GetSubmissionResults(50).Returns(lDto);
+
+            // Act
+            var lResult = await this.submissionController.SubmissionResults(50);
+
+            // Assert
+            ViewResult lViewResult = lResult as ViewResult;
+            var lModel = lViewResult.Model as SubmissionResultsViewModel;
+            Assert.IsNotNull(lModel);
+            Assert.IsTrue(lModel.Entries.Count > 0);
+            await this._submissionService.Received(1).GetSubmissionResults(50);
+        }
+
+        [Test]
+        public async Task PostSubmissionResults_SendsToService()
+        {
+            // Arrange
+            this._submissionService.UpdateSubmissionResults(Arg.Any<SubmissionResultsDto>()).Returns(Task.CompletedTask);
+            A.Configure<SubmissionResultsViewModel>()
+                   .Fill(p => p.ResultsUpdated, () => false)
+                   ;
+
+            var lVm = A.New<SubmissionResultsViewModel>();
+            lVm.Entries = A.ListOf<SubmissionResultsEntryViewModel>();
+
+            // Act
+            var lResult = await this.submissionController.SubmissionResults(lVm);
+
+            // Assert
+            ViewResult lViewResult = lResult as ViewResult;
+            var lModel = lViewResult.Model as SubmissionResultsViewModel;
+            Assert.IsNotNull(lModel);
+            Assert.IsTrue(lModel.ResultsUpdated);
+            await this._submissionService.Received(1).UpdateSubmissionResults(Arg.Is<SubmissionResultsDto>(t => t.SubmissionId == lVm.SubmissionId && t.Entries.ToList().Count() == lVm.Entries.Count));
+        }
+
+        [Test]
+        public async Task PostSubmissionResults_Error()
+        {
+            // Arrange
+            A.Configure<SubmissionResultsViewModel>()
+                   .Fill(p => p.ResultsUpdated, () => false)
+                   ;
+
+            var lVm = A.New<SubmissionResultsViewModel>();
+            lVm.Entries = A.ListOf<SubmissionResultsEntryViewModel>();
+
+            this.submissionController.ModelState.AddModelError("aa", "error");
+
+            // Act
+            var lResult = await this.submissionController.SubmissionResults(lVm);
+
+            // Assert
+            ViewResult lViewResult = lResult as ViewResult;
+            var lModel = lViewResult.Model as SubmissionResultsViewModel;
+            Assert.IsNotNull(lModel);
+            Assert.IsFalse(lModel.ResultsUpdated);
+            await this._submissionService.Received(0).UpdateSubmissionResults(Arg.Any<SubmissionResultsDto>());
         }
     }
 }

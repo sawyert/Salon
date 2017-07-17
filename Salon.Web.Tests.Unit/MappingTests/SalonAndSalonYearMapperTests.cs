@@ -55,6 +55,21 @@ namespace Salon.Web.Tests.Unit.MappingTests
             A.Configure<SubmissionSaveSectionViewModel>()
                     .Fill(p => p.Images, () => A.ListOf<SubmissionSaveSectionImagesViewModel>());
             MappingTestHelpers.MapFromModelAndBack<SubmissionSaveViewModel, SubmissionSaveDto>();
-        }        
+        }
+
+        [Test]
+        public void MapSubmissionResultsDtoToViewModel()
+        {
+            A.Configure<SubmissionResultsViewModel>()
+                    .Fill(p => p.Entries, () => A.ListOf<SubmissionResultsEntryViewModel>());
+            
+            MappingTestHelpers.MapFromModelAndBack<SubmissionResultsViewModel, SubmissionResultsDto>();
+        }
+
+        [Test]
+        public void MapSubmissionResultEntrysDtoToViewModel()
+        {
+            MappingTestHelpers.MapFromModelAndBack<SubmissionResultsEntryViewModel, SubmissionResultsEntryDto>();
+        }
     }
 }
