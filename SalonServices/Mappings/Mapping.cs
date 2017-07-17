@@ -61,7 +61,6 @@ namespace SalonServices.Mappings
                     .ForMember(ent => ent.Circuit, x => x.Ignore())
                     .ForMember(ent => ent.Salon, x => x.Ignore())
                  .ForMember(ent => ent.Accreditations, x => x.Ignore())
-
                 ;
 
                 cfg.CreateMap<SalonEntity, CreateSalonDto>()
@@ -109,6 +108,41 @@ namespace SalonServices.Mappings
                 ;
                 cfg.CreateMap<SectionTypeDto, SectionTypeEntity>()
                 ;
+
+                cfg.CreateMap<SubmissionEntity, SubmissionSaveDto>()
+                    .ForMember(dto => dto.SubmissionCreated, x => x.Ignore())
+                    .ForMember(dto => dto.CircuitId, x => x.Ignore())
+                    .ForMember(dto => dto.Sections, x => x.Ignore())
+                    .ForMember(dto => dto.Errors, x => x.Ignore())
+                    .ForMember(dto => dto.Cost, x => x.MapFrom(t => t.EntryCost))
+                ;
+                cfg.CreateMap<SubmissionSaveDto, SubmissionEntity>()
+                    .ForMember(ent => ent.Id, x => x.Ignore())
+                    .ForMember(ent => ent.SalonYear, x => x.Ignore())
+                    .ForMember(ent => ent.Person, x => x.Ignore())
+                    .ForMember(ent => ent.Entries, x => x.Ignore())
+                    .ForMember(ent => ent.IsJudged, x => x.Ignore())
+                    .ForMember(ent => ent.EntryCost, x => x.MapFrom(t => t.Cost))
+                ;
+
+                cfg.CreateMap<ImageEntity, SubmissionSaveSectionImagesDto>()
+                    .ForMember(dto => dto.ImageNotes, x => x.MapFrom(t => t.Notes))
+                    .ForMember(dto => dto.ImageName, x => x.MapFrom(t => t.Name))
+                    .ForMember(dto => dto.ImageId, x => x.MapFrom(t => t.Id))
+                    .ForMember(dto => dto.ImageThumbnail, x => x.Ignore())
+                    .ForMember(dto => dto.Extension, x => x.Ignore())
+               ;
+
+                cfg.CreateMap<SubmissionSaveSectionImagesDto, ImageEntity>()
+                    .ForMember(ent => ent.Notes, x => x.MapFrom(t => t.ImageNotes))
+                    .ForMember(ent => ent.Name, x => x.MapFrom(t => t.ImageName))
+                    .ForMember(ent => ent.Id, x => x.MapFrom(t => t.ImageId))
+                    .ForMember(ent => ent.ThumbnailLocation, x => x.Ignore())
+                    .ForMember(ent => ent.PersonId, x => x.Ignore())
+                    .ForMember(ent => ent.Person, x => x.Ignore())
+                    .ForMember(ent => ent.Entries, x => x.Ignore())
+                ;
+
             });
             Mapper = config.CreateMapper();
             return config;

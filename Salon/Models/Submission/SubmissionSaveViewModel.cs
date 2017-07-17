@@ -16,6 +16,7 @@ namespace Salon.Models.Submission
 
         public DateTime EntryDate { get; set; }
         public decimal Cost { get; set; }
+        public string Notes { get; set; }
 
         public List<SubmissionSaveSectionViewModel> Sections { get; set; }
 

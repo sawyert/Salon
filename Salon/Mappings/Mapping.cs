@@ -81,20 +81,22 @@ namespace Salon.Mappings
                 cfg.CreateMap<SubmissionSaveSectionDto, SubmissionSaveSectionViewModel>();
 
                 cfg.CreateMap<SubmissionSaveSectionImagesViewModel, SubmissionSaveSectionImagesDto>()
-                .ForMember(dto => dto.ImageThumbnail, opt => opt.ResolveUsing(vm =>
+                .ForMember(dto => dto.ImageThumbnail, opt => opt.Ignore())
+                .ForMember(dto => dto.Extension, opt => opt.Ignore())
+                .AfterMap((src, dest) =>
                 {
-                    if (vm.ImageThumbnail != null)
+                    if (src.ImageThumbnail != null)
                     {
-                        using (var fileStream = vm.ImageThumbnail.OpenReadStream())
+                        using (var fileStream = src.ImageThumbnail.OpenReadStream())
                         using (var ms = new MemoryStream())
                         {
                             fileStream.CopyTo(ms);
                             var fileBytes = ms.ToArray();
-                            return fileBytes;
+                            dest.ImageThumbnail = fileBytes;
+                            dest.Extension = Path.GetExtension(src.ImageThumbnail.FileName);
                         }
                     }
-                    return null;
-                }))
+                })
                 ;
                 cfg.CreateMap<SubmissionSaveSectionImagesDto, SubmissionSaveSectionImagesViewModel>()
                     .ForMember(dto => dto.ImageThumbnail, opt => opt.Ignore())

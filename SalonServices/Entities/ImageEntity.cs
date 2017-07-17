@@ -14,6 +14,9 @@ namespace SalonServices.Entities
 
         [MaxLength(1000)]
         public string Notes { get; set; }
+        [Required]
+        [MaxLength(300)]
+        public string ThumbnailLocation { get; set; }
 
         public List<CompetitionEntryEntity> Entries { get; set; }
 
