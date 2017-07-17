@@ -52,7 +52,28 @@ namespace SalonServices.Mappings
                     .ForMember(ent => ent.Circuit, x => x.Ignore())
                     .ForMember(ent => ent.CircuitId, x => x.Ignore())
                     .ForMember(ent => ent.Salon, x => x.Ignore())
+                ;
 
+                cfg.CreateMap<SalonYearEntity, CreateSalonYearDto>()
+                 .ForMember(dto => dto.Errors, x => x.Ignore())
+                ;
+                cfg.CreateMap<CreateSalonYearDto, SalonYearEntity>()
+                    .ForMember(ent => ent.Circuit, x => x.Ignore())
+                    .ForMember(ent => ent.Salon, x => x.Ignore())
+                 .ForMember(ent => ent.Accreditations, x => x.Ignore())
+                ;
+
+                cfg.CreateMap<SalonEntity, CreateSalonDto>()
+                 .ForMember(dto => dto.SalonName, x => x.MapFrom(ent => ent.Name))
+                 .ForMember(dto => dto.SalonId, x => x.MapFrom(ent => ent.Id))
+                 .ForMember(dto => dto.CountryName, x => x.MapFrom(ent => ent.Country != null ? ent.Country.Name : null))
+                 .ForMember(dto => dto.Errors, x => x.Ignore())
+                ;
+                cfg.CreateMap<CreateSalonDto, SalonEntity>()
+                 .ForMember(ent => ent.Name, x => x.MapFrom(dto => dto.SalonName))
+                 .ForMember(ent => ent.Id, x => x.MapFrom(dto => dto.SalonId))
+                 .ForMember(ent => ent.Country, x => x.ResolveUsing(dto => !string.IsNullOrEmpty(dto.CountryName) ? new CountryEntity { Name = dto.CountryName } : null))
+                 .ForMember(ent => ent.SalonYears, x => x.Ignore())
                 ;
 
                 cfg.CreateMap<AccreditationEntity, SalonYearAccreditationDto>()
@@ -87,6 +108,50 @@ namespace SalonServices.Mappings
                 ;
                 cfg.CreateMap<SectionTypeDto, SectionTypeEntity>()
                 ;
+
+                cfg.CreateMap<SubmissionEntity, SubmissionSaveDto>()
+                    .ForMember(dto => dto.SubmissionCreated, x => x.Ignore())
+                    .ForMember(dto => dto.CircuitId, x => x.Ignore())
+                    .ForMember(dto => dto.Sections, x => x.Ignore())
+                    .ForMember(dto => dto.Errors, x => x.Ignore())
+                    .ForMember(dto => dto.Cost, x => x.MapFrom(t => t.EntryCost))
+                ;
+                cfg.CreateMap<SubmissionSaveDto, SubmissionEntity>()
+                    .ForMember(ent => ent.Id, x => x.Ignore())
+                    .ForMember(ent => ent.SalonYear, x => x.Ignore())
+                    .ForMember(ent => ent.Person, x => x.Ignore())
+                    .ForMember(ent => ent.Entries, x => x.Ignore())
+                    .ForMember(ent => ent.IsJudged, x => x.Ignore())
+                    .ForMember(ent => ent.EntryCost, x => x.MapFrom(t => t.Cost))
+                ;
+
+                cfg.CreateMap<ImageEntity, SubmissionSaveSectionImagesDto>()
+                    .ForMember(dto => dto.ImageNotes, x => x.MapFrom(t => t.Notes))
+                    .ForMember(dto => dto.ImageName, x => x.MapFrom(t => t.Name))
+                    .ForMember(dto => dto.ImageId, x => x.MapFrom(t => t.Id))
+                    .ForMember(dto => dto.ImageThumbnail, x => x.Ignore())
+                    .ForMember(dto => dto.Extension, x => x.Ignore())
+               ;
+
+                cfg.CreateMap<SubmissionSaveSectionImagesDto, ImageEntity>()
+                    .ForMember(ent => ent.Notes, x => x.MapFrom(t => t.ImageNotes))
+                    .ForMember(ent => ent.Name, x => x.MapFrom(t => t.ImageName))
+                    .ForMember(ent => ent.Id, x => x.MapFrom(t => t.ImageId))
+                    .ForMember(ent => ent.ThumbnailLocation, x => x.Ignore())
+                    .ForMember(ent => ent.PersonId, x => x.Ignore())
+                    .ForMember(ent => ent.Person, x => x.Ignore())
+                    .ForMember(ent => ent.Entries, x => x.Ignore())
+                ;
+
+                cfg.CreateMap<SubmissionResultsEntryDto, CompetitionEntryEntity>()
+                .ForMember(ent => ent.ImageId, x => x.Ignore())
+                .ForMember(ent => ent.Image, x => x.Ignore())
+                .ForMember(ent => ent.SectionId, x => x.Ignore())
+                .ForMember(ent => ent.Section, x => x.Ignore())
+                ;
+                cfg.CreateMap<CompetitionEntryEntity, SubmissionResultsEntryDto>()
+                ;
+
             });
             Mapper = config.CreateMapper();
             return config;

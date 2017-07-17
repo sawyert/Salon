@@ -112,8 +112,6 @@ namespace SalonServices.Tests.Unit.ServiceTests
                 }
             });
 
-
-
             // Act
             var lResult = await this.salonYearService.GetSalonYears(2017);
 
@@ -121,6 +119,65 @@ namespace SalonServices.Tests.Unit.ServiceTests
             Assert.IsNotNull(lResult);
             Assert.AreEqual(2, lResult.Count);
             Assert.AreEqual(2, lResult[0].Accreditations.Count);
+        }
+
+        [Test]
+        public async Task CreateSalon_CreatesCountryIfEmpty()
+        {
+            // Arrange
+            this.salonRepository.Add(Arg.Any<SalonEntity>()).Returns(new SalonEntity
+            {
+                Id = 50,
+                Name = "salon"
+            });
+
+            // Act
+            var lResult = await this.salonYearService.CreateSalon(new CreateSalonDto { CountryName = "UK", SalonName = "sal name" });
+
+            // Assert
+            Assert.IsNotNull(lResult);
+            Assert.AreEqual(50, lResult.SalonId);
+            await this.salonRepository.Received(1).Add(Arg.Is<SalonEntity>(se => se.Country != null && se.Country.Name == "UK" && se.Name == "sal name"));
+        }
+
+        [Test]
+        public async Task CreateSalon_DoesntCreateCountryIfIdExists()
+        {
+            // Arrange
+            this.salonRepository.Add(Arg.Any<SalonEntity>()).Returns(new SalonEntity
+            {
+                Id = 50,
+                Name = "salon"
+            });
+
+            // Act
+            var lResult = await this.salonYearService.CreateSalon(new CreateSalonDto { CountryId = 40, SalonName = "sal name" });
+
+            // Assert
+            Assert.IsNotNull(lResult);
+            Assert.AreEqual(50, lResult.SalonId);
+            await this.salonRepository.Received(1).Add(Arg.Is<SalonEntity>(se => se.Country == null && se.CountryId == 40 && se.Name == "sal name"));
+        }
+
+        [Test]
+        public async Task CreateSalonYear_AddsToDb()
+        {
+            // Arrange
+            this.salonYearRepository.Add(Arg.Any<SalonYearEntity>()).Returns(new SalonYearEntity
+            {
+                Id = 50,
+                Name = "salon",
+                SalonId = 60
+            });
+
+            // Act
+            var lResult = await this.salonYearService.CreateSalonYear(new CreateSalonYearDto { SalonId = 40, Name = "sal name", Year = 3000 });
+
+            // Assert
+            Assert.IsNotNull(lResult);
+            Assert.AreEqual(50, lResult.Id);
+            Assert.AreEqual(60, lResult.SalonId);
+            await this.salonYearRepository.Received(1).Add(Arg.Is<SalonYearEntity>(se => se.SalonId == 40 && se.Name == "sal name" && se.Year == 3000));
         }
     }
 }

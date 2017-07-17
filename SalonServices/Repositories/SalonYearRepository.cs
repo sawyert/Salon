@@ -44,5 +44,10 @@ namespace SalonServices.Repositories
         {
             return await this.dbContext.SalonYears.Where(sy => sy.Year == pYear).Include(sy => sy.Accreditations).ToListAsync();
         }
+
+        public async Task<List<int>> GetSalonYearsIdsByCircuitId(int pCircuitId)
+        {
+            return await this.dbContext.SalonYears.Where(sy => sy.CircuitId == pCircuitId).Select(sy => sy.Id).ToListAsync();
+        }
     }
 }

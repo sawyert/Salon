@@ -15,6 +15,9 @@ namespace SalonServices.Dto.Submission
         public DateTime EntryDate { get; set; }
         public decimal Cost { get; set; }
 
+        public string Notes { get; set; }
+
+
         public List<SubmissionSaveSectionDto> Sections { get; set; }
 
     }

@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using SalonServices;
 using SalonServices.Repositories;
+using SalonServices.Dto;
 
 namespace Salon
 {
@@ -34,6 +35,12 @@ namespace Salon
         {
             // Add framework services.
             services.AddMvc();
+
+            IConfigurationSection lFileSettingsSection = this.Configuration.GetSection("FileSettings");
+            var lFileSettings = new FileSettings();
+            lFileSettingsSection.Bind(lFileSettings);
+            services.Configure<FileSettings>(lFileSettingsSection);
+
             services.AddScoped<IAccreditationRepository, AccreditationRepository>();
             services.AddScoped<IAwardLevelRepository, AwardLevelRepository>();
             services.AddScoped<ICompetitionEntryRepository, CompetitionEntryRepository>();
@@ -51,6 +58,8 @@ namespace Salon
             services.AddScoped<ISubmissionService, SubmissionService>();
             services.AddScoped<IReferenceServices, ReferenceServices>();
             services.AddScoped<IPersonAwardService, PersonAwardService>();
+            services.AddScoped<IImageService, ImageService>();
+            services.AddScoped<IDbTransaction, SalonDbContext>();
             services.AddScoped<ISalonDbContext, SalonDbContext>();
         }
 

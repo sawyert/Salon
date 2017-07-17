@@ -8,6 +8,11 @@ namespace SalonServices.Entities
 {
     public class SubmissionEntity : AbstractEntity
     {
+        public SubmissionEntity()
+        {
+            Entries = new List<CompetitionEntryEntity>();
+        }
+
         [Required]
         public DateTime EntryDate { get; set; }
 

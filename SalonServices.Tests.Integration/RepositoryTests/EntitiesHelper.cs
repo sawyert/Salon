@@ -59,7 +59,7 @@ namespace SalonServices.Tests.Integration.RepositoryTests
 
         internal static ImageEntity GetImage()
         {
-            return new ImageEntity { Name = "org1", Person = GetPerson() };
+            return new ImageEntity { Name = "org1", Person = GetPerson(), ThumbnailLocation = "test.jpg" };
         }
 
         internal static PersonEntity GetPerson()

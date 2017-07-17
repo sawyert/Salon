@@ -9,6 +9,7 @@ namespace Salon.Models
     {
         public int? Id { get; set; }
         public int SalonId { get; set; }
+        public int? CircuitId { get; set; }
         public string Name { get; set; }
         public int Year { get; set; }
         public DateTime CataloguesPostedDate { get; set; }

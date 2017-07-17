@@ -13,9 +13,10 @@ namespace Salon.Models.Submission
         public int? CircuitId { get; set; }
 
         public int PersonId { get; set; }
-
+        [Required]
         public DateTime EntryDate { get; set; }
         public decimal Cost { get; set; }
+        public string Notes { get; set; }
 
         public List<SubmissionSaveSectionViewModel> Sections { get; set; }
 

@@ -7,5 +7,6 @@ namespace SalonServices.Dto.Submission
         public string ImageName { get; set; }
         public string ImageNotes { get; set; }
         public byte[] ImageThumbnail { get; set; }
+        public string Extension { get; set; }
     }
 }

@@ -81,24 +81,35 @@ namespace Salon.Mappings
                 cfg.CreateMap<SubmissionSaveSectionDto, SubmissionSaveSectionViewModel>();
 
                 cfg.CreateMap<SubmissionSaveSectionImagesViewModel, SubmissionSaveSectionImagesDto>()
-                .ForMember(dto => dto.ImageThumbnail, opt => opt.ResolveUsing(vm =>
+                .ForMember(dto => dto.ImageThumbnail, opt => opt.Ignore())
+                .ForMember(dto => dto.Extension, opt => opt.Ignore())
+                .AfterMap((src, dest) =>
                 {
-                    if (vm.ImageThumbnail != null)
+                    if (src.ImageThumbnail != null)
                     {
-                        using (var fileStream = vm.ImageThumbnail.OpenReadStream())
+                        using (var fileStream = src.ImageThumbnail.OpenReadStream())
                         using (var ms = new MemoryStream())
                         {
                             fileStream.CopyTo(ms);
                             var fileBytes = ms.ToArray();
-                            return fileBytes;
+                            dest.ImageThumbnail = fileBytes;
+                            dest.Extension = Path.GetExtension(src.ImageThumbnail.FileName);
                         }
                     }
-                    return null;
-                }))
+                })
                 ;
                 cfg.CreateMap<SubmissionSaveSectionImagesDto, SubmissionSaveSectionImagesViewModel>()
                     .ForMember(dto => dto.ImageThumbnail, opt => opt.Ignore())
                 ;
+
+
+                cfg.CreateMap<SubmissionResultsViewModel, SubmissionResultsDto>();
+                cfg.CreateMap<SubmissionResultsDto, SubmissionResultsViewModel>()
+                    .ForMember(vm => vm.ResultsUpdated, opt => opt.Ignore())
+                ;
+
+                cfg.CreateMap<SubmissionResultsEntryViewModel, SubmissionResultsEntryDto>();
+                cfg.CreateMap<SubmissionResultsEntryDto, SubmissionResultsEntryViewModel>();
             });
             Mapper = config.CreateMapper();
             return config;

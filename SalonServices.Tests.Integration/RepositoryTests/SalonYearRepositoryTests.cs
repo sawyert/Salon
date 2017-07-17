@@ -84,7 +84,42 @@ namespace SalonServices.Tests.Integration.RepositoryTests
             Assert.AreEqual(2, lResult.Count(t => t.Name.StartsWith("test")));
             Assert.AreEqual(2, lResult.Where(t => t.Name.StartsWith("test")).ToList()[0].Accreditations.Count);
         }
-        
+
+        [Test]
+        public async Task GetSalonYearsIdsByCircuitId_GetsFromDb()
+        {
+            // Arrange
+            var circuit = new CircuitEntity { Name = "circuitName" };
+            await salonYearRepository.Add(new SalonYearEntity
+            {
+                Name = "test1",
+                Year = 2017,
+                Salon = EntitiesHelper.GetSalon(),
+                Circuit = circuit
+            });
+            await salonYearRepository.Add(new SalonYearEntity
+            {
+                Name = "test2",
+                Year = 2016,
+                Salon = EntitiesHelper.GetSalon(),
+                Circuit = circuit
+            });
+            await salonYearRepository.Add(new SalonYearEntity
+            {
+                Name = "test3",
+                Year = 2017,
+                Salon = EntitiesHelper.GetSalon(),
+                Circuit = new CircuitEntity { Name = "circuitName2" }
+            });
+
+            // Act
+            var lResult = await salonYearRepository.GetSalonYearsIdsByCircuitId(circuit.Id);
+
+            // Assert
+            Assert.IsNotNull(lResult);
+            Assert.AreEqual(2, lResult.Count());
+        }
+
         [Test]
         public async Task UpdateSalonYear_SetsNameInDb()
         {

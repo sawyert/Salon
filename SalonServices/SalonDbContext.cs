@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Storage;
+using System.Threading.Tasks;
 
 namespace SalonServices
 {
-    public class SalonDbContext : DbContext, ISalonDbContext
+    public class SalonDbContext : DbContext, ISalonDbContext, IDbTransaction
     {
         public virtual DbSet<CountryEntity> Countries { get; set; }
         public virtual DbSet<AccreditationEntity> Accreditations { get; set; }
@@ -36,6 +38,12 @@ namespace SalonServices
             modelBuilder.Entity<PersonEntity>().HasMany(per => per.Submissions).WithOne(ent => ent.Person).OnDelete(DeleteBehavior.Restrict);
 
         }
+
+        public async Task<IDbContextTransaction> BeginTransactionAsync()
+        {
+            return await this.Database.BeginTransactionAsync();
+        }
+        
 
         /// <summary>
         /// Gets the connection string from the app setting

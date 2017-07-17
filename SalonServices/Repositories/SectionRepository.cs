@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SalonServices.Entities;
 using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SalonServices.Repositories
 {
@@ -35,6 +38,11 @@ namespace SalonServices.Repositories
         {
             this.dbContext.SalonSections.Remove(pEntity);
             await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<List<SectionEntity>> GetSectionsBySalonYearSectionTypeIds(int salonYearId, List<int> sectionTypeIds)
+        {
+            return await this.dbContext.SalonSections.Where(ss => ss.SalonYearId == salonYearId && sectionTypeIds.Contains(ss.SectionTypeId)).ToListAsync();
         }
     }
 }

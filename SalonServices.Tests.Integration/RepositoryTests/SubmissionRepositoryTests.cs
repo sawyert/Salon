@@ -49,22 +49,128 @@ namespace SalonServices.Tests.Integration.RepositoryTests
         }
 
         [Test]
-        public async Task UpdateSubmission_SetsNameInDb()
+        public async Task GetSubmissionWithEntries_GetsFromDb()
         {
             // Arrange
-            var lCreatedEntity = await submissionRepository.Add(new Entities.SubmissionEntity { Notes = "test", SalonYear = EntitiesHelper.GetSalonYear(), Person = EntitiesHelper.GetPerson() });
+            ImageEntity imageEntity = EntitiesHelper.GetImage();
+
+            var lCreatedEntity = await submissionRepository.Add(new Entities.SubmissionEntity { Notes = "test", SalonYear = EntitiesHelper.GetSalonYear(), Person = EntitiesHelper.GetPerson(),
+                Entries = new List<CompetitionEntryEntity>
+                {
+                    new CompetitionEntryEntity
+                    {
+                         Image = imageEntity,
+                         Section = EntitiesHelper.GetSection(),
+                         IsAccepted = true,
+                         IsAwarded = false,
+                         Score = 50
+                    },
+                    new CompetitionEntryEntity
+                    {
+                         Image = imageEntity,
+                         Section = EntitiesHelper.GetSection(),
+                    }
+                }
+            });
+
+            // Act
+            var lResult = await submissionRepository.GetSubmissionWithEntries(lCreatedEntity.Id);
+
+            // Assert
+            Assert.IsNotNull(lResult);
+            Assert.IsTrue(lResult.Id > 0);
+            Assert.AreEqual("test", lResult.Notes);
+            Assert.AreEqual(2, lResult.Entries.Count);
+        }
+
+        [Test]
+        public async Task GetSubmissionResults_GetsFromDb()
+        {
+            // Arrange
+            ImageEntity imageEntity = EntitiesHelper.GetImage();
+            var lCreatedEntity = await submissionRepository.Add(new SubmissionEntity { Notes = "test", SalonYear = EntitiesHelper.GetSalonYear(), Person = EntitiesHelper.GetPerson(),
+                Entries = new List<CompetitionEntryEntity>
+                {
+                    new CompetitionEntryEntity
+                    {
+                         Image = imageEntity,
+                         Section = EntitiesHelper.GetSection(),
+                         IsAccepted = true,
+                         IsAwarded = false,
+                         Score = 50
+                    },
+                    new CompetitionEntryEntity
+                    {
+                         Image = imageEntity,
+                         Section = EntitiesHelper.GetSection(),
+                    }
+                } });
+
+            // Act
+            var lResult = await submissionRepository.GetSubmissionResults(lCreatedEntity.Id);
+
+            // Assert
+            Assert.IsNotNull(lResult);
+            Assert.IsTrue(lResult.SubmissionId > 0);
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(lResult.DisplayName));
+            Assert.IsTrue(lResult.Entries.Any(ent => ent.Id > 0 && ent.Score == 50 && ent.IsAwarded == false && ent.IsAccepted == true));
+            Assert.IsTrue(lResult.Entries.Any(ent => ent.Id > 0 && !ent.Score.HasValue && !ent.IsAwarded.HasValue && !ent.IsAccepted.HasValue));
+            Assert.IsTrue(lResult.Entries.All(ent => !string.IsNullOrWhiteSpace(ent.ImageName)));
+        }
+
+        [Test]
+        public async Task UpdateSubmission_SetsNameAndEntryInDb()
+        {
+            // Arrange
+            ImageEntity imageEntity = EntitiesHelper.GetImage();
+            var lCreatedEntity = await submissionRepository.Add(new Entities.SubmissionEntity
+            {
+                Notes = "test",
+                SalonYear = EntitiesHelper.GetSalonYear(),
+                Person = EntitiesHelper.GetPerson(),
+                Entries = new List<CompetitionEntryEntity>
+                {
+                    new CompetitionEntryEntity
+                    {
+                         Image = imageEntity,
+                         Section = EntitiesHelper.GetSection(),
+                         IsAccepted = true,
+                         IsAwarded = false,
+                         Score = 50
+                    },
+                    new CompetitionEntryEntity
+                    {
+                         Image = imageEntity,
+                         Section = EntitiesHelper.GetSection(),
+                    }
+                }
+            });
             lCreatedEntity.Notes = "fred";
+            lCreatedEntity.Entries[0].IsAwarded = true;
+            lCreatedEntity.Entries[0].Score = 100;
+
+            lCreatedEntity.Entries[1].IsAccepted = false;
+            lCreatedEntity.Entries[1].IsAwarded = false;
+            lCreatedEntity.Entries[1].Score = 20;
+
 
             // Act
             await submissionRepository.Update(lCreatedEntity);
 
             // Assert
-            var lResult = await submissionRepository.GetById(lCreatedEntity.Id);
+            var lResult = await submissionRepository.GetSubmissionWithEntries(lCreatedEntity.Id);
             Assert.IsNotNull(lResult);
             Assert.IsTrue(lResult.Id > 0);
             Assert.AreEqual("fred", lResult.Notes);
+            Assert.AreEqual(100, lResult.Entries[0].Score);
+            Assert.AreEqual(true, lResult.Entries[0].IsAccepted);
+            Assert.AreEqual(true, lResult.Entries[0].IsAwarded);
+
+            Assert.AreEqual(20, lResult.Entries[1].Score);
+            Assert.AreEqual(false, lResult.Entries[1].IsAccepted);
+            Assert.AreEqual(false, lResult.Entries[1].IsAwarded);
         }
-        
+
         [Test]
         public async Task DeleteSubmission_RemovesFromDb()
         {

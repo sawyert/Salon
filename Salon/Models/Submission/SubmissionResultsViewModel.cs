@@ -1,11 +1,21 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Salon.Models
+namespace Salon.Models.Submission
 {
     public class SubmissionResultsViewModel
     {
+        public SubmissionResultsViewModel()
+        {
+            Entries = new List<SubmissionResultsEntryViewModel>();
+        }
+
+        public string DisplayName { get; set; }
+
+        public int SubmissionId { get; set; }
+
+        public List<SubmissionResultsEntryViewModel> Entries { get; set; }
+
+        public bool ResultsUpdated { get; set; }
     }
 }
