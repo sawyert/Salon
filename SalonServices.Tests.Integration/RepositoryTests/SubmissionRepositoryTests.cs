@@ -97,6 +97,7 @@ namespace SalonServices.Tests.Integration.RepositoryTests
                          Section = EntitiesHelper.GetSection(),
                          IsAccepted = true,
                          IsAwarded = false,
+                         AwardDetails = "award 1",
                          Score = 50
                     },
                     new CompetitionEntryEntity
@@ -114,6 +115,7 @@ namespace SalonServices.Tests.Integration.RepositoryTests
             Assert.IsTrue(lResult.SubmissionId > 0);
             Assert.IsTrue(lResult.PersonId > 0);
             Assert.IsTrue(!string.IsNullOrWhiteSpace(lResult.DisplayName));
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(lResult.Entries.ToList()[0].AwardDetails));
             Assert.IsTrue(lResult.Entries.Any(ent => ent.Id > 0 && ent.Score == 50 && ent.IsAwarded == false && ent.IsAccepted == true));
             Assert.IsTrue(lResult.Entries.Any(ent => ent.Id > 0 && !ent.Score.HasValue && !ent.IsAwarded.HasValue && !ent.IsAccepted.HasValue));
             Assert.IsTrue(lResult.Entries.All(ent => !string.IsNullOrWhiteSpace(ent.ImageName)));

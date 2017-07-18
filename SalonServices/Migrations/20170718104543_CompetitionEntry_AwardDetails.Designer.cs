@@ -8,9 +8,10 @@ using SalonServices;
 namespace SalonServices.Migrations
 {
     [DbContext(typeof(SalonDbContext))]
-    partial class SalonDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170718104543_CompetitionEntry_AwardDetails")]
+    partial class CompetitionEntry_AwardDetails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

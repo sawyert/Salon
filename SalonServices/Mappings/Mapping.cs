@@ -51,6 +51,7 @@ namespace SalonServices.Mappings
                 cfg.CreateMap<CreateSectionTypeDto, SectionTypeEntity>()
                 ;
                 cfg.CreateMap<SectionTypeEntity, CreateSectionTypeDto>()
+                    .ForMember(dto => dto.Errors, x => x.Ignore())
                 ;
 
                 cfg.CreateMap<PersonEntity, BasicPersonDto>()

@@ -123,6 +123,9 @@
   <data name="SectionType_SectionCode" xml:space="preserve">
     <value>Section Code</value>
   </data>
+  <data name="Submission_AwardDetails" xml:space="preserve">
+    <value>Award Details</value>
+  </data>
   <data name="Submission_IsAccepted" xml:space="preserve">
     <value>Is Accepted</value>
   </data>

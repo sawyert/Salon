@@ -82,7 +82,8 @@ namespace Salon.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             await this._referenceServices.DeleteSectionType(id);
-            return Content(this.Url.Action("Index", new { successMessage = "SectionType successfully deleted" }));
+            var lUrl = this.Url.Action("Index", new { successMessage = "Section Type successfully deleted" });
+            return Content(lUrl);
         }
     }
 }

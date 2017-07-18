@@ -55,7 +55,8 @@ namespace SalonServices.Repositories
                                     Score = ent.Score,
                                     IsAwarded = ent.IsAwarded,
                                     IsAccepted = ent.IsAccepted,
-                                    ImageName = ent.Image.Name
+                                    ImageName = ent.Image.Name,
+                                    AwardDetails = ent.AwardDetails
                                 })
                             }).FirstOrDefaultAsync();
         }

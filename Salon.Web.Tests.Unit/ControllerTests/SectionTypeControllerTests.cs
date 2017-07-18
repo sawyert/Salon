@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 using NSubstitute;
 using NUnit.Framework;
 using Salon.Controllers;
@@ -23,8 +24,15 @@ namespace Salon.Web.Tests.Unit
         {
             this.ReferenceServices = Substitute.For<IReferenceServices>();
             this.sectionTypeController = new SectionTypeController(this.ReferenceServices);
+            this.sectionTypeController.Url = Substitute.For<IUrlHelper>();
+            this.sectionTypeController.Url.Action(Arg.Any<UrlActionContext>()).Returns(t => {
+                var firstArg = t.ArgAt<UrlActionContext>(0);
+                return firstArg.Action + firstArg.Values.ToString();
+                });
             Mapping.CreateConfiguration();
         }
+
+
 
         [Test]
         public async Task TestGetSectionTypes()
@@ -150,13 +158,17 @@ namespace Salon.Web.Tests.Unit
         [Test]
         public async Task TestDeleteSectionTypes()
         {
+            // Arrange
             this.ReferenceServices.DeleteSectionType(Arg.Any<int>()).Returns(true);
 
+            // Act
             IActionResult lResult = await this.sectionTypeController.Delete(5);
-            ContentResult lContentResult = lResult as ContentResult;
-            Assert.IsTrue(lContentResult.Content.Contains("SectionType successfully deleted"));
 
+            // Assert
+            ContentResult lContentResult = lResult as ContentResult;
+            Assert.IsTrue(lContentResult.Content.Contains("successfully deleted"));
             await this.ReferenceServices.Received(1).DeleteSectionType(5);
+            this.sectionTypeController.Url.Received(1).Action(Arg.Is<UrlActionContext>(t => t.Action == "Index"));
         }
     }
 }

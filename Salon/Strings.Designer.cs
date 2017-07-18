@@ -80,6 +80,15 @@ namespace Salon {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Award Details.
+        /// </summary>
+        public static string Submission_AwardDetails {
+            get {
+                return ResourceManager.GetString("Submission_AwardDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Is Accepted.
         /// </summary>
         public static string Submission_IsAccepted {
