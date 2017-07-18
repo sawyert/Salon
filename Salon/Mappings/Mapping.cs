@@ -62,6 +62,11 @@ namespace Salon.Mappings
                 cfg.CreateMap<SectionTypeViewModel, SectionTypeDto>();
                 cfg.CreateMap<SectionTypeDto, SectionTypeViewModel>();
 
+                cfg.CreateMap<CreateSectionTypeViewModel, CreateSectionTypeDto>();
+                cfg.CreateMap<CreateSectionTypeDto, CreateSectionTypeViewModel>()
+                        .ForMember(model => model.Errors, opt => opt.Ignore())
+                        ;
+
                 cfg.CreateMap<OrganisationViewModel, OrganisationDto>();
                 cfg.CreateMap<OrganisationDto, OrganisationViewModel>();
 

@@ -43,7 +43,7 @@ namespace Salon.Web.Tests.Unit
 
             IActionResult lResult = await this.countryController.Index();
             ViewResult lViewResult = lResult as ViewResult;
-            var lModel = lViewResult.Model as IndexViewModel;
+            var lModel = lViewResult.Model as CountryIndexViewModel;
             Assert.IsNull(lModel.SuccessMessage);
             Assert.IsNull(lModel.FailureMessage);
             Assert.AreEqual(3, lModel.Countries.Count);
@@ -60,7 +60,7 @@ namespace Salon.Web.Tests.Unit
 
             // Assert
             ViewResult lViewResult = lResult as ViewResult;
-            var lModel = lViewResult.Model as IndexViewModel;
+            var lModel = lViewResult.Model as CountryIndexViewModel;
             Assert.AreEqual("TestSuccess", lModel.SuccessMessage);
             Assert.AreEqual("TestFailure", lModel.FailureMessage);
         }

@@ -44,9 +44,21 @@ namespace Salon.Web.Tests.Unit.MappingTests
         }
 
         [Test]
+        public void MapCreateSectionTypeViewModelToDto()
+        {
+            MappingTestHelpers.MapFromModelAndBack<CreateSectionTypeViewModel, CreateSectionTypeDto>();
+        }
+
+        [Test]
         public void MapCountryViewModelToDto()
         {
             MappingTestHelpers.MapFromModelAndBack<CountryViewModel, CountryDto>();
+        }
+
+        [Test]
+        public void MapCreateCountryViewModelToDto()
+        {
+            MappingTestHelpers.MapFromModelAndBack<CreateCountryViewModel, CreateCountryDto>();
         }
     }
 }

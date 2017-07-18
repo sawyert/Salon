@@ -10,23 +10,23 @@ using SalonServices.Dto;
 
 namespace Salon.Controllers
 {
-    public class CountryController : Controller
+    public class SectionTypeController : Controller
     {
         private readonly IReferenceServices _referenceServices;
-        public CountryController(IReferenceServices pReferenceServices)
+        public SectionTypeController(IReferenceServices pReferenceServices)
         {
             this._referenceServices = pReferenceServices;
         }
 
         public async Task<IActionResult> Index(string successMessage = null, string failureMessage = null)
         {
-            var lDtos = await this._referenceServices.GetCountries();
+            var lDtos = await this._referenceServices.GetSectionTypes();
 
-            var lModel = new CountryIndexViewModel()
+            var lModel = new SectionTypeIndexViewModel()
             {
                 SuccessMessage = successMessage,
                 FailureMessage = failureMessage,
-                Countries = lDtos.Select(itm => Mapping.Mapper.Map<CountryViewModel>(itm)).ToList(),
+                SectionTypes = lDtos.Select(itm => Mapping.Mapper.Map<SectionTypeViewModel>(itm)).ToList(),
             };
             return View(lModel);
         }
@@ -34,11 +34,11 @@ namespace Salon.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            return View(new CreateCountryViewModel());
+            return View(new CreateSectionTypeViewModel());
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(CreateCountryViewModel pCreateModel)
+        public async Task<IActionResult> Add(CreateSectionTypeViewModel pCreateModel)
         {
             if(!this.ModelState.IsValid)
             {
@@ -47,23 +47,23 @@ namespace Salon.Controllers
             }
 
             // map to Dto
-            var lDtoToCreate = Mapping.Mapper.Map<CreateCountryDto>(pCreateModel);
-            await this._referenceServices.CreateCountry(lDtoToCreate);
+            var lDtoToCreate = Mapping.Mapper.Map<CreateSectionTypeDto>(pCreateModel);
+            await this._referenceServices.CreateSectionType(lDtoToCreate);
 
-            return RedirectToAction("Index", new { successMessage = "Country successfully created" });
+            return RedirectToAction("Index", new { successMessage = "SectionType successfully created" });
         }
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            CountryDto lCountryDto = await this._referenceServices.GetCountryById(id);
-            var lViewModelToEdit = Mapping.Mapper.Map<CountryViewModel>(lCountryDto);
+            SectionTypeDto lSectionTypeDto = await this._referenceServices.GetSectionTypeById(id);
+            var lViewModelToEdit = Mapping.Mapper.Map<SectionTypeViewModel>(lSectionTypeDto);
             //this._referenceServices.
             return View(lViewModelToEdit);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(CountryViewModel pViewModelToUpdate)
+        public async Task<IActionResult> Edit(SectionTypeViewModel pViewModelToUpdate)
         {
             if (!ModelState.IsValid)
             {
@@ -71,18 +71,18 @@ namespace Salon.Controllers
             }
 
             // map to Dto
-            CountryDto lCountryDto = Mapping.Mapper.Map<CountryDto>(pViewModelToUpdate);
+            SectionTypeDto lSectionTypeDto = Mapping.Mapper.Map<SectionTypeDto>(pViewModelToUpdate);
 
-            await this._referenceServices.UpdateCountry(lCountryDto);
+            await this._referenceServices.UpdateSectionType(lSectionTypeDto);
 
-            return RedirectToAction("Index", new { successMessage = "Country successfully updated" });
+            return RedirectToAction("Index", new { successMessage = "SectionType successfully updated" });
         }
 
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            await this._referenceServices.DeleteCountry(id);
-            return RedirectToAction("Index", new { successMessage = "Country successfully deleted" });
+            await this._referenceServices.DeleteSectionType(id);
+            return Content(this.Url.Action("Index", new { successMessage = "SectionType successfully deleted" }));
         }
     }
 }

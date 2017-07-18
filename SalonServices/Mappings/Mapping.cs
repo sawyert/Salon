@@ -36,6 +36,23 @@ namespace SalonServices.Mappings
                 .ForMember(ent => ent.Salons, x => x.Ignore())
                 ;
 
+                cfg.CreateMap<CountryEntity, CreateCountryDto>()
+                ;
+
+                cfg.CreateMap<SectionTypeEntity, SectionTypeDto>();
+                cfg.CreateMap<CreateSectionTypeDto, SectionTypeDto>()
+                .ForMember(ent => ent.Id, x => x.Ignore())
+                ;
+                cfg.CreateMap<SectionTypeDto, CreateSectionTypeDto>()
+                    .ForMember(dto => dto.Errors, x => x.Ignore())
+                ;
+                cfg.CreateMap<SectionTypeDto, SectionTypeEntity>()
+                ;
+                cfg.CreateMap<CreateSectionTypeDto, SectionTypeEntity>()
+                ;
+                cfg.CreateMap<SectionTypeEntity, CreateSectionTypeDto>()
+                ;
+
                 cfg.CreateMap<PersonEntity, BasicPersonDto>()
                 ;
                 cfg.CreateMap<BasicPersonDto, PersonEntity>()
@@ -103,12 +120,7 @@ namespace SalonServices.Mappings
                     .ForMember(ent => ent.AccreditedSalons, x => x.Ignore())
                     .ForMember(ent => ent.AwardLevels, x => x.Ignore())
                 ;
-
-                cfg.CreateMap<SectionTypeEntity, SectionTypeDto>()
-                ;
-                cfg.CreateMap<SectionTypeDto, SectionTypeEntity>()
-                ;
-
+                
                 cfg.CreateMap<SubmissionEntity, SubmissionSaveDto>()
                     .ForMember(dto => dto.SubmissionCreated, x => x.Ignore())
                     .ForMember(dto => dto.CircuitId, x => x.Ignore())

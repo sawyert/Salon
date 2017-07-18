@@ -25,7 +25,13 @@ namespace SalonServices.Tests
         {
             MappingTestHelpers.MapFromModelAndBack<CountryDto, CountryEntity>();
         }
-        
+
+        [Test]
+        public void MapCreateCountries()
+        {
+            MappingTestHelpers.MapFromModelAndBack<CreateCountryDto, CountryEntity>();
+        }
+
         [Test]
         public void MapOrgs()
         {
@@ -36,6 +42,15 @@ namespace SalonServices.Tests
         public void MapSectionTypes()
         {
             MappingTestHelpers.MapFromModelAndBack<SectionTypeDto, SectionTypeEntity>();
+        }
+
+        [Test]
+        public void MapCreateSectionTypes()
+        {
+            A.Configure<CreateSectionTypeDto>()
+             .Fill(p => p.Id, () => 40);
+
+            MappingTestHelpers.MapFromModelAndBack<CreateSectionTypeDto, SectionTypeEntity>();
         }
 
         [Test]

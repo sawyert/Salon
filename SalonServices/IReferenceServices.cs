@@ -10,11 +10,8 @@ namespace SalonServices
     public interface IReferenceServices
     {
         Task<List<CountryDto>> GetCountries();
-
         Task<CountryDto> CreateCountry(CreateCountryDto pCountry);
-
         Task UpdateCountry(CountryDto pCountryDto);
-
         Task<bool> DeleteCountry(int id);
         Task<CountryDto> GetCountryById(int id);
 
@@ -23,6 +20,10 @@ namespace SalonServices
         Task<List<CircuitDto>> GetCircuits();
 
         Task<List<SectionTypeDto>> GetSectionTypes();
+        Task<SectionTypeDto> CreateSectionType(CreateSectionTypeDto pSectionType);
+        Task UpdateSectionType(SectionTypeDto pSectionType);
+        Task<bool> DeleteSectionType(int id);
+        Task<SectionTypeDto> GetSectionTypeById(int id);
 
         Task<CreateCircuitDto> CreateCircuit(CreateCircuitDto pCreateCircuit);
     }

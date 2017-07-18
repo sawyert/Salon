@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Salon.Models
 {
-    public class IndexViewModel
+    public class CountryIndexViewModel
     {
         public string SuccessMessage { get; set; }
         public string FailureMessage { get; set; }

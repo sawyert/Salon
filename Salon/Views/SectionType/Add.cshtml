@@ -1,0 +1,49 @@
+@model Salon.Models.CreateSectionTypeViewModel
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add New Section Type</h2>
+
+<form asp-action="Add">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <label for="IsPrint">
+                        <input asp-for="IsPrint" />
+                        @Html.DisplayNameFor(t => t.IsPrint)
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SectionCode" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SectionCode" class="form-control" />
+                <span asp-validation-for="SectionCode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-success">Create</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

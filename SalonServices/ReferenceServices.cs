@@ -34,6 +34,35 @@ namespace SalonServices
             var lReturn = Mapping.Mapper.Map<CreateCircuitDto>(lReturnedCircuitEntity);
             return lReturn;
         }
+        public async Task<List<CircuitDto>> GetCircuits()
+        {
+            List<CircuitEntity> lCircuitEnts = await this._circuitRepository.GetAll();
+            var lReturn = lCircuitEnts.Select(st => Mapping.Mapper.Map<CircuitDto>(st)).ToList();
+            return lReturn;
+        }        
+
+        public async Task<List<OrganisationDto>> GetOrganisations()
+        {
+            List<PhotoOrganisationEntity> lOrgEnts = await this._photoOrganisationRepository.GetAllBasic();
+            var lReturn = lOrgEnts.Select(st => Mapping.Mapper.Map<OrganisationDto>(st)).ToList();
+            return lReturn;
+        }
+
+        #region Countries
+
+        public async Task<List<CountryDto>> GetCountries()
+        {
+            List<CountryEntity> lCountries = await this._countryRepository.GetCountries();
+            List<CountryDto> lReturn = lCountries.Select(coun => Mapping.Mapper.Map<CountryDto>(coun)).ToList();
+            return lReturn;
+        }
+
+        public async Task UpdateCountry(CountryDto pCountryDto)
+        {
+            CountryEntity lCountryEntity = await this._countryRepository.GetById(pCountryDto.Id);
+             Mapping.Mapper.Map<CountryDto, CountryEntity>(pCountryDto, lCountryEntity);
+            await this._countryRepository.Update(lCountryEntity);
+        }
 
         public async Task<CountryDto> CreateCountry(CreateCountryDto pCountry)
         {
@@ -51,14 +80,6 @@ namespace SalonServices
             await this._countryRepository.Delete(lCountryEntity);
             return true;
         }
-
-        public async Task<List<CircuitDto>> GetCircuits()
-        {
-            List<CircuitEntity> lCircuitEnts = await this._circuitRepository.GetAll();
-            var lReturn = lCircuitEnts.Select(st => Mapping.Mapper.Map<CircuitDto>(st)).ToList();
-            return lReturn;
-        }
-
         public async Task<CountryDto> GetCountryById(int id)
         {
             CountryEntity lCountryEntity = await this._countryRepository.GetById(id);
@@ -66,14 +87,9 @@ namespace SalonServices
 
             return lReturn;
         }
+        #endregion
 
-        public async Task<List<OrganisationDto>> GetOrganisations()
-        {
-            List<PhotoOrganisationEntity> lOrgEnts = await this._photoOrganisationRepository.GetAllBasic();
-            var lReturn = lOrgEnts.Select(st => Mapping.Mapper.Map<OrganisationDto>(st)).ToList();
-            return lReturn;
-        }
-
+        #region Section Types
         public async Task<List<SectionTypeDto>> GetSectionTypes()
         {
             List<SectionTypeEntity> lSectionTypes = await this._sectionTypeRepository.GetAll();
@@ -81,18 +97,34 @@ namespace SalonServices
             return lReturn;
         }
 
-        public async Task<List<CountryDto>> GetCountries()
+
+        public async Task<SectionTypeDto> CreateSectionType(CreateSectionTypeDto pSectionType)
         {
-            List<CountryEntity> lCountries = await this._countryRepository.GetCountries();
-            List<CountryDto> lReturn = lCountries.Select(coun => Mapping.Mapper.Map<CountryDto>(coun)).ToList();
-            return lReturn;
+            var lSectionTypeEntity = Mapping.Mapper.Map<SectionTypeEntity>(pSectionType);
+
+            lSectionTypeEntity = await this._sectionTypeRepository.Add(lSectionTypeEntity);
+            return Mapping.Mapper.Map<SectionTypeDto>(lSectionTypeEntity);
         }
 
-        public async Task UpdateCountry(CountryDto pCountryDto)
+        public async Task UpdateSectionType(SectionTypeDto pSectionType)
         {
-            CountryEntity lCountryEntity = await this._countryRepository.GetById(pCountryDto.Id);
-             Mapping.Mapper.Map<CountryDto, CountryEntity>(pCountryDto, lCountryEntity);
-            await this._countryRepository.Update(lCountryEntity);
+            SectionTypeEntity lSectionTypeEntity = await this._sectionTypeRepository.GetById(pSectionType.Id);
+            Mapping.Mapper.Map<SectionTypeDto, SectionTypeEntity>(pSectionType, lSectionTypeEntity);
+            await this._sectionTypeRepository.Update(lSectionTypeEntity);
         }
+
+        public async Task<bool> DeleteSectionType(int id)
+        {
+            var lSectionTypeEntity = await this._sectionTypeRepository.GetById(id);
+            await this._sectionTypeRepository.Delete(lSectionTypeEntity);
+            return true;
+        }
+
+        public async Task<SectionTypeDto> GetSectionTypeById(int id)
+        {
+            SectionTypeEntity lSectionTypeEntity = await this._sectionTypeRepository.GetById(id);
+            return Mapping.Mapper.Map<SectionTypeDto>(lSectionTypeEntity);
+        }
+        #endregion
     }
 }

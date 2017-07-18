@@ -43,6 +43,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\SectionType\" />
     <Folder Include="Views\Person\" />
   </ItemGroup>
   <ItemGroup>

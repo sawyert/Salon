@@ -62,6 +62,24 @@ namespace Salon {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is Print.
+        /// </summary>
+        public static string SectionType_IsPrint {
+            get {
+                return ResourceManager.GetString("SectionType_IsPrint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Section Code.
+        /// </summary>
+        public static string SectionType_SectionCode {
+            get {
+                return ResourceManager.GetString("SectionType_SectionCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Is Accepted.
         /// </summary>
         public static string Submission_IsAccepted {

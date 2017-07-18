@@ -41,7 +41,7 @@ namespace Salon.Controllers
 
         [HttpGet]
         public IActionResult AddSubmission(int pPersonId)
-        {
+        {            
             return View();
         }
 
