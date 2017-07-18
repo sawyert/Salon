@@ -9,7 +9,7 @@ namespace SalonServices.Entities
     public class SalonEntity : AbstractEntity
     {
         [Required]
-        [MaxLength(50)]
+        [MaxLength(200)]
         public string Name { get; set; }
 
         public string Website { get; set; }
