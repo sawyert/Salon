@@ -47,6 +47,7 @@ namespace SalonServices.Repositories
                             new SubmissionResultsDto
                             {
                                 DisplayName = sub.SalonYear.Salon.Name + " - " + sub.SalonYear.Name + " (" + sub.SalonYear.Year + ")",
+                                PersonId = sub.PersonId,
                                 SubmissionId = sub.Id,
                                 Entries = sub.Entries.Select(ent => new SubmissionResultsEntryDto
                                 {
@@ -59,10 +60,10 @@ namespace SalonServices.Repositories
                             }).FirstOrDefaultAsync();
         }
 
-        public async Task<List<SubmissionItemDto>> GetBasicSubmissionInfoByPersonId(int pPersonId)
+        public async Task<List<SubmissionListItemDto>> GetBasicSubmissionInfoByPersonId(int pPersonId)
         {
             return await this.dbContext.Submissions.Where(sub => sub.PersonId == pPersonId).Select(sub =>
-                            new SubmissionItemDto
+                            new SubmissionListItemDto
                             {
                                 DisplayName = sub.SalonYear.Salon.Name + " - " + sub.SalonYear.Name + " (" + sub.SalonYear.Year + ")",
                                 NumberOfEntries = sub.Entries.Count,
@@ -73,6 +74,6 @@ namespace SalonServices.Repositories
         public async Task<SubmissionEntity> GetSubmissionWithEntries(int pSubmissionId)
         {
             return await this.dbContext.Submissions.Include(sub => sub.Entries).FirstOrDefaultAsync(sub => sub.Id == pSubmissionId);
-        }
+        }       
     }
 }

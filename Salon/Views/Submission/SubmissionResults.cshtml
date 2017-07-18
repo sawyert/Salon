@@ -12,7 +12,8 @@
     <div class="form-horizontal">
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input asp-for="@Model.SubmissionId" type="hidden" class="form-control" />
+        <input asp-for="@Model.SubmissionId" type="hidden" />
+        <input asp-for="@Model.PersonId" type="hidden" />
         <input asp-for="@Model.DisplayName" type="hidden" />
 
 
@@ -83,6 +84,6 @@
 </form>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index"  asp-route-pPersonId="@Model.PersonId">Back to List</a>
 </div>
 

@@ -50,7 +50,7 @@ namespace SalonServices.Tests.Unit.MappingTests
                 .Fill(p => p.IsAwarded, () => true)
                 ;
 
-            MappingTestHelpers.MapFromModelAndBack<SubmissionResultsEntryDto, CompetitionEntryEntity>();
+            MappingTestHelpers.MapFromModelAndBack<SubmissionResultsEntryDto, CompetitionEntryEntity>(null, opt => opt.Excluding(dto => dto.ImageName));
         }        
     }
 }

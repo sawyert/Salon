@@ -71,5 +71,11 @@ namespace Salon.Web.Tests.Unit.MappingTests
         {
             MappingTestHelpers.MapFromModelAndBack<SubmissionResultsEntryViewModel, SubmissionResultsEntryDto>();
         }
+
+        [Test]
+        public void MapSubmissionListItemDtoToViewModel()
+        {
+            MappingTestHelpers.MapFromModelAndBack<SubmissionListItemViewModel, SubmissionListItemDto>();
+        }
     }
 }

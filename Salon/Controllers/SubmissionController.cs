@@ -27,11 +27,14 @@ namespace Salon.Controllers
         }
 
         #region Pages
-        public IActionResult Index(int pPersonId)
+        public async Task<IActionResult> Index(int pPersonId)
         {
+            var lDtos = await this._submissionService.GetBasicSubmissionInfoByPersonId(pPersonId);
+            var lItemVms = lDtos.Select(dto => Mapping.Mapper.Map<SubmissionListItemViewModel>(dto)).ToList();
             var lVm = new SubmissionListViewModel
             {
-                PersonId = pPersonId
+                PersonId = pPersonId,
+                Items = lItemVms            
             };
             return View(lVm);
         }

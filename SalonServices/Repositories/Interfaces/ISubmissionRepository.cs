@@ -13,7 +13,7 @@ namespace SalonServices.Repositories
 
         Task<SubmissionEntity> GetSubmissionWithEntries(int pSubmissionId);
 
-        Task<List<SubmissionItemDto>> GetBasicSubmissionInfoByPersonId(int pPersonId);
+        Task<List<SubmissionListItemDto>> GetBasicSubmissionInfoByPersonId(int pPersonId);
 
     }
 }

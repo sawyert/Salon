@@ -5,5 +5,43 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Person : @Model.PersonId</h2>
+<h2>Submissions</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Number of entries
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var submission in Model.Items)
+        {
+            <tr>
+                <td>
+                    @submission.DisplayName
+                </td>
+                <td>
+                    @submission.NumberOfEntries
+                </td>
+                <td>
+                    <a asp-action="SubmissionResults"  asp-route-pSubmissionId="@submission.SubmissionId">Results</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                    <a asp-action="AddSubmission" asp-route-pPersonId="@Model.PersonId">Add new submission</a>               
+            </td>
+            
+        </tr>
+    </tfoot>
+</table>
 

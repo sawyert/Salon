@@ -11,6 +11,7 @@ namespace SalonServices.Dto.Submission
         {
             Entries = new List<SubmissionResultsEntryDto>();
         }
+        public int PersonId { get; set; }
 
         public string DisplayName { get; set; }
         public int SubmissionId { get; set; }

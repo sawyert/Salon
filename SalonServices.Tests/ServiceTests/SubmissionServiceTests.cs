@@ -113,7 +113,32 @@ namespace SalonServices.Tests.Unit.ServiceTests
             Assert.IsNotNull(lResult);
             Assert.AreEqual(2, lResult.Entries.Count());
         }
-        
+
+        [Test]
+        public async Task GetBasicSubmissionInfoByPersonId_ReturnsInfoAndCallsDb()
+        {
+            // Arrange
+            this._submissionRepository.GetBasicSubmissionInfoByPersonId(40).Returns(new List<SubmissionListItemDto>
+                {
+                    new SubmissionListItemDto
+                    {
+
+                    },
+                    new SubmissionListItemDto
+                    {
+
+                    },
+                }
+            );
+
+            // Act
+            var lResult = await this.submissionService.GetBasicSubmissionInfoByPersonId(40);
+
+            // Assert
+            Assert.IsNotNull(lResult);
+            Assert.AreEqual(2, lResult.Count());
+        }
+
         [Test]
         public async Task UpdateSubmissionResults_ReturnsInfoAndCallsDb()
         {

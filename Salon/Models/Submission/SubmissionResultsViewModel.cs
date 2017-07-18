@@ -11,6 +11,7 @@ namespace Salon.Models.Submission
         }
 
         public string DisplayName { get; set; }
+        public int PersonId { get; set; }
 
         public int SubmissionId { get; set; }
 

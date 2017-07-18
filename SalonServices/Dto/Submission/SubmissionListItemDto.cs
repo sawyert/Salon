@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SalonServices.Dto.Submission
 {
-    public class SubmissionItemDto
+    public class SubmissionListItemDto
     {
         public int SubmissionId { get; set; }
         public string DisplayName { get; set; }

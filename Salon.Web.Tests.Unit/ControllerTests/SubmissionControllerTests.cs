@@ -35,6 +35,24 @@ namespace Salon.Web.Tests.Unit
         }
 
         [Test]
+        public async Task Index_GetsSubmissionsFromServiceAndMaps()
+        {
+            // Arrange
+            this._submissionService.GetBasicSubmissionInfoByPersonId(50).Returns(A.ListOf<SubmissionListItemDto>());
+
+            // Act
+            var lResult = await this.submissionController.Index(50);
+
+            // Assert
+            ViewResult lViewResult = lResult as ViewResult;
+            var lModel = lViewResult.Model as SubmissionListViewModel;
+            Assert.IsNotNull(lModel);
+            Assert.IsTrue(lModel.Items.Count > 0);
+            Assert.AreEqual(50, lModel.PersonId);
+            await this._submissionService.Received(1).GetBasicSubmissionInfoByPersonId(50);
+        }
+
+        [Test]
         public async Task GetSalons_GetsFromServiceAndMaps()
         {
             var lFullSalonDtos = A.ListOf<FullSalonInformationDto>();
@@ -42,7 +60,7 @@ namespace Salon.Web.Tests.Unit
             this._salonYearService.GetFullSalonInformation().Returns(lFullSalonDtos);
 
             List<FullSalonInformationViewModel> lResult = await this.submissionController.GetSalons();
-           
+
             Assert.AreEqual(lFullSalonDtos.Count, lResult.Count);
             Assert.AreEqual(lFullSalonDtos[0].SalonName, lResult[0].SalonName);
         }
@@ -142,7 +160,7 @@ namespace Salon.Web.Tests.Unit
 
             this.submissionController.ModelState.AddModelError("aa", "error");
             var lResult = await this.submissionController.AddCircuit(lCreateCircuitViewModel);
-           
+
             // Assert
             Assert.AreEqual("England", lResult.Name);
             Assert.IsNull(lResult.Id);
@@ -227,11 +245,11 @@ namespace Salon.Web.Tests.Unit
         public async Task AddSubmission()
         {
             // Arrange
-            this._submissionService.CreateSubmission(Arg.Any<SubmissionSaveDto>()).Returns(new SubmissionSaveDto { SubmissionCreated = true});
+            this._submissionService.CreateSubmission(Arg.Any<SubmissionSaveDto>()).Returns(new SubmissionSaveDto { SubmissionCreated = true });
 
             SubmissionSaveViewModel lSubmissionSaveVm = new SubmissionSaveViewModel()
             {
-                  Cost = (decimal)40.13
+                Cost = (decimal)40.13
             };
 
             // Act
@@ -266,7 +284,7 @@ namespace Salon.Web.Tests.Unit
             // Arrange
             var lDto = A.New<SubmissionResultsDto>();
             lDto.Entries = A.ListOf<SubmissionResultsEntryDto>();
-            
+
             this._submissionService.GetSubmissionResults(50).Returns(lDto);
 
             // Act

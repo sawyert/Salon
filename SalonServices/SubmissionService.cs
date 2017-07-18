@@ -106,6 +106,11 @@ namespace SalonServices
             return pCreateSubmission;
         }
 
+        public async Task<List<SubmissionListItemDto>> GetBasicSubmissionInfoByPersonId(int pPersonId)
+        {
+            return await this._submissionRepository.GetBasicSubmissionInfoByPersonId(pPersonId);
+        }
+
         public async Task<SubmissionResultsDto> GetSubmissionResults(int pSubmissionId)
         {
             return await this._submissionRepository.GetSubmissionResults(pSubmissionId);
