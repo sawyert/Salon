@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using SalonServices;
 using SalonServices.Repositories;
 using SalonServices.Dto;
+using SalonServices.Migrations;
 
 namespace Salon
 {
@@ -26,6 +27,8 @@ namespace Salon
 
             Salon.Mappings.Mapping.CreateConfiguration();
             SalonServices.Mappings.Mapping.CreateConfiguration();
+
+            FullDataLoad.LoadData();
         }
 
         public IConfigurationRoot Configuration { get; }

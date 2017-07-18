@@ -11,27 +11,29 @@ namespace SalonServices.Migrations
         {
             using (var lContext = new SalonDbContext())
             {
-                var lCountryCzechRep = new CountryEntity { Name = "Czech Republic", };
-                var lCountryEngland = new CountryEntity { Name = "England", };
-                var lCountryIndia = new CountryEntity { Name = "India", };
-                var lCountryBelgium = new CountryEntity { Name = "Belgium", };
-                var lCountryMontenegro = new CountryEntity { Name = "Montenegro", };
-                var lCountryNewZealand = new CountryEntity { Name = "New Zealand", };
-                var lCountryUsa = new CountryEntity { Name = "USA", };
-                var lCountryFrance = new CountryEntity { Name = "France", };
-                var lCountryItaly = new CountryEntity { Name = "Italy", };
-                var lCountryScotland = new CountryEntity { Name = "Scotland", };
-                var lCountryAustralia = new CountryEntity { Name = "Australia", };
-                var lCountryTurkey = new CountryEntity { Name = "Turkey", };
-                var lCountryBulgaria = new CountryEntity { Name = "Bulgaria", };
-                var lCountrySerbia = new CountryEntity { Name = "Serbia", };
-                var lCountryCyprus = new CountryEntity { Name = "Cyprus", };
-                var lCountryWales = new CountryEntity { Name = "Wales", };
-                var lCountryKyrgystan = new CountryEntity { Name = "Kyrgyzstan", };
-
-                try
+                if (lContext.People.Count() == 0)
                 {
-                    lContext.Countries.AddRange(new List<CountryEntity>
+                    var lCountryCzechRep = new CountryEntity { Name = "Czech Republic", };
+                    var lCountryEngland = new CountryEntity { Name = "England", };
+                    var lCountryIndia = new CountryEntity { Name = "India", };
+                    var lCountryBelgium = new CountryEntity { Name = "Belgium", };
+                    var lCountryMontenegro = new CountryEntity { Name = "Montenegro", };
+                    var lCountryNewZealand = new CountryEntity { Name = "New Zealand", };
+                    var lCountryUsa = new CountryEntity { Name = "USA", };
+                    var lCountryFrance = new CountryEntity { Name = "France", };
+                    var lCountryItaly = new CountryEntity { Name = "Italy", };
+                    var lCountryScotland = new CountryEntity { Name = "Scotland", };
+                    var lCountryAustralia = new CountryEntity { Name = "Australia", };
+                    var lCountryTurkey = new CountryEntity { Name = "Turkey", };
+                    var lCountryBulgaria = new CountryEntity { Name = "Bulgaria", };
+                    var lCountrySerbia = new CountryEntity { Name = "Serbia", };
+                    var lCountryCyprus = new CountryEntity { Name = "Cyprus", };
+                    var lCountryWales = new CountryEntity { Name = "Wales", };
+                    var lCountryKyrgystan = new CountryEntity { Name = "Kyrgyzstan", };
+
+                    try
+                    {
+                        lContext.Countries.AddRange(new List<CountryEntity>
                 {
                     lCountryCzechRep,
                     lCountryEngland,
@@ -52,41 +54,41 @@ namespace SalonServices.Migrations
                     lCountryKyrgystan,
                 });
 
-                    lContext.SaveChanges();
-                
-                    var lSalonBohemia = new SalonEntity { Name = "Bohemia", Website = "http://bohemia.photosalon.cz/", Country = lCountryCzechRep };
-                    var lSalonPhotoArtVision = new SalonEntity { Name = "Photo Art Vision", Website = "http://vision.photoart.cz/", Country = lCountryCzechRep };
-                    var lSalonYorkshire = new SalonEntity { Name = "Yorkshire Salon", Website = "yorkshiresalon.co.uk", Country = lCountryEngland };
-                    var lSalonBelghoria = new SalonEntity { Name = "Belghoria Photo Lovers", Website = "http://bohemia.photosalon.cz/", Country = lCountryIndia };
-                    var lSalonRefletMondial = new SalonEntity { Name = "Reflet Mondial", Website = "http://refletmondial.be/wp/", Country = lCountryBelgium };
-                    var lSalonBristol = new SalonEntity { Name = "Bristol", Website = "http://www.bristolphoto.org.uk/pages/bristol-salon.php", Country = lCountryEngland };
-                    var lSalonVictoryPhotoClub = new SalonEntity { Name = "Victory Photo Club", Website = "http://www.victory-photo.club/", Country = lCountryMontenegro };
-                    var lSalonNzis = new SalonEntity { Name = "NZIS", Website = "http://www.psnzinternationalsalons.com/", Country = lCountryNewZealand };
-                    var lSalonPsaMet = new SalonEntity { Name = "PSA Metropolitan", Website = "http://www.psa-met.com/mipe", Country = lCountryUsa };
-                    var lSalonCreativeArt = new SalonEntity { Name = "Creative Art", Website = "http://www.creativeartsalon.org/", Country = lCountryIndia };
-                    var lSalonCarlisle = new SalonEntity { Name = "Carlisle Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
-                    var lSalonPenrith = new SalonEntity { Name = "Penrith Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
-                    var lSalonSolway = new SalonEntity { Name = "Solway Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
-                    var lSalonKpaClub = new SalonEntity { Name = "KPA Club", Website = "http://www.kpaclub.com/", Country = lCountryIndia };
-                    var lSalonLagacilly = new SalonEntity { Name = "Club Photo Lagacilly", Website = "http://www.clubphotolagacilly.com/", Country = lCountryFrance };
-                    var lSalonDelleColline1 = new SalonEntity { Name = "21 Gan Tour Delle Colline - 35 Trofeo Arno - Incisa V.", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
-                    var lSalonDelleColline2 = new SalonEntity { Name = "21 Gan Tour Delle Colline - 26 Trofeo Città di Figline Valdarno", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
-                    var lSalonDelleColline3 = new SalonEntity { Name = "21 Gan Tour Delle Colline - 15 Trofeo Colline del Chianti", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
-                    var lSalonDelleColline4 = new SalonEntity { Name = "21 Gan Tour Delle Colline - 15 Trofeo Colline del Pratomagno", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
-                    var lSalonScottish = new SalonEntity { Name = "Scottish Salon", Website = "http://www.scottish-photographic-salon.org/", Country = lCountryScotland };
-                    var lSalonSydney = new SalonEntity { Name = "Sydney Harbour", Website = "http://www.sydney-harbour-international.org.au/", Country = lCountryAustralia };
-                    var lSalonCheltenham = new SalonEntity { Name = "Cheltenham", Website = "http://www.cheltenhamcameraclub.co.uk/wordpress/salon/", Country = lCountryEngland };
-                    var lSalonHoylake = new SalonEntity { Name = "Hoylake", Website = "http://hoylakephoto.org/international/", Country = lCountryEngland };
-                    var lSalonPerasto = new SalonEntity { Name = "Perasto", Website = "http://www.perasto.club/", Country = lCountryMontenegro };
-                    var lSalonMof = new SalonEntity { Name = "MOF", Website = "http://contest.olbafotograf.com/", Country = lCountryTurkey };
-                    var lSalonPrintAndDigitalVarna = new SalonEntity { Name = "Print and Digital Varna", Website = "http://printsalonvarna.org/", Country = lCountryBulgaria };
-                    var lSalonGoodLight = new SalonEntity { Name = "Good Light", Website = "http://photoclubkragujevac.com/goodlight/", Country = lCountrySerbia };
-                    var lSalonGradac = new SalonEntity { Name = "Gradac", Website = "http://www.gradacfoto.com/", Country = lCountryMontenegro };
-                    var lSalonCyprus = new SalonEntity { Name = "Cyprus International", Website = "http://www.cps-cidpc.com/", Country = lCountryCyprus };
-                    var lSalonPortTalbot = new SalonEntity { Name = "Port Talbot", Website = "http://www.cps-cidpc.com/", Country = lCountryWales };
-                    var lSalonVictorPolynsky = new SalonEntity { Name = "Victor Polynsky", Website = "http://victorpolynsky.com", Country = lCountryKyrgystan };
+                        lContext.SaveChanges();
 
-                    lContext.Salons.AddRange(new List<SalonEntity>
+                        var lSalonBohemia = new SalonEntity { Name = "Bohemia", Website = "http://bohemia.photosalon.cz/", Country = lCountryCzechRep };
+                        var lSalonPhotoArtVision = new SalonEntity { Name = "Photo Art Vision", Website = "http://vision.photoart.cz/", Country = lCountryCzechRep };
+                        var lSalonYorkshire = new SalonEntity { Name = "Yorkshire Salon", Website = "yorkshiresalon.co.uk", Country = lCountryEngland };
+                        var lSalonBelghoria = new SalonEntity { Name = "Belghoria Photo Lovers", Website = "http://bohemia.photosalon.cz/", Country = lCountryIndia };
+                        var lSalonRefletMondial = new SalonEntity { Name = "Reflet Mondial", Website = "http://refletmondial.be/wp/", Country = lCountryBelgium };
+                        var lSalonBristol = new SalonEntity { Name = "Bristol", Website = "http://www.bristolphoto.org.uk/pages/bristol-salon.php", Country = lCountryEngland };
+                        var lSalonVictoryPhotoClub = new SalonEntity { Name = "Victory Photo Club", Website = "http://www.victory-photo.club/", Country = lCountryMontenegro };
+                        var lSalonNzis = new SalonEntity { Name = "NZIS", Website = "http://www.psnzinternationalsalons.com/", Country = lCountryNewZealand };
+                        var lSalonPsaMet = new SalonEntity { Name = "PSA Metropolitan", Website = "http://www.psa-met.com/mipe", Country = lCountryUsa };
+                        var lSalonCreativeArt = new SalonEntity { Name = "Creative Art", Website = "http://www.creativeartsalon.org/", Country = lCountryIndia };
+                        var lSalonCarlisle = new SalonEntity { Name = "Carlisle Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
+                        var lSalonPenrith = new SalonEntity { Name = "Penrith Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
+                        var lSalonSolway = new SalonEntity { Name = "Solway Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
+                        var lSalonKpaClub = new SalonEntity { Name = "KPA Club", Website = "http://www.kpaclub.com/", Country = lCountryIndia };
+                        var lSalonLagacilly = new SalonEntity { Name = "Club Photo Lagacilly", Website = "http://www.clubphotolagacilly.com/", Country = lCountryFrance };
+                        var lSalonDelleColline1 = new SalonEntity { Name = "21 Gan Tour Delle Colline - 35 Trofeo Arno - Incisa V.", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
+                        var lSalonDelleColline2 = new SalonEntity { Name = "21 Gan Tour Delle Colline - 26 Trofeo Città di Figline Valdarno", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
+                        var lSalonDelleColline3 = new SalonEntity { Name = "21 Gan Tour Delle Colline - 15 Trofeo Colline del Chianti", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
+                        var lSalonDelleColline4 = new SalonEntity { Name = "21 Gan Tour Delle Colline - 15 Trofeo Colline del Pratomagno", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
+                        var lSalonScottish = new SalonEntity { Name = "Scottish Salon", Website = "http://www.scottish-photographic-salon.org/", Country = lCountryScotland };
+                        var lSalonSydney = new SalonEntity { Name = "Sydney Harbour", Website = "http://www.sydney-harbour-international.org.au/", Country = lCountryAustralia };
+                        var lSalonCheltenham = new SalonEntity { Name = "Cheltenham", Website = "http://www.cheltenhamcameraclub.co.uk/wordpress/salon/", Country = lCountryEngland };
+                        var lSalonHoylake = new SalonEntity { Name = "Hoylake", Website = "http://hoylakephoto.org/international/", Country = lCountryEngland };
+                        var lSalonPerasto = new SalonEntity { Name = "Perasto", Website = "http://www.perasto.club/", Country = lCountryMontenegro };
+                        var lSalonMof = new SalonEntity { Name = "MOF", Website = "http://contest.olbafotograf.com/", Country = lCountryTurkey };
+                        var lSalonPrintAndDigitalVarna = new SalonEntity { Name = "Print and Digital Varna", Website = "http://printsalonvarna.org/", Country = lCountryBulgaria };
+                        var lSalonGoodLight = new SalonEntity { Name = "Good Light", Website = "http://photoclubkragujevac.com/goodlight/", Country = lCountrySerbia };
+                        var lSalonGradac = new SalonEntity { Name = "Gradac", Website = "http://www.gradacfoto.com/", Country = lCountryMontenegro };
+                        var lSalonCyprus = new SalonEntity { Name = "Cyprus International", Website = "http://www.cps-cidpc.com/", Country = lCountryCyprus };
+                        var lSalonPortTalbot = new SalonEntity { Name = "Port Talbot", Website = "http://www.cps-cidpc.com/", Country = lCountryWales };
+                        var lSalonVictorPolynsky = new SalonEntity { Name = "Victor Polynsky", Website = "http://victorpolynsky.com", Country = lCountryKyrgystan };
+
+                        lContext.Salons.AddRange(new List<SalonEntity>
                 {
                     lSalonBohemia,
                     lSalonPhotoArtVision,
@@ -121,52 +123,52 @@ namespace SalonServices.Migrations
                     lSalonVictorPolynsky,
                 });
 
-                    lContext.SaveChanges();
+                        lContext.SaveChanges();
 
 
-                    var lCircuitGbSmallPrints = new CircuitEntity() { Name = "GB Small Prints 2017" };
-                    var lGrandTourDelleColline = new CircuitEntity() { Name = "21 Gan Tour Delle Colline" };
+                        var lCircuitGbSmallPrints = new CircuitEntity() { Name = "GB Small Prints 2017" };
+                        var lGrandTourDelleColline = new CircuitEntity() { Name = "21 Gan Tour Delle Colline" };
 
-                    lContext.Circuits.AddRange(new List<CircuitEntity> {
+                        lContext.Circuits.AddRange(new List<CircuitEntity> {
                     lCircuitGbSmallPrints,
                     lGrandTourDelleColline,
                 });
-                    lContext.SaveChanges();
+                        lContext.SaveChanges();
 
 
-                    var lSalonYearBohemia = new SalonYearEntity { Name = "Bohemia", Salon = lSalonBohemia, Year = 2016, ClosingDate = new DateTime(2016, 10, 9), JudgeDate = new DateTime(2016, 10, 15), NotificationDate = new DateTime(2016, 10, 15), CataloguesPostedDate = new DateTime(2016, 10, 15) };
-                    var lSalonYearPhotoArtVision = new SalonYearEntity { Name = "Photo Art Vision", Salon = lSalonPhotoArtVision, Year = 2016, ClosingDate = new DateTime(2016, 11, 27), JudgeDate = new DateTime(2016, 12, 4), NotificationDate = new DateTime(2016, 12, 11), CataloguesPostedDate = new DateTime(2016, 12, 11) };
-                    var lSalonYearYorkshire = new SalonYearEntity { Name = "Yorkshire Salon", Salon = lSalonYorkshire, Year = 2016, ClosingDate = new DateTime(2016, 12, 5), JudgeDate = new DateTime(2016, 12, 11), NotificationDate = new DateTime(2016, 12, 19), CataloguesPostedDate = new DateTime(2016, 12, 19) };
-                    var lSalonYearBelghoria = new SalonYearEntity { Name = "Belghoria Photo Lovers", Salon = lSalonBelghoria, Year = 2017, ClosingDate = new DateTime(2016, 12, 31), JudgeDate = new DateTime(2017, 1, 19), NotificationDate = new DateTime(2017, 1, 31), CataloguesPostedDate = new DateTime(2017, 1, 31) };
-                    var lSalonYearRefletMondial = new SalonYearEntity { Name = "Reflet Mondial", Salon = lSalonRefletMondial, Year = 2017, ClosingDate = new DateTime(2017, 1, 26), JudgeDate = new DateTime(2017, 1, 29), NotificationDate = new DateTime(2017, 2, 2), CataloguesPostedDate = new DateTime(2017, 2, 2) };
-                    var lSalonYearBristol = new SalonYearEntity { Name = "Bristol", Salon = lSalonBristol, Year = 2017, ClosingDate = new DateTime(2017, 1, 31), JudgeDate = new DateTime(2017, 2, 19), NotificationDate = new DateTime(2017, 3, 4), CataloguesPostedDate = new DateTime(2017, 3, 4) };
-                    var lSalonYearVictoryPhotoClub = new SalonYearEntity { Name = "Victory Photo Club", Salon = lSalonVictoryPhotoClub, Year = 2017, ClosingDate = new DateTime(2017, 2, 17), JudgeDate = new DateTime(2017, 3, 8), NotificationDate = new DateTime(2017, 3, 12), CataloguesPostedDate = new DateTime(2017, 3, 12) };
-                    var lSalonYearNzis = new SalonYearEntity { Name = "NZIS", Salon = lSalonNzis, Year = 2017, ClosingDate = new DateTime(2017, 2, 17), JudgeDate = new DateTime(2017, 3, 5), NotificationDate = new DateTime(2017, 3, 18), CataloguesPostedDate = new DateTime(2017, 3, 18) };
-                    var lSalonYearPsaMet = new SalonYearEntity { Name = "PSA Metropolitan", Salon = lSalonPsaMet, Year = 2017, ClosingDate = new DateTime(2017, 3, 3), JudgeDate = new DateTime(2017, 3, 17), NotificationDate = new DateTime(2017, 3, 26), CataloguesPostedDate = new DateTime(2017, 3, 26) };
-                    var lSalonYearCreativeArt = new SalonYearEntity { Name = "Creative Art", Salon = lSalonCreativeArt, Year = 2017, ClosingDate = new DateTime(2017, 3, 6), JudgeDate = new DateTime(2017, 3, 19), NotificationDate = new DateTime(2017, 3, 31), CataloguesPostedDate = new DateTime(2017, 3, 31) };
-                    var lSalonYearCarlisle = new SalonYearEntity { Name = "Carlisle Salon", Salon = lSalonCarlisle, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16), Circuit = lCircuitGbSmallPrints };
-                    var lSalonYearPenrith = new SalonYearEntity { Name = "Penrith Salon", Salon = lSalonPenrith, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16), Circuit = lCircuitGbSmallPrints };
-                    var lSalonYearSolway = new SalonYearEntity { Name = "Solway Salon", Salon = lSalonSolway, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16), Circuit = lCircuitGbSmallPrints };
-                    var lSalonYearKpaClub = new SalonYearEntity { Name = "KPA Club", Salon = lSalonKpaClub, Year = 2017, ClosingDate = new DateTime(2017, 3, 11), JudgeDate = new DateTime(2017, 3, 25), NotificationDate = new DateTime(2017, 4, 5), CataloguesPostedDate = new DateTime(2017, 4, 5) };
-                    var lSalonYearLagacilly = new SalonYearEntity { Name = "Club Photo Lagacilly", Salon = lSalonLagacilly, Year = 2017, ClosingDate = new DateTime(2017, 3, 27), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 10), CataloguesPostedDate = new DateTime(2017, 4, 10) };
-                    var lSalonYearDelleColline1 = new SalonYearEntity { Name = "21 Gan Tour Delle Colline - 35 Trofeo Arno - Incisa V.", Salon = lSalonDelleColline1, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
-                    var lSalonYearDelleColline2 = new SalonYearEntity { Name = "21 Gan Tour Delle Colline - 26 Trofeo Città di Figline Valdarnoe", Salon = lSalonDelleColline2, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
-                    var lSalonYearDelleColline3 = new SalonYearEntity { Name = "21 Gan Tour Delle Colline - 15 Trofeo Colline del Chianti", Salon = lSalonDelleColline3, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
-                    var lSalonYearDelleColline4 = new SalonYearEntity { Name = "21 Gan Tour Delle Colline - 15 Trofeo Colline del Pratomagno", Salon = lSalonDelleColline4, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
-                    var lSalonYearScottish = new SalonYearEntity { Name = "Scottish Salon", Salon = lSalonScottish, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16) };
-                    var lSalonYearSydney = new SalonYearEntity { Name = "Sydney Harbour", Salon = lSalonSydney, Year = 2017, ClosingDate = new DateTime(2017, 4, 13), JudgeDate = new DateTime(2017, 4, 30), NotificationDate = new DateTime(2017, 5, 8), CataloguesPostedDate = new DateTime(2017, 5, 8) };
-                    var lSalonYearCheltenham = new SalonYearEntity { Name = "Cheltenham", Salon = lSalonCheltenham, Year = 2017, ClosingDate = new DateTime(2017, 4, 23), JudgeDate = new DateTime(2017, 5, 7), NotificationDate = new DateTime(2017, 5, 17), CataloguesPostedDate = new DateTime(2017, 5, 17) };
-                    var lSalonYearHoylake = new SalonYearEntity { Name = "Hoylake", Salon = lSalonHoylake, Year = 2017, ClosingDate = new DateTime(2017, 4, 23), JudgeDate = new DateTime(2017, 5, 7), NotificationDate = new DateTime(2017, 5, 14), CataloguesPostedDate = new DateTime(2017, 5, 17) };
-                    var lSalonYearPerasto = new SalonYearEntity { Name = "Perasto", Salon = lSalonPerasto, Year = 2017, ClosingDate = new DateTime(2017, 4, 30), JudgeDate = new DateTime(2017, 5, 14), NotificationDate = new DateTime(2017, 5, 17), CataloguesPostedDate = new DateTime(2017, 5, 17) };
-                    var lSalonYearMof = new SalonYearEntity { Name = "MOF", Salon = lSalonMof, Year = 2017, ClosingDate = new DateTime(2017, 5, 5), JudgeDate = new DateTime(2017, 5, 17), NotificationDate = new DateTime(2017, 5, 31), CataloguesPostedDate = new DateTime(2017, 5, 31) };
-                    var lSalonYearPrintAndDigitalVarna = new SalonYearEntity { Name = "Print and Digital Varna", Salon = lSalonPrintAndDigitalVarna, Year = 2017, ClosingDate = new DateTime(2017, 5, 10), JudgeDate = new DateTime(2017, 6, 1), NotificationDate = new DateTime(2017, 6, 9), CataloguesPostedDate = new DateTime(2017, 6, 9) };
-                    var lSalonYearGoodLight = new SalonYearEntity { Name = "Good Light", Salon = lSalonGoodLight, Year = 2017, ClosingDate = new DateTime(2017, 5, 10), JudgeDate = new DateTime(2017, 5, 21), NotificationDate = new DateTime(2017, 6, 1), CataloguesPostedDate = new DateTime(2017, 7, 31) };
-                    var lSalonYearGradac = new SalonYearEntity { Name = "Gradac", Salon = lSalonGradac, Year = 2017, ClosingDate = new DateTime(2017, 5, 14), JudgeDate = new DateTime(2017, 5, 30), NotificationDate = new DateTime(2017, 6, 5), CataloguesPostedDate = new DateTime(2017, 8, 13) };
-                    var lSalonYearCyprus = new SalonYearEntity { Name = "Cyprus International", Salon = lSalonCyprus, Year = 2017, ClosingDate = new DateTime(2017, 5, 28), JudgeDate = new DateTime(2017, 6, 11), NotificationDate = new DateTime(2017, 6, 24), CataloguesPostedDate = new DateTime(2017, 8, 20) };
-                    var lSalonYearPortTalbot = new SalonYearEntity { Name = "Port Talbot", Salon = lSalonPortTalbot, Year = 2017, ClosingDate = new DateTime(2017, 6, 17), JudgeDate = new DateTime(2017, 7, 2), NotificationDate = new DateTime(2017, 7, 9), CataloguesPostedDate = new DateTime(2017, 8, 13) };
-                    var lSalonYearVictorPolynsky = new SalonYearEntity { Name = "Victor Polynsky", Salon = lSalonVictorPolynsky, Year = 2017, ClosingDate = new DateTime(2017, 6, 21), JudgeDate = new DateTime(2017, 6, 22), NotificationDate = new DateTime(2017, 7, 12), CataloguesPostedDate = new DateTime(2017, 7, 12) };
+                        var lSalonYearBohemia = new SalonYearEntity { Name = "Bohemia", Salon = lSalonBohemia, Year = 2016, ClosingDate = new DateTime(2016, 10, 9), JudgeDate = new DateTime(2016, 10, 15), NotificationDate = new DateTime(2016, 10, 15), CataloguesPostedDate = new DateTime(2016, 10, 15) };
+                        var lSalonYearPhotoArtVision = new SalonYearEntity { Name = "Photo Art Vision", Salon = lSalonPhotoArtVision, Year = 2016, ClosingDate = new DateTime(2016, 11, 27), JudgeDate = new DateTime(2016, 12, 4), NotificationDate = new DateTime(2016, 12, 11), CataloguesPostedDate = new DateTime(2016, 12, 11) };
+                        var lSalonYearYorkshire = new SalonYearEntity { Name = "Yorkshire Salon", Salon = lSalonYorkshire, Year = 2016, ClosingDate = new DateTime(2016, 12, 5), JudgeDate = new DateTime(2016, 12, 11), NotificationDate = new DateTime(2016, 12, 19), CataloguesPostedDate = new DateTime(2016, 12, 19) };
+                        var lSalonYearBelghoria = new SalonYearEntity { Name = "Belghoria Photo Lovers", Salon = lSalonBelghoria, Year = 2017, ClosingDate = new DateTime(2016, 12, 31), JudgeDate = new DateTime(2017, 1, 19), NotificationDate = new DateTime(2017, 1, 31), CataloguesPostedDate = new DateTime(2017, 1, 31) };
+                        var lSalonYearRefletMondial = new SalonYearEntity { Name = "Reflet Mondial", Salon = lSalonRefletMondial, Year = 2017, ClosingDate = new DateTime(2017, 1, 26), JudgeDate = new DateTime(2017, 1, 29), NotificationDate = new DateTime(2017, 2, 2), CataloguesPostedDate = new DateTime(2017, 2, 2) };
+                        var lSalonYearBristol = new SalonYearEntity { Name = "Bristol", Salon = lSalonBristol, Year = 2017, ClosingDate = new DateTime(2017, 1, 31), JudgeDate = new DateTime(2017, 2, 19), NotificationDate = new DateTime(2017, 3, 4), CataloguesPostedDate = new DateTime(2017, 3, 4) };
+                        var lSalonYearVictoryPhotoClub = new SalonYearEntity { Name = "Victory Photo Club", Salon = lSalonVictoryPhotoClub, Year = 2017, ClosingDate = new DateTime(2017, 2, 17), JudgeDate = new DateTime(2017, 3, 8), NotificationDate = new DateTime(2017, 3, 12), CataloguesPostedDate = new DateTime(2017, 3, 12) };
+                        var lSalonYearNzis = new SalonYearEntity { Name = "NZIS", Salon = lSalonNzis, Year = 2017, ClosingDate = new DateTime(2017, 2, 17), JudgeDate = new DateTime(2017, 3, 5), NotificationDate = new DateTime(2017, 3, 18), CataloguesPostedDate = new DateTime(2017, 3, 18) };
+                        var lSalonYearPsaMet = new SalonYearEntity { Name = "PSA Metropolitan", Salon = lSalonPsaMet, Year = 2017, ClosingDate = new DateTime(2017, 3, 3), JudgeDate = new DateTime(2017, 3, 17), NotificationDate = new DateTime(2017, 3, 26), CataloguesPostedDate = new DateTime(2017, 3, 26) };
+                        var lSalonYearCreativeArt = new SalonYearEntity { Name = "Creative Art", Salon = lSalonCreativeArt, Year = 2017, ClosingDate = new DateTime(2017, 3, 6), JudgeDate = new DateTime(2017, 3, 19), NotificationDate = new DateTime(2017, 3, 31), CataloguesPostedDate = new DateTime(2017, 3, 31) };
+                        var lSalonYearCarlisle = new SalonYearEntity { Name = "Carlisle Salon", Salon = lSalonCarlisle, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16), Circuit = lCircuitGbSmallPrints };
+                        var lSalonYearPenrith = new SalonYearEntity { Name = "Penrith Salon", Salon = lSalonPenrith, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16), Circuit = lCircuitGbSmallPrints };
+                        var lSalonYearSolway = new SalonYearEntity { Name = "Solway Salon", Salon = lSalonSolway, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16), Circuit = lCircuitGbSmallPrints };
+                        var lSalonYearKpaClub = new SalonYearEntity { Name = "KPA Club", Salon = lSalonKpaClub, Year = 2017, ClosingDate = new DateTime(2017, 3, 11), JudgeDate = new DateTime(2017, 3, 25), NotificationDate = new DateTime(2017, 4, 5), CataloguesPostedDate = new DateTime(2017, 4, 5) };
+                        var lSalonYearLagacilly = new SalonYearEntity { Name = "Club Photo Lagacilly", Salon = lSalonLagacilly, Year = 2017, ClosingDate = new DateTime(2017, 3, 27), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 10), CataloguesPostedDate = new DateTime(2017, 4, 10) };
+                        var lSalonYearDelleColline1 = new SalonYearEntity { Name = "21 Gan Tour Delle Colline - 35 Trofeo Arno - Incisa V.", Salon = lSalonDelleColline1, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
+                        var lSalonYearDelleColline2 = new SalonYearEntity { Name = "21 Gan Tour Delle Colline - 26 Trofeo Città di Figline Valdarnoe", Salon = lSalonDelleColline2, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
+                        var lSalonYearDelleColline3 = new SalonYearEntity { Name = "21 Gan Tour Delle Colline - 15 Trofeo Colline del Chianti", Salon = lSalonDelleColline3, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
+                        var lSalonYearDelleColline4 = new SalonYearEntity { Name = "21 Gan Tour Delle Colline - 15 Trofeo Colline del Pratomagno", Salon = lSalonDelleColline4, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
+                        var lSalonYearScottish = new SalonYearEntity { Name = "Scottish Salon", Salon = lSalonScottish, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16) };
+                        var lSalonYearSydney = new SalonYearEntity { Name = "Sydney Harbour", Salon = lSalonSydney, Year = 2017, ClosingDate = new DateTime(2017, 4, 13), JudgeDate = new DateTime(2017, 4, 30), NotificationDate = new DateTime(2017, 5, 8), CataloguesPostedDate = new DateTime(2017, 5, 8) };
+                        var lSalonYearCheltenham = new SalonYearEntity { Name = "Cheltenham", Salon = lSalonCheltenham, Year = 2017, ClosingDate = new DateTime(2017, 4, 23), JudgeDate = new DateTime(2017, 5, 7), NotificationDate = new DateTime(2017, 5, 17), CataloguesPostedDate = new DateTime(2017, 5, 17) };
+                        var lSalonYearHoylake = new SalonYearEntity { Name = "Hoylake", Salon = lSalonHoylake, Year = 2017, ClosingDate = new DateTime(2017, 4, 23), JudgeDate = new DateTime(2017, 5, 7), NotificationDate = new DateTime(2017, 5, 14), CataloguesPostedDate = new DateTime(2017, 5, 17) };
+                        var lSalonYearPerasto = new SalonYearEntity { Name = "Perasto", Salon = lSalonPerasto, Year = 2017, ClosingDate = new DateTime(2017, 4, 30), JudgeDate = new DateTime(2017, 5, 14), NotificationDate = new DateTime(2017, 5, 17), CataloguesPostedDate = new DateTime(2017, 5, 17) };
+                        var lSalonYearMof = new SalonYearEntity { Name = "MOF", Salon = lSalonMof, Year = 2017, ClosingDate = new DateTime(2017, 5, 5), JudgeDate = new DateTime(2017, 5, 17), NotificationDate = new DateTime(2017, 5, 31), CataloguesPostedDate = new DateTime(2017, 5, 31) };
+                        var lSalonYearPrintAndDigitalVarna = new SalonYearEntity { Name = "Print and Digital Varna", Salon = lSalonPrintAndDigitalVarna, Year = 2017, ClosingDate = new DateTime(2017, 5, 10), JudgeDate = new DateTime(2017, 6, 1), NotificationDate = new DateTime(2017, 6, 9), CataloguesPostedDate = new DateTime(2017, 6, 9) };
+                        var lSalonYearGoodLight = new SalonYearEntity { Name = "Good Light", Salon = lSalonGoodLight, Year = 2017, ClosingDate = new DateTime(2017, 5, 10), JudgeDate = new DateTime(2017, 5, 21), NotificationDate = new DateTime(2017, 6, 1), CataloguesPostedDate = new DateTime(2017, 7, 31) };
+                        var lSalonYearGradac = new SalonYearEntity { Name = "Gradac", Salon = lSalonGradac, Year = 2017, ClosingDate = new DateTime(2017, 5, 14), JudgeDate = new DateTime(2017, 5, 30), NotificationDate = new DateTime(2017, 6, 5), CataloguesPostedDate = new DateTime(2017, 8, 13) };
+                        var lSalonYearCyprus = new SalonYearEntity { Name = "Cyprus International", Salon = lSalonCyprus, Year = 2017, ClosingDate = new DateTime(2017, 5, 28), JudgeDate = new DateTime(2017, 6, 11), NotificationDate = new DateTime(2017, 6, 24), CataloguesPostedDate = new DateTime(2017, 8, 20) };
+                        var lSalonYearPortTalbot = new SalonYearEntity { Name = "Port Talbot", Salon = lSalonPortTalbot, Year = 2017, ClosingDate = new DateTime(2017, 6, 17), JudgeDate = new DateTime(2017, 7, 2), NotificationDate = new DateTime(2017, 7, 9), CataloguesPostedDate = new DateTime(2017, 8, 13) };
+                        var lSalonYearVictorPolynsky = new SalonYearEntity { Name = "Victor Polynsky", Salon = lSalonVictorPolynsky, Year = 2017, ClosingDate = new DateTime(2017, 6, 21), JudgeDate = new DateTime(2017, 6, 22), NotificationDate = new DateTime(2017, 7, 12), CataloguesPostedDate = new DateTime(2017, 7, 12) };
 
-                    lContext.SalonYears.AddRange(new List<SalonYearEntity>
+                        lContext.SalonYears.AddRange(new List<SalonYearEntity>
                 {
                     lSalonYearBohemia,
                     lSalonYearPhotoArtVision,
@@ -200,18 +202,18 @@ namespace SalonServices.Migrations
                     lSalonYearPortTalbot,
                     lSalonYearVictorPolynsky,
                 });
-                    lContext.SaveChanges();
+                        lContext.SaveChanges();
 
 
-                    var lPsa = (from org in lContext.PhotoOrganisations
-                                where org.Name == "PSA"
-                                select org).FirstOrDefault();
+                        var lPsa = (from org in lContext.PhotoOrganisations
+                                    where org.Name == "PSA"
+                                    select org).FirstOrDefault();
 
-                    var lFiap = (from org in lContext.PhotoOrganisations
-                                 where org.Name == "FIAP"
-                                 select org).FirstOrDefault();
+                        var lFiap = (from org in lContext.PhotoOrganisations
+                                     where org.Name == "FIAP"
+                                     select org).FirstOrDefault();
 
-                    lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
                     new AccreditationEntity() { SalonNumber = "2016/460", PhotoOrganisation = lFiap, SalonYear = lSalonYearBohemia },
                     new AccreditationEntity() { SalonNumber = "2016/499", PhotoOrganisation = lFiap, SalonYear = lSalonYearPhotoArtVision },
                     new AccreditationEntity() { SalonNumber = "2016/309", PhotoOrganisation = lFiap, SalonYear = lSalonYearYorkshire },
@@ -270,31 +272,31 @@ namespace SalonServices.Migrations
                     new AccreditationEntity() { SalonNumber = "2017-175", PhotoOrganisation = lPsa, SalonYear = lSalonYearPortTalbot, },
                     new AccreditationEntity() { SalonNumber = "2017-165", PhotoOrganisation = lPsa, SalonYear = lSalonYearVictorPolynsky, },
                 });
-                    lContext.SaveChanges();
+                        lContext.SaveChanges();
 
-                    var lSectionTypeColourPdi = new SectionTypeEntity() { Name = "Open Colour", IsPrint = false, SectionCode = "PSA PID" };
-                    var lSectionTypeMonoPdi = new SectionTypeEntity() { Name = "Open Mono", IsPrint = false, SectionCode = "PSA PID" };
-                    var lSectionTypeOpenPdi = new SectionTypeEntity() { Name = "Open Colour and Mono", IsPrint = false, SectionCode = "" };
-                    var lSectionTypeNaturePdi = new SectionTypeEntity() { Name = "Nature", IsPrint = false, SectionCode = "PSA ND" };
-                    var lSectionTypeTravelPdi = new SectionTypeEntity() { Name = "Travel", IsPrint = false, SectionCode = "PSA PTD" };
-                    var lSectionTypeCreativePdi = new SectionTypeEntity() { Name = "Creative", IsPrint = false, SectionCode = "" };
-                    var lSectionTypeMonoLandscapePdi = new SectionTypeEntity() { Name = "Landscape Mono", IsPrint = false, SectionCode = "" };
-                    var lSectionTypeScapesPdi = new SectionTypeEntity() { Name = "Scapes", IsPrint = false, SectionCode = "" };
-                    var lSectionTypePhotojournalismPdi = new SectionTypeEntity() { Name = "Photojournalism", IsPrint = false, SectionCode = "" };
-                    var lSectionTypeActionMovementSportPdi = new SectionTypeEntity() { Name = "Action Movement Sport", IsPrint = false, SectionCode = "PSA PID" };
-                    var lSectionTypeDecisiveMomentPdi = new SectionTypeEntity() { Name = "Decisive Moment", IsPrint = false, SectionCode = "" };
-                    var lSectionTypeChildPdi = new SectionTypeEntity() { Name = "Child", IsPrint = false, SectionCode = "PSA PID" };
-                    var lSectionTypeWomanPdi = new SectionTypeEntity() { Name = "Woman", IsPrint = false, SectionCode = "PSA PID" };
-                    var lSectionTypeManWomanChildPdi = new SectionTypeEntity() { Name = "Man Woman Child", IsPrint = false, SectionCode = "PSA PID" };
-                    var lSectionTypeGoodLightPdi = new SectionTypeEntity() { Name = "Good Light", IsPrint = false, SectionCode = "PSA PID" };
+                        var lSectionTypeColourPdi = new SectionTypeEntity() { Name = "Open Colour", IsPrint = false, SectionCode = "PSA PID" };
+                        var lSectionTypeMonoPdi = new SectionTypeEntity() { Name = "Open Mono", IsPrint = false, SectionCode = "PSA PID" };
+                        var lSectionTypeOpenPdi = new SectionTypeEntity() { Name = "Open Colour and Mono", IsPrint = false, SectionCode = "" };
+                        var lSectionTypeNaturePdi = new SectionTypeEntity() { Name = "Nature", IsPrint = false, SectionCode = "PSA ND" };
+                        var lSectionTypeTravelPdi = new SectionTypeEntity() { Name = "Travel", IsPrint = false, SectionCode = "PSA PTD" };
+                        var lSectionTypeCreativePdi = new SectionTypeEntity() { Name = "Creative", IsPrint = false, SectionCode = "" };
+                        var lSectionTypeMonoLandscapePdi = new SectionTypeEntity() { Name = "Landscape Mono", IsPrint = false, SectionCode = "" };
+                        var lSectionTypeScapesPdi = new SectionTypeEntity() { Name = "Scapes", IsPrint = false, SectionCode = "" };
+                        var lSectionTypePhotojournalismPdi = new SectionTypeEntity() { Name = "Photojournalism", IsPrint = false, SectionCode = "" };
+                        var lSectionTypeActionMovementSportPdi = new SectionTypeEntity() { Name = "Action Movement Sport", IsPrint = false, SectionCode = "PSA PID" };
+                        var lSectionTypeDecisiveMomentPdi = new SectionTypeEntity() { Name = "Decisive Moment", IsPrint = false, SectionCode = "" };
+                        var lSectionTypeChildPdi = new SectionTypeEntity() { Name = "Child", IsPrint = false, SectionCode = "PSA PID" };
+                        var lSectionTypeWomanPdi = new SectionTypeEntity() { Name = "Woman", IsPrint = false, SectionCode = "PSA PID" };
+                        var lSectionTypeManWomanChildPdi = new SectionTypeEntity() { Name = "Man Woman Child", IsPrint = false, SectionCode = "PSA PID" };
+                        var lSectionTypeGoodLightPdi = new SectionTypeEntity() { Name = "Good Light", IsPrint = false, SectionCode = "PSA PID" };
 
-                    var lSectionTypeColourPrint = new SectionTypeEntity() { Name = "Open Colour Print", IsPrint = true, SectionCode = "" };
-                    var lSectionTypeMonoPrint = new SectionTypeEntity() { Name = "Open Mono Print", IsPrint = true, SectionCode = "" };
-                    var lSectionTypeTravelPrint = new SectionTypeEntity() { Name = "Travel Print", IsPrint = true, SectionCode = "" };
-                    var lSectionTypeNaturePrint = new SectionTypeEntity() { Name = "Nature Print", IsPrint = true, SectionCode = "" };
-                    var lSectionTypeMonoLandscapePrint = new SectionTypeEntity() { Name = "Mono Landscape Print", IsPrint = true, SectionCode = "" };
+                        var lSectionTypeColourPrint = new SectionTypeEntity() { Name = "Open Colour Print", IsPrint = true, SectionCode = "" };
+                        var lSectionTypeMonoPrint = new SectionTypeEntity() { Name = "Open Mono Print", IsPrint = true, SectionCode = "" };
+                        var lSectionTypeTravelPrint = new SectionTypeEntity() { Name = "Travel Print", IsPrint = true, SectionCode = "" };
+                        var lSectionTypeNaturePrint = new SectionTypeEntity() { Name = "Nature Print", IsPrint = true, SectionCode = "" };
+                        var lSectionTypeMonoLandscapePrint = new SectionTypeEntity() { Name = "Mono Landscape Print", IsPrint = true, SectionCode = "" };
 
-                    lContext.SectionTypes.AddRange(new List<SectionTypeEntity> {
+                        lContext.SectionTypes.AddRange(new List<SectionTypeEntity> {
                     lSectionTypeColourPdi,
                     lSectionTypeMonoPdi,
                     lSectionTypeOpenPdi,
@@ -316,90 +318,90 @@ namespace SalonServices.Migrations
                     lSectionTypeNaturePrint,
                     lSectionTypeMonoLandscapePrint,
             });
-                    lContext.SaveChanges();
+                        lContext.SaveChanges();
 
-                    var lTim = new PersonEntity() { Name = "Tim" };
-                    lContext.People.Add(lTim);
-                    lContext.SaveChanges();
+                        var lTim = new PersonEntity() { Name = "Tim" };
+                        lContext.People.Add(lTim);
+                        lContext.SaveChanges();
 
-                    var lIntoTheMist = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Into The Mist" };
-                    var lDaisy = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Daisy" };
-                    var lRuinsByNight = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Ruins By Night" };
-                    var lOliversCastle = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Olivers Castle" };
-                    var lCathedralCeiling = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Cathedral Ceiling" };
-                    var lTheDance = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Dance" };
-                    var lThroughTheArch = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Through The Arch" };
-                    var lTreeGroveInTheMist = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Tree Grove In The Mist" };
-                    var lTheWatcherInTheWaves = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Watcher In The Waves" };
-                    var lYoungRedKite = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Young Red Kite" };
-                    var lGreatGreyOwl = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Great Grey Owl" };
-                    var lAcrossTheLake = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Across The Lake" };
-                    var lAWorldBeyond = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "A World Beyond" };
-                    var lWatchfulness = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Watchfulness" };
-                    var lAfternoonGun = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Afternoon Gun Valletta Malta" };
-                    var lFreshSnow = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Fresh Snow South Island NZ" };
-                    var lLongEaredOwl = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Long Eared Owl" };
-                    var lButtermere = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Buttermere Lake District UK" };
-                    var lButtermereTree = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Buttermere Tree" };
-                    var lLakeKaniere = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Lake Kaniere New Zealand" };
-                    var lTheWatcher = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Watcher" };
-                    var lSpiralNine = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Sprial Nine" };
-                    var lHedgehog = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Hedgehog" };
-                    var lOrb = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Orb" };
-                    var lLittleOwl = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Little Owl" };
-                    var lFloodingInLeeds = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Flooding In Leeds 2015" };
-                    var lBudirChurch = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Budir Church Iceland" };
-                    var lKirkjufellSnow = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Kirkjufell Snow" };
-                    var lBungeeJumpScream = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Bungee Jump Scream" };
-                    var lCanadaGosling = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Canada Gosling" };
-                    var lTowardsTheLight = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Towards The Light" };
-                    var lBoatingInTheHail = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Boating In The Hail" };
+                        var lIntoTheMist = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Into The Mist" };
+                        var lDaisy = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Daisy" };
+                        var lRuinsByNight = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Ruins By Night" };
+                        var lOliversCastle = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Olivers Castle" };
+                        var lCathedralCeiling = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Cathedral Ceiling" };
+                        var lTheDance = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Dance" };
+                        var lThroughTheArch = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Through The Arch" };
+                        var lTreeGroveInTheMist = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Tree Grove In The Mist" };
+                        var lTheWatcherInTheWaves = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Watcher In The Waves" };
+                        var lYoungRedKite = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Young Red Kite" };
+                        var lGreatGreyOwl = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Great Grey Owl" };
+                        var lAcrossTheLake = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Across The Lake" };
+                        var lAWorldBeyond = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "A World Beyond" };
+                        var lWatchfulness = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Watchfulness" };
+                        var lAfternoonGun = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Afternoon Gun Valletta Malta" };
+                        var lFreshSnow = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Fresh Snow South Island NZ" };
+                        var lLongEaredOwl = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Long Eared Owl" };
+                        var lButtermere = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Buttermere Lake District UK" };
+                        var lButtermereTree = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Buttermere Tree" };
+                        var lLakeKaniere = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Lake Kaniere New Zealand" };
+                        var lTheWatcher = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Watcher" };
+                        var lSpiralNine = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Sprial Nine" };
+                        var lHedgehog = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Hedgehog" };
+                        var lOrb = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Orb" };
+                        var lLittleOwl = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Little Owl" };
+                        var lFloodingInLeeds = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Flooding In Leeds 2015" };
+                        var lBudirChurch = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Budir Church Iceland" };
+                        var lKirkjufellSnow = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Kirkjufell Snow" };
+                        var lBungeeJumpScream = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Bungee Jump Scream" };
+                        var lCanadaGosling = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Canada Gosling" };
+                        var lTowardsTheLight = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Towards The Light" };
+                        var lBoatingInTheHail = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Boating In The Hail" };
 
-                    var lLoneTree = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Lone Tree" };
-                    var lSolitaryTree = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Solitary Tree" };
-                    var lBridgeSuspension = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Bridge Suspension" };
-                    var lInnerLight = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Inner Light" };
-                    var lStarfall = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Starfall" };
-                    var lAnotherPlaceAnotherWorld = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Another Place Another World" };
-                    var lHarvestMouseCowParsley = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Harvest Mouse on Cow Parsley" };
-                    var lHarvestMouseWheat = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Harvest Mouse on Wheat" };
-                    var lWaterVole = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Water Vole" };
-                    var lWaterVoleInPipe = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Water Vole in Pipe" };
-                    var lZombieGirl = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Zombie Girl" };
-                    var lLakeShore = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Lake Shore" };
-                    var lSteppingStones = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Stepping Stones" };
-                    var lIcelandicPeak = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Icelandic Peak" };
-                    var lKirkjufellRock = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Kirkjufell Rock" };
-                    var lIcelandicHorse = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Icelandic Horse" };
-                    var lLeithReflections = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Leith Reflections" };
-                    var lDawnInTheOutback = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Dawn in the Outback" };
-                    var lTwelveApostlesSunset = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Twelve Apostles Sunset" };
-                    var lPathStripes = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Path Stripes" };
-                    var lFreshSnowIceland = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Fresh Snow Iceland" };
-                    var lSentinel = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Sentinel" };
-                    var lWoodlandLight = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Woodland Light" };
-                    var lPollinationCanopy = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Pollination Canopy" };
-                    var lTheQualityOfSilence = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Quality of Silence" };
-                    var lLiverpoolWheelAndDocks = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Liverpool Wheel and Docks" };
-                    var lDreamsOfNature = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Dreams Of Nature" };
-                    var lLivingTheMalteseDream = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Living the Maltese Dream" };
-                    var lHarbourSailingInMalta = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Harbour Sailing In Malta" };
-                    var l4464Bittern = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "4464 Bittern" };
-                    var lEricTreacy = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Eric Treacy" };
-                    var lMalteseDoor = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Maltese Door" };
-                    var lWaveWatcher = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Wave Watcher" };
-                    var lDeepThinking = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Deep Thinking" };
-                    var lRedKite = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Red Kite" };
-                    var lBoltonAbbey = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Bolton Abbey" };
-                    var lGrassIceland = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Grass Iceland" };
-                    var lGlacierLagoonIceland = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Glacier Lagoon Iceland" };
-                    var lZombieSelfie = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Zombie Selfie" };
-                    var lZombieSafetyTraining = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Zombie Safety Training" };
-                    var lZombieTraining = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Zombie Training" };
-                    var lReflect = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Reflect" };
-                    var lTourDeYorkshire = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Tour De Yorkshire" };
+                        var lLoneTree = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Lone Tree" };
+                        var lSolitaryTree = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Solitary Tree" };
+                        var lBridgeSuspension = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Bridge Suspension" };
+                        var lInnerLight = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Inner Light" };
+                        var lStarfall = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Starfall" };
+                        var lAnotherPlaceAnotherWorld = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Another Place Another World" };
+                        var lHarvestMouseCowParsley = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Harvest Mouse on Cow Parsley" };
+                        var lHarvestMouseWheat = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Harvest Mouse on Wheat" };
+                        var lWaterVole = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Water Vole" };
+                        var lWaterVoleInPipe = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Water Vole in Pipe" };
+                        var lZombieGirl = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Zombie Girl" };
+                        var lLakeShore = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Lake Shore" };
+                        var lSteppingStones = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Stepping Stones" };
+                        var lIcelandicPeak = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Icelandic Peak" };
+                        var lKirkjufellRock = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Kirkjufell Rock" };
+                        var lIcelandicHorse = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Icelandic Horse" };
+                        var lLeithReflections = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Leith Reflections" };
+                        var lDawnInTheOutback = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Dawn in the Outback" };
+                        var lTwelveApostlesSunset = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Twelve Apostles Sunset" };
+                        var lPathStripes = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Path Stripes" };
+                        var lFreshSnowIceland = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Fresh Snow Iceland" };
+                        var lSentinel = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Sentinel" };
+                        var lWoodlandLight = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Woodland Light" };
+                        var lPollinationCanopy = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Pollination Canopy" };
+                        var lTheQualityOfSilence = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Quality of Silence" };
+                        var lLiverpoolWheelAndDocks = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Liverpool Wheel and Docks" };
+                        var lDreamsOfNature = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Dreams Of Nature" };
+                        var lLivingTheMalteseDream = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Living the Maltese Dream" };
+                        var lHarbourSailingInMalta = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Harbour Sailing In Malta" };
+                        var l4464Bittern = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "4464 Bittern" };
+                        var lEricTreacy = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Eric Treacy" };
+                        var lMalteseDoor = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Maltese Door" };
+                        var lWaveWatcher = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Wave Watcher" };
+                        var lDeepThinking = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Deep Thinking" };
+                        var lRedKite = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Red Kite" };
+                        var lBoltonAbbey = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Bolton Abbey" };
+                        var lGrassIceland = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Grass Iceland" };
+                        var lGlacierLagoonIceland = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Glacier Lagoon Iceland" };
+                        var lZombieSelfie = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Zombie Selfie" };
+                        var lZombieSafetyTraining = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Zombie Safety Training" };
+                        var lZombieTraining = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Zombie Training" };
+                        var lReflect = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Reflect" };
+                        var lTourDeYorkshire = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Tour De Yorkshire" };
 
-                    lContext.Images.AddRange(new List<ImageEntity> {
+                        lContext.Images.AddRange(new List<ImageEntity> {
                      lIntoTheMist,
                      lDaisy,
                      lRuinsByNight,
@@ -481,129 +483,129 @@ namespace SalonServices.Migrations
                      lTourDeYorkshire,
 
             });
-                    lContext.SaveChanges();
+                        lContext.SaveChanges();
 
 
-                    var lSalonYearBohemiaColour = new SectionEntity() { SalonYear = lSalonYearBohemia, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearBohemiaColour = new SectionEntity() { SalonYear = lSalonYearBohemia, SectionType = lSectionTypeColourPdi };
 
-                    var lSalonYearPhotoArtVisionColour = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearPhotoArtVisionMono = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearPhotoArtVisionColour = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearPhotoArtVisionMono = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeMonoPdi };
 
-                    var lSalonYearYorkshireOpen = new SectionEntity() { SalonYear = lSalonYearYorkshire, SectionType = lSectionTypeOpenPdi };
+                        var lSalonYearYorkshireOpen = new SectionEntity() { SalonYear = lSalonYearYorkshire, SectionType = lSectionTypeOpenPdi };
 
-                    var lSalonYearBelghoriaColour = new SectionEntity() { SalonYear = lSalonYearBelghoria, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearBelghoriaMono = new SectionEntity() { SalonYear = lSalonYearBelghoria, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearBelghoriaColour = new SectionEntity() { SalonYear = lSalonYearBelghoria, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearBelghoriaMono = new SectionEntity() { SalonYear = lSalonYearBelghoria, SectionType = lSectionTypeMonoPdi };
 
-                    var lSalonYearRefletMondialColour = new SectionEntity() { SalonYear = lSalonYearRefletMondial, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearRefletMondialMono = new SectionEntity() { SalonYear = lSalonYearRefletMondial, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearRefletMondialColour = new SectionEntity() { SalonYear = lSalonYearRefletMondial, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearRefletMondialMono = new SectionEntity() { SalonYear = lSalonYearRefletMondial, SectionType = lSectionTypeMonoPdi };
 
-                    var lSalonYearBristolColour = new SectionEntity() { SalonYear = lSalonYearBristol, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearBristolMono = new SectionEntity() { SalonYear = lSalonYearBristol, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearBristolColour = new SectionEntity() { SalonYear = lSalonYearBristol, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearBristolMono = new SectionEntity() { SalonYear = lSalonYearBristol, SectionType = lSectionTypeMonoPdi };
 
-                    var lSalonYearVictoryPhotoClubOpen = new SectionEntity() { SalonYear = lSalonYearVictoryPhotoClub, SectionType = lSectionTypeOpenPdi };
-                    var lSalonYearVictoryPhotoClubNature = new SectionEntity() { SalonYear = lSalonYearVictoryPhotoClub, SectionType = lSectionTypeNaturePdi };
-                    var lSalonYearVictoryPhotoClubTravel = new SectionEntity() { SalonYear = lSalonYearVictoryPhotoClub, SectionType = lSectionTypeTravelPdi };
+                        var lSalonYearVictoryPhotoClubOpen = new SectionEntity() { SalonYear = lSalonYearVictoryPhotoClub, SectionType = lSectionTypeOpenPdi };
+                        var lSalonYearVictoryPhotoClubNature = new SectionEntity() { SalonYear = lSalonYearVictoryPhotoClub, SectionType = lSectionTypeNaturePdi };
+                        var lSalonYearVictoryPhotoClubTravel = new SectionEntity() { SalonYear = lSalonYearVictoryPhotoClub, SectionType = lSectionTypeTravelPdi };
 
-                    var lSalonYearNzisColour = new SectionEntity() { SalonYear = lSalonYearNzis, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearNzisCreative = new SectionEntity() { SalonYear = lSalonYearNzis, SectionType = lSectionTypeCreativePdi };
+                        var lSalonYearNzisColour = new SectionEntity() { SalonYear = lSalonYearNzis, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearNzisCreative = new SectionEntity() { SalonYear = lSalonYearNzis, SectionType = lSectionTypeCreativePdi };
 
-                    var lSalonYearPsaMetColour = new SectionEntity() { SalonYear = lSalonYearPsaMet, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearPsaMetMono = new SectionEntity() { SalonYear = lSalonYearPsaMet, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearPsaMetColour = new SectionEntity() { SalonYear = lSalonYearPsaMet, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearPsaMetMono = new SectionEntity() { SalonYear = lSalonYearPsaMet, SectionType = lSectionTypeMonoPdi };
 
-                    var lSalonYearCreativeArtColour = new SectionEntity() { SalonYear = lSalonYearCreativeArt, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearCreativeArtMono = new SectionEntity() { SalonYear = lSalonYearCreativeArt, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearCreativeArtColour = new SectionEntity() { SalonYear = lSalonYearCreativeArt, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearCreativeArtMono = new SectionEntity() { SalonYear = lSalonYearCreativeArt, SectionType = lSectionTypeMonoPdi };
 
-                    var lSalonYearCarlisleColourPrint = new SectionEntity() { SalonYear = lSalonYearCarlisle, SectionType = lSectionTypeColourPrint };
-                    var lSalonYearCarlisleMonoPrint = new SectionEntity() { SalonYear = lSalonYearCarlisle, SectionType = lSectionTypeMonoPrint };
-                    var lSalonYearCarlisleTravelPrint = new SectionEntity() { SalonYear = lSalonYearCarlisle, SectionType = lSectionTypeTravelPrint };
-                    var lSalonYearCarlisleNaturePrint = new SectionEntity() { SalonYear = lSalonYearCarlisle, SectionType = lSectionTypeNaturePrint };
-                    var lSalonYearCarlisleMonoLandscapePrint = new SectionEntity() { SalonYear = lSalonYearCarlisle, SectionType = lSectionTypeMonoLandscapePrint };
+                        var lSalonYearCarlisleColourPrint = new SectionEntity() { SalonYear = lSalonYearCarlisle, SectionType = lSectionTypeColourPrint };
+                        var lSalonYearCarlisleMonoPrint = new SectionEntity() { SalonYear = lSalonYearCarlisle, SectionType = lSectionTypeMonoPrint };
+                        var lSalonYearCarlisleTravelPrint = new SectionEntity() { SalonYear = lSalonYearCarlisle, SectionType = lSectionTypeTravelPrint };
+                        var lSalonYearCarlisleNaturePrint = new SectionEntity() { SalonYear = lSalonYearCarlisle, SectionType = lSectionTypeNaturePrint };
+                        var lSalonYearCarlisleMonoLandscapePrint = new SectionEntity() { SalonYear = lSalonYearCarlisle, SectionType = lSectionTypeMonoLandscapePrint };
 
-                    var lSalonYearPenrithColourPrint = new SectionEntity() { SalonYear = lSalonYearPenrith, SectionType = lSectionTypeColourPrint };
-                    var lSalonYearPenrithMonoPrint = new SectionEntity() { SalonYear = lSalonYearPenrith, SectionType = lSectionTypeMonoPrint };
-                    var lSalonYearPenrithTravelPrint = new SectionEntity() { SalonYear = lSalonYearPenrith, SectionType = lSectionTypeTravelPrint };
-                    var lSalonYearPenrithNaturePrint = new SectionEntity() { SalonYear = lSalonYearPenrith, SectionType = lSectionTypeNaturePrint };
-                    var lSalonYearPenrithMonoLandscapePrint = new SectionEntity() { SalonYear = lSalonYearPenrith, SectionType = lSectionTypeMonoLandscapePrint };
+                        var lSalonYearPenrithColourPrint = new SectionEntity() { SalonYear = lSalonYearPenrith, SectionType = lSectionTypeColourPrint };
+                        var lSalonYearPenrithMonoPrint = new SectionEntity() { SalonYear = lSalonYearPenrith, SectionType = lSectionTypeMonoPrint };
+                        var lSalonYearPenrithTravelPrint = new SectionEntity() { SalonYear = lSalonYearPenrith, SectionType = lSectionTypeTravelPrint };
+                        var lSalonYearPenrithNaturePrint = new SectionEntity() { SalonYear = lSalonYearPenrith, SectionType = lSectionTypeNaturePrint };
+                        var lSalonYearPenrithMonoLandscapePrint = new SectionEntity() { SalonYear = lSalonYearPenrith, SectionType = lSectionTypeMonoLandscapePrint };
 
-                    var lSalonYearSolwayColourPrint = new SectionEntity() { SalonYear = lSalonYearSolway, SectionType = lSectionTypeColourPrint };
-                    var lSalonYearSolwayMonoPrint = new SectionEntity() { SalonYear = lSalonYearSolway, SectionType = lSectionTypeMonoPrint };
-                    var lSalonYearSolwayTravelPrint = new SectionEntity() { SalonYear = lSalonYearSolway, SectionType = lSectionTypeTravelPrint };
-                    var lSalonYearSolwayNaturePrint = new SectionEntity() { SalonYear = lSalonYearSolway, SectionType = lSectionTypeNaturePrint };
-                    var lSalonYearSolwayMonoLandscapePrint = new SectionEntity() { SalonYear = lSalonYearSolway, SectionType = lSectionTypeMonoLandscapePrint };
+                        var lSalonYearSolwayColourPrint = new SectionEntity() { SalonYear = lSalonYearSolway, SectionType = lSectionTypeColourPrint };
+                        var lSalonYearSolwayMonoPrint = new SectionEntity() { SalonYear = lSalonYearSolway, SectionType = lSectionTypeMonoPrint };
+                        var lSalonYearSolwayTravelPrint = new SectionEntity() { SalonYear = lSalonYearSolway, SectionType = lSectionTypeTravelPrint };
+                        var lSalonYearSolwayNaturePrint = new SectionEntity() { SalonYear = lSalonYearSolway, SectionType = lSectionTypeNaturePrint };
+                        var lSalonYearSolwayMonoLandscapePrint = new SectionEntity() { SalonYear = lSalonYearSolway, SectionType = lSectionTypeMonoLandscapePrint };
 
-                    var lSalonYearKpaClubColour = new SectionEntity() { SalonYear = lSalonYearKpaClub, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearKpaClubMono = new SectionEntity() { SalonYear = lSalonYearKpaClub, SectionType = lSectionTypeMonoPdi };
-                    var lSalonYearKpaClubNature = new SectionEntity() { SalonYear = lSalonYearKpaClub, SectionType = lSectionTypeNaturePdi };
+                        var lSalonYearKpaClubColour = new SectionEntity() { SalonYear = lSalonYearKpaClub, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearKpaClubMono = new SectionEntity() { SalonYear = lSalonYearKpaClub, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearKpaClubNature = new SectionEntity() { SalonYear = lSalonYearKpaClub, SectionType = lSectionTypeNaturePdi };
 
-                    var lSalonYearLagacillyColour = new SectionEntity() { SalonYear = lSalonYearLagacilly, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearLagacillyColour = new SectionEntity() { SalonYear = lSalonYearLagacilly, SectionType = lSectionTypeColourPdi };
 
-                    var lSalonYearDelleColline1Colour = new SectionEntity() { SalonYear = lSalonYearDelleColline1, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearDelleColline1Mono = new SectionEntity() { SalonYear = lSalonYearDelleColline1, SectionType = lSectionTypeMonoPdi };
-                    var lSalonYearDelleColline2Colour = new SectionEntity() { SalonYear = lSalonYearDelleColline2, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearDelleColline2Mono = new SectionEntity() { SalonYear = lSalonYearDelleColline2, SectionType = lSectionTypeMonoPdi };
-                    var lSalonYearDelleColline3Colour = new SectionEntity() { SalonYear = lSalonYearDelleColline3, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearDelleColline3Mono = new SectionEntity() { SalonYear = lSalonYearDelleColline3, SectionType = lSectionTypeMonoPdi };
-                    var lSalonYearDelleColline4Colour = new SectionEntity() { SalonYear = lSalonYearDelleColline4, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearDelleColline4Mono = new SectionEntity() { SalonYear = lSalonYearDelleColline4, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearDelleColline1Colour = new SectionEntity() { SalonYear = lSalonYearDelleColline1, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearDelleColline1Mono = new SectionEntity() { SalonYear = lSalonYearDelleColline1, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearDelleColline2Colour = new SectionEntity() { SalonYear = lSalonYearDelleColline2, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearDelleColline2Mono = new SectionEntity() { SalonYear = lSalonYearDelleColline2, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearDelleColline3Colour = new SectionEntity() { SalonYear = lSalonYearDelleColline3, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearDelleColline3Mono = new SectionEntity() { SalonYear = lSalonYearDelleColline3, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearDelleColline4Colour = new SectionEntity() { SalonYear = lSalonYearDelleColline4, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearDelleColline4Mono = new SectionEntity() { SalonYear = lSalonYearDelleColline4, SectionType = lSectionTypeMonoPdi };
 
-                    var lSalonYearScottishMonoPrint = new SectionEntity() { SalonYear = lSalonYearScottish, SectionType = lSectionTypeMonoPrint };
-                    var lSalonYearScottishColourPrint = new SectionEntity() { SalonYear = lSalonYearScottish, SectionType = lSectionTypeColourPrint };
-                    var lSalonYearScottishColour = new SectionEntity() { SalonYear = lSalonYearScottish, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearScottishMonoPrint = new SectionEntity() { SalonYear = lSalonYearScottish, SectionType = lSectionTypeMonoPrint };
+                        var lSalonYearScottishColourPrint = new SectionEntity() { SalonYear = lSalonYearScottish, SectionType = lSectionTypeColourPrint };
+                        var lSalonYearScottishColour = new SectionEntity() { SalonYear = lSalonYearScottish, SectionType = lSectionTypeColourPdi };
 
-                    var lSalonYearSydneyColour = new SectionEntity() { SalonYear = lSalonYearSydney, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearSydneyMono = new SectionEntity() { SalonYear = lSalonYearSydney, SectionType = lSectionTypeMonoPdi };
-                    var lSalonYearSydneyCreative = new SectionEntity() { SalonYear = lSalonYearSydney, SectionType = lSectionTypeCreativePdi };
+                        var lSalonYearSydneyColour = new SectionEntity() { SalonYear = lSalonYearSydney, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearSydneyMono = new SectionEntity() { SalonYear = lSalonYearSydney, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearSydneyCreative = new SectionEntity() { SalonYear = lSalonYearSydney, SectionType = lSectionTypeCreativePdi };
 
-                    var lSalonYearCheltenhamColour = new SectionEntity() { SalonYear = lSalonYearCheltenham, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearCheltenhamMono = new SectionEntity() { SalonYear = lSalonYearCheltenham, SectionType = lSectionTypeMonoPdi };
-                    var lSalonYearCheltenhamCreative = new SectionEntity() { SalonYear = lSalonYearCheltenham, SectionType = lSectionTypeCreativePdi };
+                        var lSalonYearCheltenhamColour = new SectionEntity() { SalonYear = lSalonYearCheltenham, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearCheltenhamMono = new SectionEntity() { SalonYear = lSalonYearCheltenham, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearCheltenhamCreative = new SectionEntity() { SalonYear = lSalonYearCheltenham, SectionType = lSectionTypeCreativePdi };
 
-                    var lSalonYearHoylakeColour = new SectionEntity() { SalonYear = lSalonYearHoylake, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearHoylakeMono = new SectionEntity() { SalonYear = lSalonYearHoylake, SectionType = lSectionTypeMonoPdi };
-                    var lSalonYearHoylakeScapes = new SectionEntity() { SalonYear = lSalonYearHoylake, SectionType = lSectionTypeScapesPdi };
-                    var lSalonYearHoylakeNature = new SectionEntity() { SalonYear = lSalonYearHoylake, SectionType = lSectionTypeNaturePdi };
-                    var lSalonYearHoylakePhotojournalism = new SectionEntity() { SalonYear = lSalonYearHoylake, SectionType = lSectionTypePhotojournalismPdi };
-                    var lSalonYearHoylakeTravel = new SectionEntity() { SalonYear = lSalonYearHoylake, SectionType = lSectionTypeTravelPdi };
+                        var lSalonYearHoylakeColour = new SectionEntity() { SalonYear = lSalonYearHoylake, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearHoylakeMono = new SectionEntity() { SalonYear = lSalonYearHoylake, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearHoylakeScapes = new SectionEntity() { SalonYear = lSalonYearHoylake, SectionType = lSectionTypeScapesPdi };
+                        var lSalonYearHoylakeNature = new SectionEntity() { SalonYear = lSalonYearHoylake, SectionType = lSectionTypeNaturePdi };
+                        var lSalonYearHoylakePhotojournalism = new SectionEntity() { SalonYear = lSalonYearHoylake, SectionType = lSectionTypePhotojournalismPdi };
+                        var lSalonYearHoylakeTravel = new SectionEntity() { SalonYear = lSalonYearHoylake, SectionType = lSectionTypeTravelPdi };
 
-                    var lSalonYearPerastoOpen = new SectionEntity() { SalonYear = lSalonYearPerasto, SectionType = lSectionTypeOpenPdi };
-                    var lSalonYearPerastoNature = new SectionEntity() { SalonYear = lSalonYearPerasto, SectionType = lSectionTypeNaturePdi };
-                    var lSalonYearPerastoTravel = new SectionEntity() { SalonYear = lSalonYearPerasto, SectionType = lSectionTypeTravelPdi };
+                        var lSalonYearPerastoOpen = new SectionEntity() { SalonYear = lSalonYearPerasto, SectionType = lSectionTypeOpenPdi };
+                        var lSalonYearPerastoNature = new SectionEntity() { SalonYear = lSalonYearPerasto, SectionType = lSectionTypeNaturePdi };
+                        var lSalonYearPerastoTravel = new SectionEntity() { SalonYear = lSalonYearPerasto, SectionType = lSectionTypeTravelPdi };
 
-                    var lSalonYearMofNature = new SectionEntity() { SalonYear = lSalonYearMof, SectionType = lSectionTypeNaturePdi };
-                    var lSalonYearMofColour = new SectionEntity() { SalonYear = lSalonYearMof, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearMofMono = new SectionEntity() { SalonYear = lSalonYearMof, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearMofNature = new SectionEntity() { SalonYear = lSalonYearMof, SectionType = lSectionTypeNaturePdi };
+                        var lSalonYearMofColour = new SectionEntity() { SalonYear = lSalonYearMof, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearMofMono = new SectionEntity() { SalonYear = lSalonYearMof, SectionType = lSectionTypeMonoPdi };
 
-                    var lSalonYearPrintAndDigitalVarnaActionMovementSport = new SectionEntity() { SalonYear = lSalonYearPrintAndDigitalVarna, SectionType = lSectionTypeActionMovementSportPdi };
-                    var lSalonYearPrintAndDigitalVarnaColour = new SectionEntity() { SalonYear = lSalonYearPrintAndDigitalVarna, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearPrintAndDigitalVarnaMono = new SectionEntity() { SalonYear = lSalonYearPrintAndDigitalVarna, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearPrintAndDigitalVarnaActionMovementSport = new SectionEntity() { SalonYear = lSalonYearPrintAndDigitalVarna, SectionType = lSectionTypeActionMovementSportPdi };
+                        var lSalonYearPrintAndDigitalVarnaColour = new SectionEntity() { SalonYear = lSalonYearPrintAndDigitalVarna, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearPrintAndDigitalVarnaMono = new SectionEntity() { SalonYear = lSalonYearPrintAndDigitalVarna, SectionType = lSectionTypeMonoPdi };
 
-                    var lSalonYearGoodLightDecisiveMoment = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeDecisiveMomentPdi };
-                    var lSalonYearGoodLightChild = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeChildPdi };
-                    var lSalonYearGoodLightNature = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeNaturePdi };
-                    var lSalonYearGoodLightColour = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearGoodLightMono = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeMonoPdi };
-                    var lSalonYearGoodLightGoodLight = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeGoodLightPdi };
+                        var lSalonYearGoodLightDecisiveMoment = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeDecisiveMomentPdi };
+                        var lSalonYearGoodLightChild = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeChildPdi };
+                        var lSalonYearGoodLightNature = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeNaturePdi };
+                        var lSalonYearGoodLightColour = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearGoodLightMono = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearGoodLightGoodLight = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeGoodLightPdi };
 
-                    var lSalonYearGradacColour = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearGradacNature = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeNaturePdi };
-                    var lSalonYearGradacTravel = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeTravelPdi };
-                    var lSalonYearGradacMono = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeMonoPdi };
-                    var lSalonYearGradacManWomanChild = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeManWomanChildPdi };
+                        var lSalonYearGradacColour = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearGradacNature = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeNaturePdi };
+                        var lSalonYearGradacTravel = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeTravelPdi };
+                        var lSalonYearGradacMono = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearGradacManWomanChild = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeManWomanChildPdi };
 
-                    var lSalonYearCyprusColour = new SectionEntity() { SalonYear = lSalonYearCyprus, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearCyprusMono = new SectionEntity() { SalonYear = lSalonYearCyprus, SectionType = lSectionTypeMonoPdi };
-                    var lSalonYearCyprusWoman = new SectionEntity() { SalonYear = lSalonYearCyprus, SectionType = lSectionTypeWomanPdi };
+                        var lSalonYearCyprusColour = new SectionEntity() { SalonYear = lSalonYearCyprus, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearCyprusMono = new SectionEntity() { SalonYear = lSalonYearCyprus, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearCyprusWoman = new SectionEntity() { SalonYear = lSalonYearCyprus, SectionType = lSectionTypeWomanPdi };
 
-                    var lSalonYearPortTalbotColour = new SectionEntity() { SalonYear = lSalonYearPortTalbot, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearPortTalbotMono = new SectionEntity() { SalonYear = lSalonYearPortTalbot, SectionType = lSectionTypeMonoPdi };
-                    var lSalonYearPortTalbotNature = new SectionEntity() { SalonYear = lSalonYearPortTalbot, SectionType = lSectionTypeNaturePdi };
-                    var lSalonYearPortTalbotCreative = new SectionEntity() { SalonYear = lSalonYearPortTalbot, SectionType = lSectionTypeCreativePdi };
+                        var lSalonYearPortTalbotColour = new SectionEntity() { SalonYear = lSalonYearPortTalbot, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearPortTalbotMono = new SectionEntity() { SalonYear = lSalonYearPortTalbot, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearPortTalbotNature = new SectionEntity() { SalonYear = lSalonYearPortTalbot, SectionType = lSectionTypeNaturePdi };
+                        var lSalonYearPortTalbotCreative = new SectionEntity() { SalonYear = lSalonYearPortTalbot, SectionType = lSectionTypeCreativePdi };
 
-                    var lSalonYearVictorPolynskyColour = new SectionEntity() { SalonYear = lSalonYearVictorPolynsky, SectionType = lSectionTypeColourPdi };
-                    var lSalonYearVictorPolynskyMono = new SectionEntity() { SalonYear = lSalonYearVictorPolynsky, SectionType = lSectionTypeMonoPdi };
-                    var lSalonYearVictorPolynskyCreative = new SectionEntity() { SalonYear = lSalonYearVictorPolynsky, SectionType = lSectionTypeCreativePdi };
+                        var lSalonYearVictorPolynskyColour = new SectionEntity() { SalonYear = lSalonYearVictorPolynsky, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearVictorPolynskyMono = new SectionEntity() { SalonYear = lSalonYearVictorPolynsky, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearVictorPolynskyCreative = new SectionEntity() { SalonYear = lSalonYearVictorPolynsky, SectionType = lSectionTypeCreativePdi };
 
-                    lContext.SalonSections.AddRange(new List<SectionEntity> {
+                        lContext.SalonSections.AddRange(new List<SectionEntity> {
                     lSalonYearBohemiaColour,
 
                     lSalonYearPhotoArtVisionColour,
@@ -724,10 +726,10 @@ namespace SalonServices.Migrations
                     lSalonYearVictorPolynskyMono,
                     lSalonYearVictorPolynskyCreative,
                 });
-                    lContext.SaveChanges();
+                        lContext.SaveChanges();
 
 
-                    lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
                     new SubmissionEntity(){
                         IsJudged = true,
                         EntryCost = 14.00M,
@@ -1363,12 +1365,13 @@ namespace SalonServices.Migrations
 
 
 
-                    lContext.SaveChanges();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error:" + ex.Message + ", " + ex.StackTrace);
-                    throw;
+                        lContext.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error:" + ex.Message + ", " + ex.StackTrace);
+                        throw;
+                    }
                 }
             }
         }
