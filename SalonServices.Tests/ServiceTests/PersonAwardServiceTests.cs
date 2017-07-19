@@ -17,14 +17,16 @@ namespace SalonServices.Tests.Unit.ServiceTests
         private IPersonRepository _personRepository;
         private IPhotoOrganisationRepository _photoOrganisationRepository;
         private PersonAwardService awardService;
+        private ISectionTypeRepository _sectionTypeRepository;
 
         [SetUp]
         public void Setup()
         {
             _personRepository = Substitute.For<IPersonRepository>();
             _photoOrganisationRepository = Substitute.For<IPhotoOrganisationRepository>();
+            _sectionTypeRepository = Substitute.For<ISectionTypeRepository>();
 
-            this.awardService = new PersonAwardService(_personRepository, _photoOrganisationRepository);
+            this.awardService = new PersonAwardService(_personRepository, _photoOrganisationRepository, _sectionTypeRepository);
 
             Mapping.CreateConfiguration();
         }

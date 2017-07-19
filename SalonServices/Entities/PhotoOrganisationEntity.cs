@@ -12,8 +12,12 @@ namespace SalonServices.Entities
         [MaxLength(50)]
         public string Name { get; set; }
 
+        public bool EnableSectionTypes { get; set; }
+
         public virtual List<AccreditationEntity> AccreditedSalons { get; set; }
 
         public virtual List<AwardLevelEntity> AwardLevels { get; set; }
+
+
     }
 }

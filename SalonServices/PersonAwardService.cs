@@ -14,11 +14,13 @@ namespace SalonServices
     {
         private readonly IPersonRepository _personRepository;
         private readonly IPhotoOrganisationRepository _photoOrganisationRepository;
+        private readonly ISectionTypeRepository _sectionTypeRepository;
 
-        public PersonAwardService(IPersonRepository pPersonRepository, IPhotoOrganisationRepository pPhotoOrganisationRepository)
+        public PersonAwardService(IPersonRepository pPersonRepository, IPhotoOrganisationRepository pPhotoOrganisationRepository, ISectionTypeRepository pSectionTypeRepository)
         {
             this._personRepository = pPersonRepository;
             this._photoOrganisationRepository = pPhotoOrganisationRepository;
+            this._sectionTypeRepository = pSectionTypeRepository;
         }
         
         public async Task<List<BasicPersonDto>> GetAllPersons()
@@ -43,27 +45,61 @@ namespace SalonServices
 
             foreach (var lOrg in lPhotoOrgs)
             {
-                var lTableOrg = new PersonAwardTableOrgDto
+                if (lOrg.EnableSectionTypes == false)
                 {
-                    OrginisationName = lOrg.Name
-                };
-
-                foreach (var lOrgAward in lOrg.AwardLevels)
-                {
-                    var lPersonAwardRow = new PersonAwardTableRowDto
+                    // FIAP style add all acceptances
+                    var lTableOrg = new PersonAwardTableOrgDto
                     {
-                        AwardName = lOrgAward.Name,
-                        AcceptancesMissing = GetAcceptances(lPerson.Submissions, lOrgAward.MinimumAcceptances, lOrg.Id),
-                        AwardsMissing = GetAwards(lPerson.Submissions, lOrgAward.MinimumAwards, lOrg.Id),
-                        CountriesMissing = GetCountries(lPerson.Submissions, lOrgAward.MinimumCountries, lOrg.Id),
-                        DistinctImagesMissing = GetDistinctImages(lPerson.Submissions, lOrgAward.MinimumDistinctImages, lOrg.Id),
-                        PrintsMissing = GetPrints(lPerson.Submissions, lOrgAward.MinimumPrints, lOrg.Id),
-                        SalonsMissing = GetSalons(lPerson.Submissions, lOrgAward.MinimumSalons, lOrg.Id),    
+                        OrginisationName = lOrg.Name
                     };
-                    lTableOrg.Awards.Add(lPersonAwardRow);
+
+                    foreach (var lOrgAward in lOrg.AwardLevels)
+                    {
+                        var lPersonAwardRow = new PersonAwardTableRowDto
+                        {
+                            AwardName = lOrgAward.Name,
+                            AcceptancesMissing = GetAcceptances(lPerson.Submissions, lOrgAward.MinimumAcceptances, lOrg.Id),
+                            AwardsMissing = GetAwards(lPerson.Submissions, lOrgAward.MinimumAwards, lOrg.Id),
+                            CountriesMissing = GetCountries(lPerson.Submissions, lOrgAward.MinimumCountries, lOrg.Id),
+                            DistinctImagesMissing = GetDistinctImages(lPerson.Submissions, lOrgAward.MinimumDistinctImages, lOrg.Id),
+                            PrintsMissing = GetPrints(lPerson.Submissions, lOrgAward.MinimumPrints, lOrg.Id),
+                            SalonsMissing = GetSalons(lPerson.Submissions, lOrgAward.MinimumSalons, lOrg.Id),
+                        };
+                        lTableOrg.Awards.Add(lPersonAwardRow);
+                    }
+                    lPersonAwardTable.Organisations.Add(lTableOrg);
+                }
+                else
+                {
+                    // PSA style, group by section type
+                    List<string> lSectionTypeCodes = await this._sectionTypeRepository.FetchSectionTypeCodes();
+
+                    foreach (var lSectionTypeCode in lSectionTypeCodes)
+                    {
+                        var lTableOrg = new PersonAwardTableOrgDto
+                        {
+                            OrginisationName = lOrg.Name + " " + lSectionTypeCode
+                        };
+
+                        foreach (var lOrgAward in lOrg.AwardLevels)
+                        {
+                            var lPersonAwardRow = new PersonAwardTableRowDto
+                            {
+                                AwardName = lOrgAward.Name,
+                                AcceptancesMissing = GetAcceptances(lPerson.Submissions, lOrgAward.MinimumAcceptances, lOrg.Id, lSectionTypeCode),
+                                AwardsMissing = GetAwards(lPerson.Submissions, lOrgAward.MinimumAwards, lOrg.Id),
+                                CountriesMissing = GetCountries(lPerson.Submissions, lOrgAward.MinimumCountries, lOrg.Id),
+                                DistinctImagesMissing = GetDistinctImages(lPerson.Submissions, lOrgAward.MinimumDistinctImages, lOrg.Id, lSectionTypeCode),
+                                PrintsMissing = GetPrints(lPerson.Submissions, lOrgAward.MinimumPrints, lOrg.Id),
+                                SalonsMissing = GetSalons(lPerson.Submissions, lOrgAward.MinimumSalons, lOrg.Id),
+                            };
+                            lTableOrg.Awards.Add(lPersonAwardRow);
+                        }
+
+                        lPersonAwardTable.Organisations.Add(lTableOrg);
+                    }
                 }
 
-                lPersonAwardTable.Organisations.Add(lTableOrg);
             }
 
             return lPersonAwardTable;
@@ -72,6 +108,16 @@ namespace SalonServices
         private bool OrganisationMatches(SectionEntity sectionEntity, int orgId)
         {
             return sectionEntity.SalonYear.Accreditations.Any(acc => acc.PhotoOrganisationId == orgId);
+        }
+
+        private bool SectionTypeMatches(SectionEntity sectionEntity, string pSectionTypeCode)
+        {
+            if (pSectionTypeCode == null)
+            {
+                return true;
+            }
+
+            return sectionEntity.SectionType.SectionCode == pSectionTypeCode;
         }
 
         private int GetPrints(List<SubmissionEntity> submissions, int minimumRequired, int orgId)
@@ -85,9 +131,9 @@ namespace SalonServices
 
             return minimumRequired - acceptedEntries;
         }
-        private int GetDistinctImages(List<SubmissionEntity> submissions, int minimumRequired, int orgId)
+        private int GetDistinctImages(List<SubmissionEntity> submissions, int minimumRequired, int orgId, string pSectionTypeCode = null)
         {
-            var acceptedEntries = submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId)).Select(ent => ent.ImageId)).Distinct().Count();
+            var acceptedEntries = submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId) && SectionTypeMatches(ent.Section, pSectionTypeCode)).Select(ent => ent.ImageId)).Distinct().Count();
 
             if (acceptedEntries > minimumRequired)
             {
@@ -134,9 +180,9 @@ namespace SalonServices
             return minimumRequired - acceptedEntries;
         }
 
-        private int GetAcceptances(List<SubmissionEntity> submissions, int minimumRequired, int orgId)
+        private int GetAcceptances(List<SubmissionEntity> submissions, int minimumRequired, int orgId, string pSectionTypeCode = null)
         {
-            var acceptedEntries = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId)));
+            var acceptedEntries = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId) && SectionTypeMatches(ent.Section, pSectionTypeCode)));
 
             if (acceptedEntries > minimumRequired)
             {

@@ -18,7 +18,7 @@ namespace SalonServices.Entities
         public int MinimumDistinctImages { get; set; }
         public int MinimumSalons { get; set; }
         public int MinimumPrints { get; set; }
-        
+      
         public int PhotoOrganisationId { get; set; }
         public virtual PhotoOrganisationEntity PhotoOrganisation { get; set; }
 

@@ -2,6 +2,8 @@
 using SalonServices.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
+using System.Linq;
 
 namespace SalonServices.Repositories
 {
@@ -41,6 +43,11 @@ namespace SalonServices.Repositories
         public async Task<List<SectionTypeEntity>> GetAll()
         {
             return await this.dbContext.SectionTypes.ToListAsync();
+        }
+
+        public async Task<List<String>> FetchSectionTypeCodes()
+        {
+            return await this.dbContext.SectionTypes.Select(st => st.SectionCode).Where(st => !string.IsNullOrWhiteSpace(st)).Distinct().ToListAsync();
         }
     }
 }

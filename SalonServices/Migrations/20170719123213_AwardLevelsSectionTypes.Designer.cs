@@ -8,9 +8,10 @@ using SalonServices;
 namespace SalonServices.Migrations
 {
     [DbContext(typeof(SalonDbContext))]
-    partial class SalonDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170719123213_AwardLevelsSectionTypes")]
+    partial class AwardLevelsSectionTypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -60,6 +61,8 @@ namespace SalonServices.Migrations
                         .HasMaxLength(50);
 
                     b.Property<int>("PhotoOrganisationId");
+
+                    b.Property<bool>("WorkWithSectionTypes");
 
                     b.HasKey("Id");
 
@@ -170,8 +173,6 @@ namespace SalonServices.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("EnableSectionTypes");
 
                     b.Property<string>("Name")
                         .IsRequired()

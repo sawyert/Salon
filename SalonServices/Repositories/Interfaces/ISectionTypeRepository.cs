@@ -9,5 +9,7 @@ namespace SalonServices.Repositories
     public interface ISectionTypeRepository : IGenericRepository<SectionTypeEntity>
     {
         Task<List<SectionTypeEntity>> GetAll();
+
+        Task<List<string>> FetchSectionTypeCodes();
     }
 }
