@@ -11,13 +11,7 @@
     <div class="form-horizontal">
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="Name" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-        </div>
+        <div bs-textfield-for="@Model.Name"></div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <div class="checkbox">
@@ -28,13 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <label asp-for="SectionCode" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="SectionCode" class="form-control" />
-                <span asp-validation-for="SectionCode" class="text-danger"></span>
-            </div>
-        </div>
+        <div bs-textfield-for="@Model.SectionCode"></div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <button type="submit" class="btn btn-success">Create</button>

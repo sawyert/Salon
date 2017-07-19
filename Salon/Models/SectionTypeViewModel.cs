@@ -10,6 +10,7 @@ namespace Salon.Models
     public class SectionTypeViewModel
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
         [Display(ResourceType = typeof(Strings), Name = "SectionType_IsPrint")]
 
