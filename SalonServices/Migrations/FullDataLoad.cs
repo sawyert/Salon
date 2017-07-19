@@ -585,12 +585,12 @@ namespace SalonServices.Migrations
                         var lSalonYearGoodLightColour = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeColourPdi };
                         var lSalonYearGoodLightMono = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeMonoPdi };
                         var lSalonYearGoodLightGoodLight = new SectionEntity() { SalonYear = lSalonYearGoodLight, SectionType = lSectionTypeGoodLightPdi };
-
-                        var lSalonYearGradacColour = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeColourPdi };
-                        var lSalonYearGradacNature = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeNaturePdi };
-                        var lSalonYearGradacTravel = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeTravelPdi };
-                        var lSalonYearGradacMono = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeMonoPdi };
-                        var lSalonYearGradacManWomanChild = new SectionEntity() { SalonYear = lSalonYearPhotoArtVision, SectionType = lSectionTypeManWomanChildPdi };
+                        
+                        var lSalonYearGradacColour = new SectionEntity() { SalonYear = lSalonYearGradac, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearGradacNature = new SectionEntity() { SalonYear = lSalonYearGradac, SectionType = lSectionTypeNaturePdi };
+                        var lSalonYearGradacTravel = new SectionEntity() { SalonYear = lSalonYearGradac, SectionType = lSectionTypeTravelPdi };
+                        var lSalonYearGradacMono = new SectionEntity() { SalonYear = lSalonYearGradac, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearGradacManWomanChild = new SectionEntity() { SalonYear = lSalonYearGradac, SectionType = lSectionTypeManWomanChildPdi };
 
                         var lSalonYearCyprusColour = new SectionEntity() { SalonYear = lSalonYearCyprus, SectionType = lSectionTypeColourPdi };
                         var lSalonYearCyprusMono = new SectionEntity() { SalonYear = lSalonYearCyprus, SectionType = lSectionTypeMonoPdi };
