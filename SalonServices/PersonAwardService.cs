@@ -98,14 +98,16 @@ namespace SalonServices
         }
         private int GetSalons(List<SubmissionEntity> submissions, int minimumRequired, int orgId)
         {
-            var acceptedEntries = submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId)).Select(ent => ent.Section.SalonYear.SalonId)).Distinct().Count();
+            var acceptedSalonEntries = submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId) && ent.Section.SalonYear.CircuitId == null).Select(ent => ent.Section.SalonYear.SalonId)).Distinct().Count();
+            var acceptedCircuitEntries = submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId) && ent.Section.SalonYear.CircuitId != null).Select(ent => ent.Section.SalonYear.CircuitId)).Distinct().Count();
+            var totalAcceptances = acceptedCircuitEntries + acceptedSalonEntries;
 
-            if (acceptedEntries > minimumRequired)
+            if (totalAcceptances > minimumRequired)
             {
                 return 0;
             }
 
-            return minimumRequired - acceptedEntries;
+            return minimumRequired - totalAcceptances;
         }
 
         private int GetCountries(List<SubmissionEntity> submissions, int minimumRequired, int orgId)

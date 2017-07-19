@@ -12,7 +12,6 @@ namespace Salon.Helpers
     public class BootstrapTextFieldTagHelper : TagHelper
     {
         private const string TextFieldAttributeName = "bs-textfield-for";
-        private const string ExtraClassAttributeName = "bs-textfield-class";
 
         /// <summary>
         /// An expression to be evaluated against the current model.
