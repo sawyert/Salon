@@ -40,12 +40,12 @@
                                     <tr class="@(award.IsAwarded ? "success" : "danger")">
                                         <td>@award.AwardName</td>
                                         <td><span class="glyphicon @(award.IsAwarded ? "glyphicon-ok" : "glyphicon-remove")"></span></td>
-                                        <td>@award.AcceptancesMissing</td>
-                                        <td>@award.AwardsMissing</td>
-                                        <td>@award.CountriesMissing</td>
-                                        <td>@award.DistinctImagesMissing</td>
-                                        <td>@award.PrintsMissing</td>
-                                        <td>@award.SalonsMissing</td>
+                                        <td>@award.AcceptancesMissing <span style="font-size:0.7em">of @award.AcceptancesRequired</span></td>
+                                        <td>@award.AwardsMissing <span style="font-size:0.7em">of @award.AwardsRequired</span></td>
+                                        <td>@award.CountriesMissing <span style="font-size:0.7em">of @award.CountriesRequired</span></td>
+                                        <td>@award.DistinctImagesMissing <span style="font-size:0.7em">of @award.DistinctImagesRequired</span></td>
+                                        <td>@award.PrintsMissing <span style="font-size:0.7em">of @award.PrintsRequired</span></td>
+                                        <td>@award.SalonsMissing <span style="font-size:0.7em">of @award.SalonsRequired</span></td>
                                     </tr>
                                 }
                             </tbody>

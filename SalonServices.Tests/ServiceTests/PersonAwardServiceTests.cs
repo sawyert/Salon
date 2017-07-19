@@ -291,7 +291,7 @@ namespace SalonServices.Tests.Unit.ServiceTests
                             MinimumAwards = 1,
                             MinimumCountries = 1,
                             MinimumDistinctImages = 1,
-                            MinimumPrints =1,
+                            MinimumPrints = 1,
                             MinimumSalons = 1,
                         }
                     }

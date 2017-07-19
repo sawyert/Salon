@@ -59,11 +59,17 @@ namespace SalonServices
                         {
                             AwardName = lOrgAward.Name,
                             AcceptancesMissing = GetAcceptances(lPerson.Submissions, lOrgAward.MinimumAcceptances, lOrg.Id),
+                            AcceptancesRequired = lOrgAward.MinimumAcceptances,
                             AwardsMissing = GetAwards(lPerson.Submissions, lOrgAward.MinimumAwards, lOrg.Id),
+                            AwardsRequired = lOrgAward.MinimumAwards,
                             CountriesMissing = GetCountries(lPerson.Submissions, lOrgAward.MinimumCountries, lOrg.Id),
+                            CountriesRequired = lOrgAward.MinimumCountries,
                             DistinctImagesMissing = GetDistinctImages(lPerson.Submissions, lOrgAward.MinimumDistinctImages, lOrg.Id),
+                            DistinctImagesRequired = lOrgAward.MinimumDistinctImages,
                             PrintsMissing = GetPrints(lPerson.Submissions, lOrgAward.MinimumPrints, lOrg.Id),
+                            PrintsRequired = lOrgAward.MinimumPrints,
                             SalonsMissing = GetSalons(lPerson.Submissions, lOrgAward.MinimumSalons, lOrg.Id),
+                            SalonsRequired = lOrgAward.MinimumSalons,
                         };
                         lTableOrg.Awards.Add(lPersonAwardRow);
                     }
@@ -87,11 +93,17 @@ namespace SalonServices
                             {
                                 AwardName = lOrgAward.Name,
                                 AcceptancesMissing = GetAcceptances(lPerson.Submissions, lOrgAward.MinimumAcceptances, lOrg.Id, lSectionTypeCode),
+                                AcceptancesRequired = lOrgAward.MinimumAcceptances,
                                 AwardsMissing = GetAwards(lPerson.Submissions, lOrgAward.MinimumAwards, lOrg.Id),
+                                AwardsRequired = lOrgAward.MinimumAwards,
                                 CountriesMissing = GetCountries(lPerson.Submissions, lOrgAward.MinimumCountries, lOrg.Id),
+                                CountriesRequired = lOrgAward.MinimumCountries,
                                 DistinctImagesMissing = GetDistinctImages(lPerson.Submissions, lOrgAward.MinimumDistinctImages, lOrg.Id, lSectionTypeCode),
+                                DistinctImagesRequired = lOrgAward.MinimumDistinctImages,
                                 PrintsMissing = GetPrints(lPerson.Submissions, lOrgAward.MinimumPrints, lOrg.Id),
+                                PrintsRequired = lOrgAward.MinimumPrints,
                                 SalonsMissing = GetSalons(lPerson.Submissions, lOrgAward.MinimumSalons, lOrg.Id),
+                                SalonsRequired = lOrgAward.MinimumSalons,
                             };
                             lTableOrg.Awards.Add(lPersonAwardRow);
                         }

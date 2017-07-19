@@ -1478,7 +1478,7 @@ namespace SalonServices.Migrations
                         Person = lTim,
                         Entries = new List<CompetitionEntryEntity> {
                             new CompetitionEntryEntity { Section = lSalonYearVictorPolynskyMono, Image = lCathedralCeiling, IsAwarded = false, IsAccepted = false },
-                            new CompetitionEntryEntity { Section = lSalonYearVictorPolynskyMono, Image = lOliversCastle, IsAwarded = false, IsAccepted = false },
+                            new CompetitionEntryEntity { Section = lSalonYearVictorPolynskyMono, Image = lOliversCastle, IsAwarded = false, IsAccepted = true },
                             new CompetitionEntryEntity { Section = lSalonYearVictorPolynskyMono, Image = lRuinsByNight, IsAwarded = false, IsAccepted = false },
                             new CompetitionEntryEntity { Section = lSalonYearVictorPolynskyMono, Image = lKirkjufellSnow, IsAwarded = false, IsAccepted = false },
                             new CompetitionEntryEntity { Section = lSalonYearVictorPolynskyColour, Image = lSpiralNine, IsAwarded = false, IsAccepted = false },

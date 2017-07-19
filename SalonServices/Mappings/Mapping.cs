@@ -116,10 +116,12 @@ namespace SalonServices.Mappings
                 ;
 
                 cfg.CreateMap<PhotoOrganisationEntity, OrganisationDto>()
+                    
                ;
                 cfg.CreateMap<OrganisationDto, PhotoOrganisationEntity>()
                     .ForMember(ent => ent.AccreditedSalons, x => x.Ignore())
                     .ForMember(ent => ent.AwardLevels, x => x.Ignore())
+                    .ForMember(ent => ent.EnableSectionTypes, x => x.Ignore())
                 ;
                 
                 cfg.CreateMap<SubmissionEntity, SubmissionSaveDto>()
