@@ -9,24 +9,7 @@ namespace SalonServices.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            using (var lContext = new SalonDbContext())
-            {
-                lContext.Countries.AddRange(new List<CountryEntity>{ new CountryEntity
-                {
-                    Name = "India"
-                },
-                new CountryEntity
-                {
-                    Name = "England"
-                },
-                new CountryEntity
-                {
-                    Name = "USA"
-                }
-                });
-
-                lContext.SaveChanges();
-            }
+            
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

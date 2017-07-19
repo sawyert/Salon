@@ -76,7 +76,7 @@ namespace SalonServices
 
         private int GetPrints(List<SubmissionEntity> submissions, int minimumRequired, int orgId)
         {
-            var acceptedEntries = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && ent.Section.SectionType.IsPrint && OrganisationMatches(ent.Section, orgId)));
+            var acceptedEntries = submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && ent.Section.SectionType.IsPrint && OrganisationMatches(ent.Section, orgId)).Select(ent => ent.ImageId)).Distinct().Count();
 
             if (acceptedEntries > minimumRequired)
             {
