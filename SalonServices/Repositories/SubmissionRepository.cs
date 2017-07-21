@@ -66,10 +66,14 @@ namespace SalonServices.Repositories
             return await this.dbContext.Submissions.Where(sub => sub.PersonId == pPersonId).Select(sub =>
                             new SubmissionListItemDto
                             {
-                                DisplayName = sub.SalonYear.Salon.Name + " - " + sub.SalonYear.Name + " (" + sub.SalonYear.Year + ")",
+                                DisplayName = sub.SalonYear.Name + " (" + sub.SalonYear.Year + ")",
                                 NumberOfEntries = sub.Entries.Count,
-                                SubmissionId = sub.Id
-                            }).ToListAsync();
+                                SubmissionId = sub.Id,
+                                EntryDate = sub.EntryDate,
+                                HasAccepted = sub.Entries.Any(itm => itm.IsAccepted.HasValue && itm.IsAccepted.Value),
+                                AcceptedCount = sub.Entries.Where(itm => itm.IsAccepted.HasValue && itm.IsAccepted.Value).Count(),
+                                CountryName = sub.SalonYear.Salon.Country.Name,
+                            }).OrderBy(itm => itm.EntryDate).ToListAsync();
         }
         
         public async Task<SubmissionEntity> GetSubmissionWithEntries(int pSubmissionId)

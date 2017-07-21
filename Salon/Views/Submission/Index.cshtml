@@ -10,28 +10,22 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Number of entries
-            </th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Entries</th>
+            <th>Accepted</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var submission in Model.Items)
         {
-            <tr>
-                <td>
-                    @submission.DisplayName
-                </td>
-                <td>
-                    @submission.NumberOfEntries
-                </td>
-                <td>
-                    <a asp-action="SubmissionResults"  asp-route-pSubmissionId="@submission.SubmissionId">Results</a>
-                </td>
+            <tr class="@(submission.HasAccepted ? "success" : "danger")">
+                <td>@submission.DisplayName</td>
+                <td>@submission.CountryName</td>
+                <td>@submission.NumberOfEntries</td>
+                <td>@submission.AcceptedCount (@(Math.Round(submission.AcceptedPercent, 2))%)</td>
+                <td><a asp-action="SubmissionResults"  asp-route-pSubmissionId="@submission.SubmissionId">Results</a></td>
             </tr>
         }
     </tbody>

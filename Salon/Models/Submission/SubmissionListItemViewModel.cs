@@ -9,6 +9,11 @@ namespace Salon.Models.Submission
     {
         public int SubmissionId { get; set; }
         public string DisplayName { get; set; }
+        public string CountryName { get; set; }
         public int NumberOfEntries { get; set; }
+        public DateTime EntryDate { get; set; }
+        public bool HasAccepted { get; set; }
+        public int AcceptedCount { get; set; }
+        public double AcceptedPercent { get; set; }
     }
 }
