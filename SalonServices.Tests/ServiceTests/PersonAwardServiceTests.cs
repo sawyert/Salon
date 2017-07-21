@@ -92,7 +92,8 @@ namespace SalonServices.Tests.Unit.ServiceTests
                                         {
                                             Id = 5,
                                             CountryId = 500
-                                        }
+                                        },
+                                        SalonId = 5
                                     },
                                 },
                                 ImageId = 30
@@ -320,6 +321,154 @@ namespace SalonServices.Tests.Unit.ServiceTests
             var lPerson = GetAwardedPrintPersonEntity();
             this._personRepository.GetWithSubmissionsSalonsAccreditationSections(5).Returns(lPerson);
 
+
+            // Act
+            var lResult = await this.awardService.GetAwardLevelsForPerson(5);
+
+            // Assert
+            lExpected.ShouldBeEquivalentTo(lResult);
+        }
+
+        [Test]
+        public async Task GetAwardLevelsForPerson_SalonsInCircuitsCountAsOne()
+        {
+            // Arrange
+            var lExpected = new PersonAwardTableDto
+            {
+                PersonName = "fred",
+                Organisations = new List<PersonAwardTableOrgDto>
+                 {
+                     new PersonAwardTableOrgDto
+                     {
+                         OrginisationName = "org 1",
+                         Awards = new List<PersonAwardTableRowDto>
+                         {
+                             new PersonAwardTableRowDto
+                             {
+                                AwardName = "award 1",
+                                AcceptancesMissing = 0,
+                                AwardsMissing = 0,
+                                CountriesMissing = 0,
+                                DistinctImagesMissing = 0,
+                                PrintsMissing = 0,
+                                SalonsMissing = 1,
+                                AcceptancesRequired = 2,
+                                AwardsRequired = 2,
+                                CountriesRequired  = 1,
+                                DistinctImagesRequired  = 2,
+                                PrintsRequired  = 2,
+                                SalonsRequired  = 2,
+                             }
+                         }
+                     }
+                 }
+            };
+
+            this._photoOrganisationRepository.GetAllWithAwards().Returns(new List<PhotoOrganisationEntity>
+            {
+                new PhotoOrganisationEntity
+                {
+                    Id = 1,
+                    Name = "org 1",
+                    AwardLevels = new List<AwardLevelEntity>
+                    {
+                        new AwardLevelEntity
+                        {
+                            Name = "award 1",
+                            MinimumAcceptances = 2,
+                            MinimumAwards = 2,
+                            MinimumCountries = 1,
+                            MinimumDistinctImages = 2,
+                            MinimumPrints = 2,
+                            MinimumSalons = 2,
+                        }
+                    }
+                }
+            });
+
+            var lPerson = GetAwardedPrintPersonEntity();
+            var lPerson2 = GetAwardedPrintPersonEntity();
+            // Different salons and different images
+            lPerson2.Submissions[0].Entries[0].Section.SalonYear.SalonId = 6;
+            lPerson2.Submissions[0].Entries[0].Section.SalonYear.Salon.Id = 6;
+            lPerson2.Submissions[0].Entries[0].ImageId = 500;
+            // Same circuit
+            lPerson2.Submissions[0].Entries[0].Section.SalonYear.CircuitId = 10;
+            lPerson.Submissions[0].Entries[0].Section.SalonYear.CircuitId = 10;
+
+            lPerson.Submissions[0].Entries.AddRange(lPerson2.Submissions[0].Entries);
+            this._personRepository.GetWithSubmissionsSalonsAccreditationSections(5).Returns(lPerson);
+            
+            // Act
+            var lResult = await this.awardService.GetAwardLevelsForPerson(5);
+
+            // Assert
+            lExpected.ShouldBeEquivalentTo(lResult);
+        }
+
+        [Test]
+        public async Task GetAwardLevelsForPerson_IsPrintDistinctImages()
+        {
+            // Arrange
+            var lExpected = new PersonAwardTableDto
+            {
+                PersonName = "fred",
+                Organisations = new List<PersonAwardTableOrgDto>
+                 {
+                     new PersonAwardTableOrgDto
+                     {
+                         OrginisationName = "org 1",
+                         Awards = new List<PersonAwardTableRowDto>
+                         {
+                             new PersonAwardTableRowDto
+                             {
+                                AwardName = "award 1",
+                                AcceptancesMissing = 0,
+                                AwardsMissing = 0,
+                                CountriesMissing = 0,
+                                DistinctImagesMissing = 1,
+                                PrintsMissing = 1,
+                                SalonsMissing = 0,
+                                AcceptancesRequired = 1,
+                                AwardsRequired = 1,
+                                CountriesRequired  = 1,
+                                DistinctImagesRequired  = 2,
+                                PrintsRequired  = 2,
+                                SalonsRequired  = 1,
+                             }
+                         }
+                     }
+                 }
+            };
+
+            this._photoOrganisationRepository.GetAllWithAwards().Returns(new List<PhotoOrganisationEntity>
+            {
+                new PhotoOrganisationEntity
+                {
+                    Id = 1,
+                    Name = "org 1",
+                    AwardLevels = new List<AwardLevelEntity>
+                    {
+                        new AwardLevelEntity
+                        {
+                            Name = "award 1",
+                            MinimumAcceptances = 1,
+                            MinimumAwards = 1,
+                            MinimumCountries = 1,
+                            MinimumDistinctImages = 2,
+                            MinimumPrints = 2,
+                            MinimumSalons = 1,
+                        }
+                    }
+                }
+            });
+
+            var lPerson = GetAwardedPrintPersonEntity();
+            var lPerson2 = GetAwardedPrintPersonEntity();   
+
+            // 2 entries with same isprint and same image
+            lPerson.Submissions[0].Entries.AddRange(lPerson2.Submissions[0].Entries);
+            this._personRepository.GetWithSubmissionsSalonsAccreditationSections(5).Returns(lPerson);
 
             // Act
             var lResult = await this.awardService.GetAwardLevelsForPerson(5);
