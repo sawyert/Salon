@@ -125,11 +125,18 @@ namespace SalonServices.Tests.Unit.ServiceTests
                                 CountriesMissing = 3,
                                 DistinctImagesMissing = 4,
                                 PrintsMissing = 5,
-                                SalonsMissing = 6
+                                SalonsMissing = 6,
+                                AcceptancesRequired = 2,
+                                AwardsRequired = 3,
+                                CountriesRequired  = 4,
+                                DistinctImagesRequired  = 5,
+                                PrintsRequired  = 6,
+                                SalonsRequired  = 7,
                              },
                              new PersonAwardTableRowDto
                              {
-                                 AwardName = "award 2"
+                                 AwardName = "award 2",
+                                 AcceptancesRequired = 1,
                              }
                          }
                      },
@@ -205,7 +212,13 @@ namespace SalonServices.Tests.Unit.ServiceTests
                                 CountriesMissing = 1,
                                 DistinctImagesMissing = 1,
                                 PrintsMissing = 0,
-                                SalonsMissing = 1
+                                SalonsMissing = 1,
+                                AcceptancesRequired = 0,
+                                AwardsRequired = 0,
+                                CountriesRequired  = 2,
+                                DistinctImagesRequired  = 2,
+                                PrintsRequired  = 0,
+                                SalonsRequired  = 2,
                              }
                          }
                      }
@@ -269,7 +282,13 @@ namespace SalonServices.Tests.Unit.ServiceTests
                                 CountriesMissing = 1,
                                 DistinctImagesMissing = 1,
                                 PrintsMissing = 1,
-                                SalonsMissing = 1
+                                SalonsMissing = 1,
+                                AcceptancesRequired = 1,
+                                AwardsRequired = 1,
+                                CountriesRequired  = 1,
+                                DistinctImagesRequired  = 1,
+                                PrintsRequired  = 1,
+                                SalonsRequired  = 1,
                              }
                          }
                      }
@@ -332,7 +351,13 @@ namespace SalonServices.Tests.Unit.ServiceTests
                                 CountriesMissing = 1,
                                 DistinctImagesMissing = 1,
                                 PrintsMissing = 1,
-                                SalonsMissing = 1
+                                SalonsMissing = 1,
+                                AcceptancesRequired = 1,
+                                AwardsRequired = 1,
+                                CountriesRequired  = 1,
+                                DistinctImagesRequired  = 1,
+                                PrintsRequired  = 1,
+                                SalonsRequired  = 1,
                              }
                          }
                      }
