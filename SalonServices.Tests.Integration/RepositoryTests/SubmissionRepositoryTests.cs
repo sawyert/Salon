@@ -132,6 +132,7 @@ namespace SalonServices.Tests.Integration.RepositoryTests
                 Notes = "test",
                 SalonYear = EntitiesHelper.GetSalonYear(),
                 Person = personEntity,
+                IsJudged = true,
                 Entries = new List<CompetitionEntryEntity>
                 {
                     new CompetitionEntryEntity
@@ -180,6 +181,7 @@ namespace SalonServices.Tests.Integration.RepositoryTests
             Assert.IsNotNull(lResult);
             Assert.AreEqual(2, lResult.Count);
             Assert.IsTrue(lResult[0].SubmissionId > 0);
+            Assert.IsTrue(lResult[0].IsJudged);
             Assert.IsTrue(!string.IsNullOrWhiteSpace(lResult[0].DisplayName));
             Assert.AreEqual(2, lResult[0].NumberOfEntries);
         }

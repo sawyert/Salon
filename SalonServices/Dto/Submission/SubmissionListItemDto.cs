@@ -13,6 +13,8 @@ namespace SalonServices.Dto.Submission
         public int NumberOfEntries { get; set; }
         public DateTime EntryDate { get; set; }
         public bool HasAccepted { get; set; }
+        public bool IsJudged { get; set; }
+
         public int AcceptedCount { get; set; }
     }
 }

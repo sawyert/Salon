@@ -14,17 +14,19 @@
             <th>Country</th>
             <th>Entries</th>
             <th>Accepted</th>
+            <th>Is Judged</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var submission in Model.Items)
         {
-            <tr class="@(submission.HasAccepted ? "success" : "danger")">
+            <tr class="@(!submission.IsJudged ? "warning" : submission.HasAccepted ? "success" : "danger")">
                 <td>@submission.DisplayName</td>
                 <td>@submission.CountryName</td>
                 <td>@submission.NumberOfEntries</td>
                 <td>@submission.AcceptedCount (@(Math.Round(submission.AcceptedPercent, 2))%)</td>
+                <td>@(submission.IsJudged ? "Yes" : "No")</td>
                 <td><a asp-action="SubmissionResults"  asp-route-pSubmissionId="@submission.SubmissionId">Results</a></td>
             </tr>
         }
