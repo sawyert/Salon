@@ -42,7 +42,10 @@ namespace SalonServices.Repositories
 
         public async Task<List<SalonYearEntity>> GetSalonYearsWithAccreditations(int pYear)
         {
-            return await this.dbContext.SalonYears.Where(sy => sy.Year == pYear).Include(sy => sy.Accreditations).ToListAsync();
+            return await this.dbContext.SalonYears.Where(sy => sy.Year == pYear)
+                            .Include(sy => sy.Accreditations)
+                            .ThenInclude(acc => acc.PhotoOrganisation)
+                            .ToListAsync();
         }
 
         public async Task<List<int>> GetSalonYearsIdsByCircuitId(int pCircuitId)
