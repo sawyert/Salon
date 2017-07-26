@@ -1486,7 +1486,7 @@ namespace SalonServices.Migrations
                         },
                     },
                     new SubmissionEntity(){
-                        IsJudged = false,
+                        IsJudged = true,
                         EntryCost = 15.30M,
                         SalonYear = lSalonYearPortTalbot,
                         EntryDate = lSalonYearPortTalbot.ClosingDate,
@@ -1511,7 +1511,7 @@ namespace SalonServices.Migrations
                         },
                     },
                     new SubmissionEntity(){
-                        IsJudged = false,
+                        IsJudged = true,
                         EntryCost = 24.44M,
                         SalonYear = lSalonYearVictorPolynsky,
                         EntryDate = lSalonYearVictorPolynsky.ClosingDate,
