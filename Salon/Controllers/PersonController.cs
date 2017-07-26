@@ -7,6 +7,7 @@ using Salon.Models;
 using SalonServices;
 using Salon.Mappings;
 using SalonServices.Dto;
+using Salon.Models.Submission;
 
 namespace Salon.Controllers
 {
@@ -34,6 +35,13 @@ namespace Salon.Controllers
         {
             var lAwardLevelDto = await this._personAwardService.GetAwardLevelsForPerson(id);
             return View(Mapping.Mapper.Map<PersonAwardTableViewModel>(lAwardLevelDto));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> PsaList(int pPersonId, string pSectionCode)
+        {
+            var lPsaSubmissionDto = await this._personAwardService.GetOrganisationSubmissionList(pPersonId, "PSA", pSectionCode);
+            return View(Mapping.Mapper.Map<PsaSubmissionViewModel>(lPsaSubmissionDto));
         }
     }
 }

@@ -54,10 +54,24 @@ namespace SalonServices.Tests.Unit.ServiceTests
             Assert.AreEqual(2, result.Count);
         }
 
+        [Test]
+        public async Task GetOrganisationSubmissionList()
+        {
+            this._personRepository.GetWithSubmissionsSalonsAccreditationSections(5).Returns(GetAwardedPrintPersonEntity());
+            this._photoOrganisationRepository.GetAllBasic().Returns(new List<PhotoOrganisationEntity> {
+                new PhotoOrganisationEntity(){
+                   Name = "PSA",
+                }
+            });
+
+            var lSubmissionList = await this.awardService.GetOrganisationSubmissionList(1, "PSA", "PIDC");
+        }
+
         private PersonEntity GetAwardedPrintPersonEntity()
         {
             return new PersonEntity
             {
+                Id = 1,
                 Name = "fred",
                 Submissions = new List<SubmissionEntity>
                 {
@@ -86,6 +100,10 @@ namespace SalonServices.Tests.Unit.ServiceTests
                                             new AccreditationEntity
                                             {
                                                  PhotoOrganisationId = 1,
+                                                 PhotoOrganisation = new PhotoOrganisationEntity
+                                                 {
+                                                     Name = "PSA",
+                                                 }
                                             },
                                         },
                                         Salon = new SalonEntity

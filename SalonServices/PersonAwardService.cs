@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using SalonServices.Entities;
 using System.Linq;
 using SalonServices.Mappings;
+using System.Collections;
 
 namespace SalonServices
 {
@@ -202,6 +203,37 @@ namespace SalonServices
             }
 
             return minimumRequired - acceptedEntries;
+        }
+
+        public async Task<OrganisationSubmissionReportDto> GetOrganisationSubmissionList(int pPersonId, string pOrganisationName, string pSectionTypeCode=null)
+        {
+            var lPersonTask = this._personRepository.GetWithSubmissionsSalonsAccreditationSections(pPersonId);
+            Task<List<PhotoOrganisationEntity>> lAllPhotoOrgsTask = this._photoOrganisationRepository.GetAllBasic();
+            await Task.WhenAll(lPersonTask, lAllPhotoOrgsTask);
+            PhotoOrganisationEntity lOrganisation = lAllPhotoOrgsTask.Result.FirstOrDefault(org => org.Name == pOrganisationName);
+            var lPerson = lPersonTask.Result;
+
+            var lEntryEntities = lPerson.Submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, lOrganisation.Id) && SectionTypeMatches(ent.Section, pSectionTypeCode))).OrderBy(x => x.Section.SalonYear.ClosingDate).OrderBy(x => x.Image.Name).ToList();
+
+            List<OrganisationAcceptedEntryReportDto> lAcceptedEntries = new List<OrganisationAcceptedEntryReportDto>();
+            foreach (CompetitionEntryEntity lEachEntity in lEntryEntities)
+            {
+                var lAcceptedEntry = Mapping.Mapper.Map<OrganisationAcceptedEntryReportDto>(lEachEntity);
+                foreach (AccreditationEntity lAccreditationEntity in lEachEntity.Section.SalonYear.Accreditations)
+                {
+                    if (lAccreditationEntity.PhotoOrganisation.Name == pOrganisationName)
+                    {
+                        lAcceptedEntry.SalonNumber = lAccreditationEntity.SalonNumber;
+                    }
+
+                }
+
+                lAcceptedEntries.Add(lAcceptedEntry);
+            }
+
+            return new OrganisationSubmissionReportDto() {
+                AcceptedEntries = lAcceptedEntries,
+            };
         }
     }
 }

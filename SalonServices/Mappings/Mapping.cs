@@ -167,6 +167,16 @@ namespace SalonServices.Mappings
                 cfg.CreateMap<CompetitionEntryEntity, SubmissionResultsEntryDto>()
                 ;
 
+                cfg.CreateMap<CompetitionEntryEntity, OrganisationAcceptedEntryReportDto>()
+                .ForMember(dto => dto.SalonName, x => x.MapFrom(ent => ent.Section.SalonYear.Name))
+                .ForMember(dto => dto.SalonNumber, x => x.Ignore())
+                .ForMember(dto => dto.SalonYear, x => x.MapFrom(ent => ent.Section.SalonYear.Year))
+                .ForMember(dto => dto.ImageName, x => x.MapFrom(ent => ent.Image.Name))
+                .ForMember(dto => dto.IsPrint, x => x.MapFrom(ent => ent.Section.SectionType.IsPrint))
+                .ForMember(dto => dto.AwardName, x => x.MapFrom(ent => ent.AwardDetails))
+                .ForMember(dto => dto.SalonCountry, x => x.MapFrom(ent => ent.Section.SalonYear.Salon.Country))
+                ;
+
             });
             Mapper = config.CreateMapper();
             return config;

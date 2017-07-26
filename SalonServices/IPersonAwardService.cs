@@ -11,5 +11,6 @@ namespace SalonServices
         Task<PersonAwardTableDto> GetAwardLevelsForPerson(int pPersonId);
 
         Task<List<BasicPersonDto>> GetAllPersons();
+        Task<OrganisationSubmissionReportDto> GetOrganisationSubmissionList(int pPersonId, string pOrganisationName, string pSectionTypeCode = null);
     }
 }
