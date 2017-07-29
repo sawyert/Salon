@@ -75,7 +75,7 @@ namespace Salon.Controllers
         }
 
         [HttpPost]
-        public async Task<CreateCircuitViewModel> AddCircuit(CreateCircuitViewModel pCircuitViewModel)
+        public async Task<CreateCircuitViewModel> AddCircuit([FromBody]CreateCircuitViewModel pCircuitViewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -118,7 +118,7 @@ namespace Salon.Controllers
         }
 
         [HttpPost]
-        public async Task<CreateSalonViewModel> AddSalon(CreateSalonViewModel pAddSalonVm)
+        public async Task<CreateSalonViewModel> AddSalon([FromBody]CreateSalonViewModel pAddSalonVm)
         {
             if (!ModelState.IsValid)
             {
@@ -138,7 +138,7 @@ namespace Salon.Controllers
         }
 
         [HttpPost]
-        public async Task<CreateSalonYearViewModel> AddSalonYear(CreateSalonYearViewModel pAddSalonYearVm)
+        public async Task<CreateSalonYearViewModel> AddSalonYear([FromBody]CreateSalonYearViewModel pAddSalonYearVm)
         {
             if (!ModelState.IsValid)
             {
@@ -152,7 +152,7 @@ namespace Salon.Controllers
         #endregion
 
         [HttpPost]
-        public async Task<SubmissionSaveViewModel> AddSubmission(SubmissionSaveViewModel pSaveViewModel)
+        public async Task<SubmissionSaveViewModel> AddSubmission([FromBody]SubmissionSaveViewModel pSaveViewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -161,7 +161,7 @@ namespace Salon.Controllers
             }
             var lDto = Mapping.Mapper.Map<SubmissionSaveDto>(pSaveViewModel);
             var lReturnedSubmissionDto = await this._submissionService.CreateSubmission(lDto);
-            return Mapping.Mapper.Map<SubmissionSaveViewModel>(lReturnedSubmissionDto);            ;
+            return Mapping.Mapper.Map<SubmissionSaveViewModel>(lReturnedSubmissionDto);
         }
     }
 }

@@ -10,5 +10,6 @@ namespace SalonServices.Dto.Submission
         public int Id { get; set; }
         public string SalonNumber { get; set; }
         public int PhotoOrganisationId { get; set; }
+        public string PhotoOrganisationName { get; set; }
     }
 }

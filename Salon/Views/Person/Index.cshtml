@@ -25,6 +25,7 @@
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id">Award Achievement</a> | 
                 <a asp-action="Index" asp-controller="Submission" asp-route-pPersonId="@item.Id">Submissions</a>
+                <a asp-action="PsaList" asp-route-pPersonId="@item.Id" asp-route-pSectionCode="PIDC">PSA PIDC</a>
             </td>
         </tr>
 }

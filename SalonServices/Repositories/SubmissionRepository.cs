@@ -73,7 +73,8 @@ namespace SalonServices.Repositories
                                 HasAccepted = sub.Entries.Any(itm => itm.IsAccepted.HasValue && itm.IsAccepted.Value),
                                 AcceptedCount = sub.Entries.Where(itm => itm.IsAccepted.HasValue && itm.IsAccepted.Value).Count(),
                                 CountryName = sub.SalonYear.Salon.Country.Name,
-                            }).OrderBy(itm => itm.EntryDate).ToListAsync();
+                                IsJudged = sub.IsJudged
+                            }).OrderByDescending(itm => itm.EntryDate).ToListAsync();
         }
         
         public async Task<SubmissionEntity> GetSubmissionWithEntries(int pSubmissionId)

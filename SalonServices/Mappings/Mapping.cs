@@ -90,11 +90,12 @@ namespace SalonServices.Mappings
                 cfg.CreateMap<CreateSalonDto, SalonEntity>()
                  .ForMember(ent => ent.Name, x => x.MapFrom(dto => dto.SalonName))
                  .ForMember(ent => ent.Id, x => x.MapFrom(dto => dto.SalonId))
-                 .ForMember(ent => ent.Country, x => x.ResolveUsing(dto => !string.IsNullOrEmpty(dto.CountryName) ? new CountryEntity { Name = dto.CountryName } : null))
+                 .ForMember(ent => ent.Country, x => x.ResolveUsing(dto => !dto.CountryId.HasValue && !string.IsNullOrEmpty(dto.CountryName) ? new CountryEntity { Name = dto.CountryName } : null))
                  .ForMember(ent => ent.SalonYears, x => x.Ignore())
                 ;
 
                 cfg.CreateMap<AccreditationEntity, SalonYearAccreditationDto>()
+                 .ForMember(dto => dto.PhotoOrganisationName, x => x.MapFrom(ent => ent.PhotoOrganisation.Name))
                ;
                 cfg.CreateMap<SalonYearAccreditationDto, AccreditationEntity>()
                     .ForMember(ent => ent.SalonYear, x => x.Ignore())
@@ -165,6 +166,16 @@ namespace SalonServices.Mappings
                 .ForMember(ent => ent.Section, x => x.Ignore())
                 ;
                 cfg.CreateMap<CompetitionEntryEntity, SubmissionResultsEntryDto>()
+                ;
+
+                cfg.CreateMap<CompetitionEntryEntity, OrganisationAcceptedEntryReportDto>()
+                .ForMember(dto => dto.SalonName, x => x.MapFrom(ent => ent.Section.SalonYear.Name))
+                .ForMember(dto => dto.SalonNumber, x => x.Ignore())
+                .ForMember(dto => dto.SalonYear, x => x.MapFrom(ent => ent.Section.SalonYear.Year))
+                .ForMember(dto => dto.ImageName, x => x.MapFrom(ent => ent.Image.Name))
+                .ForMember(dto => dto.IsPrint, x => x.MapFrom(ent => ent.Section.SectionType.IsPrint))
+                .ForMember(dto => dto.AwardName, x => x.MapFrom(ent => ent.AwardDetails))
+                .ForMember(dto => dto.SalonCountry, x => x.MapFrom(ent => ent.Section.SalonYear.Salon.Country))
                 ;
 
             });

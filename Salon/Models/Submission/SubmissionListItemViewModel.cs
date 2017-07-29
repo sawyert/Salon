@@ -13,6 +13,8 @@ namespace Salon.Models.Submission
         public int NumberOfEntries { get; set; }
         public DateTime EntryDate { get; set; }
         public bool HasAccepted { get; set; }
+        public bool IsJudged { get; set; }
+
         public int AcceptedCount { get; set; }
         public double AcceptedPercent { get { return this.AcceptedCount * 100.0 / this.NumberOfEntries; } }
     }
