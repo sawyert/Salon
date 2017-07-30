@@ -54,7 +54,7 @@ namespace SalonServices
                         OrginisationName = lOrg.Name
                     };
 
-                    foreach (var lOrgAward in lOrg.AwardLevels)
+                    foreach (var lOrgAward in lOrg.AwardLevels.OrderBy(l => l.Name))
                     {
                         var lPersonAwardRow = new PersonAwardTableRowDto
                         {
@@ -88,7 +88,7 @@ namespace SalonServices
                             OrginisationName = lOrg.Name + " " + lSectionTypeCode
                         };
 
-                        foreach (var lOrgAward in lOrg.AwardLevels)
+                        foreach (var lOrgAward in lOrg.AwardLevels.OrderBy(l => l.Name))
                         {
                             var lPersonAwardRow = new PersonAwardTableRowDto
                             {

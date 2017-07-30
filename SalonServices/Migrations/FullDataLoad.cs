@@ -11,6 +11,7 @@ namespace SalonServices.Migrations
         {
             using (var lContext = new SalonDbContext())
             {
+                FullDataLoad.clearAllData(lContext);
                 
                 if (lContext.People.Count() == 0)
                 {
@@ -549,10 +550,10 @@ namespace SalonServices.Migrations
 
                         var lWatchingTheApocalypse = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Watching The Apocalypse" };
                         var lDarkHorizons = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Dark Horizons" };
-                        var lRedFox = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Red Fix" };
+                        var lRedFox = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Red Fox" };
                         var lHarvestMiceOnWheat = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Harvest Mice on Wheat [Creative]" };
                         var lHedgehogInLeaves = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Hedgehog In Leaves" };
-                        var lLakeGuardian = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Lake Guardian" };
+                        var lLakeGuardian = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Lake Guardian", Notes = "Not suitable for FIAP/PSA, use Across The Lake instead" };
                         var lEchoesOfTheGreatWar = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Echoes of the Great War" };
                         var lVikingShieldWall = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Viking Shield Wall" };
                         var lGrassesTriptych = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Grasses" };
@@ -1562,6 +1563,72 @@ namespace SalonServices.Migrations
 		                        },
 		                    },
 		                });
+                        lContext.SaveChanges();
+
+						// *************** South Devon Salon
+						var lSalonSouthDevon = new SalonEntity { Name = "South Devon Salon", Website = "http://www.newtonabbot-photoclub.org.uk/pages/salon-2017.php", Country = lCountryEngland };
+						lContext.Salons.Add(lSalonSouthDevon);
+
+						var lSalonYearSouthDevon = new SalonYearEntity { Name = "South Devon Salon", Salon = lSalonSouthDevon, Year = 2017, ClosingDate = new DateTime(2017, 7, 16), JudgeDate = new DateTime(2017, 7, 30), NotificationDate = new DateTime(2017, 8, 9), CataloguesPostedDate = new DateTime(2017, 10, 17) };
+						lContext.SalonYears.Add(lSalonYearSouthDevon);
+
+						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+							new AccreditationEntity() { SalonNumber = "2017/270", PhotoOrganisation = lFiap, SalonYear = lSalonYearSouthDevon },
+                            new AccreditationEntity() { SalonNumber = "2017-204", PhotoOrganisation = lPsa, SalonYear = lSalonYearSouthDevon },
+						});
+
+						var lSalonYearSouthDevonCreative = new SectionEntity() { SalonYear = lSalonYearSouthDevon, SectionType = lSectionTypeCreativePdi };
+						var lSalonYearSouthDevonMono = new SectionEntity() { SalonYear = lSalonYearSouthDevon, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearSouthDevonColour = new SectionEntity() { SalonYear = lSalonYearSouthDevon, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearSouthDevonNature = new SectionEntity() { SalonYear = lSalonYearSouthDevon, SectionType = lSectionTypeNaturePdi };
+
+						lContext.SalonSections.AddRange(new List<SectionEntity> {
+							lSalonYearSouthDevonCreative,
+							lSalonYearSouthDevonMono,
+							lSalonYearSouthDevonColour,
+                            lSalonYearSouthDevonNature,
+						});
+
+
+						var lPetalIllumination = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Petal Illumination" };
+						var lWaterFlight = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Water Flight" };
+
+
+
+						lContext.Images.AddRange(new List<ImageEntity>
+						{
+							lPetalIllumination,
+							lWaterFlight,
+						});
+
+						lContext.Submissions.AddRange(new List<SubmissionEntity> {
+							new SubmissionEntity() {
+								IsJudged = false,
+								EntryCost = 15M,
+								SalonYear = lSalonYearSouthDevon,
+								EntryDate = new DateTime(2017,7,16),
+								Person = lTim,
+								Entries = new List<CompetitionEntryEntity> {
+									new CompetitionEntryEntity { Section = lSalonYearSouthDevonCreative, Image = lAWorldBeyond, IsAwarded = false, IsAccepted = false, Score= 0},
+									new CompetitionEntryEntity { Section = lSalonYearSouthDevonCreative, Image = lAcrossTheLake, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearSouthDevonCreative, Image = lOrb, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearSouthDevonCreative, Image = lTheWatcherInTheWaves, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearSouthDevonMono, Image = lWaterFlight, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearSouthDevonMono, Image = lCathedralCeiling, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearSouthDevonMono, Image = lOliversCastle, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearSouthDevonMono, Image = lRuinsByNight, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearSouthDevonColour, Image = lDaisy, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearSouthDevonColour, Image = lPetalIllumination, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearSouthDevonColour, Image = lTheDance, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearSouthDevonColour, Image = lSpiralNine, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearSouthDevonNature, Image = lHarvestMouseWheat, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearSouthDevonNature, Image = lRedFox, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearSouthDevonNature, Image = lWaterVoleInPipe, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearSouthDevonNature, Image = lWaterVole, IsAwarded = false, IsAccepted = false, Score= 0},
+								},
+							},
+						});
+                        lContext.SaveChanges();
 
                         // *************** Beyond Group BPE
                         var lSalonBeyondGroup = new SalonEntity { Name = "Beyond Group", Website = "http://www.beyondgroup.info/", Country = lCountryEngland };
@@ -1589,7 +1656,7 @@ namespace SalonServices.Migrations
                         var lArcReflections = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Arc Reflections" };
                         var lBuildingAbstract = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Building Abstract" };
                         var lOfficePatterns = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Office Patterns" };
-                        var lBirdAndWaterfall = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Bird & Waterfall" };
+                        var lBirdAndWaterfall = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Bird & Waterfall", Notes="BPE Version - use Water Flight for FIAP/PSA" };
 
 
                         lContext.Images.AddRange(new List<ImageEntity>
@@ -1624,6 +1691,7 @@ namespace SalonServices.Migrations
                                 },
                             },
                         });
+                        lContext.SaveChanges();
 
 
                         // *************** Mahzullah Memorial
@@ -1723,6 +1791,25 @@ namespace SalonServices.Migrations
                     }
                 }
             }
+        }
+
+        private static void clearAllData(SalonDbContext pContext)
+        {
+            pContext.CompetitionEntries.RemoveRange(pContext.CompetitionEntries.ToList());
+            pContext.SalonSections.RemoveRange(pContext.SalonSections.ToList());
+            pContext.Submissions.RemoveRange(pContext.Submissions.ToList());
+            pContext.AwardLevels.RemoveRange(pContext.AwardLevels.ToList());
+            pContext.PhotoOrganisations.RemoveRange(pContext.PhotoOrganisations.ToList());
+            pContext.Images.RemoveRange(pContext.Images.ToList());
+            pContext.People.RemoveRange(pContext.People.ToList());
+            pContext.Countries.RemoveRange(pContext.Countries.ToList());
+            pContext.Accreditations.RemoveRange(pContext.Accreditations.ToList());
+			pContext.SalonYears.RemoveRange(pContext.SalonYears.ToList());
+            pContext.Salons.RemoveRange(pContext.Salons.ToList());
+            pContext.Circuits.RemoveRange(pContext.Circuits.ToList());
+            pContext.SectionTypes.RemoveRange(pContext.SectionTypes.ToList());
+
+            pContext.SaveChanges();
         }
     }
 }

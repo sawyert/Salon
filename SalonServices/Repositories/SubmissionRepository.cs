@@ -73,7 +73,8 @@ namespace SalonServices.Repositories
                                 HasAccepted = sub.Entries.Any(itm => itm.IsAccepted.HasValue && itm.IsAccepted.Value),
                                 AcceptedCount = sub.Entries.Where(itm => itm.IsAccepted.HasValue && itm.IsAccepted.Value).Count(),
                                 CountryName = sub.SalonYear.Salon.Country.Name,
-                                IsJudged = sub.IsJudged
+                                IsJudged = sub.IsJudged,
+                                JudgeDate = sub.SalonYear.JudgeDate.ToString("MM/dd/yyyy"),
                             }).OrderByDescending(itm => itm.EntryDate).ToListAsync();
         }
         
