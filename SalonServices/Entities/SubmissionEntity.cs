@@ -21,7 +21,6 @@ namespace SalonServices.Entities
 
         public bool IsJudged { get; set; }
 
-        [Column(TypeName ="Money")]
         public decimal EntryCost {get; set;}
 
         public int SalonYearId { get; set; }

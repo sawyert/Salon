@@ -12,6 +12,12 @@
     <PackageReference Include="microsoft.extensions.configuration" Version="1.1.2" />
     <PackageReference Include="microsoft.extensions.configuration.fileextensions" Version="1.1.2" />
     <PackageReference Include="microsoft.extensions.configuration.json" Version="1.1.2" />
+    <PackageReference Include="Npgsql" Version="3.2.5" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="1.1.1" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

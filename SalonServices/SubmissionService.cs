@@ -95,7 +95,7 @@ namespace SalonServices
                     }
                     lTransaction.Commit();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     lTransaction.Rollback();
                     throw;

@@ -70,8 +70,9 @@ namespace SalonServices.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    EntryCost = table.Column<decimal>(type: "Money", nullable: false),
+						.Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn)
+						.Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    EntryCost = table.Column<decimal>(nullable: false),
                     EntryDate = table.Column<DateTime>(nullable: false),
                     IsJudged = table.Column<bool>(nullable: false),
                     Notes = table.Column<string>(maxLength: 1000, nullable: true),

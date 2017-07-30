@@ -29,7 +29,8 @@ namespace SalonServices
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(GetAppSettingsConnectionString());
+            // optionsBuilder.UseSqlServer(GetAppSettingsConnectionString());
+            optionsBuilder.UseNpgsql(GetAppSettingsConnectionString());
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
