@@ -56,8 +56,9 @@ namespace SalonServices.Repositories
                                     IsAwarded = ent.IsAwarded,
                                     IsAccepted = ent.IsAccepted,
                                     ImageName = ent.Image.Name,
+                                    SectionName = ent.Section.SectionType.Name,
                                     AwardDetails = ent.AwardDetails
-                                })
+                                }).OrderBy(x => x.SectionName).ThenBy(x => x.ImageName)
                             }).FirstOrDefaultAsync();
         }
 

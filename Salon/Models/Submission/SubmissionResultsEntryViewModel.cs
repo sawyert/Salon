@@ -10,6 +10,7 @@ namespace Salon.Models.Submission
     {
         public int Id { get; set; }
         public string ImageName { get; set; }
+        public string SectionName { get; set; }
         [Display(ResourceType =typeof(Strings), Name = "Submission_IsAwarded")]
         [Required]
         public bool? IsAwarded { get; set; }
@@ -18,7 +19,7 @@ namespace Salon.Models.Submission
         public string AwardDetails { get; set; }
         [Display(ResourceType = typeof(Strings), Name = "Submission_IsAccepted")]
         [Required]
-        public bool? IsAccepted { get; set; }
+        public bool IsAccepted { get; set; }
         [Required]
         public int? Score { get; set; }
     }
