@@ -13,7 +13,7 @@ namespace Salon.Models.Submission
         public string SectionName { get; set; }
         [Display(ResourceType =typeof(Strings), Name = "Submission_IsAwarded")]
         [Required]
-        public bool? IsAwarded { get; set; }
+        public bool IsAwarded { get; set; }
         [Display(ResourceType = typeof(Strings), Name = "Submission_AwardDetails")]
         [MaxLength(100)]
         public string AwardDetails { get; set; }
