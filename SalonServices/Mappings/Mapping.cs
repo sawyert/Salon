@@ -166,6 +166,7 @@ namespace SalonServices.Mappings
                 .ForMember(ent => ent.Section, x => x.Ignore())
                 ;
                 cfg.CreateMap<CompetitionEntryEntity, SubmissionResultsEntryDto>()
+                .ForMember(e => e.SectionName, x => x.Ignore())
                 ;
 
                 cfg.CreateMap<CompetitionEntryEntity, OrganisationAcceptedEntryReportDto>()
