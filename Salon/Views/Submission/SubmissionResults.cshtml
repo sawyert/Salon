@@ -6,6 +6,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
+
+<h2>@Model.DisplayName</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Section</th>
+            <th>Image</th>
+            <th>Award</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Entries.Count; i++)
+        {
+            <tr class="@(Model.Entries[i].IsAwarded ? "info" : Model.Entries[i].IsAccepted ? "success" : "warning")" style="color: @(Model.Entries[i].IsAccepted ? "#000" : "#BBB")">
+                <td>@Model.Entries[i].SectionName</td>
+                <td>@Model.Entries[i].ImageName</td>
+                <td>@Model.Entries[i].AwardDetails</td>
+                <td>@Model.Entries[i].Score</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
 <h2>Update Submission Results for @Model.DisplayName</h2>
 
 <form asp-action="SubmissionResults">

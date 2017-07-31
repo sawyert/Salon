@@ -48,6 +48,7 @@ namespace SalonServices.Tests.Unit.MappingTests
                 .Fill(p => p.Score, () => 40)
                 .Fill(p => p.IsAccepted, () => true)
                 .Fill(p => p.IsAwarded, () => true)
+                .Fill(p => p.SectionName, () => null)
                 ;
 
             MappingTestHelpers.MapFromModelAndBack<SubmissionResultsEntryDto, CompetitionEntryEntity>(null, opt => opt.Excluding(dto => dto.ImageName));

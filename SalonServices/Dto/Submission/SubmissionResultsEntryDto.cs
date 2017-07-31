@@ -8,6 +8,7 @@ namespace SalonServices.Dto.Submission
     {
         public int Id { get; set; }
         public string ImageName { get; set; }
+        public string SectionName { get; set; }
 
         public bool? IsAwarded { get; set; }
         public string AwardDetails { get; set; }
