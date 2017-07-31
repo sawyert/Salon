@@ -213,7 +213,7 @@ namespace SalonServices
             PhotoOrganisationEntity lOrganisation = lAllPhotoOrgsTask.Result.FirstOrDefault(org => org.Name == pOrganisationName);
             var lPerson = lPersonTask.Result;
 
-            var lEntryEntities = lPerson.Submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, lOrganisation.Id) && SectionTypeMatches(ent.Section, pSectionTypeCode))).OrderBy(x => x.Section.SalonYear.ClosingDate).OrderBy(x => x.Image.Name).ToList();
+            var lEntryEntities = lPerson.Submissions.SelectMany(sub => sub.Entries.Where(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, lOrganisation.Id) && SectionTypeMatches(ent.Section, pSectionTypeCode))).ToList(); // .OrderBy(x => x.Section.SalonYear.ClosingDate).ThenBy(x => x.Image.Name).ToList();
 
             List<OrganisationAcceptedEntryReportDto> lAcceptedEntries = new List<OrganisationAcceptedEntryReportDto>();
             foreach (CompetitionEntryEntity lEachEntity in lEntryEntities)
