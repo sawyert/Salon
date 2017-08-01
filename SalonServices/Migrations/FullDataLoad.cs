@@ -1782,6 +1782,64 @@ namespace SalonServices.Migrations
                         });
 
 
+						// *************** Romania Danubius International
+
+						var lCountryRomania = new CountryEntity { Name = "Romania", };
+						lContext.Countries.Add(lCountryRomania);
+
+						var lSalonRomania = new SalonEntity { Name = "Danubious International", Website = "http://www.photoclub.voltin.ro", Country = lCountryRomania };
+						lContext.Salons.Add(lSalonRomania);
+
+						var lSalonYearRomania = new SalonYearEntity { Name = "5th Danubious International", Salon = lSalonRomania, Year = 2017, ClosingDate = new DateTime(2017, 8, 7), JudgeDate = new DateTime(2017, 8, 20), NotificationDate = new DateTime(2017, 8, 30), CataloguesPostedDate = new DateTime(2017, 10, 22) };
+						lContext.SalonYears.Add(lSalonYearRomania);
+
+						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+							new AccreditationEntity() { SalonNumber = "2017/313", PhotoOrganisation = lFiap, SalonYear = lSalonYearRomania },
+							new AccreditationEntity() { SalonNumber = "2017-237", PhotoOrganisation = lPsa, SalonYear = lSalonYearRomania },
+						});
+
+						var lSalonYearRomaniaMono = new SectionEntity() { SalonYear = lSalonYearRomania, SectionType = lSectionTypeMonoPdi };
+						var lSalonYearRomaniaColour = new SectionEntity() { SalonYear = lSalonYearRomania, SectionType = lSectionTypeColourPdi };
+						var lSalonYearRomaniaNature = new SectionEntity() { SalonYear = lSalonYearRomania, SectionType = lSectionTypeNaturePdi };
+						
+						lContext.SalonSections.AddRange(new List<SectionEntity> {
+							lSalonYearRomaniaMono,
+							lSalonYearRomaniaColour,
+							lSalonYearRomaniaNature,
+						});
+
+						var lPilgrimDoor = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Pilgrim Door" };
+						
+						lContext.Images.AddRange(new List<ImageEntity>
+						{
+							lPilgrimDoor,
+						});
+
+						lContext.Submissions.AddRange(new List<SubmissionEntity> {
+							new SubmissionEntity(){
+								IsJudged = false,
+								EntryCost = 23.26M,
+								SalonYear = lSalonYearRomania,
+								EntryDate = new DateTime(2017,8, 1),
+								Person = lTim,
+								Entries = new List<CompetitionEntryEntity> {
+                                    new CompetitionEntryEntity { Section = lSalonYearRomaniaMono, Image = lArcReflections, IsAwarded = false, IsAccepted = false, Score= 0},
+                                    new CompetitionEntryEntity { Section = lSalonYearRomaniaMono, Image = lOfficePatterns, IsAwarded = false, IsAccepted = false, Score=0 },
+                                    new CompetitionEntryEntity { Section = lSalonYearRomaniaMono, Image = lBuildingAbstract, IsAwarded = false, IsAccepted = false, Score=0 },
+                                    new CompetitionEntryEntity { Section = lSalonYearRomaniaMono, Image = lReflectionBars, IsAwarded = false, IsAccepted = false, Score=0 },
+                                    new CompetitionEntryEntity { Section = lSalonYearRomaniaColour, Image = lAWorldBeyond, IsAwarded = false, IsAccepted = false, Score=0 },
+                                    new CompetitionEntryEntity { Section = lSalonYearRomaniaColour, Image = lAcrossTheLake, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearRomaniaColour, Image = lPilgrimDoor, IsAwarded = false, IsAccepted = false, Score=0 },
+                                    new CompetitionEntryEntity { Section = lSalonYearRomaniaColour, Image = lTheWatcherInTheWaves, IsAwarded = false, IsAccepted = false, Score=0 },
+                                    new CompetitionEntryEntity { Section = lSalonYearRomaniaNature, Image = lCanadaGosling, IsAwarded = false, IsAccepted = false, Score=0 },
+                                    new CompetitionEntryEntity { Section = lSalonYearRomaniaNature, Image = lHeronFishing, IsAwarded = false, IsAccepted = false, Score=0 },
+                                    new CompetitionEntryEntity { Section = lSalonYearRomaniaNature, Image = lYoungRedKite, IsAwarded = false, IsAccepted = false, Score=0 },
+                                    new CompetitionEntryEntity { Section = lSalonYearRomaniaNature, Image = lWaterVoleInPipe, IsAwarded = false, IsAccepted = false, Score=0 },
+								},
+							},
+						});
+
+
                         lContext.SaveChanges();
                     }
                     catch (Exception ex)
