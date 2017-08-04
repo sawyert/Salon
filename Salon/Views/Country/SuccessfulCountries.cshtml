@@ -1,0 +1,25 @@
+@model Salon.Models.CountryIndexViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Successful Countries</h2>
+
+<table class="table">
+    <thead>
+        <tr><th></th>
+			<th>Name</th>   
+            <th>Salons</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Countries) {
+        <tr>
+			<td>@item.Number</td>
+            <td>@item.Name</td>
+            <td>@item.SalonCount</td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -11,5 +11,7 @@ namespace Salon.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
+        public int SalonCount { get; set; }
+        public int Number {get; set;}
     }
 }

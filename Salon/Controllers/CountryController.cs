@@ -18,6 +18,24 @@ namespace Salon.Controllers
             this._referenceServices = pReferenceServices;
         }
 
+        public async Task<IActionResult> SuccessfulCountries(int pPersonId)
+        {
+            var lDtos = await this._referenceServices.GetSuccessfulCountries(pPersonId);
+            var lCountries = lDtos.Select(itm => Mapping.Mapper.Map<CountryViewModel>(itm)).ToList();
+            int row = 1;
+            foreach (var lCountry in lCountries)
+            {
+                lCountry.Number = row;
+                row++;
+            }
+
+			var lModel = new CountryIndexViewModel()
+			{
+				Countries = lCountries,
+			};
+			return View(lModel);
+        }
+
         public async Task<IActionResult> Index(string successMessage = null, string failureMessage = null)
         {
             var lDtos = await this._referenceServices.GetCountries();

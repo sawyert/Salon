@@ -10,6 +10,6 @@ namespace SalonServices.Repositories
     {
         Task<List<SalonYearEntity>> GetSalonYearsWithAccreditations(int pYear);
         Task<List<int>> GetSalonYearsIdsByCircuitId(int pCircuitId);
-
+        Task<List<SalonYearEntity>> GetSuccessfulSalons(int pPersonId);
     }
 }

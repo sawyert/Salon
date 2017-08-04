@@ -17,14 +17,16 @@ namespace SalonServices
         private readonly ISectionTypeRepository _sectionTypeRepository;
         private readonly IPhotoOrganisationRepository _photoOrganisationRepository;
         private readonly ICircuitRepository _circuitRepository;
+        private readonly ISalonYearRepository _salonYearRepository;
 
 
-        public ReferenceServices(ICountryRepository pCountryRepository, ISectionTypeRepository pSectionTypeRepository, IPhotoOrganisationRepository pPhotoOrganisationRepository, ICircuitRepository pCircuitRepository)
+        public ReferenceServices(ICountryRepository pCountryRepository, ISectionTypeRepository pSectionTypeRepository, IPhotoOrganisationRepository pPhotoOrganisationRepository, ICircuitRepository pCircuitRepository, ISalonYearRepository pSalonYearRepository)
         {
             this._countryRepository = pCountryRepository;
             this._sectionTypeRepository = pSectionTypeRepository;
             this._photoOrganisationRepository = pPhotoOrganisationRepository;
             this._circuitRepository = pCircuitRepository;
+            this._salonYearRepository = pSalonYearRepository;
         }
 
         public async Task<CreateCircuitDto> CreateCircuit(CreateCircuitDto pCreateCircuit)
@@ -39,7 +41,7 @@ namespace SalonServices
             List<CircuitEntity> lCircuitEnts = await this._circuitRepository.GetAll();
             var lReturn = lCircuitEnts.Select(st => Mapping.Mapper.Map<CircuitDto>(st)).ToList();
             return lReturn;
-        }        
+        }
 
         public async Task<List<OrganisationDto>> GetOrganisations()
         {
@@ -57,10 +59,22 @@ namespace SalonServices
             return lReturn;
         }
 
+        public async Task<List<CountryDto>> GetSuccessfulCountries(int pPersonId)
+        {
+            List<SalonYearEntity> lSuccessfulSalons = await this._salonYearRepository.GetSuccessfulSalons(pPersonId);
+
+            List<CountryDto> lReturn = lSuccessfulSalons.Select(sy => sy.Salon.Country).Distinct().Select(ent => new CountryDto()
+            {
+                Name = ent.Name,
+                SalonCount = lSuccessfulSalons.Count(sy => sy.Salon.CountryId == ent.Id),
+            }).OrderByDescending(c => c.SalonCount).ToList();
+            return lReturn;
+        }
+
         public async Task UpdateCountry(CountryDto pCountryDto)
         {
             CountryEntity lCountryEntity = await this._countryRepository.GetById(pCountryDto.Id);
-             Mapping.Mapper.Map<CountryDto, CountryEntity>(pCountryDto, lCountryEntity);
+            Mapping.Mapper.Map<CountryDto, CountryEntity>(pCountryDto, lCountryEntity);
             await this._countryRepository.Update(lCountryEntity);
         }
 

@@ -52,5 +52,12 @@ namespace SalonServices.Repositories
         {
             return await this.dbContext.SalonYears.Where(sy => sy.CircuitId == pCircuitId).Select(sy => sy.Id).ToListAsync();
         }
+
+        public async Task<List<SalonYearEntity>> GetSuccessfulSalons(int pPersonId)
+        {
+            var lEntries = await this.dbContext.CompetitionEntries.Where(ent => ent.Image.PersonId == pPersonId).Where(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value == true).Include(ce => ce.Section).ThenInclude(sec => sec.SalonYear).ThenInclude(sy => sy.Salon).ThenInclude(sal => sal.Country).ToListAsync();
+            var lReturn = lEntries.Select(ent => ent.Section).Select(sec => sec.SalonYear).Distinct().ToList();
+            return lReturn;
+        }
     }
 }

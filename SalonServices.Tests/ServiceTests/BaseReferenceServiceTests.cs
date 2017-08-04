@@ -15,6 +15,7 @@ namespace SalonServices.Tests.Unit.ServiceTests
         protected IPhotoOrganisationRepository _photoOrganisationRepository;
         protected ICircuitRepository _circuitRepository;
         protected ReferenceServices referenceServices;
+        protected ISalonYearRepository _salonYearRepository;
 
         [SetUp]
         public void Setup()
@@ -24,7 +25,7 @@ namespace SalonServices.Tests.Unit.ServiceTests
             this._photoOrganisationRepository = Substitute.For<IPhotoOrganisationRepository>();
             this._circuitRepository = Substitute.For<ICircuitRepository>();
 
-            this.referenceServices = new ReferenceServices(this._countryRepository, this._sectionTypeRepository, this._photoOrganisationRepository, this._circuitRepository);
+            this.referenceServices = new ReferenceServices(this._countryRepository, this._sectionTypeRepository, this._photoOrganisationRepository, this._circuitRepository, this._salonYearRepository);
 
             Mapping.CreateConfiguration();
         }
