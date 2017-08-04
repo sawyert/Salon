@@ -25,7 +25,7 @@
         {
             <tr class="@(Model.Entries[i].IsAwarded ? "info" : Model.Entries[i].IsAccepted ? "success" : "warning")" style="color: @(Model.Entries[i].IsAccepted ? "#000" : "#BBB")">
                 <td>@Model.Entries[i].SectionName</td>
-                <td>@Model.Entries[i].ImageName</td>
+                <td><a asp-controller="Image" asp-action="SingleImage"  asp-route-pImageId="@Model.Entries[i].ImageId">@Model.Entries[i].ImageName</a></td>
                 <td>@Model.Entries[i].AwardDetails</td>
                 <td>@Model.Entries[i].Score</td>
             </tr>

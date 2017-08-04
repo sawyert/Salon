@@ -11,6 +11,7 @@ using SalonServices;
 using SalonServices.Repositories;
 using SalonServices.Dto;
 using SalonServices.Migrations;
+using SalonServices.Repositories.Interfaces;
 
 namespace Salon
 {
@@ -56,14 +57,17 @@ namespace Salon
             services.AddScoped<ISectionTypeRepository, SectionTypeRepository>();
             services.AddScoped<ISubmissionRepository, SubmissionRepository>();
             services.AddScoped<ICircuitRepository, CircuitRepository>();
+            services.AddScoped<IImageRepository, ImageRepository>();
 
             services.AddScoped<ISalonYearService, SalonYearService>();
             services.AddScoped<ISubmissionService, SubmissionService>();
             services.AddScoped<IReferenceServices, ReferenceServices>();
             services.AddScoped<IPersonAwardService, PersonAwardService>();
             services.AddScoped<IImageService, ImageService>();
+
             services.AddScoped<IDbTransaction, SalonDbContext>();
             services.AddScoped<ISalonDbContext, SalonDbContext>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

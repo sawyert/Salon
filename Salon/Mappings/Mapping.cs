@@ -120,6 +120,9 @@ namespace Salon.Mappings
                 cfg.CreateMap<SubmissionListItemDto, SubmissionListItemViewModel>();
 
                 cfg.CreateMap<OrganisationSubmissionReportDto, PsaSubmissionViewModel>();
+                cfg.CreateMap<ImageDto, ImageViewModel>();
+                cfg.CreateMap<ImageSalonEntryDto, ImageSalonViewModel>();
+
             });
             Mapper = config.CreateMapper();
             return config;

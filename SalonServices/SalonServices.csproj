@@ -20,4 +20,8 @@
      <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="IImageServices.cs" />
+    <Compile Remove="ImageServices.cs" />
+  </ItemGroup>
 </Project>

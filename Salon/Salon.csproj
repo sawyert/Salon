@@ -38,6 +38,7 @@
   <ItemGroup>
     <Folder Include="Views\SectionType\" />
     <Folder Include="Views\Person\" />
+    <Folder Include="Views\Image\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Strings.Designer.cs">

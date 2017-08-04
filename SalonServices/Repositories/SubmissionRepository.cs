@@ -56,6 +56,7 @@ namespace SalonServices.Repositories
                                     IsAwarded = ent.IsAwarded,
                                     IsAccepted = ent.IsAccepted,
                                     ImageName = ent.Image.Name,
+                                    ImageId = ent.Image.Id,
                                     SectionName = ent.Section.SectionType.Name,
                                     AwardDetails = ent.AwardDetails
                                 }).OrderBy(x => x.SectionName).ThenBy(x => x.ImageName)
@@ -82,6 +83,13 @@ namespace SalonServices.Repositories
         public async Task<SubmissionEntity> GetSubmissionWithEntries(int pSubmissionId)
         {
             return await this.dbContext.Submissions.Include(sub => sub.Entries).FirstOrDefaultAsync(sub => sub.Id == pSubmissionId);
-        }       
+        }
+
+        public List<CompetitionEntryEntity> GetSalonEntriesForImage(int pImageId)
+        {
+            return this.dbContext.CompetitionEntries.Where(ent => ent.ImageId == pImageId)
+                .Include(ent => ent.Section).ThenInclude(sect => sect.SalonYear).ThenInclude(sy => sy.Salon)
+                       .Include(ent => ent.Section).ThenInclude(sec => sec.SectionType).OrderByDescending(ent => ent.Section.SalonYear.JudgeDate).ToList();
+        }
     }
 }

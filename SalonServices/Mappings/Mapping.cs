@@ -179,6 +179,9 @@ namespace SalonServices.Mappings
                 .ForMember(dto => dto.SalonCountry, x => x.MapFrom(ent => ent.Section.SalonYear.Salon.Country))
                 ;
 
+                cfg.CreateMap<ImageEntity, ImageDto>()
+                ;
+
             });
             Mapper = config.CreateMapper();
             return config;

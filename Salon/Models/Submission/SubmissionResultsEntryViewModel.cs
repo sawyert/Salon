@@ -10,6 +10,7 @@ namespace Salon.Models.Submission
     {
         public int Id { get; set; }
         public string ImageName { get; set; }
+        public int ImageId { get; set; }
         public string SectionName { get; set; }
         [Display(ResourceType =typeof(Strings), Name = "Submission_IsAwarded")]
         [Required]

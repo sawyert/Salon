@@ -1,0 +1,29 @@
+@model Salon.Models.ImageViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Salon</th>
+			<th>Section</th>
+			<th>Award</th>
+			<th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SalonEntries) {
+        <tr class="@(item.IsAwarded ? "info" : item.IsAccepted ? "success" : "warning")" style="color: @(item.IsAccepted ? "#000" : "#BBB")">
+		    <td>@item.SalonName</td>
+            <td>@item.SectionName</td>
+			<td>@item.AwardDetails</td>
+			<td>@item.Score</td>
+        </tr>
+}
+    </tbody>
+</table>
