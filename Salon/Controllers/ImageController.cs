@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Salon.Models;
 using SalonServices;
@@ -22,5 +24,57 @@ namespace Salon.Controllers
 
 			return View(lSingleImageViewModel);
 		}
+
+        public async Task<IActionResult> SuccessfulImages(int pPersonId)
+        {
+            List<ImageDto> lSuccessfulImages = await this._imageServices.GetSuccessfulImagesForPerson(pPersonId);
+
+            List<ImageViewModel> lSuccessfulImagesViewModel = new List<ImageViewModel>();
+            foreach (ImageDto lSuccesfulImage in lSuccessfulImages)
+            {
+                var lImageViewModel = Mappings.Mapping.Mapper.Map<ImageViewModel>(lSuccesfulImage);
+                lSuccessfulImagesViewModel.Add(lImageViewModel);
+            }
+
+            return View(lSuccessfulImagesViewModel);
+        }
+
+		public async Task<IActionResult> AwardedImages(int pPersonId)
+		{
+			List<ImageDto> lSuccessfulImages = await this._imageServices.GetAwardedImagesForPerson(pPersonId);
+
+			List<ImageViewModel> lSuccessfulImagesViewModel = new List<ImageViewModel>();
+			foreach (ImageDto lSuccesfulImage in lSuccessfulImages)
+			{
+				var lImageViewModel = Mappings.Mapping.Mapper.Map<ImageViewModel>(lSuccesfulImage);
+				lSuccessfulImagesViewModel.Add(lImageViewModel);
+			}
+
+			return View(lSuccessfulImagesViewModel);
+		}
+
+        public async Task<IActionResult> FiapImages(int pPersonId)
+        {
+            List<ImageSalonEntryDto> lFiapImages = await this._imageServices.GetSubmissionImages(pPersonId, "FIAP");
+            List<ImageSalonViewModel> lFiapImagesViewModel = new List<ImageSalonViewModel>();
+            int lAcceptanceNumber = 0;
+            int lImageNumber = 0;
+            string lImageName = "";
+            foreach (ImageSalonEntryDto lFiapImage in lFiapImages)
+            {
+				var lImageSalonViewModel = Mappings.Mapping.Mapper.Map<ImageSalonViewModel>(lFiapImage);
+                if (lImageName != lImageSalonViewModel.ImageTitle)
+                {
+                    lImageNumber++;
+                }
+				lAcceptanceNumber++;
+                lImageName = lImageSalonViewModel.ImageTitle;
+                lImageSalonViewModel.ImageNumber = lImageNumber;
+                lImageSalonViewModel.AcceptanceNumber = lAcceptanceNumber;
+				lFiapImagesViewModel.Add(lImageSalonViewModel);
+            }
+
+            return View(lFiapImagesViewModel);
+        }
     }
 }

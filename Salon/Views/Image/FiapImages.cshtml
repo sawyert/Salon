@@ -1,0 +1,39 @@
+@model List<Salon.Models.ImageSalonViewModel>
+
+@{
+    ViewData["Title"] = "FIAP Submission";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Accepted Images (@Model.Count)</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+			<th>Acceptance</th>
+			<th>Image</th>
+            <th>Title</th>
+			<th>Salon Name</th>
+            <th>Country</th>
+			<th>FIAP Number</th>
+			<th>Award</th>
+			<th>Digital</th>
+			<th>Print</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.AcceptanceNumber)</td>
+			<td>@Html.DisplayFor(modelItem => item.ImageNumber)</td>
+			<td><a asp-controller="Image" asp-action="SingleImage" asp-route-pImageId="@item.ImageId">@Html.DisplayFor(modelItem => item.ImageTitle)</a></td>
+			<td>@Html.DisplayFor(modelItem => item.SalonName)</td>
+			<td>@Html.DisplayFor(modelItem => item.Country)</td>
+			<td>@Html.DisplayFor(modelItem => item.OrganisationAccreditationNumber)</td>
+			<td>@Html.DisplayFor(modelItem => item.AwardDetails)</td>
+			<td>@Html.DisplayFor(modelItem => item.IsDigital)</td>
+			<td>@Html.DisplayFor(modelItem => item.IsPrint)</td>
+        </tr>
+}
+    </tbody>
+</table>

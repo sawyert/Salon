@@ -6,6 +6,9 @@ using SalonServices.Entities;
 using SalonServices.Repositories.Interfaces;
 using SalonServices.Repositories;
 using System.Linq;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SalonServices
 {
@@ -14,12 +17,14 @@ namespace SalonServices
         private readonly FileSettings _fileSettings;
         private readonly IImageRepository _imageRepository;
         private readonly ISubmissionRepository _submissionRepository;
+        private readonly IPhotoOrganisationRepository _organisationRepository;
 
-        public ImageService(IOptions<FileSettings> pFileSettings, IImageRepository pImageRepository, ISubmissionRepository pSubmissionRepository)
+        public ImageService(IOptions<FileSettings> pFileSettings, IImageRepository pImageRepository, ISubmissionRepository pSubmissionRepository, IPhotoOrganisationRepository pOrganisationRepository)
         {
             _fileSettings = pFileSettings.Value;
             this._imageRepository = pImageRepository;
             this._submissionRepository = pSubmissionRepository;
+            this._organisationRepository = pOrganisationRepository;
         }
 
         public string SaveImage(ImageSaveDetails pImageDetails)
@@ -46,5 +51,51 @@ namespace SalonServices
             }).ToList();
             return lReturn;
         }
-	}
+
+        public async Task<List<ImageDto>> GetSuccessfulImagesForPerson(int pPersonId)
+        {
+            List<ImageEntity> lSuccessfulImages = await this._imageRepository.GetSuccessfulImagesForPerson(pPersonId);
+
+			List<ImageDto> lReturn = new List<ImageDto>();
+			foreach (ImageEntity lSuccesfulImage in lSuccessfulImages)
+			{
+				var lImageDto = Mappings.Mapping.Mapper.Map<ImageDto>(lSuccesfulImage);
+				lReturn.Add(lImageDto);
+			}
+
+            return lReturn;
+        }
+
+		public async Task<List<ImageDto>> GetAwardedImagesForPerson(int pPersonId)
+		{
+			List<ImageEntity> lAwardedImages = await this._imageRepository.GetAwardedImagesForPerson(pPersonId);
+
+			List<ImageDto> lReturn = new List<ImageDto>();
+			foreach (ImageEntity lAwardedImage in lAwardedImages)
+			{
+				var lImageDto = Mappings.Mapping.Mapper.Map<ImageDto>(lAwardedImage);
+                // TODO Map lAwardedImage.Entries to lImageDto.SalonEntries
+				lReturn.Add(lImageDto);
+			}
+
+			return lReturn;
+		}
+
+        public async Task<List<ImageSalonEntryDto>> GetSubmissionImages(int pPersonId, string pOrganisationName)
+        {
+            PhotoOrganisationEntity lOrganisation = await this._organisationRepository.GetByName(pOrganisationName);
+            List<CompetitionEntryEntity> lSuccessfulImages = await this._imageRepository.GetImagesForSubmissionList(pPersonId, lOrganisation);
+
+            List<ImageSalonEntryDto> lReturn = new List<ImageSalonEntryDto>();
+            foreach (CompetitionEntryEntity lEachSuccessfulEntry in lSuccessfulImages)
+            {
+                var lImageSalonEntryDto = Mappings.Mapping.Mapper.Map<ImageSalonEntryDto>(lEachSuccessfulEntry);
+                var lSalonAccreditation = lEachSuccessfulEntry.Section.SalonYear.Accreditations.FirstOrDefault(acc => acc.PhotoOrganisationId == lOrganisation.Id);
+                lImageSalonEntryDto.OrganisationAccreditationNumber = lSalonAccreditation.SalonNumber;
+				lReturn.Add(lImageSalonEntryDto);
+            }
+
+            return lReturn;
+        }
+    }
 }

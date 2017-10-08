@@ -1,0 +1,30 @@
+@model List<Salon.Models.ImageViewModel>
+
+@{
+    ViewData["Title"] = "Successful Images";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Awarded Images</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+			<th>Award</th>
+</tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+			<td>
+              @foreach (var award in item.AwardedEntries()) {
+				  <span>@award.AwardDetails</span>
+				  <span>@award.SalonName</span>
+				}
+			</td>
+        </tr>
+}
+    </tbody>
+</table>

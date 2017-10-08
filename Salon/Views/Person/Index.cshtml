@@ -25,8 +25,10 @@
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id">Award Achievement</a> | 
                 <a asp-action="Index" asp-controller="Submission" asp-route-pPersonId="@item.Id">Submissions</a> |
+				<a asp-action="SuccessfulImages" asp-controller="Image" asp-route-pPersonId="@item.Id">Accepted Images</a> |
+				<a asp-action="AwardedImages" asp-controller="Image" asp-route-pPersonId="@item.Id">Awarded Images</a> |
 				<a asp-action="SuccessfulCountries" asp-controller="Country" asp-route-pPersonId="@item.Id">Countries</a> |
-                <a asp-action="PsaList" asp-route-pPersonId="@item.Id" asp-route-pSectionCode="PIDC">PSA PIDC</a>
+                <a asp-action="FiapImages" asp-controller="Image" asp-route-pPersonId="@item.Id">FIAP Submission</a>
             </td>
         </tr>
 }

@@ -28,6 +28,11 @@ namespace SalonServices.Repositories
             return await this.dbContext.PhotoOrganisations.FirstOrDefaultAsync(coun => coun.Id == id);
         }
 
+		public async Task<PhotoOrganisationEntity> GetByName(String pName)
+		{
+            return await this.dbContext.PhotoOrganisations.FirstOrDefaultAsync(coun => coun.Name == pName);
+		}
+
         public async Task Update(PhotoOrganisationEntity pEntity)
         {
             this.dbContext.PhotoOrganisations.Update(pEntity);

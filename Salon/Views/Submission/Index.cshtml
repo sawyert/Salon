@@ -26,7 +26,7 @@
                 <td>@submission.CountryName</td>
                 <td>@submission.NumberOfEntries</td>
                 <td>@submission.AcceptedCount (@(Math.Round(submission.AcceptedPercent, 2))%)</td>
-                <td>@(submission.IsJudged ? "Yes" : submission.JudgeDate)</td>
+                <td>@(submission.IsJudged ? "Yes" : String.Format("{0:dd/MM/yyyy}", submission.JudgeDate))</td>
                 <td><a asp-action="SubmissionResults"  asp-route-pSubmissionId="@submission.SubmissionId">Results</a></td>
             </tr>
         }
