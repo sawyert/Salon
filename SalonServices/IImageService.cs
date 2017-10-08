@@ -12,7 +12,7 @@ namespace SalonServices
         string SaveImage(ImageSaveDetails pImageDetails);
         ImageDto GetById(int pImageId);
         Task<List<ImageDto>> GetSuccessfulImagesForPerson(int pPersonId);
-        Task<List<ImageDto>> GetAwardedImagesForPerson(int pPersonId);
+        Task<List<ImageSalonEntryDto>> GetAwardedImagesForPerson(int pPersonId);
         Task<List<ImageSalonEntryDto>> GetSubmissionImages(int pPersonId, string pOrganisationName);
     }
 }

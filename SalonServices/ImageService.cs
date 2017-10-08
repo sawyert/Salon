@@ -66,15 +66,14 @@ namespace SalonServices
             return lReturn;
         }
 
-		public async Task<List<ImageDto>> GetAwardedImagesForPerson(int pPersonId)
+		public async Task<List<ImageSalonEntryDto>> GetAwardedImagesForPerson(int pPersonId)
 		{
-			List<ImageEntity> lAwardedImages = await this._imageRepository.GetAwardedImagesForPerson(pPersonId);
+			List<CompetitionEntryEntity> lAwardedImages = await this._imageRepository.GetAwardedImagesForPerson(pPersonId);
 
-			List<ImageDto> lReturn = new List<ImageDto>();
-			foreach (ImageEntity lAwardedImage in lAwardedImages)
+			List<ImageSalonEntryDto> lReturn = new List<ImageSalonEntryDto>();
+			foreach (CompetitionEntryEntity lAwardedImage in lAwardedImages)
 			{
-				var lImageDto = Mappings.Mapping.Mapper.Map<ImageDto>(lAwardedImage);
-                // TODO Map lAwardedImage.Entries to lImageDto.SalonEntries
+				var lImageDto = Mappings.Mapping.Mapper.Map<ImageSalonEntryDto>(lAwardedImage);
 				lReturn.Add(lImageDto);
 			}
 

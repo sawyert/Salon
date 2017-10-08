@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Accepted Images</h2>
+<h2>Accepted Images (@Model.Count)</h2>
 
 <table class="table">
     <thead>
@@ -19,9 +19,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
+            <td><a asp-controller="Image" asp-action="SingleImage" asp-route-pImageId="@item.Id">@Html.DisplayFor(modelItem => item.Name)</a></td>
         </tr>
 }
     </tbody>

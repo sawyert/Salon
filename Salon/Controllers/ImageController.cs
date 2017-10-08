@@ -41,13 +41,24 @@ namespace Salon.Controllers
 
 		public async Task<IActionResult> AwardedImages(int pPersonId)
 		{
-			List<ImageDto> lSuccessfulImages = await this._imageServices.GetAwardedImagesForPerson(pPersonId);
+			List<ImageSalonEntryDto> lSuccessfulImages = await this._imageServices.GetAwardedImagesForPerson(pPersonId);
 
-			List<ImageViewModel> lSuccessfulImagesViewModel = new List<ImageViewModel>();
-			foreach (ImageDto lSuccesfulImage in lSuccessfulImages)
+			List<ImageSalonViewModel> lSuccessfulImagesViewModel = new List<ImageSalonViewModel>();
+			int lAcceptanceNumber = 0;
+			int lImageNumber = 0;
+			string lImageName = "";
+			foreach (ImageSalonEntryDto lSuccesfulImage in lSuccessfulImages)
 			{
-				var lImageViewModel = Mappings.Mapping.Mapper.Map<ImageViewModel>(lSuccesfulImage);
-				lSuccessfulImagesViewModel.Add(lImageViewModel);
+				var lImageSalonViewModel = Mappings.Mapping.Mapper.Map<ImageSalonViewModel>(lSuccesfulImage);
+				if (lImageName != lImageSalonViewModel.ImageTitle)
+				{
+					lImageNumber++;
+				}
+				lAcceptanceNumber++;
+				lImageName = lImageSalonViewModel.ImageTitle;
+				lImageSalonViewModel.ImageNumber = lImageNumber;
+				lImageSalonViewModel.AcceptanceNumber = lAcceptanceNumber;
+				lSuccessfulImagesViewModel.Add(lImageSalonViewModel);
 			}
 
 			return View(lSuccessfulImagesViewModel);

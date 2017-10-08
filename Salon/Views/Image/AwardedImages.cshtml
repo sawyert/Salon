@@ -1,29 +1,28 @@
-@model List<Salon.Models.ImageViewModel>
+@model List<Salon.Models.ImageSalonViewModel>
 
 @{
     ViewData["Title"] = "Successful Images";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Awarded Images</h2>
+<h2>Awarded Images (@Model.Count awards)</h2>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Name</th>
+            <th>Award</th>
+			<th>Image</th>
+			<th>Name</th>
 			<th>Award</th>
 </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.Name)</td>
-			<td>
-              @foreach (var award in item.AwardedEntries()) {
-				  <span>@award.AwardDetails</span>
-				  <span>@award.SalonName</span>
-				}
-			</td>
+            <td>@Html.DisplayFor(modelItem => item.AcceptanceNumber)</td>
+            <td>@Html.DisplayFor(modelItem => item.ImageNumber)</td>
+            <td><a asp-controller="Image" asp-action="SingleImage" asp-route-pImageId="@item.ImageId">@Html.DisplayFor(modelItem => item.ImageTitle)</a></td>
+			<td>@Html.DisplayFor(modelItem => item.AwardDetails)</td>
         </tr>
 }
     </tbody>

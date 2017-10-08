@@ -10,6 +10,7 @@ namespace Salon.Models
         {
         }
 
+        public int Id { get; set; }
         public string Name { get; set; }
         public List<ImageSalonViewModel> SalonEntries { get; set; }
 
