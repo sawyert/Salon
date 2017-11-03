@@ -80,10 +80,10 @@ namespace SalonServices
 			return lReturn;
 		}
 
-        public async Task<List<ImageSalonEntryDto>> GetSubmissionImages(int pPersonId, string pOrganisationName)
+        public async Task<List<ImageSalonEntryDto>> GetSubmissionImages(int pPersonId, string pOrganisationName, DateTime pClosingDateCutoff)
         {
             PhotoOrganisationEntity lOrganisation = await this._organisationRepository.GetByName(pOrganisationName);
-            List<CompetitionEntryEntity> lSuccessfulImages = await this._imageRepository.GetImagesForSubmissionList(pPersonId, lOrganisation);
+            List<CompetitionEntryEntity> lSuccessfulImages = await this._imageRepository.GetImagesForSubmissionList(pPersonId, lOrganisation, pClosingDateCutoff);
 
             List<ImageSalonEntryDto> lReturn = new List<ImageSalonEntryDto>();
             foreach (CompetitionEntryEntity lEachSuccessfulEntry in lSuccessfulImages)

@@ -44,9 +44,13 @@ namespace SalonServices.Repositories
 			return lSuccessfulEntries;
 		}
 
-        public async Task<List<CompetitionEntryEntity>> GetImagesForSubmissionList(int pPersonId, PhotoOrganisationEntity pPhotoOrganisationSubmittingTo)
+        public async Task<List<CompetitionEntryEntity>> GetImagesForSubmissionList(int pPersonId, PhotoOrganisationEntity pPhotoOrganisationSubmittingTo, DateTime pClosingDateCutoff)
         {
-            List<CompetitionEntryEntity> lSuccessfulEntries = await this.dbContext.CompetitionEntries.Where(entry => entry.Image.PersonId == pPersonId && entry.IsAccepted == true && entry.Section.SalonYear.Accreditations.Any(accr => accr.PhotoOrganisationId == pPhotoOrganisationSubmittingTo.Id))
+            List<CompetitionEntryEntity> lSuccessfulEntries = await this.dbContext.CompetitionEntries.Where(entry => entry.Image.PersonId == pPersonId 
+                                                                                                            && entry.IsAccepted == true 
+                                                                                                            && entry.Section.SalonYear.Accreditations.Any(accr => accr.PhotoOrganisationId == pPhotoOrganisationSubmittingTo.Id)
+                                                                                                            && entry.Section.SalonYear.ClosingDate < pClosingDateCutoff
+                                                                                                           )
                                                                         .Include(x=>x.Section).ThenInclude(x=>x.SalonYear).ThenInclude(x=>x.Salon).ThenInclude(x=>x.Country)
                                                                         .Include(x => x.Section).ThenInclude(x => x.SalonYear).ThenInclude(x => x.Accreditations)
                                                                         .Include(x=>x.Section).ThenInclude(x=>x.SectionType)

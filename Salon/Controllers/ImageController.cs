@@ -66,7 +66,7 @@ namespace Salon.Controllers
 
         public async Task<IActionResult> FiapImages(int pPersonId)
         {
-            List<ImageSalonEntryDto> lFiapImages = await this._imageServices.GetSubmissionImages(pPersonId, "FIAP");
+            List<ImageSalonEntryDto> lFiapImages = await this._imageServices.GetSubmissionImages(pPersonId, "FIAP", new DateTime(2017,7,1));
             List<ImageSalonViewModel> lFiapImagesViewModel = new List<ImageSalonViewModel>();
             int lAcceptanceNumber = 0;
             int lImageNumber = 0;
