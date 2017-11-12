@@ -11,11 +11,10 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th>Numbers</th>
+            <th>Salon Numbers</th>
             <th>Country</th>
             <th>Entries</th>
             <th>Accepted</th>
-            <th>Results</th>
             <th></th>
         </tr>
     </thead>
@@ -27,8 +26,14 @@
 			    <td>@submission.AccreditationNumbers</td>
                 <td>@submission.CountryName</td>
                 <td>@submission.NumberOfEntries</td>
+			@if (submission.IsJudged)
+			{
                 <td>@submission.AcceptedCount (@(Math.Round(submission.AcceptedPercent, 2))%)</td>
-                <td>@(submission.IsJudged ? "" : String.Format("{0:dd/MM/yyyy}", submission.NotificationDate))</td>
+			}
+			else
+			{
+                <td>@submission.NotificationDate</td>
+			}
                 <td><a asp-action="SubmissionResults"  asp-route-pSubmissionId="@submission.SubmissionId">Results</a></td>
             </tr>
         }

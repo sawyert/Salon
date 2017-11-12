@@ -197,16 +197,16 @@ namespace SalonServices.Migrations
                         var lSalonBohemia = new SalonEntity { Name = "Bohemia", Website = "http://bohemia.photosalon.cz/", Country = lCountryCzechRep };
                         var lSalonPhotoArtVision = new SalonEntity { Name = "Photo Art Vision", Website = "http://vision.photoart.cz/", Country = lCountryCzechRep };
                         var lSalonYorkshire = new SalonEntity { Name = "Yorkshire Salon", Website = "yorkshiresalon.co.uk", Country = lCountryEngland };
-                        var lSalonBelghoria = new SalonEntity { Name = "Belghoria Photo Lovers", Website = "http://bohemia.photosalon.cz/", Country = lCountryIndia };
+                        var lSalonBelghoria = new SalonEntity { Name = "3rd Creative International Salon", Website = "www.bplclub.in", Country = lCountryIndia };
                         var lSalonRefletMondial = new SalonEntity { Name = "Reflet Mondial", Website = "http://refletmondial.be/wp/", Country = lCountryBelgium };
                         var lSalonBristol = new SalonEntity { Name = "Bristol", Website = "http://www.bristolphoto.org.uk/pages/bristol-salon.php", Country = lCountryEngland };
                         var lSalonVictoryPhotoClub = new SalonEntity { Name = "Victory Photo Club", Website = "http://www.victory-photo.club/", Country = lCountryMontenegro };
                         var lSalonNzis = new SalonEntity { Name = "NZIS", Website = "http://www.psnzinternationalsalons.com/", Country = lCountryNewZealand };
                         var lSalonPsaMet = new SalonEntity { Name = "PSA Metropolitan", Website = "http://www.psa-met.com/mipe", Country = lCountryUsa };
                         var lSalonCreativeArt = new SalonEntity { Name = "Creative Art", Website = "http://www.creativeartsalon.org/", Country = lCountryIndia };
-                        var lSalonCarlisle = new SalonEntity { Name = "Carlisle Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
-                        var lSalonPenrith = new SalonEntity { Name = "Penrith Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
-                        var lSalonSolway = new SalonEntity { Name = "Solway Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
+                        var lSalonCarlisle = new SalonEntity { Name = "GB Small Prints - Carlisle Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
+                        var lSalonPenrith = new SalonEntity { Name = "GB Small Prints - Penrith Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
+                        var lSalonSolway = new SalonEntity { Name = "GB Small Prints - Solway Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
                         var lSalonKpaClub = new SalonEntity { Name = "KPA Club", Website = "http://www.kpaclub.com/", Country = lCountryIndia };
                         var lSalonLagacilly = new SalonEntity { Name = "Club Photo Lagacilly", Website = "http://www.clubphotolagacilly.com/", Country = lCountryFrance };
                         var lSalonDelleColline1 = new SalonEntity { Name = "21 Gan Tour Delle Colline - 35 Trofeo Arno - Incisa V.", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
@@ -2136,7 +2136,7 @@ namespace SalonServices.Migrations
 						lContext.SalonYears.Add(lSalonYearCanvas);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
-							new AccreditationEntity() { SalonNumber = "2017/264", PhotoOrganisation = lFiap, SalonYear = lSalonYearCanvas },
+							new AccreditationEntity() { SalonNumber = "2017/364", PhotoOrganisation = lFiap, SalonYear = lSalonYearCanvas },
                             new AccreditationEntity() { SalonNumber = "2017-290", PhotoOrganisation = lPsa, SalonYear = lSalonYearCanvas },
 						});
 
