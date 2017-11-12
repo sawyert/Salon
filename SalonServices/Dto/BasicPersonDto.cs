@@ -12,5 +12,6 @@ namespace SalonServices.Dto
         public decimal TotalCost { get; set; }
         public int UnjudgedSalonCount { get; set; }
         public int UnjudgedImageCount { get; set; }
+        public decimal AcceptanceRate { get; set; }
     }
 }

@@ -23,6 +23,8 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
+				Acceptance Rate: @Html.DisplayFor(modelItem => item.AcceptanceRate)%
+				<br>
                 Total Submission Cost: £@Html.DisplayFor(modelItem => item.TotalCost),
 				Cost Per Acceptance: £@Html.DisplayFor(modelItem => item.CostPerAcceptance)
 				<br/>

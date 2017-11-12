@@ -78,8 +78,8 @@ namespace SalonServices.Repositories
                                 IsJudged = sub.IsJudged,
                                 JudgeDate = sub.SalonYear.JudgeDate.ToString("dd/MM/yyyy"),
                                 NotificationDate = sub.SalonYear.NotificationDate.ToString("dd/MM/yyyy"),
-                                AccreditationNumbers = string.Join(", ", sub.SalonYear.Accreditations.Select(o => o.SalonNumber))
-                            }).OrderByDescending(itm => itm.EntryDate).ToListAsync();
+                                AccreditationNumbers = string.Join(", ", sub.SalonYear.Accreditations.Select(o => o.SalonNumber)),
+}).OrderByDescending(itm => itm.EntryDate).ToListAsync();
         }
         
         public async Task<SubmissionEntity> GetSubmissionWithEntries(int pSubmissionId)

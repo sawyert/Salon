@@ -14,5 +14,6 @@ namespace SalonServices.Repositories
         Task<decimal> GetTotalCost(int id);
         Task<int> UnjudgedImageCount(int id);
         Task<int> UnjudgedSalonCount(int id);
+        Task<decimal> AcceptanceRate(int id);
     }
 }

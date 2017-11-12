@@ -79,12 +79,24 @@ namespace SalonServices.Repositories
 
         public async Task<int> UnjudgedImageCount(int id)
         {
-            return await this.dbContext.Submissions.Where(sub => sub.IsJudged == false).SelectMany(sub => sub.Entries).CountAsync();
+            PersonEntity lPerson = await this.GetById(id);
+            return await this.dbContext.Submissions.Where(sub => sub.Person == lPerson).Where(sub => sub.IsJudged == false).SelectMany(sub => sub.Entries).CountAsync();
         }
 
         public async Task<int> UnjudgedSalonCount(int id)
         {
-            return await this.dbContext.Submissions.Where(sub => sub.IsJudged == false).CountAsync();
+            PersonEntity lPerson = await this.GetById(id);
+            return await this.dbContext.Submissions.Where(sub => sub.Person == lPerson).Where(sub => sub.IsJudged == false).CountAsync();
+        }
+
+        public async Task<decimal> AcceptanceRate(int id)
+        {
+            PersonEntity lPerson = await this.GetById(id);
+            var lBaseSelect = this.dbContext.Submissions.Where(sub => sub.Person == lPerson).Where(sub => sub.IsJudged == true).SelectMany(sub => sub.Entries);
+
+            int lTotalAcceptances = lBaseSelect.Where(itm => itm.IsAccepted.HasValue && itm.IsAccepted.Value).Count();
+            int lTotalSubmissions = lBaseSelect.Count();
+            return Decimal.Divide(lTotalAcceptances, lTotalSubmissions) * 100;
         }
     }
 }

@@ -35,6 +35,7 @@ namespace SalonServices
                 lEachPerson.TotalCost = await this._personRepository.GetTotalCost(lEachPerson.Id);
                 lEachPerson.UnjudgedImageCount = await this._personRepository.UnjudgedImageCount(lEachPerson.Id);
                 lEachPerson.UnjudgedSalonCount = await this._personRepository.UnjudgedSalonCount(lEachPerson.Id);
+                lEachPerson.AcceptanceRate = await this._personRepository.AcceptanceRate(lEachPerson.Id);
             }
 
             return lReturn;
