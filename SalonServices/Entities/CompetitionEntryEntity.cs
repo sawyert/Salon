@@ -20,6 +20,5 @@ namespace SalonServices.Entities
         public bool? IsAccepted { get; set; }
 
         public int? Score { get; set; }
-
     }
 }

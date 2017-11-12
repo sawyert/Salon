@@ -11,10 +11,11 @@
     <thead>
         <tr>
             <th>Name</th>
+            <th>Numbers</th>
             <th>Country</th>
             <th>Entries</th>
             <th>Accepted</th>
-            <th>Is Judged</th>
+            <th>Results</th>
             <th></th>
         </tr>
     </thead>
@@ -23,10 +24,11 @@
         {
             <tr class="@(!submission.IsJudged ? "warning" : submission.HasAccepted ? "success" : "danger")">
                 <td>@submission.DisplayName</td>
+			    <td>@submission.AccreditationNumbers</td>
                 <td>@submission.CountryName</td>
                 <td>@submission.NumberOfEntries</td>
                 <td>@submission.AcceptedCount (@(Math.Round(submission.AcceptedPercent, 2))%)</td>
-                <td>@(submission.IsJudged ? "Yes" : String.Format("{0:dd/MM/yyyy}", submission.JudgeDate))</td>
+                <td>@(submission.IsJudged ? "" : String.Format("{0:dd/MM/yyyy}", submission.NotificationDate))</td>
                 <td><a asp-action="SubmissionResults"  asp-route-pSubmissionId="@submission.SubmissionId">Results</a></td>
             </tr>
         }

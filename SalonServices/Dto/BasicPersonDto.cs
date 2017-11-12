@@ -8,5 +8,9 @@ namespace SalonServices.Dto
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public decimal CostPerAcceptance { get; set; }
+        public decimal TotalCost { get; set; }
+        public int UnjudgedSalonCount { get; set; }
+        public int UnjudgedImageCount { get; set; }
     }
 }

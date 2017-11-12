@@ -10,5 +10,9 @@ namespace SalonServices.Repositories
     {
         Task<PersonEntity> GetWithSubmissionsSalonsAccreditationSections(int pPersonId);
         Task<List<PersonEntity>> GetAll();
+        Task<decimal> GetCostPerAcceptance(int id);
+        Task<decimal> GetTotalCost(int id);
+        Task<int> UnjudgedImageCount(int id);
+        Task<int> UnjudgedSalonCount(int id);
     }
 }

@@ -76,7 +76,9 @@ namespace SalonServices.Repositories
                                 AcceptedCount = sub.Entries.Where(itm => itm.IsAccepted.HasValue && itm.IsAccepted.Value).Count(),
                                 CountryName = sub.SalonYear.Salon.Country.Name,
                                 IsJudged = sub.IsJudged,
-                                JudgeDate = sub.SalonYear.JudgeDate.ToString("MM/dd/yyyy"),
+                                JudgeDate = sub.SalonYear.JudgeDate.ToString("dd/MM/yyyy"),
+                                NotificationDate = sub.SalonYear.NotificationDate.ToString("dd/MM/yyyy"),
+                                AccreditationNumbers = string.Join(", ", sub.SalonYear.Accreditations.Select(o => o.SalonNumber))
                             }).OrderByDescending(itm => itm.EntryDate).ToListAsync();
         }
         

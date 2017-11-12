@@ -27,7 +27,17 @@ namespace SalonServices
         public async Task<List<BasicPersonDto>> GetAllPersons()
         {
             var lPersonEntities = await this._personRepository.GetAll();
-            return lPersonEntities.Select(per => Mapping.Mapper.Map<BasicPersonDto>(per)).ToList();
+            List<BasicPersonDto> lReturn = lPersonEntities.Select(per => Mapping.Mapper.Map<BasicPersonDto>(per)).ToList();
+
+            foreach (BasicPersonDto lEachPerson in lReturn)
+            {
+                lEachPerson.CostPerAcceptance = await this._personRepository.GetCostPerAcceptance(lEachPerson.Id);
+                lEachPerson.TotalCost = await this._personRepository.GetTotalCost(lEachPerson.Id);
+                lEachPerson.UnjudgedImageCount = await this._personRepository.UnjudgedImageCount(lEachPerson.Id);
+                lEachPerson.UnjudgedSalonCount = await this._personRepository.UnjudgedSalonCount(lEachPerson.Id);
+            }
+
+            return lReturn;
         }
 
         public async Task<PersonAwardTableDto> GetAwardLevelsForPerson(int pPersonId)

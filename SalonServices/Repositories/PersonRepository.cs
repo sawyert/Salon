@@ -3,6 +3,7 @@ using SalonServices.Entities;
 using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SalonServices.Repositories
 {
@@ -60,6 +61,30 @@ namespace SalonServices.Repositories
         public async Task<List<PersonEntity>> GetAll()
         {
             return await this.dbContext.People.ToListAsync();
+        }
+
+        public async Task<decimal> GetCostPerAcceptance(int id)
+        {
+            PersonEntity lPerson = await this.GetById(id);
+            decimal lTotalCost = await this.GetTotalCost(id);
+            int lAcceptanceCount = await this.dbContext.CompetitionEntries.Where(itm => itm.IsAccepted.HasValue && itm.IsAccepted == true && itm.Image.Person == lPerson).CountAsync();
+            return lTotalCost / lAcceptanceCount;
+        }
+
+        public async Task<decimal> GetTotalCost(int id)
+        {
+            PersonEntity lPerson = await this.GetById(id);
+            return this.dbContext.Submissions.Where(sub => sub.Person == lPerson).Sum(itm => itm.EntryCost);
+        }
+
+        public async Task<int> UnjudgedImageCount(int id)
+        {
+            return await this.dbContext.Submissions.Where(sub => sub.IsJudged == false).SelectMany(sub => sub.Entries).CountAsync();
+        }
+
+        public async Task<int> UnjudgedSalonCount(int id)
+        {
+            return await this.dbContext.Submissions.Where(sub => sub.IsJudged == false).CountAsync();
         }
     }
 }
