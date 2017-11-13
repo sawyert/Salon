@@ -58,7 +58,7 @@ namespace SalonServices.Repositories
                                     ImageName = ent.Image.Name,
                                     ImageId = ent.Image.Id,
                                     SectionName = ent.Section.SectionType.Name,
-                                    AwardDetails = ent.AwardDetails
+                                    AwardDetails = ent.AwardDetails,
                                 }).OrderBy(x => x.SectionName).ThenBy(x => x.ImageName)
                             }).FirstOrDefaultAsync();
         }
@@ -79,7 +79,8 @@ namespace SalonServices.Repositories
                                 JudgeDate = sub.SalonYear.JudgeDate.ToString("dd/MM/yyyy"),
                                 NotificationDate = sub.SalonYear.NotificationDate.ToString("dd/MM/yyyy"),
                                 AccreditationNumbers = string.Join(", ", sub.SalonYear.Accreditations.Select(o => o.SalonNumber)),
-}).OrderByDescending(itm => itm.EntryDate).ToListAsync();
+                                SalonUrl = sub.SalonYear.Salon.Website,
+                            }).OrderByDescending(itm => itm.EntryDate).ToListAsync();
         }
         
         public async Task<SubmissionEntity> GetSubmissionWithEntries(int pSubmissionId)

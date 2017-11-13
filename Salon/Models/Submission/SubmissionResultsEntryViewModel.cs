@@ -23,5 +23,6 @@ namespace Salon.Models.Submission
         public bool IsAccepted { get; set; }
         [Required]
         public int? Score { get; set; }
+
     }
 }

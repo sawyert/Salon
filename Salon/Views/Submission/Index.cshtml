@@ -22,7 +22,7 @@
         @foreach (var submission in Model.Items)
         {
             <tr class="@(!submission.IsJudged ? "warning" : submission.HasAccepted ? "success" : "danger")">
-                <td>@submission.DisplayName</td>
+                <td><a href="@submission.SalonUrl">@submission.DisplayName</a></td>
 			    <td>@submission.AccreditationNumbers</td>
                 <td>@submission.CountryName</td>
                 <td>@submission.NumberOfEntries</td>

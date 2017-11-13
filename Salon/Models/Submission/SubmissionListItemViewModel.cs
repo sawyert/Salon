@@ -17,8 +17,8 @@ namespace Salon.Models.Submission
         public String JudgeDate { get; set; }
         public String NotificationDate { get; set; }
         public String AccreditationNumbers { get; set; }
-
         public int AcceptedCount { get; set; }
         public double AcceptedPercent { get { return this.AcceptedCount * 100.0 / this.NumberOfEntries; } }
+        public string SalonUrl { get; set; }
     }
 }

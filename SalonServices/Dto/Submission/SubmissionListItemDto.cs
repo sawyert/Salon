@@ -17,7 +17,7 @@ namespace SalonServices.Dto.Submission
         public String JudgeDate { get; set; }
         public String NotificationDate { get; set; }
         public String AccreditationNumbers { get; set; }
-
         public int AcceptedCount { get; set; }
+        public string SalonUrl { get; set; }
     }
 }

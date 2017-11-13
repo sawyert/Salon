@@ -56,6 +56,7 @@ namespace SalonServices.Repositories
                                                                         .Include(x=>x.Section).ThenInclude(x=>x.SectionType)
                                                                         .Include(x=>x.Image)
                                                                         .OrderBy(x=>x.Image.Name)
+                                                                        .ThenBy(x=>x.Section.SalonYear.Accreditations.Where(acc=>acc.PhotoOrganisation==pPhotoOrganisationSubmittingTo).FirstOrDefault().SalonNumber)
                                                                         .ToListAsync();
             return lSuccessfulEntries;
         }

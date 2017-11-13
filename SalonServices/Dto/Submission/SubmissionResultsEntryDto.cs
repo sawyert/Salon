@@ -15,5 +15,5 @@ namespace SalonServices.Dto.Submission
         public string AwardDetails { get; set; }
         public bool? IsAccepted { get; set; }
         public int? Score { get; set; }
-    }
+}
 }
