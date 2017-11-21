@@ -196,7 +196,7 @@ namespace SalonServices.Migrations
 
                         var lSalonBohemia = new SalonEntity { Name = "Bohemia", Website = "http://bohemia.photosalon.cz/", Country = lCountryCzechRep };
                         var lSalonPhotoArtVision = new SalonEntity { Name = "Photo Art Vision", Website = "http://vision.photoart.cz/", Country = lCountryCzechRep };
-                        var lSalonYorkshire = new SalonEntity { Name = "Yorkshire Salon", Website = "yorkshiresalon.co.uk", Country = lCountryEngland };
+                        var lSalonYorkshire = new SalonEntity { Name = "Yorkshire", Website = "yorkshiresalon.co.uk", Country = lCountryEngland };
                         var lSalonBelghoria = new SalonEntity { Name = "3rd Creative International Salon", Website = "www.bplclub.in", Country = lCountryIndia };
                         var lSalonRefletMondial = new SalonEntity { Name = "Reflet Mondial", Website = "http://refletmondial.be/wp/", Country = lCountryBelgium };
                         var lSalonBristol = new SalonEntity { Name = "Bristol", Website = "http://www.bristolphoto.org.uk/pages/bristol-salon.php", Country = lCountryEngland };
@@ -204,16 +204,16 @@ namespace SalonServices.Migrations
                         var lSalonNzis = new SalonEntity { Name = "NZIS", Website = "http://www.psnzinternationalsalons.com/", Country = lCountryNewZealand };
                         var lSalonPsaMet = new SalonEntity { Name = "PSA Metropolitan", Website = "http://www.psa-met.com/mipe", Country = lCountryUsa };
                         var lSalonCreativeArt = new SalonEntity { Name = "Creative Art", Website = "http://www.creativeartsalon.org/", Country = lCountryIndia };
-                        var lSalonCarlisle = new SalonEntity { Name = "GB Small Prints - Carlisle Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
-                        var lSalonPenrith = new SalonEntity { Name = "GB Small Prints - Penrith Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
-                        var lSalonSolway = new SalonEntity { Name = "GB Small Prints - Solway Salon", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
+                        var lSalonCarlisle = new SalonEntity { Name = "GBSPC - Carlisle", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
+                        var lSalonPenrith = new SalonEntity { Name = "GBSPC - Penrith", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
+                        var lSalonSolway = new SalonEntity { Name = "GBSPC - Solway", Website = "http://www.solwaysalon.co.uk/gb17/entry.php", Country = lCountryEngland };
                         var lSalonKpaClub = new SalonEntity { Name = "KPA Club", Website = "http://www.kpaclub.com/", Country = lCountryIndia };
                         var lSalonLagacilly = new SalonEntity { Name = "Club Photo Lagacilly", Website = "http://www.clubphotolagacilly.com/", Country = lCountryFrance };
-                        var lSalonDelleColline1 = new SalonEntity { Name = "21 Gan Tour Delle Colline - 35 Trofeo Arno - Incisa V.", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
-                        var lSalonDelleColline2 = new SalonEntity { Name = "21 Gan Tour Delle Colline - 26 Trofeo Città di Figline Valdarno", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
-                        var lSalonDelleColline3 = new SalonEntity { Name = "21 Gan Tour Delle Colline - 15 Trofeo Colline del Chianti", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
-                        var lSalonDelleColline4 = new SalonEntity { Name = "21 Gan Tour Delle Colline - 15 Trofeo Colline del Pratomagno", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
-                        var lSalonScottish = new SalonEntity { Name = "Scottish Salon", Website = "http://www.scottish-photographic-salon.org/", Country = lCountryScotland };
+                        var lSalonDelleColline1 = new SalonEntity { Name = "Gan Tour Delle Colline - Incisa", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
+                        var lSalonDelleColline2 = new SalonEntity { Name = "Gan Tour Delle Colline - Valdarno", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
+                        var lSalonDelleColline3 = new SalonEntity { Name = "Gan Tour Delle Colline - Chianti", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
+                        var lSalonDelleColline4 = new SalonEntity { Name = "Gan Tour Delle Colline - Pratomagno", Website = "http://www.grantourdellecolline.it/en/", Country = lCountryItaly };
+                        var lSalonScottish = new SalonEntity { Name = "Scottish", Website = "http://www.scottish-photographic-salon.org/", Country = lCountryScotland };
                         var lSalonSydney = new SalonEntity { Name = "Sydney Harbour", Website = "http://www.sydney-harbour-international.org.au/", Country = lCountryAustralia };
                         var lSalonCheltenham = new SalonEntity { Name = "Cheltenham", Website = "http://www.cheltenhamcameraclub.co.uk/wordpress/salon/", Country = lCountryEngland };
                         var lSalonHoylake = new SalonEntity { Name = "Hoylake", Website = "http://hoylakephoto.org/international/", Country = lCountryEngland };
@@ -222,7 +222,7 @@ namespace SalonServices.Migrations
                         var lSalonPrintAndDigitalVarna = new SalonEntity { Name = "Print and Digital Varna", Website = "http://printsalonvarna.org/", Country = lCountryBulgaria };
                         var lSalonGoodLight = new SalonEntity { Name = "Good Light", Website = "http://photoclubkragujevac.com/goodlight/", Country = lCountrySerbia };
                         var lSalonGradac = new SalonEntity { Name = "Gradac", Website = "http://www.gradacfoto.com/", Country = lCountryMontenegro };
-                        var lSalonCyprus = new SalonEntity { Name = "Cyprus International", Website = "http://www.cps-cidpc.com/", Country = lCountryCyprus };
+                        var lSalonCyprus = new SalonEntity { Name = "Cyprus", Website = "http://www.cps-cidpc.com/", Country = lCountryCyprus };
                         var lSalonPortTalbot = new SalonEntity { Name = "Port Talbot", Website = "http://www.cps-cidpc.com/", Country = lCountryWales };
                         var lSalonVictorPolynsky = new SalonEntity { Name = "Victor Polynsky", Website = "http://victorpolynsky.com", Country = lCountryKyrgystan };
                         var lSalonSrgb = new SalonEntity { Name = "SRGB Print Celebration", Website = "http://srgbphotogroup.co.uk/", Country = lCountryEngland };
@@ -278,7 +278,7 @@ namespace SalonServices.Migrations
 
                         var lSalonYearBohemia = new SalonYearEntity { Name = "Bohemia", Salon = lSalonBohemia, Year = 2016, ClosingDate = new DateTime(2016, 10, 9), JudgeDate = new DateTime(2016, 10, 15), NotificationDate = new DateTime(2016, 10, 15), CataloguesPostedDate = new DateTime(2016, 10, 15) };
                         var lSalonYearPhotoArtVision = new SalonYearEntity { Name = "Photo Art Vision", Salon = lSalonPhotoArtVision, Year = 2016, ClosingDate = new DateTime(2016, 11, 27), JudgeDate = new DateTime(2016, 12, 4), NotificationDate = new DateTime(2016, 12, 11), CataloguesPostedDate = new DateTime(2016, 12, 11) };
-                        var lSalonYearYorkshire = new SalonYearEntity { Name = "Yorkshire Salon", Salon = lSalonYorkshire, Year = 2016, ClosingDate = new DateTime(2016, 12, 5), JudgeDate = new DateTime(2016, 12, 11), NotificationDate = new DateTime(2016, 12, 19), CataloguesPostedDate = new DateTime(2016, 12, 19) };
+                        var lSalonYearYorkshire = new SalonYearEntity { Name = "Yorkshire", Salon = lSalonYorkshire, Year = 2016, ClosingDate = new DateTime(2016, 12, 5), JudgeDate = new DateTime(2016, 12, 11), NotificationDate = new DateTime(2016, 12, 19), CataloguesPostedDate = new DateTime(2016, 12, 19) };
                         var lSalonYearBelghoria = new SalonYearEntity { Name = "Belghoria Photo Lovers", Salon = lSalonBelghoria, Year = 2017, ClosingDate = new DateTime(2016, 12, 31), JudgeDate = new DateTime(2017, 1, 19), NotificationDate = new DateTime(2017, 1, 31), CataloguesPostedDate = new DateTime(2017, 1, 31) };
                         var lSalonYearRefletMondial = new SalonYearEntity { Name = "Reflet Mondial", Salon = lSalonRefletMondial, Year = 2017, ClosingDate = new DateTime(2017, 1, 26), JudgeDate = new DateTime(2017, 1, 29), NotificationDate = new DateTime(2017, 2, 2), CataloguesPostedDate = new DateTime(2017, 2, 2) };
                         var lSalonYearBristol = new SalonYearEntity { Name = "Bristol", Salon = lSalonBristol, Year = 2017, ClosingDate = new DateTime(2017, 1, 31), JudgeDate = new DateTime(2017, 2, 19), NotificationDate = new DateTime(2017, 3, 4), CataloguesPostedDate = new DateTime(2017, 3, 4) };
@@ -286,16 +286,16 @@ namespace SalonServices.Migrations
                         var lSalonYearNzis = new SalonYearEntity { Name = "NZIS", Salon = lSalonNzis, Year = 2017, ClosingDate = new DateTime(2017, 2, 17), JudgeDate = new DateTime(2017, 3, 5), NotificationDate = new DateTime(2017, 3, 18), CataloguesPostedDate = new DateTime(2017, 3, 18) };
                         var lSalonYearPsaMet = new SalonYearEntity { Name = "PSA Metropolitan", Salon = lSalonPsaMet, Year = 2017, ClosingDate = new DateTime(2017, 3, 3), JudgeDate = new DateTime(2017, 3, 17), NotificationDate = new DateTime(2017, 3, 26), CataloguesPostedDate = new DateTime(2017, 3, 26) };
                         var lSalonYearCreativeArt = new SalonYearEntity { Name = "Creative Art", Salon = lSalonCreativeArt, Year = 2017, ClosingDate = new DateTime(2017, 3, 6), JudgeDate = new DateTime(2017, 3, 19), NotificationDate = new DateTime(2017, 3, 31), CataloguesPostedDate = new DateTime(2017, 3, 31) };
-                        var lSalonYearCarlisle = new SalonYearEntity { Name = "Carlisle Salon", Salon = lSalonCarlisle, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16), Circuit = lCircuitGbSmallPrints };
-                        var lSalonYearPenrith = new SalonYearEntity { Name = "Penrith Salon", Salon = lSalonPenrith, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16), Circuit = lCircuitGbSmallPrints };
-                        var lSalonYearSolway = new SalonYearEntity { Name = "Solway Salon", Salon = lSalonSolway, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16), Circuit = lCircuitGbSmallPrints };
+                        var lSalonYearCarlisle = new SalonYearEntity { Name = "GBSPC - Carlisle", Salon = lSalonCarlisle, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16), Circuit = lCircuitGbSmallPrints };
+                        var lSalonYearPenrith = new SalonYearEntity { Name = "GBSPC - Penrith", Salon = lSalonPenrith, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16), Circuit = lCircuitGbSmallPrints };
+                        var lSalonYearSolway = new SalonYearEntity { Name = "GBSPC - Solway", Salon = lSalonSolway, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16), Circuit = lCircuitGbSmallPrints };
                         var lSalonYearKpaClub = new SalonYearEntity { Name = "KPA Club", Salon = lSalonKpaClub, Year = 2017, ClosingDate = new DateTime(2017, 3, 11), JudgeDate = new DateTime(2017, 3, 25), NotificationDate = new DateTime(2017, 4, 5), CataloguesPostedDate = new DateTime(2017, 4, 5) };
                         var lSalonYearLagacilly = new SalonYearEntity { Name = "Club Photo Lagacilly", Salon = lSalonLagacilly, Year = 2017, ClosingDate = new DateTime(2017, 3, 27), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 10), CataloguesPostedDate = new DateTime(2017, 4, 10) };
-                        var lSalonYearDelleColline1 = new SalonYearEntity { Name = "21 Gan Tour Delle Colline - 35 Trofeo Arno - Incisa V.", Salon = lSalonDelleColline1, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
-                        var lSalonYearDelleColline2 = new SalonYearEntity { Name = "21 Gan Tour Delle Colline - 26 Trofeo Città di Figline Valdarnoe", Salon = lSalonDelleColline2, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
-                        var lSalonYearDelleColline3 = new SalonYearEntity { Name = "21 Gan Tour Delle Colline - 15 Trofeo Colline del Chianti", Salon = lSalonDelleColline3, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
-                        var lSalonYearDelleColline4 = new SalonYearEntity { Name = "21 Gan Tour Delle Colline - 15 Trofeo Colline del Pratomagno", Salon = lSalonDelleColline4, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
-                        var lSalonYearScottish = new SalonYearEntity { Name = "Scottish Salon", Salon = lSalonScottish, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16) };
+                        var lSalonYearDelleColline1 = new SalonYearEntity { Name = "Gan Tour Delle Colline - Incisa", Salon = lSalonDelleColline1, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
+                        var lSalonYearDelleColline2 = new SalonYearEntity { Name = "Gan Tour Delle Colline - Valdarnoe", Salon = lSalonDelleColline2, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
+                        var lSalonYearDelleColline3 = new SalonYearEntity { Name = "Gan Tour Delle Colline - Chianti", Salon = lSalonDelleColline3, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
+                        var lSalonYearDelleColline4 = new SalonYearEntity { Name = "Gan Tour Delle Colline - Pratomagno", Salon = lSalonDelleColline4, Year = 2017, ClosingDate = new DateTime(2017, 4, 15), JudgeDate = new DateTime(2017, 4, 23), NotificationDate = new DateTime(2017, 4, 30), CataloguesPostedDate = new DateTime(2017, 4, 30), Circuit = lGrandTourDelleColline };
+                        var lSalonYearScottish = new SalonYearEntity { Name = "Scottish", Salon = lSalonScottish, Year = 2017, ClosingDate = new DateTime(2017, 3, 20), JudgeDate = new DateTime(2017, 4, 2), NotificationDate = new DateTime(2017, 4, 16), CataloguesPostedDate = new DateTime(2017, 4, 16) };
                         var lSalonYearSydney = new SalonYearEntity { Name = "Sydney Harbour", Salon = lSalonSydney, Year = 2017, ClosingDate = new DateTime(2017, 4, 13), JudgeDate = new DateTime(2017, 4, 30), NotificationDate = new DateTime(2017, 5, 8), CataloguesPostedDate = new DateTime(2017, 5, 8) };
                         var lSalonYearCheltenham = new SalonYearEntity { Name = "Cheltenham", Salon = lSalonCheltenham, Year = 2017, ClosingDate = new DateTime(2017, 4, 23), JudgeDate = new DateTime(2017, 5, 7), NotificationDate = new DateTime(2017, 5, 17), CataloguesPostedDate = new DateTime(2017, 5, 17) };
                         var lSalonYearHoylake = new SalonYearEntity { Name = "Hoylake", Salon = lSalonHoylake, Year = 2017, ClosingDate = new DateTime(2017, 4, 23), JudgeDate = new DateTime(2017, 5, 7), NotificationDate = new DateTime(2017, 5, 14), CataloguesPostedDate = new DateTime(2017, 5, 17) };
@@ -1574,10 +1574,10 @@ namespace SalonServices.Migrations
                         lContext.SaveChanges();
 
 						// *************** South Devon Salon
-						var lSalonSouthDevon = new SalonEntity { Name = "South Devon Salon", Website = "http://www.newtonabbot-photoclub.org.uk/pages/salon-2017.php", Country = lCountryEngland };
+						var lSalonSouthDevon = new SalonEntity { Name = "South Devon", Website = "http://www.newtonabbot-photoclub.org.uk/pages/salon-2017.php", Country = lCountryEngland };
 						lContext.Salons.Add(lSalonSouthDevon);
 
-						var lSalonYearSouthDevon = new SalonYearEntity { Name = "South Devon Salon", Salon = lSalonSouthDevon, Year = 2017, ClosingDate = new DateTime(2017, 7, 16), JudgeDate = new DateTime(2017, 7, 30), NotificationDate = new DateTime(2017, 8, 9), CataloguesPostedDate = new DateTime(2017, 10, 17) };
+						var lSalonYearSouthDevon = new SalonYearEntity { Name = "South Devon", Salon = lSalonSouthDevon, Year = 2017, ClosingDate = new DateTime(2017, 7, 16), JudgeDate = new DateTime(2017, 7, 30), NotificationDate = new DateTime(2017, 8, 9), CataloguesPostedDate = new DateTime(2017, 10, 17) };
 						lContext.SalonYears.Add(lSalonYearSouthDevon);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -1646,7 +1646,7 @@ namespace SalonServices.Migrations
                         lContext.SalonYears.Add(lSalonYearBeyondGroup);
 
                         lContext.Accreditations.AddRange(new List<AccreditationEntity> {
-                            new AccreditationEntity() { SalonNumber = "2017", PhotoOrganisation = lBpe, SalonYear = lSalonYearBeyondGroup },
+                            new AccreditationEntity() { SalonNumber = "2017 BPE", PhotoOrganisation = lBpe, SalonYear = lSalonYearBeyondGroup },
                         });
 
                         var lSalonYearBeyondGroupColour = new SectionEntity() { SalonYear = lSalonYearBeyondGroup, SectionType = lSectionTypeColourPdi };
@@ -1795,10 +1795,10 @@ namespace SalonServices.Migrations
 						var lCountryRomania = new CountryEntity { Name = "Romania", };
 						lContext.Countries.Add(lCountryRomania);
 
-						var lSalonRomania = new SalonEntity { Name = "Danubious International", Website = "http://www.photoclub.voltin.ro", Country = lCountryRomania };
+						var lSalonRomania = new SalonEntity { Name = "Danubious", Website = "http://www.photoclub.voltin.ro", Country = lCountryRomania };
 						lContext.Salons.Add(lSalonRomania);
 
-						var lSalonYearRomania = new SalonYearEntity { Name = "5th Danubious International", Salon = lSalonRomania, Year = 2017, ClosingDate = new DateTime(2017, 8, 7), JudgeDate = new DateTime(2017, 8, 20), NotificationDate = new DateTime(2017, 8, 30), CataloguesPostedDate = new DateTime(2017, 10, 22) };
+						var lSalonYearRomania = new SalonYearEntity { Name = "Danubious", Salon = lSalonRomania, Year = 2017, ClosingDate = new DateTime(2017, 8, 7), JudgeDate = new DateTime(2017, 8, 20), NotificationDate = new DateTime(2017, 8, 30), CataloguesPostedDate = new DateTime(2017, 10, 22) };
 						lContext.SalonYears.Add(lSalonYearRomania);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -1850,10 +1850,10 @@ namespace SalonServices.Migrations
 
                         // *************** Welsh International
 
-                        var lSalonWelsh = new SalonEntity { Name = "Welsh International", Website = "http://thewpf.co.uk/?cat=9", Country = lCountryWales };
+                        var lSalonWelsh = new SalonEntity { Name = "Welsh", Website = "http://thewpf.co.uk/?cat=9", Country = lCountryWales };
                         lContext.Salons.Add(lSalonWelsh);
 
-                        var lSalonYearWelsh = new SalonYearEntity { Name = "39th Welsh International", Salon = lSalonWelsh, Year = 2017, ClosingDate = new DateTime(2017, 8, 19), JudgeDate = new DateTime(2017, 8, 28), NotificationDate = new DateTime(2017, 9, 11), CataloguesPostedDate = new DateTime(2017, 11, 9) };
+                        var lSalonYearWelsh = new SalonYearEntity { Name = "Welsh", Salon = lSalonWelsh, Year = 2017, ClosingDate = new DateTime(2017, 8, 19), JudgeDate = new DateTime(2017, 8, 28), NotificationDate = new DateTime(2017, 9, 11), CataloguesPostedDate = new DateTime(2017, 11, 9) };
                         lContext.SalonYears.Add(lSalonYearWelsh);
 
                         lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -1908,7 +1908,7 @@ namespace SalonServices.Migrations
 						var lSalonSerbia = new SalonEntity { Name = "Smederevo", Website = "http://www.fotokinoklub-smederevo.com", Country = lCountrySerbia };
 						lContext.Salons.Add(lSalonSerbia);
 
-						var lSalonYearSerbia = new SalonYearEntity { Name = "Smederevo 2017", Salon = lSalonSerbia, Year = 2017, ClosingDate = new DateTime(2017, 8, 27), JudgeDate = new DateTime(2017, 9, 10), NotificationDate = new DateTime(2017, 9, 15), CataloguesPostedDate = new DateTime(2017, 11, 30) };
+						var lSalonYearSerbia = new SalonYearEntity { Name = "Smederevo", Salon = lSalonSerbia, Year = 2017, ClosingDate = new DateTime(2017, 8, 27), JudgeDate = new DateTime(2017, 9, 10), NotificationDate = new DateTime(2017, 9, 15), CataloguesPostedDate = new DateTime(2017, 11, 30) };
 						lContext.SalonYears.Add(lSalonYearSerbia);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -1953,7 +1953,7 @@ namespace SalonServices.Migrations
 						var lSalonPhotoJourney = new SalonEntity { Name = "Photo Journey", Website = "http://journey.photosalon.cz", Country = lCountryCzechRep };
 						lContext.Salons.Add(lSalonPhotoJourney);
 
-						var lSalonYearPhotoJourney = new SalonYearEntity { Name = "Photo Journey 2017", Salon = lSalonPhotoJourney, Year = 2017, ClosingDate = new DateTime(2017, 8, 28), JudgeDate = new DateTime(2017, 9, 2), NotificationDate = new DateTime(2017, 9, 7), CataloguesPostedDate = new DateTime(2017, 10, 31) };
+						var lSalonYearPhotoJourney = new SalonYearEntity { Name = "Photo Journey", Salon = lSalonPhotoJourney, Year = 2017, ClosingDate = new DateTime(2017, 8, 28), JudgeDate = new DateTime(2017, 9, 2), NotificationDate = new DateTime(2017, 9, 7), CataloguesPostedDate = new DateTime(2017, 10, 31) };
 						lContext.SalonYears.Add(lSalonYearPhotoJourney);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -2080,7 +2080,7 @@ namespace SalonServices.Migrations
 						lContext.SalonYears.Add(lSalonYearDingwall);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
-							new AccreditationEntity() { SalonNumber = "2017", PhotoOrganisation = lBpe, SalonYear = lSalonYearDingwall },
+							new AccreditationEntity() { SalonNumber = "2017 BPE", PhotoOrganisation = lBpe, SalonYear = lSalonYearDingwall },
 						});
 
                         var lSalonYearDingwallColour = new SectionEntity() { SalonYear = lSalonYearDingwall, SectionType = lSectionTypeColourPdi };
@@ -2237,7 +2237,7 @@ namespace SalonServices.Migrations
 						var lSalonWojnicz = new SalonEntity { Name = "Wojnicz", Website = "http://salon.fotum.org", Country = lCountryPoland };
 						lContext.Salons.Add(lSalonWojnicz);
 
-						var lSalonYearWojnicz = new SalonYearEntity { Name = "3rd Wojnicz International Salon of Photography 2017\n", Salon = lSalonWojnicz, Year = 2017, ClosingDate = new DateTime(2017, 10, 2), JudgeDate = new DateTime(2017, 10, 15), NotificationDate = new DateTime(2017, 10, 20), CataloguesPostedDate = new DateTime(2017, 10, 20) };
+						var lSalonYearWojnicz = new SalonYearEntity { Name = "Wojnicz", Salon = lSalonWojnicz, Year = 2017, ClosingDate = new DateTime(2017, 10, 2), JudgeDate = new DateTime(2017, 10, 15), NotificationDate = new DateTime(2017, 10, 20), CataloguesPostedDate = new DateTime(2017, 10, 20) };
 						lContext.SalonYears.Add(lSalonYearWojnicz);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -2296,10 +2296,10 @@ namespace SalonServices.Migrations
 						var lFrenchDigitalTour = new CircuitEntity() { Name = "French Digital Tour 2017" };
                         lContext.Circuits.Add(lFrenchDigitalTour);
 
-						var lSalonFrench1 = new SalonEntity { Name = "Legé", Website = "http://frenchdigitaltour.org", Country = lCountryFrance };
-                        var lSalonFrench2 = new SalonEntity { Name = "Saint Aignan de Crasmenil", Website = "http://frenchdigitaltour.org", Country = lCountryFrance };
-                        var lSalonFrench3 = new SalonEntity { Name = "Saint Martin de Crau", Website = "http://frenchdigitaltour.org", Country = lCountryFrance };
-                        var lSalonFrench4 = new SalonEntity { Name = "Bagnols Marcoule", Website = "http://frenchdigitaltour.org", Country = lCountryFrance };
+						var lSalonFrench1 = new SalonEntity { Name = "FDT - Legé", Website = "http://frenchdigitaltour.org", Country = lCountryFrance };
+                        var lSalonFrench2 = new SalonEntity { Name = "FDT - Saint Aignan de Crasmenil", Website = "http://frenchdigitaltour.org", Country = lCountryFrance };
+                        var lSalonFrench3 = new SalonEntity { Name = "FDT - Saint Martin de Crau", Website = "http://frenchdigitaltour.org", Country = lCountryFrance };
+                        var lSalonFrench4 = new SalonEntity { Name = "FDT - Bagnols Marcoule", Website = "http://frenchdigitaltour.org", Country = lCountryFrance };
                         lContext.Salons.AddRange(new List<SalonEntity>(){
                             lSalonFrench1,
                             lSalonFrench2,
@@ -2307,10 +2307,10 @@ namespace SalonServices.Migrations
                             lSalonFrench4,
                         });
 
-						var lSalonYearFrench1 = new SalonYearEntity { Name = "Legé 2017\n", Salon = lSalonFrench1, Year = 2017, ClosingDate = new DateTime(2017, 10, 23), JudgeDate = new DateTime(2017, 11, 5), NotificationDate = new DateTime(2017, 12, 7), CataloguesPostedDate = new DateTime(2018, 2, 9), Circuit = lFrenchDigitalTour };
-                        var lSalonYearFrench2 = new SalonYearEntity { Name = "Saint Aignan de Crasmenil 2017\n", Salon = lSalonFrench2, Year = 2017, ClosingDate = new DateTime(2017, 10, 23), JudgeDate = new DateTime(2017, 11, 12), NotificationDate = new DateTime(2017, 12, 7), CataloguesPostedDate = new DateTime(2018, 2, 9), Circuit = lFrenchDigitalTour };
-                        var lSalonYearFrench3 = new SalonYearEntity { Name = "Saint Martin de Crau 2017\n", Salon = lSalonFrench3, Year = 2017, ClosingDate = new DateTime(2017, 10, 23), JudgeDate = new DateTime(2017, 11, 19), NotificationDate = new DateTime(2017, 12, 7), CataloguesPostedDate = new DateTime(2018, 2, 9), Circuit = lFrenchDigitalTour };
-                        var lSalonYearFrench4 = new SalonYearEntity { Name = "Bagnols Marcoule 2017\n", Salon = lSalonFrench4, Year = 2017, ClosingDate = new DateTime(2017, 10, 23), JudgeDate = new DateTime(2017, 11, 26), NotificationDate = new DateTime(2017, 12, 7), CataloguesPostedDate = new DateTime(2018, 2, 9), Circuit = lFrenchDigitalTour };
+						var lSalonYearFrench1 = new SalonYearEntity { Name = "FDT - Legé", Salon = lSalonFrench1, Year = 2017, ClosingDate = new DateTime(2017, 10, 23), JudgeDate = new DateTime(2017, 11, 5), NotificationDate = new DateTime(2017, 12, 7), CataloguesPostedDate = new DateTime(2018, 2, 9), Circuit = lFrenchDigitalTour };
+                        var lSalonYearFrench2 = new SalonYearEntity { Name = "FDT - Saint Aignan de Crasmenil", Salon = lSalonFrench2, Year = 2017, ClosingDate = new DateTime(2017, 10, 23), JudgeDate = new DateTime(2017, 11, 12), NotificationDate = new DateTime(2017, 12, 7), CataloguesPostedDate = new DateTime(2018, 2, 9), Circuit = lFrenchDigitalTour };
+                        var lSalonYearFrench3 = new SalonYearEntity { Name = "FDT - Saint Martin de Crau", Salon = lSalonFrench3, Year = 2017, ClosingDate = new DateTime(2017, 10, 23), JudgeDate = new DateTime(2017, 11, 19), NotificationDate = new DateTime(2017, 12, 7), CataloguesPostedDate = new DateTime(2018, 2, 9), Circuit = lFrenchDigitalTour };
+                        var lSalonYearFrench4 = new SalonYearEntity { Name = "FDT - Bagnols Marcoule", Salon = lSalonFrench4, Year = 2017, ClosingDate = new DateTime(2017, 10, 23), JudgeDate = new DateTime(2017, 11, 26), NotificationDate = new DateTime(2017, 12, 7), CataloguesPostedDate = new DateTime(2018, 2, 9), Circuit = lFrenchDigitalTour };
                         lContext.SalonYears.AddRange(new List<SalonYearEntity>(){
                             lSalonYearFrench1,
                             lSalonYearFrench2,
@@ -2489,7 +2489,7 @@ namespace SalonServices.Migrations
                         var lSalonIso = new SalonEntity { Name = "International Sillian Organisation", Website = "http://www.ddcontest.com", Country = lCountryBelgium };
                         lContext.Salons.Add(lSalonIso);
 
-                        var lSalonYearIso = new SalonYearEntity { Name = "ISO 2017", Salon = lSalonIso, Year = 2017, ClosingDate = new DateTime(2017, 10, 22), JudgeDate = new DateTime(2017, 10, 30), NotificationDate = new DateTime(2017, 11, 13), CataloguesPostedDate = new DateTime(2017, 12, 15) };
+                        var lSalonYearIso = new SalonYearEntity { Name = "ISO", Salon = lSalonIso, Year = 2017, ClosingDate = new DateTime(2017, 10, 22), JudgeDate = new DateTime(2017, 10, 30), NotificationDate = new DateTime(2017, 11, 13), CataloguesPostedDate = new DateTime(2017, 12, 15) };
                         lContext.SalonYears.Add(lSalonYearIso);
 
                         lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -2541,7 +2541,7 @@ namespace SalonServices.Migrations
                         var lSalonTramontana = new SalonEntity { Name = "Tramontana", Website = "http://www.victory-photo.club/", Country = lCountryMontenegro };
                         lContext.Salons.Add(lSalonTramontana);
 
-                        var lSalonYearTramontana = new SalonYearEntity { Name = "Tramontana 2017", Salon = lSalonTramontana, Year = 2017, ClosingDate = new DateTime(2017, 10, 29), JudgeDate = new DateTime(2017, 11, 7), NotificationDate = new DateTime(2017, 11, 10), CataloguesPostedDate = new DateTime(2018, 1, 20) };
+                        var lSalonYearTramontana = new SalonYearEntity { Name = "Tramontana", Salon = lSalonTramontana, Year = 2017, ClosingDate = new DateTime(2017, 10, 29), JudgeDate = new DateTime(2017, 11, 7), NotificationDate = new DateTime(2017, 11, 10), CataloguesPostedDate = new DateTime(2018, 1, 20) };
                         lContext.SalonYears.Add(lSalonYearTramontana);
 
                         lContext.Accreditations.AddRange(new List<AccreditationEntity> {
