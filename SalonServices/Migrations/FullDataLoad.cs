@@ -35,6 +35,7 @@ namespace SalonServices.Migrations
                     var lCountryUkraine = new CountryEntity { Name = "Ukraine", };
                     var lCountryPoland = new CountryEntity { Name = "Poland", };
                     var lCountryHungary = new CountryEntity { Name = "Hungary", };
+                    var lCountryMacedonia = new CountryEntity { Name = "Macedonia", };
 
                     try
                     {
@@ -60,6 +61,7 @@ namespace SalonServices.Migrations
                             lCountryUkraine,
                             lCountryPoland,
                             lCountryHungary,
+                            lCountryMacedonia,
 		                });
 
                         lContext.SaveChanges();
@@ -2042,32 +2044,32 @@ namespace SalonServices.Migrations
 
 						lContext.Submissions.AddRange(new List<SubmissionEntity> {
 							new SubmissionEntity(){
-								IsJudged = false,
+								IsJudged = true,
 								EntryCost = 11.45M,
                                 SalonYear = lSalonYearViewfinder,
 								EntryDate = new DateTime(2017,9, 5),
 								Person = lTim,
 								Entries = new List<CompetitionEntryEntity> {
-                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderMastersOfLight, Image = lDawnInTheOutback, IsAwarded = false, IsAccepted = false, Score= null},
-                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderMastersOfLight, Image = lTwelveApostlesSunset, IsAwarded = false, IsAccepted = false, Score=null },
-                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderMastersOfLight, Image = lPathStripes, IsAwarded = false, IsAccepted = false, Score=null },
-									new CompetitionEntryEntity { Section = lSalonYearViewfinderMastersOfLight, Image = lBoltonAbbeySunbeam, IsAwarded = false, IsAccepted = false, Score=null },
-                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderPhotojournalism, Image = lTerrierRacing, IsAwarded = false, IsAccepted = false, Score= null},
-									new CompetitionEntryEntity { Section = lSalonYearViewfinderPhotojournalism, Image = lFloodingInLeeds, IsAwarded = false, IsAccepted = false, Score=null },
-									new CompetitionEntryEntity { Section = lSalonYearViewfinderPhotojournalism, Image = lZombieAttack, IsAwarded = false, IsAccepted = false, Score=null },
-                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderPhotojournalism, Image = lTheresSomethingBehindYou, IsAwarded = false, IsAccepted = false, Score=null },
-									new CompetitionEntryEntity { Section = lSalonYearViewfinderNature, Image = lYoungRedKite, IsAwarded = false, IsAccepted = false, Score=null },
-                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderNature, Image = lKingfisherWatching, IsAwarded = false, IsAccepted = false, Score=null },
-									new CompetitionEntryEntity { Section = lSalonYearViewfinderNature, Image = lKingfisherTurningFish, IsAwarded = false, IsAccepted = false, Score=null },
-									new CompetitionEntryEntity { Section = lSalonYearViewfinderNature, Image = lHeronFishing, IsAwarded = false, IsAccepted = false, Score=null },
-									new CompetitionEntryEntity { Section = lSalonYearViewfinderColour, Image = lIntoTheMist, IsAwarded = false, IsAccepted = false, Score=null },
-									new CompetitionEntryEntity { Section = lSalonYearViewfinderColour, Image = lAWorldBeyond, IsAwarded = false, IsAccepted = false, Score=null },
-									new CompetitionEntryEntity { Section = lSalonYearViewfinderColour, Image = lTheWatcherInTheWaves, IsAwarded = false, IsAccepted = false, Score=null },
-									new CompetitionEntryEntity { Section = lSalonYearViewfinderColour, Image = lGrassesTriptych, IsAwarded = false, IsAccepted = false, Score=null },
-                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderMono, Image = lArcReflections, IsAwarded = false, IsAccepted = false, Score=null },
-									new CompetitionEntryEntity { Section = lSalonYearViewfinderMono, Image = lReflectionBars, IsAwarded = false, IsAccepted = false, Score=null},
-									new CompetitionEntryEntity { Section = lSalonYearViewfinderMono, Image = lSacreCoeurDetail, IsAwarded = false, IsAccepted = false, Score=null},
-									new CompetitionEntryEntity { Section = lSalonYearViewfinderMono, Image = lOliversCastle, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderMastersOfLight, Image = lDawnInTheOutback, IsAwarded = false, IsAccepted = false, Score= 21},
+                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderMastersOfLight, Image = lTwelveApostlesSunset, IsAwarded = false, IsAccepted = true, Score=27 },
+                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderMastersOfLight, Image = lPathStripes, IsAwarded = false, IsAccepted = false, Score=20 },
+                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderMastersOfLight, Image = lBoltonAbbeySunbeam, IsAwarded = true, AwardDetails = "Salon Diploma", IsAccepted = true, Score=29 },
+                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderPhotojournalism, Image = lTerrierRacing, IsAwarded = false, IsAccepted = false, Score= 21},
+									new CompetitionEntryEntity { Section = lSalonYearViewfinderPhotojournalism, Image = lFloodingInLeeds, IsAwarded = false, IsAccepted = true, Score=27 },
+									new CompetitionEntryEntity { Section = lSalonYearViewfinderPhotojournalism, Image = lZombieAttack, IsAwarded = false, IsAccepted = false, Score=23 },
+                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderPhotojournalism, Image = lTheresSomethingBehindYou, IsAwarded = false, IsAccepted = false, Score=20 },
+									new CompetitionEntryEntity { Section = lSalonYearViewfinderNature, Image = lYoungRedKite, IsAwarded = false, IsAccepted = true, Score=26 },
+                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderNature, Image = lKingfisherWatching, IsAwarded = false, IsAccepted = false, Score=21 },
+									new CompetitionEntryEntity { Section = lSalonYearViewfinderNature, Image = lKingfisherTurningFish, IsAwarded = false, IsAccepted = false, Score=22 },
+									new CompetitionEntryEntity { Section = lSalonYearViewfinderNature, Image = lHeronFishing, IsAwarded = false, IsAccepted = false, Score=23 },
+									new CompetitionEntryEntity { Section = lSalonYearViewfinderColour, Image = lIntoTheMist, IsAwarded = false, IsAccepted = true, Score=32 },
+									new CompetitionEntryEntity { Section = lSalonYearViewfinderColour, Image = lAWorldBeyond, IsAwarded = false, IsAccepted = true, Score=25 },
+									new CompetitionEntryEntity { Section = lSalonYearViewfinderColour, Image = lTheWatcherInTheWaves, IsAwarded = false, IsAccepted = true, Score=30 },
+                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderColour, Image = lGrassesTriptych, IsAwarded = true, AwardDetails="PSA Honorable Mention", IsAccepted = true, Score=31 },
+                                    new CompetitionEntryEntity { Section = lSalonYearViewfinderMono, Image = lArcReflections, IsAwarded = false, IsAccepted = false, Score=21 },
+									new CompetitionEntryEntity { Section = lSalonYearViewfinderMono, Image = lReflectionBars, IsAwarded = false, IsAccepted = false, Score=19},
+									new CompetitionEntryEntity { Section = lSalonYearViewfinderMono, Image = lSacreCoeurDetail, IsAwarded = false, IsAccepted = false, Score=19},
+									new CompetitionEntryEntity { Section = lSalonYearViewfinderMono, Image = lOliversCastle, IsAwarded = false, IsAccepted = true, Score=26 },
 								},
 							},
 						});
@@ -2732,7 +2734,13 @@ namespace SalonServices.Migrations
 
                         lContext.Images.AddRange(new List<ImageEntity>
                         {
-                            lTheSpectator,
+                            lOutspan,
+                            lSunflower,
+                            lRimlitKingfisher,
+                            lMdinaMalta,
+                            lIcelandicRefuge,
+                            lKirkjufellReflected,
+                            lCorner,
                         });
 
 
@@ -2760,6 +2768,140 @@ namespace SalonServices.Migrations
                                     new CompetitionEntryEntity { Section = lSalonYearCacakMono, Image = lRuinsByNight, IsAwarded = false, IsAccepted = false, Score=null },
                                     new CompetitionEntryEntity { Section = lSalonYearCacakMono, Image = lCathedralCeiling, IsAwarded = false, IsAccepted = false, Score=null },
                                     new CompetitionEntryEntity { Section = lSalonYearCacakMono, Image = lCorner, IsAwarded = false, IsAccepted = false, Score=null },
+                                },
+                            },
+                        });
+
+                        // Yorkshire
+                        var lSalonYearYorkshire2017 = new SalonYearEntity { Name = "Yorkshire", Salon = lSalonYorkshire, Year = 2017, ClosingDate = new DateTime(2017, 12, 4), JudgeDate = new DateTime(2017, 12, 10), NotificationDate = new DateTime(2017, 12, 18), CataloguesPostedDate = new DateTime(2018, 2, 15) };
+                        lContext.SalonYears.Add(lSalonYearYorkshire2017);
+
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                            new AccreditationEntity() { SalonNumber = "2017/402", PhotoOrganisation = lFiap, SalonYear = lSalonYearYorkshire2017 },
+                            new AccreditationEntity() { SalonNumber = "2017-349", PhotoOrganisation = lPsa, SalonYear = lSalonYearYorkshire2017 },
+                        });
+
+                        var lSalonYearYorkshire2017Colour = new SectionEntity() { SalonYear = lSalonYearYorkshire2017, SectionType = lSectionTypeColourPrint };
+                        var lSalonYearYorkshire2017Mono = new SectionEntity() { SalonYear = lSalonYearYorkshire2017, SectionType = lSectionTypeMonoPrint };
+                        var lSalonYearYorkshire2017Open = new SectionEntity() { SalonYear = lSalonYearYorkshire2017, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearYorkshire2017Nature = new SectionEntity() { SalonYear = lSalonYearYorkshire2017, SectionType = lSectionTypeNaturePdi };
+                        var lSalonYearYorkshire2017Travel = new SectionEntity() { SalonYear = lSalonYearYorkshire2017, SectionType = lSectionTypeTravelPdi };
+
+
+                        lContext.SalonSections.AddRange(new List<SectionEntity> {
+                            lSalonYearYorkshire2017Colour,
+                            lSalonYearYorkshire2017Mono,
+                            lSalonYearYorkshire2017Open,
+                            lSalonYearYorkshire2017Nature,
+                            lSalonYearYorkshire2017Travel,
+                        });
+
+                        var lCircleTheTree = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Circle The Tree" };
+                        var lFlowersInCircle = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Flowers In Circle" };
+
+                        lContext.Images.AddRange(new List<ImageEntity>
+                        {
+                            lCircleTheTree,
+                            lFlowersInCircle
+                        });
+
+
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                            new SubmissionEntity(){
+                                IsJudged = false,
+                                EntryCost = 21.0M,
+                                SalonYear = lSalonYearYorkshire2017,
+                                EntryDate = new DateTime(2017,11, 26),
+                                Person = lTim,
+                                Entries = new List<CompetitionEntryEntity> {
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Colour, Image = lCircleTheTree, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Colour, Image = lAcrossTheLake, IsAwarded = false, IsAccepted = false, Score= null},
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Colour, Image = lSunflower, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Colour, Image = lFlowersInCircle, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Mono, Image = lOliversCastle, IsAwarded = false, IsAccepted = false, Score= null},
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Mono, Image = lCorner, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Mono, Image = lRuinsByNight, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Mono, Image = lCathedralCeiling, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Open, Image = lTheWatcherInTheWaves, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Open, Image = lThroughTheArch, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Open, Image = lDarkHorizons, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Open, Image = lSpiralNine, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Nature, Image = lYoungRedKite, IsAwarded = false, IsAccepted = false, Score= null},
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Nature, Image = lGreatGreyOwl, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Nature, Image = lRimlitKingfisher, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Nature, Image = lWaterVole, IsAwarded = false, IsAccepted = false, Score=null },                                
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Travel, Image = lMdinaMalta, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Travel, Image = lIcelandicRefuge, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Travel, Image = lAfternoonGun, IsAwarded = false, IsAccepted = false, Score=null },                                   
+                                    new CompetitionEntryEntity { Section = lSalonYearYorkshire2017Travel, Image = lGrassIceland, IsAwarded = false, IsAccepted = false, Score=null },
+                                },
+                            },
+                        });
+
+                        // Ohrid
+                        var lSalonOhrid = new SalonEntity { Name = "Ohrid", Website = "http://www.exhibitions.photo/", Country = lCountryMacedonia };
+                        lContext.Salons.Add(lSalonOhrid);
+
+
+                        var lSalonYearOhrid = new SalonYearEntity { Name = "Ohrid", Salon = lSalonOhrid, Year = 2017, ClosingDate = new DateTime(2017, 12, 10), JudgeDate = new DateTime(2017, 12, 26), NotificationDate = new DateTime(2017, 12, 29), CataloguesPostedDate = new DateTime(2018, 3, 18) };
+                        lContext.SalonYears.Add(lSalonYearOhrid);
+
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                            new AccreditationEntity() { SalonNumber = "2017/504", PhotoOrganisation = lFiap, SalonYear = lSalonYearOhrid },
+                            new AccreditationEntity() { SalonNumber = "2017-396", PhotoOrganisation = lPsa, SalonYear = lSalonYearOhrid },
+                        });
+
+                        var lSalonYearOhridColour = new SectionEntity() { SalonYear = lSalonYearOhrid, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearOhridMono = new SectionEntity() { SalonYear = lSalonYearOhrid, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearOhridNature = new SectionEntity() { SalonYear = lSalonYearOhrid, SectionType = lSectionTypeNaturePdi };
+                        var lSalonYearOhridTravel = new SectionEntity() { SalonYear = lSalonYearOhrid, SectionType = lSectionTypeTravelPdi };
+                        var lSalonYearOhridManWomanChild = new SectionEntity() { SalonYear = lSalonYearOhrid, SectionType = lSectionTypeManWomanChildPdi };
+
+
+                        lContext.SalonSections.AddRange(new List<SectionEntity> {
+                            lSalonYearOhridColour,
+                            lSalonYearOhridMono,
+                            lSalonYearOhridNature,
+                            lSalonYearOhridTravel,
+                            lSalonYearOhridManWomanChild,
+                        });
+
+                        var lTheTower = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Tower" };
+                       
+                        lContext.Images.AddRange(new List<ImageEntity>
+                        {
+                            lTheTower,
+});
+
+
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                            new SubmissionEntity(){
+                                IsJudged = false,
+                                EntryCost = 23.0M,
+                                SalonYear = lSalonYearOhrid,
+                                EntryDate = new DateTime(2017,12, 3),
+                                Person = lTim,
+                                Entries = new List<CompetitionEntryEntity> {
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridColour, Image = lLoneTree, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridColour, Image = lTheWatcherInTheWaves, IsAwarded = false, IsAccepted = false, Score= null},
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridColour, Image = lFlowersInCircle, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridColour, Image = lSunflower, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridMono, Image = lOliversCastle, IsAwarded = false, IsAccepted = false, Score= null},
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridMono, Image = lRuinsByNight, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridMono, Image = lCathedralCeiling, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridMono, Image = lTheTower, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridNature, Image = lYoungRedKite, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridNature, Image = lGreatGreyOwl, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridNature, Image = lRimlitKingfisher, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridNature, Image = lWaterVole, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridTravel, Image = lMdinaMalta, IsAwarded = false, IsAccepted = false, Score= null},
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridTravel, Image = lGrassIceland, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridTravel, Image = lIcelandicRefuge, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridTravel, Image = lAfternoonGun, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridManWomanChild, Image = lZombieGirl, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridManWomanChild, Image = lThePriest, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridManWomanChild, Image = lDapperZombie, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearOhridManWomanChild, Image = lWraith, IsAwarded = false, IsAccepted = false, Score=null },
                                 },
                             },
                         });
