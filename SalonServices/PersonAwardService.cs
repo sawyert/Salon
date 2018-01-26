@@ -70,7 +70,7 @@ namespace SalonServices
                         var lPersonAwardRow = new PersonAwardTableRowDto
                         {
                             AwardName = lOrgAward.Name,
-                            AcceptancesMissing = GetAcceptances(lPerson.Submissions, lOrgAward.MinimumAcceptances, lOrg.Id),
+                            AcceptancesMissing = await GetAcceptances(lPerson.Submissions, lOrgAward.MinimumAcceptances, lOrg.Id),
                             AcceptancesRequired = lOrgAward.MinimumAcceptances,
                             AwardsMissing = GetAwards(lPerson.Submissions, lOrgAward.MinimumAwards, lOrg.Id),
                             AwardsRequired = lOrgAward.MinimumAwards,
@@ -104,7 +104,7 @@ namespace SalonServices
                             var lPersonAwardRow = new PersonAwardTableRowDto
                             {
                                 AwardName = lOrgAward.Name,
-                                AcceptancesMissing = GetAcceptances(lPerson.Submissions, lOrgAward.MinimumAcceptances, lOrg.Id, lSectionTypeCode),
+                                AcceptancesMissing = await GetAcceptances(lPerson.Submissions, lOrgAward.MinimumAcceptances, lOrg.Id, lSectionTypeCode),
                                 AcceptancesRequired = lOrgAward.MinimumAcceptances,
                                 AwardsMissing = GetAwards(lPerson.Submissions, lOrgAward.MinimumAwards, lOrg.Id),
                                 AwardsRequired = lOrgAward.MinimumAwards,
@@ -204,16 +204,48 @@ namespace SalonServices
             return minimumRequired - acceptedEntries;
         }
 
-        private int GetAcceptances(List<SubmissionEntity> submissions, int minimumRequired, int orgId, string pSectionTypeCode = null)
+        private async Task<int> GetAcceptances(List<SubmissionEntity> submissions, int minimumRequired, int orgId, string pSectionTypeCode = null)
         {
-            var acceptedEntries = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId) && SectionTypeMatches(ent.Section, pSectionTypeCode)));
-
-            if (acceptedEntries > minimumRequired)
+            var lOrganisation = await this._photoOrganisationRepository.GetById(orgId);
+            if ("GPU".Equals(lOrganisation.Name))
             {
-                return 0;
-            }
+                // GPU style scoring
+                // Accept = 1, Award = 2, Medal = 4
+                // Taken from international salons (so no BPE)
+                // Doubled scores for GPU Patronised salons
+                var lFiap = await this._photoOrganisationRepository.GetByName("FIAP"); // this org has all internationals that I've done
 
-            return minimumRequired - acceptedEntries;
+                // count of FIAP acceptances, less GPU acceptances
+                var lFiapAccepted = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && ent.IsAwarded.HasValue && ent.IsAwarded.Value == false && OrganisationMatches(ent.Section, lFiap.Id) && OrganisationMatches(ent.Section, lOrganisation.Id) == false && SectionTypeMatches(ent.Section, pSectionTypeCode)));
+                // FIAP awards
+                var lFiapAwards = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAwarded.HasValue && ent.IsAwarded.Value && OrganisationMatches(ent.Section, lFiap.Id) && OrganisationMatches(ent.Section, lOrganisation.Id) == false));
+
+                // GPU acceptances
+                var lGpuAccepted = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && ent.IsAwarded.HasValue && ent.IsAwarded.Value == false && OrganisationMatches(ent.Section, lOrganisation.Id) && SectionTypeMatches(ent.Section, pSectionTypeCode)));
+                // GPU Awards
+                var lGpuAwards = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAwarded.HasValue && ent.IsAwarded.Value && OrganisationMatches(ent.Section, lOrganisation.Id)));
+
+                var acceptedEntries = lFiapAccepted + (lGpuAccepted * 2) + (lFiapAwards * 2) + (lGpuAwards * 2 * 2);
+
+                if (acceptedEntries > minimumRequired)
+                {
+                    return 0;
+                }
+
+                return minimumRequired - acceptedEntries;
+            }
+            else
+            {
+                // Standard scoring
+                var acceptedEntries = submissions.Sum(sub => sub.Entries.Count(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value && OrganisationMatches(ent.Section, orgId) && SectionTypeMatches(ent.Section, pSectionTypeCode)));
+
+                if (acceptedEntries > minimumRequired)
+                {
+                    return 0;
+                }
+
+                return minimumRequired - acceptedEntries;
+            }
         }
 
         public async Task<OrganisationSubmissionReportDto> GetOrganisationSubmissionList(int pPersonId, string pOrganisationName, string pSectionTypeCode=null)

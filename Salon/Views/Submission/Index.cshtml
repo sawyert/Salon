@@ -11,6 +11,7 @@
     <thead>
         <tr>
             <th>Name</th>
+            <th>Judge Date</th>
             <th>Salon Numbers</th>
             <th>Country</th>
             <th>Entries</th>
@@ -23,6 +24,7 @@
         {
             <tr class="@(!submission.IsJudged ? "warning" : submission.HasAccepted ? "success" : "danger")">
                 <td><a href="@submission.SalonUrl">@submission.DisplayName</a></td>
+                <td>@submission.JudgeDate</td>
 			    <td>@submission.AccreditationNumbers</td>
                 <td>@submission.CountryName</td>
                 <td>@submission.NumberOfEntries</td>
