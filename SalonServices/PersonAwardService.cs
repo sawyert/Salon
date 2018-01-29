@@ -212,10 +212,13 @@ namespace SalonServices
             decimal lCostToDate = 0.0M;
             foreach (var lEachSubmission in submissions)
             {
-                if (lEachSubmission.Entries.Count(ent => ent.Section.SalonYear.Accreditations.Any(acc=> acc.PhotoOrganisationId == orgId)) > 0)
+                if (lEachSubmission.Entries.Any(ent => ent.Section.SalonYear.Accreditations.Any(acc=> acc.PhotoOrganisationId == orgId)))
                 {
-                    lAcceptancesCounted += lEachSubmission.Entries.Count(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value);
-                    lCostToDate += lEachSubmission.EntryCost;
+                    if (pSectionTypeCode == null || lEachSubmission.Entries.Any(ent => ent.Section.SectionType.SectionCode == pSectionTypeCode))
+                    {
+                        lAcceptancesCounted += lEachSubmission.Entries.Count(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value);
+                        lCostToDate += lEachSubmission.EntryCost;
+                    }
                 }
 
                 if (lAcceptancesCounted > minimumRequired)
