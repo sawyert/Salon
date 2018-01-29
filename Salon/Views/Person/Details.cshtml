@@ -32,6 +32,7 @@
                                     <th>Distinct Images Missing</th>
                                     <th>Prints Missing</th>
                                     <th>Salons Missing</th>
+                                    <th>Cost</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,6 +47,7 @@
                                         <td>@award.DistinctImagesMissing <span style="font-size:0.7em">of @award.DistinctImagesRequired</span></td>
                                         <td>@award.PrintsMissing <span style="font-size:0.7em">of @award.PrintsRequired</span></td>
                                         <td>@award.SalonsMissing <span style="font-size:0.7em">of @award.SalonsRequired</span></td>
+                                        <td>£@Html.DisplayFor(modelItem => award.CostToAchieve),</td>
                                     </tr>
                                 }
                             </tbody>

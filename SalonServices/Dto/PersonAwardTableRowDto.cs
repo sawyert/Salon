@@ -20,6 +20,7 @@ namespace SalonServices.Dto
         public int SalonsRequired {get; set;}
         public int PrintsMissing { get; set; }
         public int PrintsRequired { get; set; }
+        public decimal CostToAchieve { get; set; }
         
         public bool IsAwarded { get {
                 return AcceptancesMissing == 0 && CountriesMissing == 0 && AwardsMissing == 0 && DistinctImagesMissing == 0 && SalonsMissing == 0 && PrintsMissing == 0;

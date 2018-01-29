@@ -3310,7 +3310,7 @@ namespace SalonServices.Migrations
                         lContext.SalonYears.Add(lSalonYearSpain2018);
 
                         lContext.Accreditations.AddRange(new List<AccreditationEntity> {
-                            new AccreditationEntity() { SalonNumber = "2018/49", PhotoOrganisation = lFiap, SalonYear = lSalonYearSpain2018 },
+                            new AccreditationEntity() { SalonNumber = "2018/049", PhotoOrganisation = lFiap, SalonYear = lSalonYearSpain2018 },
                             new AccreditationEntity() { SalonNumber = "2018-059", PhotoOrganisation = lPsa, SalonYear = lSalonYearSpain2018 },
                             new AccreditationEntity() { SalonNumber = "GPU L180014", PhotoOrganisation = lGpu, SalonYear = lSalonYearSpain2018 },
                         });
@@ -3364,6 +3364,72 @@ namespace SalonServices.Migrations
                                     new CompetitionEntryEntity { Section = lSalonYearSpain2018TheSea, Image = lIceBeachTrio, IsAwarded = false, IsAccepted = false, Score=null },
                                     new CompetitionEntryEntity { Section = lSalonYearSpain2018TheSea, Image = lIceBeachSwirls, IsAwarded = false, IsAccepted = false, Score=null },
                                     new CompetitionEntryEntity { Section = lSalonYearSpain2018TheSea, Image = lIceBeachWaves, IsAwarded = false, IsAccepted = false, Score=null },
+                                  },
+                            },
+                        });
+
+                        // Clay Cross Bpe
+                        var lSalonClayCross = new SalonEntity { Name = "Clay Cross", Website = "http://www.claycrossps.org/section849383.html", Country = lCountryEngland };
+                        lContext.Salons.Add(lSalonClayCross);
+
+                        var lSalonYearClayCross2018 = new SalonYearEntity { Name = "Clay Cross", Salon = lSalonClayCross, Year = 2018, ClosingDate = new DateTime(2018, 1, 31), JudgeDate = new DateTime(2018, 2, 18), NotificationDate = new DateTime(2018, 3, 23), CataloguesPostedDate = new DateTime(2018, 4, 16) };
+                        lContext.SalonYears.Add(lSalonYearClayCross2018);
+
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                            new AccreditationEntity() { SalonNumber = "2018 BPE", PhotoOrganisation = lBpe, SalonYear = lSalonYearClayCross2018 },
+
+                        });
+
+                        var lSalonYearClayCrossNature = new SectionEntity() { SalonYear = lSalonYearClayCross2018, SectionType = lSectionTypeNaturePdi };
+                        var lSalonYearClayCrossMono = new SectionEntity() { SalonYear = lSalonYearClayCross2018, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearClayCrossCreative = new SectionEntity() { SalonYear = lSalonYearClayCross2018, SectionType = lSectionTypeCreativePdi };
+                        var lSalonYearClayCrossScapes = new SectionEntity() { SalonYear = lSalonYearClayCross2018, SectionType = lSectionTypeScapesPdi };
+                        var lSalonYearClayCrossColour = new SectionEntity() { SalonYear = lSalonYearClayCross2018, SectionType = lSectionTypeColourPdi };
+
+                        lContext.SalonSections.AddRange(new List<SectionEntity> {
+                            lSalonYearClayCrossNature,
+                            lSalonYearClayCrossMono,
+                            lSalonYearClayCrossCreative,
+                            lSalonYearClayCrossScapes,
+                            lSalonYearClayCrossColour,
+                        });
+
+                        var lPyramidEclipse = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Pyramid Eclipse" };
+                        var lSymmetreeFire = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Symmetree Fire" };
+                        var lZombiePriest = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Zombie Priest" };
+
+
+                        lContext.Images.AddRange(new List<ImageEntity>
+                        {
+                            lPyramidEclipse,
+                            lSymmetreeFire,
+                            lZombiePriest,
+                        });
+
+
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                            new SubmissionEntity(){
+                                IsJudged = false,
+                                EntryCost = 22.50M,
+                                SalonYear = lSalonYearClayCross2018,
+                                EntryDate = new DateTime(2018, 1, 29),
+                                Person = lTim,
+                                Entries = new List<CompetitionEntryEntity> {
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossNature, Image = lYoungRedKite, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossMono, Image = lCathedralCeiling, IsAwarded = false, IsAccepted = false, Score= null},
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossMono, Image = lRuinsByNight, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossCreative, Image = lLakeGuardian, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossCreative, Image = lDarkHorizons, IsAwarded = false, IsAccepted = false, Score= null},
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossCreative, Image = lPyramidEclipse, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossCreative, Image = lSymmetreeFire, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossScapes, Image = lGrassIceland, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossScapes, Image = lOliversCastle, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossScapes, Image = lIcelandicRefuge, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossScapes, Image = lIceBeachWaves, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossColour, Image = lDaisy, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossColour, Image = lThreeTulipCircle, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossColour, Image = lSunflower, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearClayCrossColour, Image = lZombiePriest, IsAwarded = false, IsAccepted = false, Score=null },
                                   },
                             },
                         });

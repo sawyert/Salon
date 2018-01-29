@@ -82,6 +82,7 @@ namespace SalonServices
                             PrintsRequired = lOrgAward.MinimumPrints,
                             SalonsMissing = GetSalons(lPerson.Submissions, lOrgAward.MinimumSalons, lOrg.Id),
                             SalonsRequired = lOrgAward.MinimumSalons,
+                            CostToAchieve = GetCostToAchieve(lPerson.Submissions, lOrgAward.MinimumAcceptances, lOrg.Id),
                         };
                         lTableOrg.Awards.Add(lPersonAwardRow);
                     }
@@ -116,6 +117,7 @@ namespace SalonServices
                                 PrintsRequired = lOrgAward.MinimumPrints,
                                 SalonsMissing = GetSalons(lPerson.Submissions, lOrgAward.MinimumSalons, lOrg.Id),
                                 SalonsRequired = lOrgAward.MinimumSalons,
+                                CostToAchieve = GetCostToAchieve(lPerson.Submissions, lOrgAward.MinimumAcceptances, lOrg.Id, lSectionTypeCode),
                             };
                             lTableOrg.Awards.Add(lPersonAwardRow);
                         }
@@ -202,6 +204,28 @@ namespace SalonServices
             }
 
             return minimumRequired - acceptedEntries;
+        }
+
+        private decimal GetCostToAchieve(List<SubmissionEntity> submissions, int minimumRequired, int orgId, string pSectionTypeCode = null)
+        {
+            int lAcceptancesCounted = 0;
+            decimal lCostToDate = 0.0M;
+            foreach (var lEachSubmission in submissions)
+            {
+                if (lEachSubmission.Entries.Count(ent => ent.Section.SalonYear.Accreditations.Any(acc=> acc.PhotoOrganisationId == orgId)) > 0)
+                {
+                    lAcceptancesCounted += lEachSubmission.Entries.Count(ent => ent.IsAccepted.HasValue && ent.IsAccepted.Value);
+                    lCostToDate += lEachSubmission.EntryCost;
+                }
+
+                if (lAcceptancesCounted > minimumRequired)
+                {
+                    break;
+                }
+            }
+
+            return lCostToDate;
+
         }
 
         private async Task<int> GetAcceptances(List<SubmissionEntity> submissions, int minimumRequired, int orgId, string pSectionTypeCode = null)

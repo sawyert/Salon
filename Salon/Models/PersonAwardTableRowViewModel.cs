@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Salon.Models
@@ -20,6 +21,8 @@ namespace Salon.Models
         public int SalonsRequired { get; set; }
         public int PrintsMissing { get; set; }
         public int PrintsRequired { get; set; }
+        [DisplayFormat(DataFormatString = "{0:0.00}", ApplyFormatInEditMode = true)]
+        public decimal CostToAchieve { get; set; }
 
         public bool IsAwarded { get {
                 return AcceptancesMissing == 0 && CountriesMissing == 0 && AwardsMissing == 0 && DistinctImagesMissing == 0 && SalonsMissing == 0 && PrintsMissing == 0;
