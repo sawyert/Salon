@@ -3603,7 +3603,7 @@ namespace SalonServices.Migrations
                         });
 
                         // Sydney Harbour
-                        var lSalonYearSydney2018 = new SalonYearEntity { Name = "Sydney Harbour", Salon = lSalonRushden, Year = 2018, ClosingDate = new DateTime(2018, 4, 15), JudgeDate = new DateTime(2018, 4, 29), NotificationDate = new DateTime(2018, 5, 7), CataloguesPostedDate = new DateTime(2018, 6, 29) };
+                        var lSalonYearSydney2018 = new SalonYearEntity { Name = "Sydney Harbour", Salon = lSalonSydney, Year = 2018, ClosingDate = new DateTime(2018, 4, 15), JudgeDate = new DateTime(2018, 4, 29), NotificationDate = new DateTime(2018, 5, 7), CataloguesPostedDate = new DateTime(2018, 6, 29) };
                         lContext.SalonYears.Add(lSalonYearSydney2018);
 
                         lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -3657,6 +3657,118 @@ namespace SalonServices.Migrations
                                     new CompetitionEntryEntity { Section = lSalonYearSydney2018Wildlife, Image = lHedgehog, IsAwarded = false, IsAccepted = false, Score=null },
                                     new CompetitionEntryEntity { Section = lSalonYearSydney2018Wildlife, Image = lKingfisherWithFish, IsAwarded = false, IsAccepted = false, Score=null },
 
+                                    },
+                            },
+                        });
+
+                        // Scottish Salon 2018
+                        var lSalonYearScottish2018 = new SalonYearEntity { Name = "Scottish", Salon = lSalonScottish, Year = 2018, ClosingDate = new DateTime(2018, 4, 15), JudgeDate = new DateTime(2018, 4, 29), NotificationDate = new DateTime(2018, 5, 4), CataloguesPostedDate = new DateTime(2018, 7, 15) };
+                        lContext.SalonYears.Add(lSalonYearScottish2018);
+
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                            new AccreditationEntity() { SalonNumber = "2018/141", PhotoOrganisation = lFiap, SalonYear = lSalonYearScottish2018 },
+                            new AccreditationEntity() { SalonNumber = "2018-133", PhotoOrganisation = lPsa, SalonYear = lSalonYearScottish2018 },
+                        });
+
+                        var lTulipInTheRound = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Tulip in the Round" };
+                        var lPointedReflection = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Pointed Reflection" };
+                        var lTerracedOliveGrove = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Terraced Olive Grove" };
+ 
+                        lContext.Images.AddRange(new List<ImageEntity>
+                        {
+                            lTulipInTheRound,
+                            lPointedReflection,
+                            lTerracedOliveGrove,
+                        });
+
+
+                        var lSalonYearScottish2018MonoPrint = new SectionEntity() { SalonYear = lSalonYearScottish2018, SectionType = lSectionTypeMonoPrint };
+                        var lSalonYearScottish2018NaturePDI = new SectionEntity() { SalonYear = lSalonYearScottish2018, SectionType = lSectionTypeNaturePdi };
+                        var lSalonYearScottish2018ColourPrint = new SectionEntity() { SalonYear = lSalonYearScottish2018, SectionType = lSectionTypeColourPrint };
+                        var lSalonYearScottish2018ColourPDI = new SectionEntity() { SalonYear = lSalonYearScottish2018, SectionType = lSectionTypeColourPdi };
+                        var lSalonYearScottish201MonoPDI = new SectionEntity() { SalonYear = lSalonYearScottish2018, SectionType = lSectionTypeMonoPdi };
+
+                        lContext.SalonSections.AddRange(new List<SectionEntity> {
+                            lSalonYearScottish2018MonoPrint,
+                            lSalonYearScottish2018NaturePDI,
+                            lSalonYearScottish2018ColourPrint,
+                            lSalonYearScottish2018ColourPDI,
+                            lSalonYearScottish201MonoPDI,
+                        });
+
+
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                            new SubmissionEntity(){
+                                IsJudged = false,
+                                EntryCost = 23.20M,
+                                SalonYear = lSalonYearScottish2018,
+                                EntryDate = new DateTime(2018, 4, 9),
+                                Person = lTim,
+                                Entries = new List<CompetitionEntryEntity> {
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018MonoPrint, Image = lOliversCastle, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018MonoPrint, Image = lCathedralCeiling, IsAwarded = false, IsAccepted = false, Score= null},
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018MonoPrint, Image = lRuinsByNight, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018MonoPrint, Image = lSnowdrop, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018NaturePDI, Image = lLittleOwl, IsAwarded = false, IsAccepted = false, Score= null},
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018NaturePDI, Image = lYoungRedKite, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018NaturePDI, Image = lGreatGreyOwl, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018NaturePDI, Image = lWaterVoleInPipe, IsAwarded = false, IsAccepted = false, Score=null},
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018ColourPrint, Image = lTulipInTheRound, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018ColourPrint, Image = lTheWatcher, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018ColourPrint, Image = lDarkHorizons, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018ColourPrint, Image = lBlueSymmetree, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018ColourPDI, Image = lLoneTree, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018ColourPDI, Image = lTheWatcherInTheWaves, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018ColourPDI, Image = lAcrossTheLake, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish2018ColourPDI, Image = lPyramidEclipse, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish201MonoPDI, Image = lWinterTree, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish201MonoPDI, Image = lBirdsSilhouette, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish201MonoPDI, Image = lPointedReflection, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearScottish201MonoPDI, Image = lTerracedOliveGrove, IsAwarded = false, IsAccepted = false, Score=null },
+
+                                    },
+                            },
+                        });
+
+                        // Edinburgh Salon 2018
+                        var lSalonEdinburgh = new SalonEntity { Name = "Edinburgh", Website = "https://www.edinburghphotosalon.org/", Country = lCountryScotland };
+                        lContext.Salons.Add(lSalonEdinburgh);
+
+
+                        var lSalonYearEdinburgh2018 = new SalonYearEntity { Name = "Edinburgh", Salon = lSalonEdinburgh, Year = 2018, ClosingDate = new DateTime(2018, 6, 20), JudgeDate = new DateTime(2018, 6, 30), NotificationDate = new DateTime(2018, 7, 6), CataloguesPostedDate = new DateTime(2018, 9, 8) };
+                        lContext.SalonYears.Add(lSalonYearEdinburgh2018);
+
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                            new AccreditationEntity() { SalonNumber = "2018/118", PhotoOrganisation = lFiap, SalonYear = lSalonYearEdinburgh2018 },
+                        });
+
+               
+                        var lSalonYearEdinburgh2018MonoPrint = new SectionEntity() { SalonYear = lSalonYearEdinburgh2018, SectionType = lSectionTypeMonoPrint };
+                        var lSalonYearEdinburgh2018ColourPrint = new SectionEntity() { SalonYear = lSalonYearEdinburgh2018, SectionType = lSectionTypeColourPrint };
+                     
+                        lContext.SalonSections.AddRange(new List<SectionEntity> {
+                            lSalonYearEdinburgh2018MonoPrint,
+                            lSalonYearEdinburgh2018ColourPrint,
+                        });
+
+
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                            new SubmissionEntity(){
+                                IsJudged = false,
+                                EntryCost = 12M,
+                                SalonYear = lSalonYearEdinburgh2018,
+                                EntryDate = new DateTime(2018, 4, 9),
+                                Person = lTim,
+                                Entries = new List<CompetitionEntryEntity> {
+                                    new CompetitionEntryEntity { Section = lSalonYearEdinburgh2018MonoPrint, Image = lOliversCastle, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearEdinburgh2018MonoPrint, Image = lCathedralCeiling, IsAwarded = false, IsAccepted = false, Score= null},
+                                    new CompetitionEntryEntity { Section = lSalonYearEdinburgh2018MonoPrint, Image = lRuinsByNight, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearEdinburgh2018MonoPrint, Image = lSnowdrop, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearEdinburgh2018ColourPrint, Image = lTulipInTheRound, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearEdinburgh2018ColourPrint, Image = lTheWatcher, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearEdinburgh2018ColourPrint, Image = lDarkHorizons, IsAwarded = false, IsAccepted = false, Score=null },
+                                    new CompetitionEntryEntity { Section = lSalonYearEdinburgh2018ColourPrint, Image = lBlueSymmetree, IsAwarded = false, IsAccepted = false, Score=null },
+               
                                     },
                             },
                         });
