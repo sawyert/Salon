@@ -3924,6 +3924,93 @@ namespace SalonServices.Migrations
                             },
                         });
 
+						// SRGB 2018 
+                        var lSalonYearSrgb2018 = new SalonYearEntity { Name = "SRGB", Salon = lSalonGradac, Year = 2018, ClosingDate = new DateTime(2018, 7, 15), JudgeDate = new DateTime(2018, 7, 21), NotificationDate = new DateTime(2018, 9, 1), CataloguesPostedDate = new DateTime(2018, 9, 1) };
+						lContext.SalonYears.Add(lSalonYearSrgb2018);
+
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+							new AccreditationEntity() { SalonNumber = "BPE 2018", PhotoOrganisation = lBpe, SalonYear = lSalonYearSrgb2018 },
+                        });
+
+						var lRemembrance = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Remembrance" };
+						var lRedEyedGreenTreeFrog = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Red Eyed Green Tree Frog" };
+						var lPantherChameleonLunch = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Panther Chameleon Lunch" };
+						var lArgentinianHornedFrog = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Argentinian Horned Frog" };
+						var lGargoyleGecko = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Gargoyle Gecko" };
+						var lTwisted = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Twisted" };
+						var lJilted = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Jilted" };
+						var lAcrobatics = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Acrobatics" };
+						var lNoExit = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "No Exit" };
+						var lLillies = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Lillies" };
+						var lPoppyLifeCycle = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Poppy Life Cycle" };
+						var lBugs = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Bugs" };
+						var lMonsterPhotoBooth = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Monster Photo Booth" };
+					
+                        lContext.Images.AddRange(new List<ImageEntity>
+                        {
+							lRemembrance,
+							lRedEyedGreenTreeFrog,
+							lPantherChameleonLunch,
+							lArgentinianHornedFrog,
+							lGargoyleGecko,
+							lTwisted,
+							lJilted,
+							lAcrobatics,
+							lNoExit,
+							lLillies,
+							lPoppyLifeCycle,
+							lBugs,
+							lMonsterPhotoBooth,
+                        });
+
+						var lSalonYearSrgb2018AnythingGoes = new SectionEntity() { SalonYear = lSalonYearSrgb2018, SectionType = lSectionTypeSrgbAnythingGoes };
+						var lSalonYearSrgb2018Creatures = new SectionEntity() { SalonYear = lSalonYearSrgb2018, SectionType = lSectionTypeSrgbCreatures };
+						var lSalonYearSrgb2018Environment = new SectionEntity() { SalonYear = lSalonYearSrgb2018, SectionType = lSectionTypeSrgbEnvironment };
+						var lSalonYearSrgb2018Humanity = new SectionEntity() { SalonYear = lSalonYearSrgb2018, SectionType = lSectionTypeSrgbHumanity };
+						var lSalonYearSrgb2018Triptych = new SectionEntity() { SalonYear = lSalonYearSrgb2018, SectionType = lSectionTypeSrgbTriptych };
+
+                        lContext.SalonSections.AddRange(new List<SectionEntity> {
+							lSalonYearSrgb2018AnythingGoes,
+							lSalonYearSrgb2018Creatures,
+							lSalonYearSrgb2018Environment,
+							lSalonYearSrgb2018Humanity,
+							lSalonYearSrgb2018Triptych,
+                        });
+
+
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                            new SubmissionEntity(){
+                                IsJudged = false,
+                                EntryCost = 26M,
+								SalonYear = lSalonYearSrgb2018,
+                                EntryDate = new DateTime(2018, 7, 7),
+                                Person = lTim,
+                                Entries = new List<CompetitionEntryEntity> {
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018AnythingGoes, Image = lSymmetreeFire, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018AnythingGoes, Image = lSymmetreeBlue, IsAwarded = false, IsAccepted = false, Score= 0},
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018AnythingGoes, Image = lRemembrance, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018AnythingGoes, Image = lThroughTheArch, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Creatures, Image = lRedEyedGreenTreeFrog, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Creatures, Image = lPantherChameleonLunch, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Creatures, Image = lArgentinianHornedFrog, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Creatures, Image = lGargoyleGecko, IsAwarded = false, IsAccepted = false, Score=0},
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Environment, Image = lTwisted, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Environment, Image = lRainbowMosaic, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Environment, Image = lKirkjufellSnow, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Environment, Image = lLoneTree, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Humanity, Image = lZombiePriest, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Humanity, Image = lJilted, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Humanity, Image = lAcrobatics, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Humanity, Image = lNoExit, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Triptych, Image = lLillies, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Triptych, Image = lPoppyLifeCycle, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Triptych, Image = lBugs, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSrgb2018Triptych, Image = lMonsterPhotoBooth, IsAwarded = false, IsAccepted = false, Score=0 },
+
+                                    },
+                            },
+                        });
+
 
 						lContext.SaveChanges();
                     }
