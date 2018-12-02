@@ -4121,6 +4121,82 @@ namespace SalonServices.Migrations
                             },
                         });
 
+						// Solihull BPE 2018  
+						var lSalonSolihull = new SalonEntity { Name = "Solihull", Website = "https://solihullopenexhibition.co.uk", Country = lCountryEngland };
+						lContext.Salons.Add(lSalonSolihull);
+
+						var lSalonYearSolihull2018 = new SalonYearEntity { Name = "Solihull", Salon = lSalonSolihull, Year = 2018, ClosingDate = new DateTime(2018, 12, 15), JudgeDate = new DateTime(2019, 2, 3), NotificationDate = new DateTime(2019, 2, 6), CataloguesPostedDate = new DateTime(2019, 2, 6) };
+						lContext.SalonYears.Add(lSalonYearSolihull2018);
+                        
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+							new AccreditationEntity() { SalonNumber = "BPE 2018", PhotoOrganisation = lBpe, SalonYear = lSalonYearSolihull2018 },
+                        });
+
+						var lSalonYearSolihull2018Colour = new SectionEntity() { SalonYear = lSalonYearSolihull2018, SectionType = lSectionTypeColourPdi };
+						var lSalonYearSolihull2018MonoPdi = new SectionEntity() { SalonYear = lSalonYearSolihull2018, SectionType = lSectionTypeMonoPdi };
+						var lSalonYearSolihull2018Nature = new SectionEntity() { SalonYear = lSalonYearSolihull2018, SectionType = lSectionTypeNaturePdi };
+						var lSalonYearSolihull2018Scapes = new SectionEntity() { SalonYear = lSalonYearSolihull2018, SectionType = lSectionTypeScapesPdi };
+
+                        lContext.SalonSections.AddRange(new List<SectionEntity> {
+							lSalonYearSolihull2018Colour,
+							lSalonYearSolihull2018MonoPdi,
+							lSalonYearSolihull2018Nature,
+							lSalonYearSolihull2018Scapes,
+                        });
+
+						var lWorkersBreak = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Worker's Break" };
+                        var lWaitingToTravel = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Waiting to Travel" };
+                        var IUsedToDreamIdMarryAPrince = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "I Used to Dream I'd Marry a Prince" };
+                        var lAWalkInTheCountryside = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "A Walk in the Countryside" }; 
+						var lWhoLivesAlone = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Who Lives Alone" };
+						var lMirrorOfReminiscence = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Mirror of Reminiscence" };
+						var lTheWishingTree = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Wishing Tree" };
+						var lPantherChameleonTailDangling = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Panthern Chameleon Tail Dangling" };
+						var lLondrangar = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Londrangar" };
+
+                        lContext.Images.AddRange(new List<ImageEntity>
+                        {
+							lWorkersBreak,
+							lWaitingToTravel,
+							IUsedToDreamIdMarryAPrince,
+							lAWalkInTheCountryside,
+							lWhoLivesAlone,
+							lMirrorOfReminiscence,
+							lTheWishingTree,
+							lPantherChameleonTailDangling,
+							lLondrangar,
+                        });
+
+
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                            new SubmissionEntity(){
+                                IsJudged = false,
+                                EntryCost = 18M,
+								SalonYear = lSalonYearSolihull2018,
+                                EntryDate = new DateTime(2018, 12, 2),
+                                Person = lTim,
+                                Entries = new List<CompetitionEntryEntity> {
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Colour, Image = lWorkersBreak, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Colour, Image = lWaitingToTravel, IsAwarded = false, IsAccepted = false, Score= 0},
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Colour, Image = IUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Colour, Image = lAWalkInTheCountryside, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018MonoPdi, Image = lToweringSky, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018MonoPdi, Image = lWhoLivesAlone, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018MonoPdi, Image = lMirrorOfReminiscence, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018MonoPdi, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=0},
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Nature, Image = lPantherChameleonTailDangling, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Nature, Image = lArgentinianHornedFrog, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Nature, Image = lYoungRedKite, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Nature, Image = lGargoyleGecko, IsAwarded = false, IsAccepted = false, Score=0 },                                  
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Scapes, Image = lLondrangar, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Scapes, Image = lIceBeachWaves, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Scapes, Image = lRefuge, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Scapes, Image = lGrassIceland, IsAwarded = false, IsAccepted = false, Score=0 },
+
+                                },
+                            },
+                        });
+
 
 
 						lContext.SaveChanges();
