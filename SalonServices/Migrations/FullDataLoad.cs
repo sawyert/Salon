@@ -3608,7 +3608,7 @@ namespace SalonServices.Migrations
                         lContext.SalonYears.Add(lSalonYearSydney2018);
 
                         lContext.Accreditations.AddRange(new List<AccreditationEntity> {
-                            new AccreditationEntity() { SalonNumber = "2018/5", PhotoOrganisation = lFiap, SalonYear = lSalonYearSydney2018 },
+                            new AccreditationEntity() { SalonNumber = "2018/115", PhotoOrganisation = lFiap, SalonYear = lSalonYearSydney2018 },
                             new AccreditationEntity() { SalonNumber = "2018-144", PhotoOrganisation = lPsa, SalonYear = lSalonYearSydney2018 },
                             new AccreditationEntity() { SalonNumber = "GPU L180026", PhotoOrganisation = lGpu, SalonYear = lSalonYearSydney2018 },
 
