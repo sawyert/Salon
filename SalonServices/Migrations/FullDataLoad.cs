@@ -3925,7 +3925,7 @@ namespace SalonServices.Migrations
                         });
 
 						// SRGB 2018 
-                        var lSalonYearSrgb2018 = new SalonYearEntity { Name = "SRGB", Salon = lSalonGradac, Year = 2018, ClosingDate = new DateTime(2018, 7, 15), JudgeDate = new DateTime(2018, 7, 21), NotificationDate = new DateTime(2018, 9, 1), CataloguesPostedDate = new DateTime(2018, 9, 1) };
+						var lSalonYearSrgb2018 = new SalonYearEntity { Name = "SRGB", Salon = lSalonSrgb, Year = 2018, ClosingDate = new DateTime(2018, 7, 15), JudgeDate = new DateTime(2018, 7, 21), NotificationDate = new DateTime(2018, 9, 1), CataloguesPostedDate = new DateTime(2018, 9, 1) };
 						lContext.SalonYears.Add(lSalonYearSrgb2018);
 
                         lContext.Accreditations.AddRange(new List<AccreditationEntity> {
