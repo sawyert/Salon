@@ -93,7 +93,49 @@ namespace SalonServices.Migrations
 		                        },
 		                    }
 		                },
-		                new PhotoOrganisationEntity
+							new PhotoOrganisationEntity
+                        {
+                            Name = "FIAP Levels",
+                            EnableSectionTypes = false,
+                            AwardLevels = new List<AwardLevelEntity>{
+                                new AwardLevelEntity{
+                                    Name = "1 EFIAP/b",
+                                    MinimumAcceptances = 200,
+                                    MinimumCountries = 5,
+                                    MinimumAwards = 4,
+                                    MinimumDistinctImages = 50,
+                                    MinimumSalons = 1,
+                                    MinimumPrints = 0,
+                                },
+                                new AwardLevelEntity{
+                                    Name = "2 EFIAP/s",
+                                    MinimumAcceptances = 300,
+                                    MinimumCountries = 10,
+                                    MinimumAwards = 9,
+                                    MinimumDistinctImages = 100,
+                                    MinimumSalons = 1,
+                                    MinimumPrints = 0,
+                                },
+								new AwardLevelEntity{
+                                    Name = "3 EFIAP/g",
+                                    MinimumAcceptances = 500,
+                                    MinimumCountries = 15,
+                                    MinimumAwards = 15,
+                                    MinimumDistinctImages = 150,
+                                    MinimumSalons = 1,
+                                    MinimumPrints = 0,
+                                },
+								new AwardLevelEntity{
+                                    Name = "4 EFIAP/p",
+                                    MinimumAcceptances = 700,
+                                    MinimumCountries = 20,
+                                    MinimumAwards = 22,
+                                    MinimumDistinctImages = 250,
+                                    MinimumSalons = 1,
+                                    MinimumPrints = 0,
+                                },
+                            }
+                        },new PhotoOrganisationEntity
 		                {
 		                    Name = "PSA",
 		                    EnableSectionTypes = true,
@@ -412,6 +454,10 @@ namespace SalonServices.Migrations
                         var lFiap = (from org in lContext.PhotoOrganisations
                                      where org.Name == "FIAP"
                                      select org).FirstOrDefault();
+
+						var lFiapLevels = (from org in lContext.PhotoOrganisations
+                                     where org.Name == "FIAP Levels"
+                                     select org).FirstOrDefault();                  
 
                         var lBpe = (from org in lContext.PhotoOrganisations
                                     where org.Name == "BPE"
