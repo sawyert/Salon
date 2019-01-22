@@ -4192,7 +4192,7 @@ namespace SalonServices.Migrations
 
 						var lWorkersBreak = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Worker's Break" };
                         var lWaitingToTravel = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Waiting to Travel" };
-                        var IUsedToDreamIdMarryAPrince = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "I Used to Dream I'd Marry a Prince" };
+                        var lIUsedToDreamIdMarryAPrince = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "I Used to Dream I'd Marry a Prince" };
                         var lAWalkInTheCountryside = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "A Walk in the Countryside" }; 
 						var lWhoLivesAlone = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Who Lives Alone" };
 						var lMirrorOfReminiscence = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Mirror of Reminiscence" };
@@ -4204,7 +4204,7 @@ namespace SalonServices.Migrations
                         {
 							lWorkersBreak,
 							lWaitingToTravel,
-							IUsedToDreamIdMarryAPrince,
+							lIUsedToDreamIdMarryAPrince,
 							lAWalkInTheCountryside,
 							lWhoLivesAlone,
 							lMirrorOfReminiscence,
@@ -4224,7 +4224,7 @@ namespace SalonServices.Migrations
                                 Entries = new List<CompetitionEntryEntity> {
 									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Colour, Image = lWorkersBreak, IsAwarded = false, IsAccepted = false, Score=0 },
 									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Colour, Image = lWaitingToTravel, IsAwarded = false, IsAccepted = false, Score= 0},
-									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Colour, Image = IUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = false, Score=0 },
 									new CompetitionEntryEntity { Section = lSalonYearSolihull2018Colour, Image = lAWalkInTheCountryside, IsAwarded = false, IsAccepted = false, Score=0 },
 									new CompetitionEntryEntity { Section = lSalonYearSolihull2018MonoPdi, Image = lToweringSky, IsAwarded = false, IsAccepted = false, Score=0 },
 									new CompetitionEntryEntity { Section = lSalonYearSolihull2018MonoPdi, Image = lWhoLivesAlone, IsAwarded = false, IsAccepted = false, Score=0 },
@@ -4242,6 +4242,58 @@ namespace SalonServices.Migrations
                                 },
                             },
                         });
+
+						// Clay Cross BPE 2019  
+                        var lSalonYearClayCross2019 = new SalonYearEntity { Name = "Clay Cross", Salon = lSalonClayCross, Year = 2019, ClosingDate = new DateTime(2019, 1, 26), JudgeDate = new DateTime(2019, 2, 10), NotificationDate = new DateTime(2019, 3, 23), CataloguesPostedDate = new DateTime(2019, 4, 16) };
+						lContext.SalonYears.Add(lSalonYearClayCross2019);
+
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+							new AccreditationEntity() { SalonNumber = "BPE 2019", PhotoOrganisation = lBpe, SalonYear = lSalonYearClayCross2019 },
+                        });
+
+						var SalonYearClayCross2019Colour = new SectionEntity() { SalonYear = lSalonYearClayCross2019, SectionType = lSectionTypeColourPdi };
+						var SalonYearClayCross2019Creative = new SectionEntity() { SalonYear = lSalonYearClayCross2019, SectionType = lSectionTypeCreativePdi };
+                       
+
+                        lContext.SalonSections.AddRange(new List<SectionEntity> {
+							SalonYearClayCross2019Colour,
+							SalonYearClayCross2019Creative,
+                         });
+
+						var lLoveLetters = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Love Letters" };
+						var lTheSeamstressTakesHerFee = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Seamstress Takes Her Fee" };
+						var lBetwixtRealities = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Betwixt Realities" };
+						var lTheMagician = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Magician" };
+                  
+                        lContext.Images.AddRange(new List<ImageEntity>
+                        {
+							lLoveLetters,
+							lTheSeamstressTakesHerFee,
+							lBetwixtRealities,
+							lTheMagician,
+                        });
+
+
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                            new SubmissionEntity(){
+                                IsJudged = false,
+                                EntryCost = 12M,
+								SalonYear = lSalonYearClayCross2019,
+                                EntryDate = new DateTime(2019, 1, 22),
+                                Person = lTim,
+                                Entries = new List<CompetitionEntryEntity> {
+									new CompetitionEntryEntity { Section = SalonYearClayCross2019Colour, Image = lLoveLetters, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = SalonYearClayCross2019Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = false, Score= 0},
+									new CompetitionEntryEntity { Section = SalonYearClayCross2019Colour, Image = lWaitingToTravel, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = SalonYearClayCross2019Colour, Image = lTheSeamstressTakesHerFee, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = SalonYearClayCross2019Creative, Image = lMirrorOfReminiscence, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = SalonYearClayCross2019Creative, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = SalonYearClayCross2019Creative, Image = lTheMagician, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = SalonYearClayCross2019Creative, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=0},
+                                },
+                            },
+                        });
+
 
 
 
