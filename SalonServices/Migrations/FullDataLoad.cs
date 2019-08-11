@@ -41,6 +41,8 @@ namespace SalonServices.Migrations
 					var lCountryGeorgia = new CountryEntity { Name = "Georgia", };
 					var lCountryCroatia = new CountryEntity { Name = "Croatia", };
 					var lCountryFinland = new CountryEntity { Name = "Finland", };
+					var lCountrySingapore = new CountryEntity { Name = "Singapore", };
+					var lCountryGreece = new CountryEntity { Name = "Greece", };
 
                     try
                     {
@@ -6147,6 +6149,139 @@ namespace SalonServices.Migrations
 									new CompetitionEntryEntity { Section = lSalonYearThisIsLife2019Nature, Image = lCrestedGeckoTongue, IsAwarded = false, IsAccepted = true, Score= 11},
 									new CompetitionEntryEntity { Section = lSalonYearThisIsLife2019Nature, Image = lTarantulaWarning, IsAwarded = false, IsAccepted = false, Score=8 },
 									new CompetitionEntryEntity { Section = lSalonYearThisIsLife2019Nature, Image = lGargoyleGecko, IsAwarded = false, IsAccepted = true, Score=12 },
+                                },
+                            },
+                        });
+
+						// Pacific Atlantic Circuit 2019
+                        var lPacificAtlanticCircuit2019 = new CircuitEntity() { Name = "Pacific Atlantic" };
+
+                        lContext.Circuits.AddRange(new List<CircuitEntity> {
+							lPacificAtlanticCircuit2019,
+                        });
+
+						var lTheStuffOfNightmares = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Stuff of Nightmares" };
+						var lTimeGate = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Time Gate" };
+						var lEnteringTheMaelstrom = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Entering The Maelstrom" };
+						var lCrestedGeckoLook = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Crested Gecko Look" };
+
+
+						var lSalonPacificAtlanticGreece = new SalonEntity { Name = "Pacific Atlantic (Greece)", Website = "http://www.pacificatlantic-photo.com/", Country = lCountryGreece };
+
+						var lSalonYearPacificAtlanticGreece2019 = new SalonYearEntity { Name = "Pacific Atlantic (Greece)", Salon = lSalonPacificAtlanticGreece, Year = 2019, ClosingDate = new DateTime(2019, 9, 1), JudgeDate = new DateTime(2019, 9, 7), NotificationDate = new DateTime(2019, 9, 20), CataloguesPostedDate = new DateTime(2019, 10, 20), Circuit = lPacificAtlanticCircuit2019 };
+
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+							new AccreditationEntity() { SalonNumber = "2019/487", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearPacificAtlanticGreece2019 },
+							new AccreditationEntity() { SalonNumber = "2019-366", PhotoOrganisation = lPsa, SalonYear = lSalonYearPacificAtlanticGreece2019 },
+							new AccreditationEntity() { SalonNumber = "L190140", PhotoOrganisation = lGpu, SalonYear = lSalonYearPacificAtlanticGreece2019 },
+                        });
+        
+						var lSalonYearPacificAtlanticGreece2019Mono = new SectionEntity() { SalonYear = lSalonYearPacificAtlanticGreece2019, SectionType = lSectionTypeMonoPdi };
+						var lSalonYearPacificAtlanticGreece2019Colour = new SectionEntity() { SalonYear = lSalonYearPacificAtlanticGreece2019, SectionType = lSectionTypeColourPdi };
+						var lSalonYearPacificAtlanticGreece2019Nature = new SectionEntity() { SalonYear = lSalonYearPacificAtlanticGreece2019, SectionType = lSectionTypeNaturePdi };
+
+
+
+						lContext.Submissions.AddRange(new List<SubmissionEntity> {
+							new SubmissionEntity(){
+								IsJudged = false,
+								EntryCost = 12.06M,
+								SalonYear = lSalonYearPacificAtlanticGreece2019,
+								EntryDate = new DateTime(2019, 8, 11),
+								Person = lTim,
+								Entries = new List<CompetitionEntryEntity> {
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticGreece2019Colour, Image = lTheStuffOfNightmares, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticGreece2019Colour, Image = lTimeGate, IsAwarded = false, IsAccepted = false, Score= 0},
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticGreece2019Colour, Image = lEnteringTheMaelstrom, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticGreece2019Colour, Image = lDaisyInWoodenVase, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticGreece2019Mono, Image = lRealityDysfunction, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticGreece2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score= 0},
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticGreece2019Mono, Image = lContemplationByStarlight, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticGreece2019Mono, Image = lMirrorOfReminiscence, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticGreece2019Nature, Image = lGargoyleGecko, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticGreece2019Nature, Image = lRedFox, IsAwarded = false, IsAccepted = false, Score= 0},
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticGreece2019Nature, Image = lPantherChameleonLunch, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticGreece2019Nature, Image = lCrestedGeckoLook, IsAwarded = false, IsAccepted = false, Score=0 },
+                                },
+                            },
+                        });
+
+						var lSalonPacificAtlanticUsa = new SalonEntity { Name = "Pacific Atlantic (USA)", Website = "http://www.pacificatlantic-photo.com/", Country = lCountryUsa };
+
+						var lSalonYearPacificAtlanticUsa2019 = new SalonYearEntity { Name = "Pacific Atlantic (USA)", Salon = lSalonPacificAtlanticUsa, Year = 2019, ClosingDate = new DateTime(2019, 9, 1), JudgeDate = new DateTime(2019, 9, 7), NotificationDate = new DateTime(2019, 9, 20), CataloguesPostedDate = new DateTime(2019, 10, 20), Circuit = lPacificAtlanticCircuit2019 };
+
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+							new AccreditationEntity() { SalonNumber = "2019/486", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearPacificAtlanticUsa2019 },
+							new AccreditationEntity() { SalonNumber = "2019-366", PhotoOrganisation = lPsa, SalonYear = lSalonYearPacificAtlanticUsa2019 },
+							new AccreditationEntity() { SalonNumber = "L190140", PhotoOrganisation = lGpu, SalonYear = lSalonYearPacificAtlanticUsa2019 },
+                        });
+
+						var lSalonYearPacificAtlanticUsa2019Mono = new SectionEntity() { SalonYear = lSalonYearPacificAtlanticUsa2019, SectionType = lSectionTypeMonoPdi };
+						var lSalonYearPacificAtlanticUsa2019Colour = new SectionEntity() { SalonYear = lSalonYearPacificAtlanticUsa2019, SectionType = lSectionTypeColourPdi };
+						var lSalonYearPacificAtlanticUsa2019Nature = new SectionEntity() { SalonYear = lSalonYearPacificAtlanticUsa2019, SectionType = lSectionTypeNaturePdi };
+
+
+
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                            new SubmissionEntity(){
+                                IsJudged = false,
+                                EntryCost = 12.06M,
+								SalonYear = lSalonYearPacificAtlanticUsa2019,
+                                EntryDate = new DateTime(2019, 8, 11),
+                                Person = lTim,
+                                Entries = new List<CompetitionEntryEntity> {
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticUsa2019Colour, Image = lTheStuffOfNightmares, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticUsa2019Colour, Image = lTimeGate, IsAwarded = false, IsAccepted = false, Score= 0},
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticUsa2019Colour, Image = lDaisyInWoodenVase, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticUsa2019Colour, Image = lEnteringTheMaelstrom, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticUsa2019Mono, Image = lRealityDysfunction, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticUsa2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score= 0},
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticUsa2019Mono, Image = lContemplationByStarlight, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticUsa2019Mono, Image = lMirrorOfReminiscence, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticUsa2019Nature, Image = lGargoyleGecko, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticUsa2019Nature, Image = lRedFox, IsAwarded = false, IsAccepted = false, Score= 0},
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticUsa2019Nature, Image = lPantherChameleonLunch, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticUsa2019Nature, Image = lCrestedGeckoLook, IsAwarded = false, IsAccepted = false, Score=0 },
+                                },
+                            },
+                        });
+
+						var lSalonPacificAtlanticSingapore = new SalonEntity { Name = "Pacific Atlantic (Singapore)", Website = "http://www.pacificatlantic-photo.com/", Country = lCountrySingapore };
+
+						var lSalonYearPacificAtlanticSingapore2019 = new SalonYearEntity { Name = "Pacific Atlantic (Singapore)", Salon = lSalonPacificAtlanticSingapore, Year = 2019, ClosingDate = new DateTime(2019, 9, 1), JudgeDate = new DateTime(2019, 9, 7), NotificationDate = new DateTime(2019, 9, 20), CataloguesPostedDate = new DateTime(2019, 10, 20), Circuit = lPacificAtlanticCircuit2019 };
+
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+							new AccreditationEntity() { SalonNumber = "2019/488", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearPacificAtlanticSingapore2019 },
+							new AccreditationEntity() { SalonNumber = "2019-366", PhotoOrganisation = lPsa, SalonYear = lSalonYearPacificAtlanticSingapore2019 },
+							new AccreditationEntity() { SalonNumber = "L190140", PhotoOrganisation = lGpu, SalonYear = lSalonYearPacificAtlanticSingapore2019 },
+                        });
+
+						var lSalonYearPacificAtlanticSingapore2019Mono = new SectionEntity() { SalonYear = lSalonYearPacificAtlanticSingapore2019, SectionType = lSectionTypeMonoPdi };
+						var lSalonYearPacificAtlanticSingapore2019Colour = new SectionEntity() { SalonYear = lSalonYearPacificAtlanticSingapore2019, SectionType = lSectionTypeColourPdi };
+						var lSalonYearPacificAtlanticSingapore2019Nature = new SectionEntity() { SalonYear = lSalonYearPacificAtlanticSingapore2019, SectionType = lSectionTypeNaturePdi };
+
+
+
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                            new SubmissionEntity(){
+                                IsJudged = false,
+                                EntryCost = 12.07M,
+								SalonYear = lSalonYearPacificAtlanticSingapore2019,
+                                EntryDate = new DateTime(2019, 8, 11),
+                                Person = lTim,
+                                Entries = new List<CompetitionEntryEntity> {
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticSingapore2019Colour, Image = lTheStuffOfNightmares, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticSingapore2019Colour, Image = lTimeGate, IsAwarded = false, IsAccepted = false, Score= 0},
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticSingapore2019Colour, Image = lDaisyInWoodenVase, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticSingapore2019Colour, Image = lEnteringTheMaelstrom, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticSingapore2019Mono, Image = lRealityDysfunction, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticSingapore2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score= 0},
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticSingapore2019Mono, Image = lContemplationByStarlight, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticSingapore2019Mono, Image = lMirrorOfReminiscence, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticSingapore2019Nature, Image = lGargoyleGecko, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticSingapore2019Nature, Image = lRedFox, IsAwarded = false, IsAccepted = false, Score= 0},
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticSingapore2019Nature, Image = lPantherChameleonLunch, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearPacificAtlanticSingapore2019Nature, Image = lCrestedGeckoLook, IsAwarded = false, IsAccepted = false, Score=0 },
                                 },
                             },
                         });
