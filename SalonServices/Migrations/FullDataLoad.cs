@@ -48,6 +48,7 @@ namespace SalonServices.Migrations
 					var lCountryBrazil = new CountryEntity { Name = "Brazil", };
 					var lCountryIndonesia = new CountryEntity { Name = "Indonesia", };
 					var lCountrySouthAfrica = new CountryEntity { Name = "South Africa", };
+					var lCountryGermany = new CountryEntity { Name = "Germany", };
 
 					try
 					{
@@ -4287,10 +4288,10 @@ namespace SalonServices.Migrations
 							lQueenslandCircuit2019,
 						});
 
-						var lSalonGoldCoast = new SalonEntity { Name = "Gold Coast", Website = "http://www.queensland-photo.com", Country = lCountryAustralia };
+						var lSalonGoldCoast = new SalonEntity { Name = "Queensland - Gold Coast", Website = "http://www.queensland-photo.com", Country = lCountryAustralia };
 						lContext.Salons.Add(lSalonGoldCoast);
 
-						var lSalonYearGoldCoast2019 = new SalonYearEntity { Name = "Gold Coast", Salon = lSalonGoldCoast, Year = 2019, ClosingDate = new DateTime(2019, 6, 3), JudgeDate = new DateTime(2019, 6, 16), NotificationDate = new DateTime(2019, 6, 30), CataloguesPostedDate = new DateTime(2019, 9, 30), Circuit = lQueenslandCircuit2019 };
+						var lSalonYearGoldCoast2019 = new SalonYearEntity { Name = "Queensland - Gold Coast", Salon = lSalonGoldCoast, Year = 2019, ClosingDate = new DateTime(2019, 6, 3), JudgeDate = new DateTime(2019, 6, 16), NotificationDate = new DateTime(2019, 6, 30), CataloguesPostedDate = new DateTime(2019, 9, 30), Circuit = lQueenslandCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearGoldCoast2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -4359,10 +4360,10 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonMarybourgh = new SalonEntity { Name = "Marybourgh", Website = "http://www.queensland-photo.com", Country = lCountryAustralia };
+						var lSalonMarybourgh = new SalonEntity { Name = "Queensland - Marybourgh", Website = "http://www.queensland-photo.com", Country = lCountryAustralia };
 						lContext.Salons.Add(lSalonMarybourgh);
 
-						var lSalonYearMarybourgh2019 = new SalonYearEntity { Name = "Marybourgh", Salon = lSalonMarybourgh, Year = 2019, ClosingDate = new DateTime(2019, 6, 3), JudgeDate = new DateTime(2019, 6, 16), NotificationDate = new DateTime(2019, 6, 30), CataloguesPostedDate = new DateTime(2019, 9, 30), Circuit = lQueenslandCircuit2019 };
+						var lSalonYearMarybourgh2019 = new SalonYearEntity { Name = "Queensland - Marybourgh", Salon = lSalonMarybourgh, Year = 2019, ClosingDate = new DateTime(2019, 6, 3), JudgeDate = new DateTime(2019, 6, 16), NotificationDate = new DateTime(2019, 6, 30), CataloguesPostedDate = new DateTime(2019, 9, 30), Circuit = lQueenslandCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearMarybourgh2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -4412,10 +4413,10 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonMtGravatt = new SalonEntity { Name = "Mt Gravatt", Website = "http://www.queensland-photo.com", Country = lCountryAustralia };
+						var lSalonMtGravatt = new SalonEntity { Name = "Queensland - Mt Gravatt", Website = "http://www.queensland-photo.com", Country = lCountryAustralia };
 						lContext.Salons.Add(lSalonMtGravatt);
 
-						var lSalonYearMtGravatt2019 = new SalonYearEntity { Name = "Mt Gravatt", Salon = lSalonMtGravatt, Year = 2019, ClosingDate = new DateTime(2019, 6, 3), JudgeDate = new DateTime(2019, 6, 16), NotificationDate = new DateTime(2019, 6, 30), CataloguesPostedDate = new DateTime(2019, 9, 30), Circuit = lQueenslandCircuit2019 };
+						var lSalonYearMtGravatt2019 = new SalonYearEntity { Name = "Queensland - Mt Gravatt", Salon = lSalonMtGravatt, Year = 2019, ClosingDate = new DateTime(2019, 6, 3), JudgeDate = new DateTime(2019, 6, 16), NotificationDate = new DateTime(2019, 6, 30), CataloguesPostedDate = new DateTime(2019, 9, 30), Circuit = lQueenslandCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearMtGravatt2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -4466,10 +4467,10 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonTownsville = new SalonEntity { Name = "Townsville", Website = "http://www.queensland-photo.com", Country = lCountryAustralia };
+						var lSalonTownsville = new SalonEntity { Name = "Queensland - Townsville", Website = "http://www.queensland-photo.com", Country = lCountryAustralia };
 						lContext.Salons.Add(lSalonTownsville);
 
-						var llSalonYearTownsville2019 = new SalonYearEntity { Name = "Townsville", Salon = lSalonTownsville, Year = 2019, ClosingDate = new DateTime(2019, 6, 3), JudgeDate = new DateTime(2019, 6, 16), NotificationDate = new DateTime(2019, 6, 30), CataloguesPostedDate = new DateTime(2019, 9, 30), Circuit = lQueenslandCircuit2019 };
+						var llSalonYearTownsville2019 = new SalonYearEntity { Name = "Queensland - Townsville", Salon = lSalonTownsville, Year = 2019, ClosingDate = new DateTime(2019, 6, 3), JudgeDate = new DateTime(2019, 6, 16), NotificationDate = new DateTime(2019, 6, 30), CataloguesPostedDate = new DateTime(2019, 9, 30), Circuit = lQueenslandCircuit2019 };
 						lContext.SalonYears.Add(llSalonYearTownsville2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -4719,10 +4720,10 @@ namespace SalonServices.Migrations
 							lRoughFrilledTreeFrogOnFlower,
 						});
 
-						var lSalonPodgorica = new SalonEntity { Name = "Podgorica", Website = "http://www.photoclubmontenegro.com", Country = lCountryMontenegro };
+						var lSalonPodgorica = new SalonEntity { Name = "Zeta - Podgorica", Website = "http://www.photoclubmontenegro.com", Country = lCountryMontenegro };
 						lContext.Salons.Add(lSalonPodgorica);
 
-						var lSalonYearPodgorica2019 = new SalonYearEntity { Name = "Podgorica", Salon = lSalonPodgorica, Year = 2019, ClosingDate = new DateTime(2019, 6, 10), JudgeDate = new DateTime(2019, 7, 4), NotificationDate = new DateTime(2019, 7, 10), CataloguesPostedDate = new DateTime(2019, 9, 10), Circuit = lZetaCircuit2019 };
+						var lSalonYearPodgorica2019 = new SalonYearEntity { Name = "Zeta - Podgorica", Salon = lSalonPodgorica, Year = 2019, ClosingDate = new DateTime(2019, 6, 10), JudgeDate = new DateTime(2019, 7, 4), NotificationDate = new DateTime(2019, 7, 10), CataloguesPostedDate = new DateTime(2019, 9, 10), Circuit = lZetaCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearPodgorica2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -4765,10 +4766,10 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonBudva = new SalonEntity { Name = "Budva (Zeta Circuit)", Website = "http://www.photoclubmontenegro.com", Country = lCountryMontenegro };
+						var lSalonBudva = new SalonEntity { Name = "Zeta - Budva", Website = "http://www.photoclubmontenegro.com", Country = lCountryMontenegro };
 						lContext.Salons.Add(lSalonBudva);
 
-						var lSalonYearBudva2019 = new SalonYearEntity { Name = "Budva (Zeta Circuit)", Salon = lSalonBudva, Year = 2019, ClosingDate = new DateTime(2019, 6, 10), JudgeDate = new DateTime(2019, 7, 4), NotificationDate = new DateTime(2019, 7, 10), CataloguesPostedDate = new DateTime(2019, 9, 10), Circuit = lZetaCircuit2019 };
+						var lSalonYearBudva2019 = new SalonYearEntity { Name = "Zeta - Budva", Salon = lSalonBudva, Year = 2019, ClosingDate = new DateTime(2019, 6, 10), JudgeDate = new DateTime(2019, 7, 4), NotificationDate = new DateTime(2019, 7, 10), CataloguesPostedDate = new DateTime(2019, 9, 10), Circuit = lZetaCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearBudva2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -4811,10 +4812,10 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonNiksic = new SalonEntity { Name = "Niksic", Website = "http://www.photoclubmontenegro.com", Country = lCountryMontenegro };
+						var lSalonNiksic = new SalonEntity { Name = "Zeta - Niksic", Website = "http://www.photoclubmontenegro.com", Country = lCountryMontenegro };
 						lContext.Salons.Add(lSalonNiksic);
 
-						var lSalonYearNiksic2019 = new SalonYearEntity { Name = "Niksic", Salon = lSalonNiksic, Year = 2019, ClosingDate = new DateTime(2019, 6, 10), JudgeDate = new DateTime(2019, 7, 4), NotificationDate = new DateTime(2019, 7, 10), CataloguesPostedDate = new DateTime(2019, 9, 10), Circuit = lZetaCircuit2019 };
+						var lSalonYearNiksic2019 = new SalonYearEntity { Name = "Zeta - Niksic", Salon = lSalonNiksic, Year = 2019, ClosingDate = new DateTime(2019, 6, 10), JudgeDate = new DateTime(2019, 7, 4), NotificationDate = new DateTime(2019, 7, 10), CataloguesPostedDate = new DateTime(2019, 9, 10), Circuit = lZetaCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearNiksic2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -4857,10 +4858,10 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonKolasin = new SalonEntity { Name = "Kolasin (Zeta Circuit)", Website = "http://www.photoclubmontenegro.com", Country = lCountryMontenegro };
+						var lSalonKolasin = new SalonEntity { Name = "Zeta - Kolasin", Website = "http://www.photoclubmontenegro.com", Country = lCountryMontenegro };
 						lContext.Salons.Add(lSalonKolasin);
 
-						var lSalonYearKolasin2019 = new SalonYearEntity { Name = "Kolasin (Zeta Circuit)", Salon = lSalonKolasin, Year = 2019, ClosingDate = new DateTime(2019, 6, 10), JudgeDate = new DateTime(2019, 7, 4), NotificationDate = new DateTime(2019, 7, 10), CataloguesPostedDate = new DateTime(2019, 9, 10), Circuit = lZetaCircuit2019 };
+						var lSalonYearKolasin2019 = new SalonYearEntity { Name = "Zeta - Kolasin", Salon = lSalonKolasin, Year = 2019, ClosingDate = new DateTime(2019, 6, 10), JudgeDate = new DateTime(2019, 7, 4), NotificationDate = new DateTime(2019, 7, 10), CataloguesPostedDate = new DateTime(2019, 9, 10), Circuit = lZetaCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearKolasin2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -4903,10 +4904,10 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonKotor = new SalonEntity { Name = "Kotor", Website = "http://www.photoclubmontenegro.com", Country = lCountryMontenegro };
+						var lSalonKotor = new SalonEntity { Name = "Zeta - Kotor", Website = "http://www.photoclubmontenegro.com", Country = lCountryMontenegro };
 						lContext.Salons.Add(lSalonKotor);
 
-						var lSalonYearKotor2019 = new SalonYearEntity { Name = "Kotor", Salon = lSalonKotor, Year = 2019, ClosingDate = new DateTime(2019, 6, 10), JudgeDate = new DateTime(2019, 7, 4), NotificationDate = new DateTime(2019, 7, 10), CataloguesPostedDate = new DateTime(2019, 9, 10), Circuit = lZetaCircuit2019 };
+						var lSalonYearKotor2019 = new SalonYearEntity { Name = "Zeta - Kotor", Salon = lSalonKotor, Year = 2019, ClosingDate = new DateTime(2019, 6, 10), JudgeDate = new DateTime(2019, 7, 4), NotificationDate = new DateTime(2019, 7, 10), CataloguesPostedDate = new DateTime(2019, 9, 10), Circuit = lZetaCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearKotor2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -5207,10 +5208,10 @@ namespace SalonServices.Migrations
 							lBacklitTarantula,
 						});
 
-						var lSalonKula = new SalonEntity { Name = "Kula", Website = "https://www.fkk.rs/main/index.php", Country = lCountrySerbia };
+						var lSalonKula = new SalonEntity { Name = "Tour - Kula", Website = "https://www.fkk.rs/main/index.php", Country = lCountrySerbia };
 						lContext.Salons.Add(lSalonKula);
 
-						var lSalonYearKula2019 = new SalonYearEntity { Name = "Kula", Salon = lSalonKula, Year = 2019, ClosingDate = new DateTime(2019, 7, 3), JudgeDate = new DateTime(2019, 7, 29), NotificationDate = new DateTime(2019, 8, 1), CataloguesPostedDate = new DateTime(2019, 10, 1), Circuit = lTourCircuit2019 };
+						var lSalonYearKula2019 = new SalonYearEntity { Name = "Tour - Kula", Salon = lSalonKula, Year = 2019, ClosingDate = new DateTime(2019, 7, 3), JudgeDate = new DateTime(2019, 7, 29), NotificationDate = new DateTime(2019, 8, 1), CataloguesPostedDate = new DateTime(2019, 10, 1), Circuit = lTourCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearKula2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -5259,10 +5260,10 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonBudvaTour = new SalonEntity { Name = "Budva (Tour Circuit)", Website = "https://www.fkk.rs/main/index.php", Country = lCountryMontenegro };
+						var lSalonBudvaTour = new SalonEntity { Name = "Tour - Budva", Website = "https://www.fkk.rs/main/index.php", Country = lCountryMontenegro };
 						lContext.Salons.Add(lSalonBudvaTour);
 
-						var lSalonYearBudvaTour2019 = new SalonYearEntity { Name = "Budva (Tour Circuit)", Salon = lSalonBudvaTour, Year = 2019, ClosingDate = new DateTime(2019, 7, 3), JudgeDate = new DateTime(2019, 7, 29), NotificationDate = new DateTime(2019, 8, 1), CataloguesPostedDate = new DateTime(2019, 10, 1), Circuit = lTourCircuit2019 };
+						var lSalonYearBudvaTour2019 = new SalonYearEntity { Name = "Tour - Budva", Salon = lSalonBudvaTour, Year = 2019, ClosingDate = new DateTime(2019, 7, 3), JudgeDate = new DateTime(2019, 7, 29), NotificationDate = new DateTime(2019, 8, 1), CataloguesPostedDate = new DateTime(2019, 10, 1), Circuit = lTourCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearBudvaTour2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -5311,10 +5312,10 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonKolasinTour = new SalonEntity { Name = "Kolasin (Tour Circuit)", Website = "https://www.fkk.rs/main/index.php", Country = lCountryMontenegro };
+						var lSalonKolasinTour = new SalonEntity { Name = "Tour - Kolasin", Website = "https://www.fkk.rs/main/index.php", Country = lCountryMontenegro };
 						lContext.Salons.Add(lSalonKolasinTour);
 
-						var lSalonYearKolasinTour2019 = new SalonYearEntity { Name = "Kolasin (Tour Circuit)", Salon = lSalonKolasinTour, Year = 2019, ClosingDate = new DateTime(2019, 7, 3), JudgeDate = new DateTime(2019, 7, 29), NotificationDate = new DateTime(2019, 8, 1), CataloguesPostedDate = new DateTime(2019, 10, 1), Circuit = lTourCircuit2019 };
+						var lSalonYearKolasinTour2019 = new SalonYearEntity { Name = "Tour - Kolasin", Salon = lSalonKolasinTour, Year = 2019, ClosingDate = new DateTime(2019, 7, 3), JudgeDate = new DateTime(2019, 7, 29), NotificationDate = new DateTime(2019, 8, 1), CataloguesPostedDate = new DateTime(2019, 10, 1), Circuit = lTourCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearKolasinTour2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -5378,10 +5379,10 @@ namespace SalonServices.Migrations
 							lLightNightInflatableMen,
 						});
 
-						var lSalonDiamanti = new SalonEntity { Name = "Diamanti Gran Prix", Website = "http://www.photocontestclub.org/en/jewels-circ/", Country = lCountryItaly };
+						var lSalonDiamanti = new SalonEntity { Name = "Jewels - Diamanti", Website = "http://www.photocontestclub.org/en/jewels-circ/", Country = lCountryItaly };
 						lContext.Salons.Add(lSalonDiamanti);
 
-						var lSalonYearDiamanti2019 = new SalonYearEntity { Name = "Diamanti Gran Prix", Salon = lSalonDiamanti, Year = 2019, ClosingDate = new DateTime(2019, 7, 1), JudgeDate = new DateTime(2019, 7, 7), NotificationDate = new DateTime(2019, 7, 15), CataloguesPostedDate = new DateTime(2019, 10, 14), Circuit = lJewelsCircuit2019 };
+						var lSalonYearDiamanti2019 = new SalonYearEntity { Name = "Jewels - Diamanti", Salon = lSalonDiamanti, Year = 2019, ClosingDate = new DateTime(2019, 7, 1), JudgeDate = new DateTime(2019, 7, 7), NotificationDate = new DateTime(2019, 7, 15), CataloguesPostedDate = new DateTime(2019, 10, 14), Circuit = lJewelsCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearDiamanti2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -5431,10 +5432,10 @@ namespace SalonServices.Migrations
 						});
 
 
-						var lSalonRubini = new SalonEntity { Name = "Rubini Gran Prix", Website = "http://www.photocontestclub.org/en/jewels-circ/", Country = lCountryItaly };
+						var lSalonRubini = new SalonEntity { Name = "Jewels - Rubini", Website = "http://www.photocontestclub.org/en/jewels-circ/", Country = lCountryItaly };
 						lContext.Salons.Add(lSalonRubini);
 
-						var lSalonYearRubini2019 = new SalonYearEntity { Name = "Rubini Gran Prix", Salon = lSalonDiamanti, Year = 2019, ClosingDate = new DateTime(2019, 7, 1), JudgeDate = new DateTime(2019, 7, 7), NotificationDate = new DateTime(2019, 7, 15), CataloguesPostedDate = new DateTime(2019, 10, 14), Circuit = lJewelsCircuit2019 };
+						var lSalonYearRubini2019 = new SalonYearEntity { Name = "Jewels - Rubini", Salon = lSalonDiamanti, Year = 2019, ClosingDate = new DateTime(2019, 7, 1), JudgeDate = new DateTime(2019, 7, 7), NotificationDate = new DateTime(2019, 7, 15), CataloguesPostedDate = new DateTime(2019, 10, 14), Circuit = lJewelsCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearRubini2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -5483,10 +5484,10 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonSmeraldi = new SalonEntity { Name = "Smeraldi Gran Prix", Website = "http://www.photocontestclub.org/en/jewels-circ/", Country = lCountryItaly };
+						var lSalonSmeraldi = new SalonEntity { Name = "Jewels - Smeraldi", Website = "http://www.photocontestclub.org/en/jewels-circ/", Country = lCountryItaly };
 						lContext.Salons.Add(lSalonSmeraldi);
 
-						var lSalonYearSmeraldi2019 = new SalonYearEntity { Name = "Smeraldi Gran Prix", Salon = lSalonDiamanti, Year = 2019, ClosingDate = new DateTime(2019, 7, 1), JudgeDate = new DateTime(2019, 7, 7), NotificationDate = new DateTime(2019, 7, 15), CataloguesPostedDate = new DateTime(2019, 10, 14), Circuit = lJewelsCircuit2019 };
+						var lSalonYearSmeraldi2019 = new SalonYearEntity { Name = "Jewels - Smeraldi", Salon = lSalonDiamanti, Year = 2019, ClosingDate = new DateTime(2019, 7, 1), JudgeDate = new DateTime(2019, 7, 7), NotificationDate = new DateTime(2019, 7, 15), CataloguesPostedDate = new DateTime(2019, 10, 14), Circuit = lJewelsCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearSmeraldi2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -5535,10 +5536,10 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonZaffiri = new SalonEntity { Name = "Zaffiri Gran Prix", Website = "http://www.photocontestclub.org/en/jewels-circ/", Country = lCountryItaly };
+						var lSalonZaffiri = new SalonEntity { Name = "Jewels - Zaffiri", Website = "http://www.photocontestclub.org/en/jewels-circ/", Country = lCountryItaly };
 						lContext.Salons.Add(lSalonZaffiri);
 
-						var lSalonYearZaffiri2019 = new SalonYearEntity { Name = "Zaffiri Gran Prix", Salon = lSalonZaffiri, Year = 2019, ClosingDate = new DateTime(2019, 7, 1), JudgeDate = new DateTime(2019, 7, 7), NotificationDate = new DateTime(2019, 7, 15), CataloguesPostedDate = new DateTime(2019, 10, 14), Circuit = lJewelsCircuit2019 };
+						var lSalonYearZaffiri2019 = new SalonYearEntity { Name = "Jewels - Zaffiri", Salon = lSalonZaffiri, Year = 2019, ClosingDate = new DateTime(2019, 7, 1), JudgeDate = new DateTime(2019, 7, 7), NotificationDate = new DateTime(2019, 7, 15), CataloguesPostedDate = new DateTime(2019, 10, 14), Circuit = lJewelsCircuit2019 };
 						lContext.SalonYears.Add(lSalonYearZaffiri2019);
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -5601,9 +5602,9 @@ namespace SalonServices.Migrations
 						var lRealityDysfunction = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Reality Dysfunction" };
 						var lTheFinalGateway = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Final Gateway" };
 
-						var lSalonShadowHunterSerbia = new SalonEntity { Name = "Shadowhunter (Serbia)", Website = "https://shadowhunter.lumiere.at/", Country = lCountrySerbia };
+						var lSalonShadowHunterSerbia = new SalonEntity { Name = "Shadowhunter - Serbia", Website = "https://shadowhunter.lumiere.at/", Country = lCountrySerbia };
 
-						var lSalonYearShadowHunterSerbia2019 = new SalonYearEntity { Name = "Shadowhunter (Serbia)", Salon = lSalonShadowHunterSerbia, Year = 2019, ClosingDate = new DateTime(2019, 7, 12), JudgeDate = new DateTime(2019, 7, 30), NotificationDate = new DateTime(2019, 8, 10), CataloguesPostedDate = new DateTime(2019, 8, 10), Circuit = lShadowhunterCircuit2019 };
+						var lSalonYearShadowHunterSerbia2019 = new SalonYearEntity { Name = "Shadowhunter - Serbia", Salon = lSalonShadowHunterSerbia, Year = 2019, ClosingDate = new DateTime(2019, 7, 12), JudgeDate = new DateTime(2019, 7, 30), NotificationDate = new DateTime(2019, 8, 10), CataloguesPostedDate = new DateTime(2019, 8, 10), Circuit = lShadowhunterCircuit2019 };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 							new AccreditationEntity() { SalonNumber = "2019/211", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearShadowHunterSerbia2019 },
@@ -5644,9 +5645,9 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonShadowHunterMontenegro = new SalonEntity { Name = "Shadowhunter (Montenegro)", Website = "https://shadowhunter.lumiere.at/", Country = lCountryMontenegro };
+						var lSalonShadowHunterMontenegro = new SalonEntity { Name = "Shadowhunter - Montenegro", Website = "https://shadowhunter.lumiere.at/", Country = lCountryMontenegro };
 
-						var lSalonYearShadowHunterMontenegro2019 = new SalonYearEntity { Name = "Shadowhunter (Montenegro)", Salon = lSalonShadowHunterMontenegro, Year = 2019, ClosingDate = new DateTime(2019, 7, 12), JudgeDate = new DateTime(2019, 7, 30), NotificationDate = new DateTime(2019, 8, 10), CataloguesPostedDate = new DateTime(2019, 8, 10), Circuit = lShadowhunterCircuit2019 };
+						var lSalonYearShadowHunterMontenegro2019 = new SalonYearEntity { Name = "Shadowhunter - Montenegro", Salon = lSalonShadowHunterMontenegro, Year = 2019, ClosingDate = new DateTime(2019, 7, 12), JudgeDate = new DateTime(2019, 7, 30), NotificationDate = new DateTime(2019, 8, 10), CataloguesPostedDate = new DateTime(2019, 8, 10), Circuit = lShadowhunterCircuit2019 };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 							new AccreditationEntity() { SalonNumber = "2019/213", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearShadowHunterMontenegro2019 },
@@ -5687,9 +5688,9 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonShadowHunterCroatia = new SalonEntity { Name = "Shadowhunter (Croatia)", Website = "https://shadowhunter.lumiere.at/", Country = lCountryCroatia };
+						var lSalonShadowHunterCroatia = new SalonEntity { Name = "Shadowhunter - Croatia", Website = "https://shadowhunter.lumiere.at/", Country = lCountryCroatia };
 
-						var lSalonYearShadowHunterCroatia2019 = new SalonYearEntity { Name = "Shadowhunter (Croatia)", Salon = lSalonShadowHunterCroatia, Year = 2019, ClosingDate = new DateTime(2019, 7, 12), JudgeDate = new DateTime(2019, 7, 30), NotificationDate = new DateTime(2019, 8, 10), CataloguesPostedDate = new DateTime(2019, 8, 10), Circuit = lShadowhunterCircuit2019 };
+						var lSalonYearShadowHunterCroatia2019 = new SalonYearEntity { Name = "Shadowhunter - Croatia", Salon = lSalonShadowHunterCroatia, Year = 2019, ClosingDate = new DateTime(2019, 7, 12), JudgeDate = new DateTime(2019, 7, 30), NotificationDate = new DateTime(2019, 8, 10), CataloguesPostedDate = new DateTime(2019, 8, 10), Circuit = lShadowhunterCircuit2019 };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 							new AccreditationEntity() { SalonNumber = "2019/212", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearShadowHunterCroatia2019 },
@@ -5830,9 +5831,9 @@ namespace SalonServices.Migrations
 						var lTarantulaWarning = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Tarantula Warning" };
 
 
-						var lSalonBalkanFramePerasto = new SalonEntity { Name = "Perasto (Balkan Frame)", Website = "https://www.exhibitions.photo/?pg=6#cmain", Country = lCountryMontenegro };
+						var lSalonBalkanFramePerasto = new SalonEntity { Name = "Balkan Frame - Perasto", Website = "https://www.exhibitions.photo/?pg=6#cmain", Country = lCountryMontenegro };
 
-						var lSalonYearBalkanFramePerasto2019 = new SalonYearEntity { Name = "Perasto (Balkan Frame)", Salon = lSalonBalkanFramePerasto, Year = 2019, ClosingDate = new DateTime(2019, 7, 14), JudgeDate = new DateTime(2019, 7, 31), NotificationDate = new DateTime(2019, 8, 6), CataloguesPostedDate = new DateTime(2019, 10, 15), Circuit = lBalkanFrameCircuit2019 };
+						var lSalonYearBalkanFramePerasto2019 = new SalonYearEntity { Name = "Balkan Frame - Perasto", Salon = lSalonBalkanFramePerasto, Year = 2019, ClosingDate = new DateTime(2019, 7, 14), JudgeDate = new DateTime(2019, 7, 31), NotificationDate = new DateTime(2019, 8, 6), CataloguesPostedDate = new DateTime(2019, 10, 15), Circuit = lBalkanFrameCircuit2019 };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 							new AccreditationEntity() { SalonNumber = "2019/410", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearBalkanFramePerasto2019 },
@@ -5878,9 +5879,9 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonBalkanFrameElema = new SalonEntity { Name = "Elema (Balkan Frame)", Website = "https://www.exhibitions.photo/?pg=6#cmain", Country = lCountryMacedonia };
+						var lSalonBalkanFrameElema = new SalonEntity { Name = "Balkan Frame - Elema", Website = "https://www.exhibitions.photo/?pg=6#cmain", Country = lCountryMacedonia };
 
-						var lSalonYearBalkanFrameElema2019 = new SalonYearEntity { Name = "Elema (Balkan Frame)", Salon = lSalonBalkanFrameElema, Year = 2019, ClosingDate = new DateTime(2019, 7, 14), JudgeDate = new DateTime(2019, 7, 31), NotificationDate = new DateTime(2019, 8, 6), CataloguesPostedDate = new DateTime(2019, 10, 15), Circuit = lBalkanFrameCircuit2019 };
+						var lSalonYearBalkanFrameElema2019 = new SalonYearEntity { Name = "Balkan Frame - Elema", Salon = lSalonBalkanFrameElema, Year = 2019, ClosingDate = new DateTime(2019, 7, 14), JudgeDate = new DateTime(2019, 7, 31), NotificationDate = new DateTime(2019, 8, 6), CataloguesPostedDate = new DateTime(2019, 10, 15), Circuit = lBalkanFrameCircuit2019 };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 							new AccreditationEntity() { SalonNumber = "2019/411", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearBalkanFrameElema2019 },
@@ -5926,12 +5927,12 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonBalkanFrameCacak = new SalonEntity { Name = "Cacak (Balkan Frame)", Website = "https://www.exhibitions.photo/?pg=6#cmain", Country = lCountrySerbia };
+						var lSalonBalkanFrameCacak = new SalonEntity { Name = "Balkan Frame - Cacak", Website = "https://www.exhibitions.photo/?pg=6#cmain", Country = lCountrySerbia };
 
-						var lSalonYearBalkanFrameCacak2019 = new SalonYearEntity { Name = "Cacak (Balkan Frame)", Salon = lSalonBalkanFrameCacak, Year = 2019, ClosingDate = new DateTime(2019, 7, 14), JudgeDate = new DateTime(2019, 7, 31), NotificationDate = new DateTime(2019, 8, 6), CataloguesPostedDate = new DateTime(2019, 10, 15), Circuit = lBalkanFrameCircuit2019 };
+						var lSalonYearBalkanFrameCacak2019 = new SalonYearEntity { Name = "Balkan Frame - Cacak", Salon = lSalonBalkanFrameCacak, Year = 2019, ClosingDate = new DateTime(2019, 7, 14), JudgeDate = new DateTime(2019, 7, 31), NotificationDate = new DateTime(2019, 8, 6), CataloguesPostedDate = new DateTime(2019, 10, 15), Circuit = lBalkanFrameCircuit2019 };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
-							new AccreditationEntity() { SalonNumber = "2019/410", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearBalkanFrameCacak2019 },
+							new AccreditationEntity() { SalonNumber = "2019/412", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearBalkanFrameCacak2019 },
 							new AccreditationEntity() { SalonNumber = "2019-313", PhotoOrganisation = lPsa, SalonYear = lSalonYearBalkanFrameCacak2019 },
 						});
 
@@ -5982,7 +5983,7 @@ namespace SalonServices.Migrations
 						var lSalonYearBeauty2019 = new SalonYearEntity { Name = "Beauty", Salon = lSalonBeauty, Year = 2019, ClosingDate = new DateTime(2019, 7, 22), JudgeDate = new DateTime(2019, 8, 5), NotificationDate = new DateTime(2019, 8, 15), CataloguesPostedDate = new DateTime(2019, 10, 21) };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
-							new AccreditationEntity() { SalonNumber = "2019/422", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearBeauty2019 },
+							new AccreditationEntity() { SalonNumber = "2019/421", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearBeauty2019 },
 						});
 
 
@@ -6096,7 +6097,7 @@ namespace SalonServices.Migrations
 						var lSalonYearThisIsLife2019 = new SalonYearEntity { Name = "This Is Life", Salon = lSalonThisIsLife, Year = 2019, ClosingDate = new DateTime(2019, 7, 31), JudgeDate = new DateTime(2019, 8, 4), NotificationDate = new DateTime(2019, 8, 5), CataloguesPostedDate = new DateTime(2019, 9, 2) };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
-							new AccreditationEntity() { SalonNumber = "2019/096", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearThisIsLife2019 },
+							new AccreditationEntity() { SalonNumber = "2019/364", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearThisIsLife2019 },
 						});
 
 						var lSynapse = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Synapse" };
@@ -6144,9 +6145,9 @@ namespace SalonServices.Migrations
 						var lCrestedGeckoLook = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Crested Gecko Look" };
 
 
-						var lSalonPacificAtlanticGreece = new SalonEntity { Name = "Pacific Atlantic (Greece)", Website = "http://www.pacificatlantic-photo.com/", Country = lCountryGreece };
+						var lSalonPacificAtlanticGreece = new SalonEntity { Name = "Pacific Atlantic - Greece", Website = "http://www.pacificatlantic-photo.com/", Country = lCountryGreece };
 
-						var lSalonYearPacificAtlanticGreece2019 = new SalonYearEntity { Name = "Pacific Atlantic (Greece)", Salon = lSalonPacificAtlanticGreece, Year = 2019, ClosingDate = new DateTime(2019, 9, 1), JudgeDate = new DateTime(2019, 9, 7), NotificationDate = new DateTime(2019, 9, 20), CataloguesPostedDate = new DateTime(2019, 10, 20), Circuit = lPacificAtlanticCircuit2019 };
+						var lSalonYearPacificAtlanticGreece2019 = new SalonYearEntity { Name = "Pacific Atlantic - Greece", Salon = lSalonPacificAtlanticGreece, Year = 2019, ClosingDate = new DateTime(2019, 9, 1), JudgeDate = new DateTime(2019, 9, 7), NotificationDate = new DateTime(2019, 9, 20), CataloguesPostedDate = new DateTime(2019, 10, 20), Circuit = lPacificAtlanticCircuit2019 };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 							new AccreditationEntity() { SalonNumber = "2019/487", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearPacificAtlanticGreece2019 },
@@ -6184,9 +6185,9 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonPacificAtlanticUsa = new SalonEntity { Name = "Pacific Atlantic (USA)", Website = "http://www.pacificatlantic-photo.com/", Country = lCountryUsa };
+						var lSalonPacificAtlanticUsa = new SalonEntity { Name = "Pacific Atlantic - USA", Website = "http://www.pacificatlantic-photo.com/", Country = lCountryUsa };
 
-						var lSalonYearPacificAtlanticUsa2019 = new SalonYearEntity { Name = "Pacific Atlantic (USA)", Salon = lSalonPacificAtlanticUsa, Year = 2019, ClosingDate = new DateTime(2019, 9, 1), JudgeDate = new DateTime(2019, 9, 7), NotificationDate = new DateTime(2019, 9, 20), CataloguesPostedDate = new DateTime(2019, 10, 20), Circuit = lPacificAtlanticCircuit2019 };
+						var lSalonYearPacificAtlanticUsa2019 = new SalonYearEntity { Name = "Pacific Atlantic - USA", Salon = lSalonPacificAtlanticUsa, Year = 2019, ClosingDate = new DateTime(2019, 9, 1), JudgeDate = new DateTime(2019, 9, 7), NotificationDate = new DateTime(2019, 9, 20), CataloguesPostedDate = new DateTime(2019, 10, 20), Circuit = lPacificAtlanticCircuit2019 };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 							new AccreditationEntity() { SalonNumber = "2019/486", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearPacificAtlanticUsa2019 },
@@ -6224,9 +6225,9 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonPacificAtlanticSingapore = new SalonEntity { Name = "Pacific Atlantic (Singapore)", Website = "http://www.pacificatlantic-photo.com/", Country = lCountrySingapore };
+						var lSalonPacificAtlanticSingapore = new SalonEntity { Name = "Pacific Atlantic - Singapore", Website = "http://www.pacificatlantic-photo.com/", Country = lCountrySingapore };
 
-						var lSalonYearPacificAtlanticSingapore2019 = new SalonYearEntity { Name = "Pacific Atlantic (Singapore)", Salon = lSalonPacificAtlanticSingapore, Year = 2019, ClosingDate = new DateTime(2019, 9, 1), JudgeDate = new DateTime(2019, 9, 7), NotificationDate = new DateTime(2019, 9, 20), CataloguesPostedDate = new DateTime(2019, 10, 20), Circuit = lPacificAtlanticCircuit2019 };
+						var lSalonYearPacificAtlanticSingapore2019 = new SalonYearEntity { Name = "Pacific Atlantic - Singapore", Salon = lSalonPacificAtlanticSingapore, Year = 2019, ClosingDate = new DateTime(2019, 9, 1), JudgeDate = new DateTime(2019, 9, 7), NotificationDate = new DateTime(2019, 9, 20), CataloguesPostedDate = new DateTime(2019, 10, 20), Circuit = lPacificAtlanticCircuit2019 };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 							new AccreditationEntity() { SalonNumber = "2019/488", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearPacificAtlanticSingapore2019 },
@@ -6542,7 +6543,7 @@ namespace SalonServices.Migrations
 						var lSalonYearCanvas2019 = new SalonYearEntity { Name = "Canvas", Salon = lSalonCanvas, Year = 2019, ClosingDate = new DateTime(2019, 9, 29), JudgeDate = new DateTime(2019, 10, 10), NotificationDate = new DateTime(2019, 10, 15), CataloguesPostedDate = new DateTime(2019, 12, 24) };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
-							new AccreditationEntity() { SalonNumber = "2019/293", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearCanvas2019 },
+							new AccreditationEntity() { SalonNumber = "2019/405", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearCanvas2019 },
 							new AccreditationEntity() { SalonNumber = "2019-370", PhotoOrganisation = lPsa, SalonYear = lSalonYearCanvas2019 },
 						});
 
@@ -6639,9 +6640,9 @@ namespace SalonServices.Migrations
 						var lCityRechargingTower = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "City Recharging Tower" };
 						var lCrestedGeckoOnStump = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Crested Gecko on Stump" };
 
-						var lSalonOlympicZeus = new SalonEntity { Name = "Zeus", Website = "https://olympicphotocircuit.com/", Country = lCountryGreece };
+						var lSalonOlympicZeus = new SalonEntity { Name = "Olympic - Zeus", Website = "https://olympicphotocircuit.com/", Country = lCountryGreece };
 
-						var lSalonYearZeus2019 = new SalonYearEntity { Name = "Zeus", Salon = lSalonOlympicZeus, Year = 2019, ClosingDate = new DateTime(2019, 10, 6), JudgeDate = new DateTime(2019, 10, 20), NotificationDate = new DateTime(2019, 11, 3), CataloguesPostedDate = new DateTime(2020, 1, 5), Circuit = lOlympicCircuit2019 };
+						var lSalonYearZeus2019 = new SalonYearEntity { Name = "Olympic - Zeus", Salon = lSalonOlympicZeus, Year = 2019, ClosingDate = new DateTime(2019, 10, 6), JudgeDate = new DateTime(2019, 10, 20), NotificationDate = new DateTime(2019, 11, 3), CataloguesPostedDate = new DateTime(2020, 1, 5), Circuit = lOlympicCircuit2019 };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 							new AccreditationEntity() { SalonNumber = "2019/476", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearZeus2019 },
@@ -6681,9 +6682,9 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonOlympicAphrodite = new SalonEntity { Name = "Aphrodite", Website = "https://olympicphotocircuit.com/", Country = lCountryGreece };
+						var lSalonOlympicAphrodite = new SalonEntity { Name = "Olympic - Aphrodite", Website = "https://olympicphotocircuit.com/", Country = lCountryGreece };
 
-						var lSalonYearAphrodite2019 = new SalonYearEntity { Name = "Aphrodite", Salon = lSalonOlympicAphrodite, Year = 2019, ClosingDate = new DateTime(2019, 10, 6), JudgeDate = new DateTime(2019, 10, 20), NotificationDate = new DateTime(2019, 11, 3), CataloguesPostedDate = new DateTime(2020, 1, 5), Circuit = lOlympicCircuit2019 };
+						var lSalonYearAphrodite2019 = new SalonYearEntity { Name = "Olympic - Aphrodite", Salon = lSalonOlympicAphrodite, Year = 2019, ClosingDate = new DateTime(2019, 10, 6), JudgeDate = new DateTime(2019, 10, 20), NotificationDate = new DateTime(2019, 11, 3), CataloguesPostedDate = new DateTime(2020, 1, 5), Circuit = lOlympicCircuit2019 };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 							new AccreditationEntity() { SalonNumber = "2019/477", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearAphrodite2019 },
@@ -6723,9 +6724,9 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonOlympicHermes = new SalonEntity { Name = "Hermes", Website = "https://olympicphotocircuit.com/", Country = lCountryGreece };
+						var lSalonOlympicHermes = new SalonEntity { Name = "Olympic - Hermes", Website = "https://olympicphotocircuit.com/", Country = lCountryGreece };
 
-						var lSalonYearHermes2019 = new SalonYearEntity { Name = "Hermes", Salon = lSalonOlympicHermes, Year = 2019, ClosingDate = new DateTime(2019, 10, 6), JudgeDate = new DateTime(2019, 10, 20), NotificationDate = new DateTime(2019, 11, 3), CataloguesPostedDate = new DateTime(2020, 1, 5), Circuit = lOlympicCircuit2019 };
+						var lSalonYearHermes2019 = new SalonYearEntity { Name = "Olympic - Hermes", Salon = lSalonOlympicHermes, Year = 2019, ClosingDate = new DateTime(2019, 10, 6), JudgeDate = new DateTime(2019, 10, 20), NotificationDate = new DateTime(2019, 11, 3), CataloguesPostedDate = new DateTime(2020, 1, 5), Circuit = lOlympicCircuit2019 };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 							new AccreditationEntity() { SalonNumber = "2019/478", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearHermes2019 },
@@ -6765,9 +6766,9 @@ namespace SalonServices.Migrations
 							},
 						});
 
-						var lSalonOlympicApollo = new SalonEntity { Name = "Apollo", Website = "https://olympicphotocircuit.com/", Country = lCountryGreece };
+						var lSalonOlympicApollo = new SalonEntity { Name = "Olympic - Apollo", Website = "https://olympicphotocircuit.com/", Country = lCountryGreece };
 
-						var lSalonYearApollo2019 = new SalonYearEntity { Name = "Apollo", Salon = lSalonOlympicApollo, Year = 2019, ClosingDate = new DateTime(2019, 10, 6), JudgeDate = new DateTime(2019, 10, 20), NotificationDate = new DateTime(2019, 11, 3), CataloguesPostedDate = new DateTime(2020, 1, 5), Circuit = lOlympicCircuit2019 };
+						var lSalonYearApollo2019 = new SalonYearEntity { Name = "Olympic - Apollo", Salon = lSalonOlympicApollo, Year = 2019, ClosingDate = new DateTime(2019, 10, 6), JudgeDate = new DateTime(2019, 10, 20), NotificationDate = new DateTime(2019, 11, 3), CataloguesPostedDate = new DateTime(2020, 1, 5), Circuit = lOlympicCircuit2019 };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 							new AccreditationEntity() { SalonNumber = "2019/479", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearApollo2019 },
@@ -6915,9 +6916,9 @@ namespace SalonServices.Migrations
 									var lVictoryLap = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Victory Lap" };
 									var lToDreamOfCalmerShores = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "To Dream of Calmer Shores" };
 
-									var lSalonCccIndonesia = new SalonEntity { Name = "CCC Indonesia", Website = "http://www.ccc-photo.de", Country = lCountryIndonesia };
+									var lSalonCccIndonesia = new SalonEntity { Name = "CCC - Indonesia", Website = "http://www.ccc-photo.de", Country = lCountryIndonesia };
 
-									var lSalonYearCccIndonesia2019 = new SalonYearEntity { Name = "CCC Indonesia", Salon = lSalonCccIndonesia, Year = 2019, ClosingDate = new DateTime(2019, 10, 21), JudgeDate = new DateTime(2019, 11, 3), NotificationDate = new DateTime(2019, 11, 8), CataloguesPostedDate = new DateTime(2019, 12, 19), Circuit = lCrossContinentalCircuit2019 };
+									var lSalonYearCccIndonesia2019 = new SalonYearEntity { Name = "CCC - Indonesia", Salon = lSalonCccIndonesia, Year = 2019, ClosingDate = new DateTime(2019, 10, 21), JudgeDate = new DateTime(2019, 11, 3), NotificationDate = new DateTime(2019, 11, 8), CataloguesPostedDate = new DateTime(2019, 12, 19), Circuit = lCrossContinentalCircuit2019 };
 
 									lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 										new AccreditationEntity() { SalonNumber = "2019/466", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearCccIndonesia2019 },
@@ -6930,7 +6931,7 @@ namespace SalonServices.Migrations
 
 									lContext.Submissions.AddRange(new List<SubmissionEntity> {
 										new SubmissionEntity(){
-											IsJudged = false,
+											IsJudged = true,
 											EntryCost = 6.17M,
 											SalonYear = lSalonYearCccIndonesia2019,
 											EntryDate = new DateTime(2019, 10, 13),
@@ -6938,11 +6939,11 @@ namespace SalonServices.Migrations
 											Entries = new List<CompetitionEntryEntity> {
 
 												new CompetitionEntryEntity { Section = lSalonYearCccIndonesia2019Colour, Image = lTheHallOfGateways, IsAwarded = false, IsAccepted = false, Score=0 },
-												new CompetitionEntryEntity { Section = lSalonYearCccIndonesia2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = false, Score= 0},
-												new CompetitionEntryEntity { Section = lSalonYearCccIndonesia2019Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = false, Score=0 },
+												new CompetitionEntryEntity { Section = lSalonYearCccIndonesia2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = true, Score= 0},
+												new CompetitionEntryEntity { Section = lSalonYearCccIndonesia2019Colour, Image = lTheSeamstressTakesHerFee, IsAwarded = false, IsAccepted = true, Score=0 },
 												new CompetitionEntryEntity { Section = lSalonYearCccIndonesia2019Colour, Image = lLeekFlower, IsAwarded = false, IsAccepted = false, Score=0 },
-												new CompetitionEntryEntity { Section = lSalonYearCccIndonesia2019Mono, Image = lMirrorOfReminiscence, IsAwarded = false, IsAccepted = false, Score=0 },
-												new CompetitionEntryEntity { Section = lSalonYearCccIndonesia2019Mono, Image = lContemplationByStarlight, IsAwarded = false, IsAccepted = false, Score= 0},
+												new CompetitionEntryEntity { Section = lSalonYearCccIndonesia2019Mono, Image = lMirrorOfReminiscence, IsAwarded = false, IsAccepted = true, Score=0 },
+												new CompetitionEntryEntity { Section = lSalonYearCccIndonesia2019Mono, Image = lContemplationByStarlight, IsAwarded = false, IsAccepted = true, Score= 0},
 												new CompetitionEntryEntity { Section = lSalonYearCccIndonesia2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = false, Score=0 },
 												new CompetitionEntryEntity { Section = lSalonYearCccIndonesia2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=0 },
 												new CompetitionEntryEntity { Section = lSalonYearCccIndonesia2019Movement, Image = lVictoryLap, IsAwarded = false, IsAccepted = false, Score=0 },
@@ -6954,9 +6955,9 @@ namespace SalonServices.Migrations
 										},
 									});
 
-									var lSalonCccSouthAfrica= new SalonEntity { Name = "CCC South Africa", Website = "http://www.ccc-photo.de", Country = lCountrySouthAfrica };
+									var lSalonCccSouthAfrica= new SalonEntity { Name = "CCC - South Africa", Website = "http://www.ccc-photo.de", Country = lCountrySouthAfrica };
 
-									var lSalonYearCccSouthAfrica2019 = new SalonYearEntity { Name = "CCC South Africa", Salon = lSalonCccSouthAfrica, Year = 2019, ClosingDate = new DateTime(2019, 10, 21), JudgeDate = new DateTime(2019, 11, 3), NotificationDate = new DateTime(2019, 11, 8), CataloguesPostedDate = new DateTime(2019, 12, 19), Circuit = lCrossContinentalCircuit2019 };
+									var lSalonYearCccSouthAfrica2019 = new SalonYearEntity { Name = "CCC - South Africa", Salon = lSalonCccSouthAfrica, Year = 2019, ClosingDate = new DateTime(2019, 10, 21), JudgeDate = new DateTime(2019, 11, 3), NotificationDate = new DateTime(2019, 11, 8), CataloguesPostedDate = new DateTime(2019, 12, 19), Circuit = lCrossContinentalCircuit2019 };
 
 									lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 										new AccreditationEntity() { SalonNumber = "2019/467", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearCccSouthAfrica2019 },
@@ -6969,21 +6970,21 @@ namespace SalonServices.Migrations
 
 									lContext.Submissions.AddRange(new List<SubmissionEntity> {
 										new SubmissionEntity(){
-											IsJudged = false,
+											IsJudged = true,
 											EntryCost = 6.18M,
 											SalonYear = lSalonYearCccSouthAfrica2019,
 											EntryDate = new DateTime(2019, 10, 13),
 											Person = lTim,
 											Entries = new List<CompetitionEntryEntity> {
 
-												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Colour, Image = lTheHallOfGateways, IsAwarded = false, IsAccepted = false, Score=0 },
+												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Colour, Image = lTheHallOfGateways, IsAwarded = false, IsAccepted = true, Score=0 },
 												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = false, Score= 0},
-												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Colour, Image = lTheSeamstressTakesHerFee, IsAwarded = false, IsAccepted = true, Score=0 },
 												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Colour, Image = lLeekFlower, IsAwarded = false, IsAccepted = false, Score=0 },
-												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Mono, Image = lMirrorOfReminiscence, IsAwarded = false, IsAccepted = false, Score=0 },
-												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Mono, Image = lContemplationByStarlight, IsAwarded = false, IsAccepted = false, Score= 0},
+												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Mono, Image = lMirrorOfReminiscence, IsAwarded = false, IsAccepted = true, Score=0 },
+												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Mono, Image = lContemplationByStarlight, IsAwarded = false, IsAccepted = true, Score= 0},
 												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = false, Score=0 },
-												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=0 },
+												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = true, Score=0 },
 												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Movement, Image = lVictoryLap, IsAwarded = false, IsAccepted = false, Score=0 },
 												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Movement, Image = lEmergency, IsAwarded = false, IsAccepted = false, Score= 0},
 												new CompetitionEntryEntity { Section = lSalonYearCccSouthAfrica2019Movement, Image = lTourDeYorkshire2019, IsAwarded = false, IsAccepted = false, Score=0 },
@@ -6993,9 +6994,9 @@ namespace SalonServices.Migrations
 										},
 									});
 
-									var lSalonCccGermany= new SalonEntity { Name = "CCC Germany", Website = "http://www.ccc-photo.de", Country = lCountryIndonesia };
+									var lSalonCccGermany= new SalonEntity { Name = "CCC - Germany", Website = "http://www.ccc-photo.de", Country = lCountryGermany };
 
-									var lSalonYearCccGermany2019 = new SalonYearEntity { Name = "CCC Germany", Salon = lSalonCccGermany, Year = 2019, ClosingDate = new DateTime(2019, 10, 21), JudgeDate = new DateTime(2019, 11, 3), NotificationDate = new DateTime(2019, 11, 8), CataloguesPostedDate = new DateTime(2019, 12, 19), Circuit = lCrossContinentalCircuit2019 };
+									var lSalonYearCccGermany2019 = new SalonYearEntity { Name = "CCC - Germany", Salon = lSalonCccGermany, Year = 2019, ClosingDate = new DateTime(2019, 10, 21), JudgeDate = new DateTime(2019, 11, 3), NotificationDate = new DateTime(2019, 11, 8), CataloguesPostedDate = new DateTime(2019, 12, 19), Circuit = lCrossContinentalCircuit2019 };
 
 									lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 										new AccreditationEntity() { SalonNumber = "2019/468", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearCccGermany2019 },
@@ -7008,21 +7009,21 @@ namespace SalonServices.Migrations
 
 									lContext.Submissions.AddRange(new List<SubmissionEntity> {
 										new SubmissionEntity(){
-											IsJudged = false,
+											IsJudged = true,
 											EntryCost = 6.18M,
 											SalonYear = lSalonYearCccGermany2019,
 											EntryDate = new DateTime(2019, 10, 13),
 											Person = lTim,
 											Entries = new List<CompetitionEntryEntity> {
 
-												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Colour, Image = lTheHallOfGateways, IsAwarded = false, IsAccepted = false, Score=0 },
-												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = false, Score= 0},
-												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = false, Score=0 },
+												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Colour, Image = lTheHallOfGateways, IsAwarded = false, IsAccepted = true, Score=0 },
+												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = true, Score= 0},
+									new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Colour, Image = lTheSeamstressTakesHerFee, IsAwarded = false, IsAccepted = false, Score=0 },
 												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Colour, Image = lLeekFlower, IsAwarded = false, IsAccepted = false, Score=0 },
 												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Mono, Image = lMirrorOfReminiscence, IsAwarded = false, IsAccepted = false, Score=0 },
-												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Mono, Image = lContemplationByStarlight, IsAwarded = false, IsAccepted = false, Score= 0},
-												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = false, Score=0 },
-												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=0 },
+												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Mono, Image = lContemplationByStarlight, IsAwarded = false, IsAccepted = true, Score= 0},
+												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = true, Score=0 },
+												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = true, Score=0 },
 												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Movement, Image = lVictoryLap, IsAwarded = false, IsAccepted = false, Score=0 },
 												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Movement, Image = lEmergency, IsAwarded = false, IsAccepted = false, Score= 0},
 												new CompetitionEntryEntity { Section = lSalonYearCccGermany2019Movement, Image = lTourDeYorkshire2019, IsAwarded = false, IsAccepted = false, Score=0 },
@@ -7045,9 +7046,9 @@ namespace SalonServices.Migrations
 						var lSkyward = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Skyward" };
 						var lTowersInTheSky = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Towers in the Sky" };
 
-						var lSalonClickTirna = new SalonEntity { Name = "Tirna", Website = "https://click.photofenix.com/", Country = lCountryAlbania};
+						var lSalonClickTirna = new SalonEntity { Name = "Click - Tirna", Website = "https://click.photofenix.com/", Country = lCountryAlbania};
 
-						var lSalonYearClickTirna2019 = new SalonYearEntity { Name = "Tirna", Salon = lSalonClickTirna, Year = 2019, ClosingDate = new DateTime(2019, 11, 10), JudgeDate = new DateTime(2019, 11, 30), NotificationDate = new DateTime(2019, 12, 5), CataloguesPostedDate = new DateTime(2020, 1, 20), Circuit = lPhotoClickCircuit2019 };
+						var lSalonYearClickTirna2019 = new SalonYearEntity { Name = "Click - Tirna", Salon = lSalonClickTirna, Year = 2019, ClosingDate = new DateTime(2019, 11, 10), JudgeDate = new DateTime(2019, 11, 30), NotificationDate = new DateTime(2019, 12, 5), CataloguesPostedDate = new DateTime(2020, 1, 20), Circuit = lPhotoClickCircuit2019 };
 
 						lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 							new AccreditationEntity() { SalonNumber = "2019/284", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearClickTirna2019 },
@@ -7060,34 +7061,34 @@ namespace SalonServices.Migrations
 
 						lContext.Submissions.AddRange(new List<SubmissionEntity> {
 							new SubmissionEntity(){
-								IsJudged = false,
+								IsJudged = true,
 								EntryCost = 8.98M,
 								SalonYear = lSalonYearClickTirna2019,
 								EntryDate = new DateTime(2019, 11, 3),
 								Person = lTim,
 								Entries = new List<CompetitionEntryEntity> {
 
-									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Colour, Image = lAWalkWithTheMoon, IsAwarded = false, IsAccepted = false, Score=0 },
-									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Colour, Image = lTranquility, IsAwarded = false, IsAccepted = false, Score= 0},
-									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = false, Score=0 },
-									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = false, Score=0 },
-									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = false, Score=0 },
-									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Mono, Image = lSkyward, IsAwarded = false, IsAccepted = false, Score= 0},
-									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = false, Score=0 },
-									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=0 },
-									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Nature, Image = lCrestedGeckoTongue, IsAwarded = false, IsAccepted = false, Score=0 },
-									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Nature, Image = lCrestedGeckoOnStump, IsAwarded = false, IsAccepted = false, Score= 0},
-									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Nature, Image = lMossyFrogOnBranch, IsAwarded = false, IsAccepted = false, Score=0 },
-									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Nature, Image = lPeacockTreeFrogTrio, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Colour, Image = lAWalkWithTheMoon, IsAwarded = false, IsAccepted = true, Score=21 },
+									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Colour, Image = lTranquility, IsAwarded = false, IsAccepted = false, Score= 18},
+									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = false, Score=18 },
+									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = false, Score=18 },
+									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = false, Score=16 },
+									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Mono, Image = lSkyward, IsAwarded = false, IsAccepted = false, Score= 17},
+									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = false, Score=16 },
+									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = true, Score=21 },
+									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Nature, Image = lCrestedGeckoTongue, IsAwarded = false, IsAccepted = false, Score=18 },
+									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Nature, Image = lCrestedGeckoOnStump, IsAwarded = false, IsAccepted = false, Score= 16},
+									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Nature, Image = lMossyFrogOnBranch, IsAwarded = false, IsAccepted = false, Score=18 },
+									new CompetitionEntryEntity { Section = lSalonYearClickTirna2019Nature, Image = lPeacockTreeFrogTrio, IsAwarded = false, IsAccepted = true, Score=19 },
 
 								},
 							},
 						});
 
 
-							var lSalonClickKorce = new SalonEntity { Name = "Korce", Website = "https://click.photofenix.com/", Country = lCountryAlbania};
+							var lSalonClickKorce = new SalonEntity { Name = "Click - Korce", Website = "https://click.photofenix.com/", Country = lCountryAlbania};
 
-							var lSalonYearClickKorce2019 = new SalonYearEntity { Name = "Korce", Salon = lSalonClickTirna, Year = 2019, ClosingDate = new DateTime(2019, 11, 10), JudgeDate = new DateTime(2019, 11, 30), NotificationDate = new DateTime(2019, 12, 5), CataloguesPostedDate = new DateTime(2020, 1, 20), Circuit = lPhotoClickCircuit2019 };
+							var lSalonYearClickKorce2019 = new SalonYearEntity { Name = "Click - Korce", Salon = lSalonClickTirna, Year = 2019, ClosingDate = new DateTime(2019, 11, 10), JudgeDate = new DateTime(2019, 11, 30), NotificationDate = new DateTime(2019, 12, 5), CataloguesPostedDate = new DateTime(2020, 1, 20), Circuit = lPhotoClickCircuit2019 };
 
 							lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 								new AccreditationEntity() { SalonNumber = "2019/285", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearClickKorce2019 },
@@ -7100,33 +7101,33 @@ namespace SalonServices.Migrations
 
 							lContext.Submissions.AddRange(new List<SubmissionEntity> {
 								new SubmissionEntity(){
-									IsJudged = false,
+									IsJudged = true,
 									EntryCost = 8.98M,
 									SalonYear = lSalonYearClickKorce2019,
 									EntryDate = new DateTime(2019, 11, 3),
 									Person = lTim,
 									Entries = new List<CompetitionEntryEntity> {
 
-										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Colour, Image = lAWalkWithTheMoon, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Colour, Image = lTranquility, IsAwarded = false, IsAccepted = false, Score= 0},
-										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Mono, Image = lSkyward, IsAwarded = false, IsAccepted = false, Score= 0},
-										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Nature, Image = lCrestedGeckoTongue, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Nature, Image = lCrestedGeckoOnStump, IsAwarded = false, IsAccepted = false, Score= 0},
-										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Nature, Image = lMossyFrogOnBranch, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Nature, Image = lPeacockTreeFrogTrio, IsAwarded = false, IsAccepted = false, Score=0 },
+									new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Colour, Image = lAWalkWithTheMoon, IsAwarded = false, IsAccepted = true, Score=22 },
+									new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Colour, Image = lTranquility, IsAwarded = true, AwardDetails="PSA HM", IsAccepted = true, Score=23},
+										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = false, Score=19 },
+										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = false, Score=20 },
+										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = false, Score=18 },
+										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Mono, Image = lSkyward, IsAwarded = false, IsAccepted = true, Score= 21},
+										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = false, Score=19 },
+										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=20 },
+										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Nature, Image = lCrestedGeckoTongue, IsAwarded = true, AwardDetails="PSA HM", IsAccepted = true, Score=23 },
+										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Nature, Image = lCrestedGeckoOnStump, IsAwarded = false, IsAccepted = true, Score= 21},
+										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Nature, Image = lMossyFrogOnBranch, IsAwarded = false, IsAccepted = true, Score=21 },
+										new CompetitionEntryEntity { Section = lSalonYearClickKorce2019Nature, Image = lPeacockTreeFrogTrio, IsAwarded = false, IsAccepted = true, Score=22 },
 
 									},
 								},
 							});
 
-							var lSalonClickUlcinj = new SalonEntity { Name = "Ulcinj", Website = "https://click.photofenix.com/", Country = lCountryMontenegro};
+							var lSalonClickUlcinj = new SalonEntity { Name = "Click - Ulcinj", Website = "https://click.photofenix.com/", Country = lCountryMontenegro};
 
-							var lSalonYearClickUlcinj2019 = new SalonYearEntity { Name = "Ulcinj", Salon = lSalonClickTirna, Year = 2019, ClosingDate = new DateTime(2019, 11, 10), JudgeDate = new DateTime(2019, 11, 30), NotificationDate = new DateTime(2019, 12, 5), CataloguesPostedDate = new DateTime(2020, 1, 20), Circuit = lPhotoClickCircuit2019 };
+							var lSalonYearClickUlcinj2019 = new SalonYearEntity { Name = "Click - Ulcinj", Salon = lSalonClickUlcinj, Year = 2019, ClosingDate = new DateTime(2019, 11, 10), JudgeDate = new DateTime(2019, 11, 30), NotificationDate = new DateTime(2019, 12, 5), CataloguesPostedDate = new DateTime(2020, 1, 20), Circuit = lPhotoClickCircuit2019 };
 
 							lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 								new AccreditationEntity() { SalonNumber = "2019/286", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearClickUlcinj2019 },
@@ -7139,33 +7140,33 @@ namespace SalonServices.Migrations
 
 							lContext.Submissions.AddRange(new List<SubmissionEntity> {
 								new SubmissionEntity(){
-									IsJudged = false,
+									IsJudged = true,
 									EntryCost = 8.98M,
 									SalonYear = lSalonYearClickUlcinj2019,
 									EntryDate = new DateTime(2019, 11, 3),
 									Person = lTim,
 									Entries = new List<CompetitionEntryEntity> {
 
-										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Colour, Image = lAWalkWithTheMoon, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Colour, Image = lTranquility, IsAwarded = false, IsAccepted = false, Score= 0},
-										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Mono, Image = lSkyward, IsAwarded = false, IsAccepted = false, Score= 0},
-										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Nature, Image = lCrestedGeckoTongue, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Nature, Image = lCrestedGeckoOnStump, IsAwarded = false, IsAccepted = false, Score= 0},
-										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Nature, Image = lMossyFrogOnBranch, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Nature, Image = lPeacockTreeFrogTrio, IsAwarded = false, IsAccepted = false, Score=0 },
+										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Colour, Image = lAWalkWithTheMoon, IsAwarded = false, IsAccepted = false, Score=18 },
+										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Colour, Image = lTranquility, IsAwarded = false, IsAccepted = false, Score= 18},
+										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = false, Score=16 },
+										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = false, Score=18 },
+										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = false, Score=17 },
+										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Mono, Image = lSkyward, IsAwarded = false, IsAccepted = false, Score= 13},
+										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = false, Score=16 },
+										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=17 },
+										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Nature, Image = lCrestedGeckoTongue, IsAwarded = false, IsAccepted = true, Score=20 },
+										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Nature, Image = lCrestedGeckoOnStump, IsAwarded = false, IsAccepted = false, Score= 16},
+										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Nature, Image = lMossyFrogOnBranch, IsAwarded = false, IsAccepted = true, Score=19 },
+										new CompetitionEntryEntity { Section = lSalonYearClickUlcinj2019Nature, Image = lPeacockTreeFrogTrio, IsAwarded = false, IsAccepted = true, Score=19 },
 
 									},
 								},
 							});
 
-							var lSalonClickBar = new SalonEntity { Name = "Bar", Website = "https://click.photofenix.com/", Country = lCountryMontenegro};
+							var lSalonClickBar = new SalonEntity { Name = "Click - Bar", Website = "https://click.photofenix.com/", Country = lCountryMontenegro};
 
-							var lSalonYearClickBar2019 = new SalonYearEntity { Name = "Bar", Salon = lSalonClickTirna, Year = 2019, ClosingDate = new DateTime(2019, 11, 10), JudgeDate = new DateTime(2019, 11, 30), NotificationDate = new DateTime(2019, 12, 5), CataloguesPostedDate = new DateTime(2020, 1, 20), Circuit = lPhotoClickCircuit2019 };
+							var lSalonYearClickBar2019 = new SalonYearEntity { Name = "Click - Bar", Salon = lSalonClickBar, Year = 2019, ClosingDate = new DateTime(2019, 11, 10), JudgeDate = new DateTime(2019, 11, 30), NotificationDate = new DateTime(2019, 12, 5), CataloguesPostedDate = new DateTime(2020, 1, 20), Circuit = lPhotoClickCircuit2019 };
 
 							lContext.Accreditations.AddRange(new List<AccreditationEntity> {
 								new AccreditationEntity() { SalonNumber = "2019/287", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearClickBar2019 },
@@ -7178,30 +7179,326 @@ namespace SalonServices.Migrations
 
 							lContext.Submissions.AddRange(new List<SubmissionEntity> {
 								new SubmissionEntity(){
-									IsJudged = false,
+									IsJudged = true,
 									EntryCost = 8.98M,
 									SalonYear = lSalonYearClickBar2019,
 									EntryDate = new DateTime(2019, 11, 3),
 									Person = lTim,
 									Entries = new List<CompetitionEntryEntity> {
 
-										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Colour, Image = lAWalkWithTheMoon, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Colour, Image = lTranquility, IsAwarded = false, IsAccepted = false, Score= 0},
-										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Mono, Image = lSkyward, IsAwarded = false, IsAccepted = false, Score= 0},
-										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Nature, Image = lCrestedGeckoTongue, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Nature, Image = lCrestedGeckoOnStump, IsAwarded = false, IsAccepted = false, Score= 0},
-										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Nature, Image = lMossyFrogOnBranch, IsAwarded = false, IsAccepted = false, Score=0 },
-										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Nature, Image = lPeacockTreeFrogTrio, IsAwarded = false, IsAccepted = false, Score=0 },
+										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Colour, Image = lAWalkWithTheMoon, IsAwarded = false, IsAccepted = false, Score=16 },
+										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Colour, Image = lTranquility, IsAwarded = false, IsAccepted = false, Score= 18},
+										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = false, Score=17 },
+										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = true, Score=19 },
+										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = false, Score=15 },
+										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Mono, Image = lSkyward, IsAwarded = false, IsAccepted = false, Score= 13},
+										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = false, Score=13 },
+										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=17 },
+										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Nature, Image = lCrestedGeckoTongue, IsAwarded = false, IsAccepted = false, Score=18 },
+										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Nature, Image = lCrestedGeckoOnStump, IsAwarded = false, IsAccepted = false, Score= 18},
+										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Nature, Image = lMossyFrogOnBranch, IsAwarded = false, IsAccepted = false, Score=18 },
+										new CompetitionEntryEntity { Section = lSalonYearClickBar2019Nature, Image = lPeacockTreeFrogTrio, IsAwarded = false, IsAccepted = true, Score=20 },
 
 									},
 								},
 							});
 
+							// Bulgaria 2019
+
+						var lSalonBulgaria = new SalonEntity { Name = "Bulgaria", Website = "http://photocontestbg.org", Country = lCountryBulgaria };
+
+							var lSalonYearBulgaria2019 = new SalonYearEntity { Name = "Bulgaria", Salon = lSalonBulgaria, Year = 2019, ClosingDate = new DateTime(2019, 12, 1), JudgeDate = new DateTime(2019, 12, 11), NotificationDate = new DateTime(2019, 12, 19), CataloguesPostedDate = new DateTime(2019, 12, 19) };
+
+							lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+										new AccreditationEntity() { SalonNumber = "2019/520", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearBulgaria2019 },
+						        new AccreditationEntity() { SalonNumber = "2019-508", PhotoOrganisation = lPsa, SalonYear = lSalonYearBulgaria2019 },
+										new AccreditationEntity() { SalonNumber = "L190150", PhotoOrganisation = lGpu, SalonYear = lSalonYearBulgaria2019 },
+							});
+
+							var lSalonYearPhotoBulgaria2019Colour = new SectionEntity() { SalonYear = lSalonYearBulgaria2019, SectionType = lSectionTypeColourPdi };
+							var lSalonYearPhotoBulgaria2019Mono = new SectionEntity() { SalonYear = lSalonYearBulgaria2019, SectionType = lSectionTypeMonoPdi };
+							var lSalonYearPhotoBulgaria2019Nature = new SectionEntity() { SalonYear = lSalonYearBulgaria2019, SectionType = lSectionTypeNaturePdi };
+
+
+							lContext.Submissions.AddRange(new List<SubmissionEntity> {
+						new SubmissionEntity(){
+							IsJudged = true,
+							EntryCost = 19.79M,
+								SalonYear = lSalonYearBulgaria2019,
+							EntryDate = new DateTime(2019, 11, 9),
+							Person = lTim,
+							Entries = new List<CompetitionEntryEntity> {
+
+								new CompetitionEntryEntity { Section = lSalonYearPhotoBulgaria2019Colour, Image = lLoveLetters, IsAwarded = false, IsAccepted = false, Score=21 },
+								new CompetitionEntryEntity { Section = lSalonYearPhotoBulgaria2019Colour, Image = lTranquility, IsAwarded = false, IsAccepted = false, Score= 21},
+								new CompetitionEntryEntity { Section = lSalonYearPhotoBulgaria2019Colour, Image = lLeekFlower, IsAwarded = false, IsAccepted = true, Score=23 },
+								new CompetitionEntryEntity { Section = lSalonYearPhotoBulgaria2019Colour, Image = lAWalkWithTheMoon, IsAwarded = false, IsAccepted = false, Score=21 },
+								new CompetitionEntryEntity { Section = lSalonYearPhotoBulgaria2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = false, Score=20 },
+								new CompetitionEntryEntity { Section = lSalonYearPhotoBulgaria2019Mono, Image = lSkyward, IsAwarded = false, IsAccepted = false, Score= 21},
+								new CompetitionEntryEntity { Section = lSalonYearPhotoBulgaria2019Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = false, Score=21},
+								new CompetitionEntryEntity { Section = lSalonYearPhotoBulgaria2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=20 },
+									new CompetitionEntryEntity { Section = lSalonYearPhotoBulgaria2019Nature, Image = lMossyFrogOnBranch, IsAwarded=true, AwardDetails="Salon Gold",  IsAccepted = true, Score=27 },
+									new CompetitionEntryEntity { Section = lSalonYearPhotoBulgaria2019Nature, Image = lCrestedGeckoOnStump, IsAwarded = false, IsAccepted = true, Score= 23},
+									new CompetitionEntryEntity { Section = lSalonYearPhotoBulgaria2019Nature, Image = lRedEyedGreenTreeFrog, IsAwarded = false, IsAccepted = true, Score=23 },
+								new CompetitionEntryEntity { Section = lSalonYearPhotoBulgaria2019Nature, Image = lPeacockTreeFrogTrio, IsAwarded = false, IsAccepted = true, Score=25 },
+
+											},
+										},
+									});
+
+
+
+									// Tramontana 2019
+ 								 var lSalonYearTramontana2019 = new SalonYearEntity { Name = "Tramontana", Salon = lSalonTramontana, Year = 2019, ClosingDate = new DateTime(2019, 10, 27), JudgeDate = new DateTime(2019, 11, 7), NotificationDate = new DateTime(2019, 11, 12), CataloguesPostedDate = new DateTime(2019, 11, 12) };
+
+									lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+												new AccreditationEntity() { SalonNumber = "2019/502", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearTramontana2019 },
+												new AccreditationEntity() { SalonNumber = "2019-461", PhotoOrganisation = lPsa, SalonYear = lSalonYearTramontana2019 },
+									});
+
+									var lSalonYearPhotoTramontana2019Colour = new SectionEntity() { SalonYear = lSalonYearTramontana2019, SectionType = lSectionTypeColourPdi };
+									var lSalonYearPhotoTramontana2019Mono = new SectionEntity() { SalonYear = lSalonYearTramontana2019, SectionType = lSectionTypeMonoPdi };
+									var lSalonYearPhotoTramontana2019Nature = new SectionEntity() { SalonYear = lSalonYearTramontana2019, SectionType = lSectionTypeNaturePdi };
+									var lSalonYearPhotoTramontana2019People = new SectionEntity() { SalonYear = lSalonYearTramontana2019, SectionType = lSectionTypePeoplePdi };
+
+
+									lContext.Submissions.AddRange(new List<SubmissionEntity> {
+								new SubmissionEntity(){
+									IsJudged = true,
+									EntryCost = 17.59M,
+										SalonYear = lSalonYearTramontana2019,
+									EntryDate = new DateTime(2019, 10, 14),
+									Person = lTim,
+									Entries = new List<CompetitionEntryEntity> {
+
+										new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019Colour, Image = lTheSeamstressTakesHerFee, IsAwarded = false, IsAccepted = false, Score=18 },
+									new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = false, Score= 14 },
+										new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019Colour, Image = lToDreamOfCalmerShores, IsAwarded = false, IsAccepted = false, Score=13 },
+										new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019Colour, Image = lTheHallOfGateways, IsAwarded = false, IsAccepted = false, Score=13 },
+										new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=16 },
+										new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019Mono, Image = lMirrorOfReminiscence, IsAwarded = false, IsAccepted = false, Score= 17},
+										new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019Mono, Image = lContemplationByStarlight, IsAwarded = false, IsAccepted = false, Score=18 },
+										new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = false, Score=13 },
+										new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019Nature, Image = lCrestedGeckoOnStump, IsAwarded = true, AwardDetails="PC Perasto Praise", IsAccepted = true, Score=22 },
+									new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019Nature, Image = lRoughFrilledTreeFrogOnFlower, IsAwarded = false, IsAccepted = false, Score= 16 },
+										new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019Nature, Image = lMossyFrogOnBranch, IsAwarded = false, IsAccepted = false, Score=17 },
+										new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019Nature, Image = lPeacockTreeFrogTrio, IsAwarded = false, IsAccepted = false, Score=19 },
+										new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019People, Image = lJilted, IsAwarded = false, IsAccepted = true, Score=20 },
+										new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019People, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = true, Score= 19},
+										new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019People, Image = lEngineDriver, IsAwarded = false, IsAccepted = false, Score=16 },
+										new CompetitionEntryEntity { Section = lSalonYearPhotoTramontana2019People, Image = lByLamplight, IsAwarded = false, IsAccepted = false, Score=16 },
+
+													},
+												},
+											});
+
+
+											// Autumn Circuit 2019
+											var lPhotoAutumnCircuit2019 = new CircuitEntity() { Name = "Autumn Circuit" };
+
+											lContext.Circuits.AddRange(new List<CircuitEntity> {
+												lPhotoAutumnCircuit2019,
+											});
+
+						var lMarbledTreeFrog = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Marbled Tree Frog" };
+						var lStepsOfTheMoon = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Stesp of the Moon" };
+						var lVictorianTraveller = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Victorian Traveller" };
+						var lRailDelay = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Rail Delay" };
+						var lSolentSunset = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Solent Sunset" };
+						var lAlhambraComplex = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Alhambra Complex" };
+						var lAlienEncounter = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Alien Encounter" };
+
+
+												var lSalonAutumnElema = new SalonEntity { Name = "Autumn - Elema", Website = "https://www.exhibitions.photo/", Country = lCountryMacedonia};
+
+												var lSalonYearAutumnElema2019 = new SalonYearEntity { Name = "Autumn - Elema", Salon = lSalonAutumnElema, Year = 2019, ClosingDate = new DateTime(2019, 11, 24), JudgeDate = new DateTime(2019, 12, 5), NotificationDate = new DateTime(2019, 12, 10), CataloguesPostedDate = new DateTime(2020, 2, 18), Circuit = lPhotoAutumnCircuit2019 };
+
+												lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+													new AccreditationEntity() { SalonNumber = "2019/554", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearAutumnElema2019 },
+													new AccreditationEntity() { SalonNumber = "2019-500", PhotoOrganisation = lPsa, SalonYear = lSalonYearAutumnElema2019 },
+												});
+
+												var lSalonYearAutumnElema2019Colour = new SectionEntity() { SalonYear = lSalonYearAutumnElema2019, SectionType = lSectionTypeColourPdi };
+												var lSalonYearAutumnElema2019Mono = new SectionEntity() { SalonYear = lSalonYearAutumnElema2019, SectionType = lSectionTypeMonoPdi };
+												var lSalonYearAutumnElema2019Nature = new SectionEntity() { SalonYear = lSalonYearAutumnElema2019, SectionType = lSectionTypeNaturePdi };
+												var lSalonYearAutumnElema2019People = new SectionEntity() { SalonYear = lSalonYearAutumnElema2019, SectionType = lSectionTypePeoplePdi };
+												var lSalonYearAutumnElema2019Travel = new SectionEntity() { SalonYear = lSalonYearAutumnElema2019, SectionType = lSectionTypeTravelPdi };
+
+												lContext.Submissions.AddRange(new List<SubmissionEntity> {
+													new SubmissionEntity(){
+														IsJudged = true,
+														EntryCost = 13.38M,
+														SalonYear = lSalonYearAutumnElema2019,
+														EntryDate = new DateTime(2019, 11, 20),
+														Person = lTim,
+														Entries = new List<CompetitionEntryEntity> {
+
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Colour, Image = lTranquility, IsAwarded = false, IsAccepted = false, Score=15 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Colour, Image = lAlienEncounter, IsAwarded = false, IsAccepted = false, Score= 17},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Colour, Image = lAWalkWithTheMoon, IsAwarded = false, IsAccepted = false, Score=16 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Colour, Image = lSunflower, IsAwarded = false, IsAccepted = false, Score=14 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Nature, Image = lRedEyedGreenTreeFrog, IsAwarded = false, IsAccepted = false, Score=19 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Nature, Image = lCrestedGeckoTongue, IsAwarded = false, IsAccepted = false, Score= 18},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Nature, Image = lMossyFrogOnBranch, IsAwarded = false, IsAccepted = false, Score=19 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Nature, Image = lMarbledTreeFrog, IsAwarded = false, IsAccepted = false, Score=16 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Mono, Image = lSkyward, IsAwarded = false, IsAccepted = false, Score=18},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = false, Score= 17},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Mono, Image = lStepsOfTheMoon, IsAwarded = false, IsAccepted = false, Score=13 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Mono, Image = lTwoPoppyheads, IsAwarded = false, IsAccepted = false, Score=14 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019People, Image = lVictorianTraveller, IsAwarded = false, IsAccepted = false, Score=0 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019People, Image = lWorkersBreak, IsAwarded = false, IsAccepted = false, Score= 14},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019People, Image = lAWalkInTheCountryside, IsAwarded = false, IsAccepted = false, Score=18 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019People, Image = lRailDelay, IsAwarded = false, IsAccepted = false, Score=18 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Travel, Image = lSolentSunset, IsAwarded = false, IsAccepted = false, Score=19 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Travel, Image = lIceBeachWaves, IsAwarded = false, IsAccepted = false, Score= 17},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Travel, Image = lGrassIceland, IsAwarded = false, IsAccepted = true, Score=21 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnElema2019Travel, Image = lAlhambraComplex, IsAwarded = false, IsAccepted = false, Score=14 },
+
+														},
+													},
+												});
+
+												var lSalonAutumnCacak = new SalonEntity { Name = "Autumn - Cacak", Website = "https://www.exhibitions.photo/", Country = lCountrySerbia};
+
+												var lSalonYearAutumnCacak2019 = new SalonYearEntity { Name = "Autumn - Cacak", Salon = lSalonAutumnCacak, Year = 2019, ClosingDate = new DateTime(2019, 11, 24), JudgeDate = new DateTime(2019, 12, 5), NotificationDate = new DateTime(2019, 12, 10), CataloguesPostedDate = new DateTime(2020, 2, 18), Circuit = lPhotoAutumnCircuit2019 };
+
+												lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+													new AccreditationEntity() { SalonNumber = "2019/555", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearAutumnCacak2019 },
+													new AccreditationEntity() { SalonNumber = "2019-500", PhotoOrganisation = lPsa, SalonYear = lSalonYearAutumnCacak2019 },
+												});
+
+												var lSalonYearAutumnCacak2019Colour = new SectionEntity() { SalonYear = lSalonYearAutumnCacak2019, SectionType = lSectionTypeColourPdi };
+												var lSalonYearAutumnCacak2019Mono = new SectionEntity() { SalonYear = lSalonYearAutumnCacak2019, SectionType = lSectionTypeMonoPdi };
+												var lSalonYearAutumnCacak2019Nature = new SectionEntity() { SalonYear = lSalonYearAutumnCacak2019, SectionType = lSectionTypeNaturePdi };
+												var lSalonYearAutumnCacak2019People = new SectionEntity() { SalonYear = lSalonYearAutumnCacak2019, SectionType = lSectionTypePeoplePdi };
+												var lSalonYearAutumnCacak2019Travel = new SectionEntity() { SalonYear = lSalonYearAutumnCacak2019, SectionType = lSectionTypeTravelPdi };
+
+												lContext.Submissions.AddRange(new List<SubmissionEntity> {
+													new SubmissionEntity(){
+														IsJudged = true,
+														EntryCost = 13.38M,
+														SalonYear = lSalonYearAutumnCacak2019,
+														EntryDate = new DateTime(2019, 11, 20),
+														Person = lTim,
+														Entries = new List<CompetitionEntryEntity> {
+
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Colour, Image = lTranquility, IsAwarded = false, IsAccepted = false, Score=14 },
+									new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Colour, Image = lAlienEncounter, IsAwarded = false, IsAccepted = false, Score= 17},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Colour, Image = lAWalkWithTheMoon, IsAwarded = false, IsAccepted = false, Score=18 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Colour, Image = lSunflower, IsAwarded = false, IsAccepted = false, Score=12 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Nature, Image = lRedEyedGreenTreeFrog, IsAwarded = false, IsAccepted = true, Score=21 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Nature, Image = lCrestedGeckoTongue, IsAwarded = false, IsAccepted = false, Score= 16},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Nature, Image = lMossyFrogOnBranch, IsAwarded = false, IsAccepted = false, Score=18 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Nature, Image = lMarbledTreeFrog, IsAwarded = false, IsAccepted = false, Score=17 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Mono, Image = lSkyward, IsAwarded = false, IsAccepted = false, Score=18 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = false, Score= 14},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Mono, Image = lStepsOfTheMoon, IsAwarded = false, IsAccepted = false, Score=12 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Mono, Image = lTwoPoppyheads, IsAwarded = false, IsAccepted = false, Score=12 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019People, Image = lVictorianTraveller, IsAwarded = false, IsAccepted = false, Score=12 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019People, Image = lWorkersBreak, IsAwarded = false, IsAccepted = false, Score= 15},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019People, Image = lAWalkInTheCountryside, IsAwarded = false, IsAccepted = false, Score=15 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019People, Image = lRailDelay, IsAwarded = false, IsAccepted = false, Score=15 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Travel, Image = lSolentSunset, IsAwarded = false, IsAccepted = false, Score=17 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Travel, Image = lIceBeachWaves, IsAwarded = false, IsAccepted = false, Score= 15},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Travel, Image = lGrassIceland, IsAwarded = false, IsAccepted = false, Score=15 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnCacak2019Travel, Image = lAlhambraComplex, IsAwarded = false, IsAccepted = false, Score=13 },
+
+														},
+													},
+												});
+
+												var lSalonAutumnPerasto = new SalonEntity { Name = "Autumn - Perasto", Website = "https://www.exhibitions.photo/", Country = lCountryMontenegro};
+
+												var lSalonYearAutumnPerasto2019 = new SalonYearEntity { Name = "Autumn - Perasto", Salon = lSalonAutumnPerasto, Year = 2019, ClosingDate = new DateTime(2019, 11, 24), JudgeDate = new DateTime(2019, 12, 5), NotificationDate = new DateTime(2019, 12, 10), CataloguesPostedDate = new DateTime(2020, 2, 18), Circuit = lPhotoAutumnCircuit2019 };
+
+												lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+													new AccreditationEntity() { SalonNumber = "2019/556", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearAutumnPerasto2019 },
+													new AccreditationEntity() { SalonNumber = "2019-500", PhotoOrganisation = lPsa, SalonYear = lSalonYearAutumnPerasto2019 },
+												});
+
+												var lSalonYearAutumnPerasto2019Colour = new SectionEntity() { SalonYear = lSalonYearAutumnPerasto2019, SectionType = lSectionTypeColourPdi };
+												var lSalonYearAutumnPerasto2019Mono = new SectionEntity() { SalonYear = lSalonYearAutumnPerasto2019, SectionType = lSectionTypeMonoPdi };
+												var lSalonYearAutumnPerasto2019Nature = new SectionEntity() { SalonYear = lSalonYearAutumnPerasto2019, SectionType = lSectionTypeNaturePdi };
+												var lSalonYearAutumnPerasto2019People = new SectionEntity() { SalonYear = lSalonYearAutumnPerasto2019, SectionType = lSectionTypePeoplePdi };
+												var lSalonYearAutumnPerasto2019Travel = new SectionEntity() { SalonYear = lSalonYearAutumnPerasto2019, SectionType = lSectionTypeTravelPdi };
+
+												lContext.Submissions.AddRange(new List<SubmissionEntity> {
+													new SubmissionEntity(){
+														IsJudged = true,
+														EntryCost = 13.38M,
+														SalonYear = lSalonYearAutumnPerasto2019,
+														EntryDate = new DateTime(2019, 11, 20),
+														Person = lTim,
+														Entries = new List<CompetitionEntryEntity> {
+
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Colour, Image = lTranquility, IsAwarded = false, IsAccepted = false, Score=17 },
+									new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Colour, Image = lAlienEncounter, IsAwarded = false, IsAccepted = false, Score= 16},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Colour, Image = lAWalkWithTheMoon, IsAwarded = false, IsAccepted = true, Score=21 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Colour, Image = lSunflower, IsAwarded = false, IsAccepted = false, Score=14 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Nature, Image = lRedEyedGreenTreeFrog, IsAwarded = false, IsAccepted = false, Score=15 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Nature, Image = lCrestedGeckoTongue, IsAwarded = false, IsAccepted = false, Score= 17},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Nature, Image = lMossyFrogOnBranch, IsAwarded = false, IsAccepted = false, Score=15},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Nature, Image = lMarbledTreeFrog, IsAwarded = false, IsAccepted = false, Score=17},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Mono, Image = lSkyward, IsAwarded = false, IsAccepted = false, Score=17 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = false, Score= 17},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Mono, Image = lStepsOfTheMoon, IsAwarded = false, IsAccepted = false, Score=13 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Mono, Image = lTwoPoppyheads, IsAwarded = false, IsAccepted = false, Score=12 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019People, Image = lVictorianTraveller, IsAwarded = false, IsAccepted = false, Score=16 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019People, Image = lWorkersBreak, IsAwarded = false, IsAccepted = true, Score= 20},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019People, Image = lAWalkInTheCountryside, IsAwarded = false, IsAccepted = false, Score=18 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019People, Image = lRailDelay, IsAwarded = false, IsAccepted = false, Score=18 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Travel, Image = lSolentSunset, IsAwarded = false, IsAccepted = false, Score=17 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Travel, Image = lIceBeachWaves, IsAwarded = false, IsAccepted = false, Score= 14},
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Travel, Image = lGrassIceland, IsAwarded = false, IsAccepted = false, Score=17 },
+															new CompetitionEntryEntity { Section = lSalonYearAutumnPerasto2019Travel, Image = lAlhambraComplex, IsAwarded = false, IsAccepted = false, Score=15 },
+
+														},
+													},
+												});
+
+												// Yorkshire 2019
+											 var lSalonYearYorkshire2019 = new SalonYearEntity { Name = "Yorkshire", Salon = lSalonYorkshire, Year = 2019, ClosingDate = new DateTime(2019, 12, 9), JudgeDate = new DateTime(2019, 12, 15), NotificationDate = new DateTime(2019, 12, 24), CataloguesPostedDate = new DateTime(2020, 1, 14) };
+
+												lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+															new AccreditationEntity() { SalonNumber = "2019/458", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearYorkshire2019 },
+															new AccreditationEntity() { SalonNumber = "2019-513", PhotoOrganisation = lPsa, SalonYear = lSalonYearYorkshire2019 },
+												});
+
+												var lSalonYearPhotoYorkshire2019Colour = new SectionEntity() { SalonYear = lSalonYearYorkshire2019, SectionType = lSectionTypeColourPrint };
+												var lSalonYearPhotoYorkshire2019Mono = new SectionEntity() { SalonYear = lSalonYearYorkshire2019, SectionType = lSectionTypeMonoPrint };
+												var lSalonYearPhotoYorkshire2019Nature = new SectionEntity() { SalonYear = lSalonYearYorkshire2019, SectionType = lSectionTypeNaturePdi };
+												var lSalonYearPhotoYorkshire2019OpenPdi = new SectionEntity() { SalonYear = lSalonYearYorkshire2019, SectionType = lSectionTypeColourPdi };
+
+
+												lContext.Submissions.AddRange(new List<SubmissionEntity> {
+											new SubmissionEntity(){
+												IsJudged = true,
+												EntryCost = 13M,
+													SalonYear = lSalonYearYorkshire2019,
+												EntryDate = new DateTime(2019, 12, 3),
+												Person = lTim,
+												Entries = new List<CompetitionEntryEntity> {
+
+													new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = true, Score=13 },
+							      			new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = false, Score= 10 },
+													new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019Colour, Image = lAWalkWithTheMoon, IsAwarded = false, IsAccepted = true, Score=13 },
+													new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019Colour , Image = lTheHallOfGateways, IsAwarded = false, IsAccepted = false, Score=9 },
+													new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019Mono, Image = lTheWishingTree, IsAwarded = false, IsAccepted = false, Score=9 },
+													new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019Mono, Image = lMirrorOfReminiscence, IsAwarded = false, IsAccepted = false, Score= 11},
+													new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = false, Score=9 },
+													new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019Mono, Image = lTheFinalGateway, IsAwarded = false, IsAccepted = true, Score=12 },
+													new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019Nature, Image = lCrestedGeckoTongue, IsAwarded = false, IsAccepted = false, Score=9 },
+									  			new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019Nature, Image = lRoughFrilledTreeFrogOnFlower, IsAwarded = false, IsAccepted = false, Score= 9 },
+													new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019Nature, Image = lMossyFrogOnBranch, IsAwarded = false, IsAccepted = false, Score=10 },
+													new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019Nature, Image = lPeacockTreeFrogTrio, IsAwarded = false, IsAccepted = true, Score=11 },
+													new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019OpenPdi, Image = lJilted, IsAwarded = false, IsAccepted = false, Score=11 },
+													new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019OpenPdi, Image = lQueenOfTheCastle, IsAwarded = false, IsAccepted = true, Score= 12},
+													new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019OpenPdi, Image = lProtectors, IsAwarded = false, IsAccepted = false, Score=9 },
+													new CompetitionEntryEntity { Section = lSalonYearPhotoYorkshire2019OpenPdi, Image = lTimeFlies, IsAwarded = false, IsAccepted = false, Score=9 },
+
+																},
+															},
+														});
 
 
 						lContext.SaveChanges();
