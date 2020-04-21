@@ -49,6 +49,9 @@ namespace SalonServices.Migrations
 					var lCountryIndonesia = new CountryEntity { Name = "Indonesia", };
 					var lCountrySouthAfrica = new CountryEntity { Name = "South Africa", };
 					var lCountryGermany = new CountryEntity { Name = "Germany", };
+					var lCountrySweden = new CountryEntity { Name = "Sweden", };
+					var lCountryTajikistan = new CountryEntity { Name = "Tajikistan", };
+
 
 					try
 					{
@@ -7499,6 +7502,107 @@ namespace SalonServices.Migrations
 																},
 															},
 														});
+
+														// Pamir 2020
+													 var lSalonPamir = new SalonEntity { Name = "Pamir", Website = "http://pamirexhibition.com/", Country = lCountryTajikistan};
+
+
+													 var lSalonYearPamir2020 = new SalonYearEntity { Name = "Pamir", Salon = lSalonPamir, Year = 2020, ClosingDate = new DateTime(2020, 03, 19), JudgeDate = new DateTime(2020, 4, 9), NotificationDate = new DateTime(2020, 04, 23), CataloguesPostedDate = new DateTime(2020, 6, 25) };
+
+						var lGhostOfTheCorridor = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Ghost of the Corridor" };
+						var lClockworkOwl = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Clockwork Owl" };
+						var lContemplationInTheGrove = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Contemplation in the Grove" };
+						var lTwoRosesInRed = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Two Roses In Red" };
+						var lRagMan = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Rag Man" };
+						var lMidnightVoyage = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Midnight Voyage" };
+						var lVictorianRailwayTravel = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Victorial Railway Travel" };
+						var lBridgewaterPlaceAndCanal = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Bridgewater Place And Canal" };
+						var lATexturedTree = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "A Textured Tree" };
+						var lATowerByTheSea = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Tower By The Sea" };
+						var lCommonToadOnRock = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Common Toad on Rock" };
+						var lChileanRoseTarantulaOnTree = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Chilean Rose Tarantula On Tree" };
+						var lLeopardGecko = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Leopard Gecko" };
+						var lCityscapeSymmetry = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Cityscape Symmetry" };
+						var lTheDoorInTheTree = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Door in The Tree" };
+                  
+
+														lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+																	new AccreditationEntity() { SalonNumber = "2020/236", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearPamir2020 },
+																	new AccreditationEntity() { SalonNumber = "2020-091", PhotoOrganisation = lPsa, SalonYear = lSalonYearPamir2020 },
+														});
+
+														var lSalonYearPamir2020Mono = new SectionEntity() { SalonYear = lSalonYearPamir2020, SectionType = lSectionTypeMonoPdi };
+														var lSalonYearPamir2020Colour = new SectionEntity() { SalonYear = lSalonYearPamir2020, SectionType = lSectionTypeColourPdi };
+														var lSalonYearPamir2020Portrait = new SectionEntity() { SalonYear = lSalonYearPamir2020, SectionType = lSectionTypePortraitPdi };
+														var lSalonYearPamir2020Landscape = new SectionEntity() { SalonYear = lSalonYearPamir2020, SectionType = lSectionTypeScapesPdi };
+														var lSalonYearPamir2020Nature = new SectionEntity() { SalonYear = lSalonYearPamir2020, SectionType = lSectionTypeNaturePdi };
+
+														lContext.Submissions.AddRange(new List<SubmissionEntity> {
+															new SubmissionEntity(){
+															IsJudged = true,
+															EntryCost = 23.92M,
+															SalonYear = lSalonYearPamir2020,
+															EntryDate = new DateTime(2020, 3, 1),
+															Person = lTim,
+															Entries = new List<CompetitionEntryEntity> {
+
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Mono, Image = lGhostOfTheCorridor, IsAwarded = false, IsAccepted = true, Score=31 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Mono, Image = lClockworkOwl, IsAwarded = false, IsAccepted = false, Score= 26 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Mono, Image = lCityscapeSymmetry, IsAwarded = false, IsAccepted = false, Score=27 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Mono , Image = lContemplationInTheGrove, IsAwarded = false, IsAccepted = false, Score=25 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Colour, Image = lTheDoorInTheTree, IsAwarded = false, IsAccepted = false, Score=26 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Colour, Image = lTwoRosesInRed, IsAwarded = false, IsAccepted = true, Score= 33 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Colour, Image = lRagMan, IsAwarded = false, IsAccepted = false, Score=27 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Colour , Image = lMidnightVoyage, IsAwarded = false, IsAccepted = false, Score=25 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Portrait, Image = lByLamplight, IsAwarded = true, AwardDetails="HM", IsAccepted = true, Score=33 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Portrait, Image = lvictorianRailwayWorker, IsAwarded = false, IsAccepted = false, Score= 28 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Portrait, Image = lEngineDriver, IsAwarded = false, IsAccepted = false, Score=26 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Portrait , Image = lVictorianRailwayTravel, IsAwarded = false, IsAccepted = false, Score=26 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Landscape, Image = lBridgewaterPlaceAndCanal, IsAwarded = false, IsAccepted = false, Score=24 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Landscape, Image = lATexturedTree, IsAwarded = false, IsAccepted = false, Score= 27 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Landscape, Image = lPagoda, IsAwarded = false, IsAccepted = false, Score=24 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Landscape , Image = lATowerByTheSea, IsAwarded = false, IsAccepted = false, Score=27 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Nature, Image = lMarbledTreeFrog, IsAwarded = false, IsAccepted = false, Score=25 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Nature, Image = lCommonToadOnRock, IsAwarded = false, IsAccepted = false, Score= 27 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Nature, Image = lChileanRoseTarantulaOnTree, IsAwarded = false, IsAccepted = false, Score=26 },
+															new CompetitionEntryEntity { Section = lSalonYearPamir2020Nature , Image = lLeopardGecko, IsAwarded = false, IsAccepted = false, Score=27 },
+
+
+																		},
+																	},
+																});
+
+																// Swedish Small Print 2020
+															 var lSalonSwedishSmallPrint = new SalonEntity { Name = "Swedish Small Print", Website = "http://swipa.dinstudio.se/filearea_29.html", Country = lCountrySweden};
+
+
+															 var lSalonYearSwedishSmallPrint2020 = new SalonYearEntity { Name = "Swedish Small Print", Salon = lSalonSwedishSmallPrint, Year = 2020, ClosingDate = new DateTime(2020, 04, 14), JudgeDate = new DateTime(2020, 04, 18), NotificationDate = new DateTime(2020, 04, 25), CataloguesPostedDate = new DateTime(2020, 6, 21) };
+
+																lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+																			new AccreditationEntity() { SalonNumber = "2020/102", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearSwedishSmallPrint2020 },
+																			new AccreditationEntity() { SalonNumber = "2020-168", PhotoOrganisation = lPsa, SalonYear = lSalonYearSwedishSmallPrint2020 },
+																});
+
+																var lSalonYearSwedishSmallPrint2020Colour = new SectionEntity() { SalonYear = lSalonYearSwedishSmallPrint2020, SectionType = lSectionTypeColourPrint };
+
+																lContext.Submissions.AddRange(new List<SubmissionEntity> {
+																	new SubmissionEntity(){
+																	IsJudged = true,
+																	EntryCost = 18.62M,
+																	SalonYear = lSalonYearSwedishSmallPrint2020,
+																	EntryDate = new DateTime(2020, 3, 1),
+																	Person = lTim,
+																	Entries = new List<CompetitionEntryEntity> {
+
+																			new CompetitionEntryEntity { Section = lSalonYearSwedishSmallPrint2020Colour, Image = lBetwixtRealities, IsAwarded = false, IsAccepted = true, Score=11 },
+																			new CompetitionEntryEntity { Section = lSalonYearSwedishSmallPrint2020Colour, Image = lEnteringTheMaelstrom, IsAwarded = true, AwardDetails="PSA Ribbon", IsAccepted = true, Score= 12 },
+																			new CompetitionEntryEntity { Section = lSalonYearSwedishSmallPrint2020Colour, Image = lIUsedToDreamIdMarryAPrince, IsAwarded = false, IsAccepted = true, Score=10 },
+																			new CompetitionEntryEntity { Section = lSalonYearSwedishSmallPrint2020Colour , Image = lJilted, IsAwarded = false, IsAccepted = false, Score=8 },
+
+
+																				},
+																			},
+																		});
 
 
 						lContext.SaveChanges();
