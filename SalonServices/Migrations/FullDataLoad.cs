@@ -7665,7 +7665,65 @@ namespace SalonServices.Migrations
 
                                                                                    },
                                                                             },
-                                                                        });																		
+                                                                        });
+
+
+                                        // Fotogram 2020
+						                var lSalonFotogram = new SalonEntity { Name = "Fotogram", Website = "http://fotogram.in.rs/", Country = lCountrySerbia };
+                                        var lSalonYearFotogram2020 = new SalonYearEntity { Name = "Fotogram", Salon = lSalonFotogram, Year = 2020, ClosingDate = new DateTime(2020, 5, 8), JudgeDate = new DateTime(2020, 05, 23), NotificationDate = new DateTime(2020, 05, 30), CataloguesPostedDate = new DateTime(2020, 7, 1) };
+
+                                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2020/132", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearFotogram2020 },
+                                                    new AccreditationEntity() { SalonNumber = "2020-148", PhotoOrganisation = lPsa, SalonYear = lSalonYearFotogram2020 },
+                                        });
+
+                                        var lSalonYearFotogram2020Colour = new SectionEntity() { SalonYear = lSalonYearFotogram2020, SectionType = lSectionTypeColourPdi };
+                            						var lSalonYearFotogram2020Mono = new SectionEntity() { SalonYear = lSalonYearFotogram2020, SectionType = lSectionTypeMonoPdi };
+
+
+                                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                    IsJudged = true,
+                                                    EntryCost = 20.17M,
+                                                    SalonYear = lSalonYearFotogram2020,
+                                                    EntryDate = new DateTime(2020, 6, 1),
+                                                    Person = lTim,
+                                                    Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lSalonYearFotogram2020Colour, Image = lByLamplight, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonYearFotogram2020Mono, Image = lThreeLeavesMono, IsAwarded = false, IsAccepted = true, Score= 0 },
+                                                                   },
+                                                            },
+                                                        });
+
+                                        // Manhattan 2020
+						var lMemento = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Memento" };
+						var lTheInfinityDevice = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Infinity Device" };
+                                        var lSalonYearManhattan2020 = new SalonYearEntity { Name = "Manhattan", Salon = lSalonFotogram, Year = 2020, ClosingDate = new DateTime(2020, 5, 25), JudgeDate = new DateTime(2020, 6, 1), NotificationDate = new DateTime(2020, 6, 15), CataloguesPostedDate = new DateTime(2020, 6, 15) };
+
+                                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2020/265", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearManhattan2020 },
+                                                    new AccreditationEntity() { SalonNumber = "2020-011", PhotoOrganisation = lPsa, SalonYear = lSalonYearManhattan2020 },
+                                        });
+
+                                        var llSalonYearManhattan2020Colour = new SectionEntity() { SalonYear = lSalonYearManhattan2020, SectionType = lSectionTypeColourPdi };
+                            			var llSalonYearManhattan20200Mono = new SectionEntity() { SalonYear = lSalonYearManhattan2020, SectionType = lSectionTypeMonoPdi };
+
+
+                                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                    IsJudged = true,
+                                                    EntryCost = 8.55M,
+                                                    SalonYear = lSalonYearManhattan2020,
+                                                    EntryDate = new DateTime(2020, 5, 25),
+                                                    Person = lTim,
+                                                    Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lSalonYearFotogram2020Colour, Image = lMemento, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonYearFotogram2020Mono, Image = lTheInfinityDevice, IsAwarded = false, IsAccepted = true, Score= 0 },
+                                                                   },
+                                                            },
+                                                        });
 
 
                         lContext.SaveChanges();
