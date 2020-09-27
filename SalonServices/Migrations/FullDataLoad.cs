@@ -8018,6 +8018,37 @@ namespace SalonServices.Migrations
                                                     },
                                                 });
 
+                        // lanterna magica
+                        var lBaronBone = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Baron Bone" };
+                        
+                        var lSalonYearLanternaMagica2020 = new SalonYearEntity { Name = "Lanterna Magica", Salon = lSalonLanternaMagica, Year = 2020, ClosingDate = new DateTime(2020, 9, 7), JudgeDate = new DateTime(2020, 9, 20), NotificationDate = new DateTime(2020, 10, 04), CataloguesPostedDate = new DateTime(2020, 11, 29) };
+
+                                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2020/229", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearLanternaMagica2020 },
+                                                    new AccreditationEntity() { SalonNumber = "2020-266", PhotoOrganisation = lPsa, SalonYear = lSalonYearLanternaMagica2020 },
+                                        });
+
+                                        var lSalonYearLanternaMagica2020Mono = new SectionEntity() { SalonYear = lSalonYearLanternaMagica2020, SectionType = lSectionTypeMonoPdi };
+                                        var lSalonYearLanternaMagica2020LanternaMagica = new SectionEntity() { SalonYear = lSalonYearLanternaMagica2020, SectionType = lSectionTypeColourPdi };
+
+
+                                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                    IsJudged = true,
+                                                    EntryCost = 0M,
+                                                    SalonYear = lSalonYearLanternaMagica2020,
+                                                    EntryDate = new DateTime(2020, 9, 1),
+                                                    Person = lTim,
+                                                    Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lSalonYearLanternaMagica2020Mono, Image = lMonkPortal, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonYearLanternaMagica2020Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonYearLanternaMagica2020LanternaMagica, Image = lTheSummoning, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonYearLanternaMagica2020LanternaMagica, Image = lBaronBone, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                                   },
+                                                            },
+                                                        });
+
 
                         lContext.SaveChanges();
                     }
