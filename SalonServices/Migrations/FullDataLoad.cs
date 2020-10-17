@@ -51,6 +51,7 @@ namespace SalonServices.Migrations
                     var lCountryGermany = new CountryEntity { Name = "Germany", };
                     var lCountrySweden = new CountryEntity { Name = "Sweden", };
                     var lCountryTajikistan = new CountryEntity { Name = "Tajikistan", };
+                    var lCountryRussia = new CountryEntity { Name = "Russia", };
 
 
                     try
@@ -8048,6 +8049,123 @@ namespace SalonServices.Migrations
                                                                    },
                                                             },
                                                         });
+
+
+                        // Summer, Sea, Sun 2020
+                        var lRailwayChildren = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Railway Children" };
+                        var lEngineDriversSon = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Engine Driver's Son" };
+                        var lDomi = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Domi" };
+                        var lMajesty = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Majesty" };
+                        var lDomiAtTheBall = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Domi At The Ball" };
+                        var lWindswept = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Windswept" };
+
+                        var lSalonSummerSeaSun = new SalonEntity { Name = "Summer, Sea, Sun", Website = "https://summerseasun.fotoklubkrk.hr/", Country = lCountryRomania};
+                        var lSalonSummerSeaSun2020 = new SalonYearEntity { Name = "Summer, Sea, Sun", Salon = lSalonSummerSeaSun, Year = 2020, ClosingDate = new DateTime(2020, 9, 20), JudgeDate = new DateTime(2020, 9, 27), NotificationDate = new DateTime(2020, 10, 5), CataloguesPostedDate = new DateTime(2020, 10, 27) };
+
+                                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2020/287", PhotoOrganisation = lFiapLevels, SalonYear = lSalonSummerSeaSun2020 },
+                                                    new AccreditationEntity() { SalonNumber = "2020-310", PhotoOrganisation = lPsa, SalonYear = lSalonSummerSeaSun2020 },
+                                        });
+
+                                        var lSalonSummerSeaSun2020Child = new SectionEntity() { SalonYear = lSalonSummerSeaSun2020, SectionType = lSectionTypeChildPdi };
+                                        var lSalonSummerSeaSun2020Portrait = new SectionEntity() { SalonYear = lSalonSummerSeaSun2020, SectionType = lSectionTypePortraitPdi };
+                                        var lSalonSummerSeaSun2020Nature = new SectionEntity() { SalonYear = lSalonSummerSeaSun2020, SectionType = lSectionTypeNaturePdi };
+                                        var lSalonSummerSeaSun2020Colour = new SectionEntity() { SalonYear = lSalonSummerSeaSun2020, SectionType = lSectionTypeColourPdi };
+                                        var lSalonSummerSeaSun2020Mono = new SectionEntity() { SalonYear = lSalonSummerSeaSun2020, SectionType = lSectionTypeMonoPdi };
+
+
+                                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                    IsJudged = true,
+                                                    EntryCost = 24.06M,
+                                                    SalonYear = lSalonSummerSeaSun2020,
+                                                    EntryDate = new DateTime(2020, 9, 19),
+                                                    Person = lTim,
+                                                    Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lSalonSummerSeaSun2020Child, Image = lComfortInAHarshWorld, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonSummerSeaSun2020Child, Image = lRailwayChildren, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonSummerSeaSun2020Child, Image = lEngineDriversSon, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonSummerSeaSun2020Portrait, Image = lDomi, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonSummerSeaSun2020Portrait, Image = lMajesty, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonSummerSeaSun2020Portrait, Image = lDomiAtTheBall, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonSummerSeaSun2020Nature, Image = lGargoyleGecko, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonSummerSeaSun2020Nature, Image = lPeacockTreeFrogTrio, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonSummerSeaSun2020Nature, Image = lMossyFrogOnBranch, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonSummerSeaSun2020Nature, Image = lCrestedGeckoTongue, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonSummerSeaSun2020Colour, Image = lWindswept, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonSummerSeaSun2020Mono, Image = lTwinIsolation, IsAwarded = true, AwardDetails="Silver", IsAccepted = true, Score=0 },                                                            
+                                                                   },
+                                                            },
+                                                        });
+
+                        // child circuit
+                        var lChildCircuit2020 = new CircuitEntity() { Name = "Child Circuit" };
+
+                        lContext.Circuits.AddRange(new List<CircuitEntity> {
+                                                lDanubeCircuit2020,
+                                            });
+
+                        var lSwordInTheStone = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Sword In The Stone" };
+                        var lTranquil = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Tranquil" };
+                   
+                        var lSalonChildSerbia = new SalonEntity { Name = "Child - Zajecar", Website = "http://photoclub-danube.com/", Country = lCountrySerbia};
+                        var lSalonChildRussia = new SalonEntity { Name = "Child - Penza", Website = "http://photoclub-danube.com/", Country = lCountryRussia};
+
+                        var lSalonYearChildSerbia2020 = new SalonYearEntity { Name = "Child - Zajecar", Salon = lSalonChildSerbia, Year = 2020, ClosingDate = new DateTime(2020, 9, 16), JudgeDate = new DateTime(2020, 10, 1), NotificationDate = new DateTime(2020, 10, 11), CataloguesPostedDate = new DateTime(2020, 10, 11), Circuit = lChildCircuit2020 };
+                        var lSalonYearChildRussia2020 = new SalonYearEntity { Name = "Child - Penza", Salon = lSalonChildRussia, Year = 2020, ClosingDate = new DateTime(2020, 9, 16), JudgeDate = new DateTime(2020, 10, 1), NotificationDate = new DateTime(2020, 10, 11), CataloguesPostedDate = new DateTime(2020, 10, 11), Circuit = lChildCircuit2020 };
+
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2020/374", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearChildSerbia2020 },
+                                                    new AccreditationEntity() { SalonNumber = "2020-347", PhotoOrganisation = lPsa, SalonYear = lSalonYearChildSerbia2020 },
+                                                });
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2020/376", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearChildRussia2020 },
+                                                    new AccreditationEntity() { SalonNumber = "2020-347", PhotoOrganisation = lPsa, SalonYear = lSalonYearChildRussia2020 },
+                                                });                                                
+
+                        var lSalonYearChildSerbia2020People = new SectionEntity() { SalonYear = lSalonYearDanubeRomania2020, SectionType = lSectionTypePeoplePdi };
+                        var lSalonYearChildSerbia2020Mono = new SectionEntity() { SalonYear = lSalonYearDanubeRomania2020, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearChildRussia2020Child = new SectionEntity() { SalonYear = lSalonYearDanubeBulgaria2020, SectionType = lSectionTypeChildPdi };
+                        var lSalonYearChildRussia2020Mono = new SectionEntity() { SalonYear = lSalonYearDanubeBulgaria2020, SectionType = lSectionTypeMonoPdi };
+                        var lSalonYearChildRussia2020Colour = new SectionEntity() { SalonYear = lSalonYearDanubeBulgaria2020, SectionType = lSectionTypeColourPdi };
+
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                        IsJudged = true,
+                                                        EntryCost = 16.84M,
+                                                        SalonYear = lSalonYearChildSerbia2020,
+                                                        EntryDate = new DateTime(2020, 10, 16),
+                                                        Person = lTim,
+                                                        Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lSalonYearChildSerbia2020People, Image = lMajesty, IsAwarded = false, IsAccepted = true, Score=24 },
+                                                            new CompetitionEntryEntity { Section = lSalonYearChildSerbia2020People, Image = lDomiAtTheBall, IsAwarded = false, IsAccepted = true, Score= 24},
+                                                            new CompetitionEntryEntity { Section = lSalonYearChildSerbia2020Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = true, Score= 23},
+                                                        },
+                                                    },
+                                                });
+
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                        IsJudged = true,
+                                                        EntryCost = 16.84M,
+                                                        SalonYear = lSalonYearChildRussia2020,
+                                                        EntryDate = new DateTime(2020, 10, 16),
+                                                        Person = lTim,
+                                                        Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lSalonYearChildRussia2020Child, Image = lRailwayChildren, IsAwarded = false, IsAccepted = true, Score=18 },
+                                                            new CompetitionEntryEntity { Section = lSalonYearChildRussia2020Mono, Image = lTwinIsolation, IsAwarded = false, IsAccepted = true, Score=20 },
+                                                            new CompetitionEntryEntity { Section = lSalonYearChildRussia2020Mono, Image = lTowersInTheSky, IsAwarded = false, IsAccepted = true, Score=17 },
+                                                            new CompetitionEntryEntity { Section = lSalonYearChildRussia2020Mono, Image = lSwordInTheStone, IsAwarded = false, IsAccepted = true, Score=17 },
+                                                            new CompetitionEntryEntity { Section = lSalonYearChildRussia2020Colour, Image = lTranquil, IsAwarded = false, IsAccepted = true, Score=18 },
+
+                                                        },
+                                                    },
+                                                });                                                
+
+
 
 
                         lContext.SaveChanges();
