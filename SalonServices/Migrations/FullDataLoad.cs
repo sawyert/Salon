@@ -53,7 +53,8 @@ namespace SalonServices.Migrations
                     var lCountryTajikistan = new CountryEntity { Name = "Tajikistan", };
                     var lCountryRussia = new CountryEntity { Name = "Russia", };
                     var lCountryNorway = new CountryEntity { Name = "Norway", };
-                    var lCountryBosniaAndHerzegovina = new CountryEntity { Name = "Bosnia and Harzegovina", };
+                    var lCountryArgentina = new CountryEntity { Name = "Argentina", };
+                    var lCountryBosniaAndHerzegovina = new CountryEntity { Name = "Bosnia and Herzegovina", };
 
 
                     try
@@ -8496,9 +8497,101 @@ namespace SalonServices.Migrations
                                                             },
                                                         });
 
+                        // autumn circuit
+                        var lAutumnCircuit2020 = new CircuitEntity() { Name = "Autumn Circuit" };
+                        lContext.Circuits.AddRange(new List<CircuitEntity> {
+                                                 lAutumnCircuit2020,
+                                             });
 
+                        var lSalonAutumnMladost = new SalonEntity { Name = "Autumn - Mladost", Website = "https://victory-photo.club/", Country = lCountrySerbia };
+                        
 
+                        var lSalonAutumnMladost2020 = new SalonYearEntity { Name = "Autumn - Mladost", Salon = lSalonAutumnMladost, Year = 2020, ClosingDate = new DateTime(2020, 11, 8), JudgeDate = new DateTime(2020, 11, 19), NotificationDate = new DateTime(2020, 11, 20), CataloguesPostedDate = new DateTime(2020, 11, 20), Circuit = lAutumnCircuit2020 };
+                        
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2020/490", PhotoOrganisation = lFiapLevels, SalonYear = lSalonAutumnMladost2020 },
+                                                });
+                       
+                        var lSalonAutumnMladost2020People = new SectionEntity() { SalonYear = lSalonAutumnMladost2020, SectionType = lSectionTypePeoplePdi };
+                        var lSalonAutumnMladost2020Nature = new SectionEntity() { SalonYear = lSalonAutumnMladost2020, SectionType = lSectionTypeNaturePdi };
+                     
 
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                        IsJudged = true,
+                                                        EntryCost = 31.98M,
+                                                        SalonYear = lSalonAutumnMladost2020,
+                                                        EntryDate = new DateTime(2020, 11, 8),
+                                                        Person = lTim,
+                                                        Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lSalonAutumnMladost2020People, Image = lDomiAtTheBall, IsAwarded = false, IsAccepted = true, Score=21 },
+                                                            new CompetitionEntryEntity { Section = lSalonAutumnMladost2020Nature, Image = lRedFox, IsAwarded = false, IsAccepted = true, Score= 21 },
+                                 
+                                                           
+
+                                                        },
+                                                    },
+                                                });
+
+                        // FAF
+                        var lQueenDomi = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Queen Domi" };
+
+                        var lSalonFaf = new SalonEntity { Name = "FAF", Website = "http://www.faf-internacional.com/?lg=en", Country = lCountryArgentina };
+                        var lSalonFaf2020 = new SalonYearEntity { Name = "FAF", Salon = lSalonFaf, Year = 2020, ClosingDate = new DateTime(2020, 11, 23), JudgeDate = new DateTime(2020, 11, 29), NotificationDate = new DateTime(2020, 12, 7), CataloguesPostedDate = new DateTime(2020, 12, 7) };
+
+                                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2020/531", PhotoOrganisation = lFiapLevels, SalonYear = lSalonFaf2020 },
+                                                    new AccreditationEntity() { SalonNumber = "2020-485", PhotoOrganisation = lPsa, SalonYear = lSalonFaf2020 },
+                                        });
+
+                                        var lSalonFaf2020Colour = new SectionEntity() { SalonYear = lSalonFaf2020, SectionType = lSectionTypeColourPdi };
+                                       
+
+                                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                    IsJudged = true,
+                                                    EntryCost = 14.12M,
+                                                    SalonYear = lSalonFaf2020,
+                                                    EntryDate = new DateTime(2020, 11, 22),
+                                                    Person = lTim,
+                                                    Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lSalonFaf2020Colour, Image = lQueenDomi, IsAwarded = false, IsAccepted = true, Score=20 },
+                                                                                                                    
+                                                                   },
+                                                            },
+                                                        });
+
+                        // Fidelity
+                        var lEdibleFrog = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Edible Frog" };
+
+                        var lSalonFidelity = new SalonEntity { Name = "Fidelity", Website = "http://sopronifotoklub.hu/", Country = lCountryArgentina };
+                        var lSalonFidelity2020 = new SalonYearEntity { Name = "Fidelity", Salon = lSalonFidelity, Year = 2020, ClosingDate = new DateTime(2020, 11, 23), JudgeDate = new DateTime(2020, 11, 28), NotificationDate = new DateTime(2020, 12, 8), CataloguesPostedDate = new DateTime(2020, 12, 8) };
+
+                                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2020/532", PhotoOrganisation = lFiapLevels, SalonYear = lSalonFidelity2020 },
+                                        });
+
+                                        var lSalonFidelity2020Nature = new SectionEntity() { SalonYear = lSalonFidelity2020, SectionType = lSectionTypeNaturePdi };
+                                       
+
+                                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                    IsJudged = true,
+                                                    EntryCost = 18.62M,
+                                                    SalonYear = lSalonFidelity2020,
+                                                    EntryDate = new DateTime(2020, 11, 22),
+                                                    Person = lTim,
+                                                    Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lSalonFidelity2020Nature, Image = lEdibleFrog, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                                                                                    
+                                                                   },
+                                                            },
+                                                        });
+
+   
                         lContext.SaveChanges();
                     }
                     catch (Exception ex)
