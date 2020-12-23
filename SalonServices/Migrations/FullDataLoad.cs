@@ -8591,6 +8591,39 @@ namespace SalonServices.Migrations
                                                             },
                                                         });
 
+
+
+                        // Vision
+                        var lSalonVision = new SalonEntity { Name = "Vision", Website = "http://vision.photoart.cz/", Country = lCountryCzechRep };
+                        var lSalonVision2020 = new SalonYearEntity { Name = "Vision", Salon = lSalonVision, Year = 2020, ClosingDate = new DateTime(2020, 12, 7), JudgeDate = new DateTime(2020, 12, 19), NotificationDate = new DateTime(2020, 12, 24), CataloguesPostedDate = new DateTime(2020, 12, 24) };
+
+                                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2020/449", PhotoOrganisation = lFiapLevels, SalonYear = lSalonVision2020 },
+                                                    new AccreditationEntity() { SalonNumber = "2020-472", PhotoOrganisation = lPsa, SalonYear = lSalonVision2020 },
+                                        });
+
+                                        var lSalonVision2020Mono = new SectionEntity() { SalonYear = lSalonVision2020, SectionType = lSectionTypeMonoPdi };
+                                        var lSalonVision2020Nature = new SectionEntity() { SalonYear = lSalonVision2020, SectionType = lSectionTypeNaturePdi };
+                                        var lSalonVision2020Woman = new SectionEntity() { SalonYear = lSalonVision2020, SectionType = lSectionTypeWomanPdi };
+                                       
+
+                                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                    IsJudged = true,
+                                                    EntryCost = 32.97M,
+                                                    SalonYear = lSalonVision2020,
+                                                    EntryDate = new DateTime(2020, 12, 6),
+                                                    Person = lTim,
+                                                    Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lSalonVision2020Mono, Image = lEdibleFrog, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonVision2020Nature, Image = lDomiAtTheBall, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonVision2020Woman, Image = lATowerByTheSea, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                                                                                    
+                                                                   },
+                                                            },
+                                                        });
+
    
                         lContext.SaveChanges();
                     }
