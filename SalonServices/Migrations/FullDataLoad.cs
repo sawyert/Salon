@@ -8841,6 +8841,136 @@ namespace SalonServices.Migrations
                                             },
                                         });
 
+                        // Photo Grafis 2021
+                        var lSalonPhotoGrafis = new SalonEntity { Name = "Photo Grafis", Website = "", Country = lCountryMontenegro };
+                        var lPhotoGrafis2021 = new SalonYearEntity { Name = "Photo Grafis", Salon = lSalonPhotoGrafis, Year = 2021, ClosingDate = new DateTime(2021, 5, 8), JudgeDate = new DateTime(2021, 5, 20), NotificationDate = new DateTime(2021, 5, 20), CataloguesPostedDate = new DateTime(2021, 6, 1) };
+
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                    new AccreditationEntity() { SalonNumber = "2021/167", PhotoOrganisation = lFiapLevels, SalonYear = lPhotoGrafis2021 },
+                                    new AccreditationEntity() { SalonNumber = "2021-1268", PhotoOrganisation = lPsa, SalonYear = lPhotoGrafis2021 },
+                        });
+
+                        var lPhotoGrafis2021Colour = new SectionEntity() { SalonYear = lPhotoGrafis2021, SectionType = lSectionTypeColourPdi };
+                        
+                        var lPortalEight = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Portal Eight" };
+                        var lMemoriesOfATatteredShadow = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Memories of a Tattered Shadow" };
+
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                    new SubmissionEntity(){
+                                    IsJudged = true,
+                                    EntryCost = 13.61M,
+                                    SalonYear = lPhotoGrafis2021,
+                                    EntryDate = new DateTime(2021, 5, 8),
+                                    Person = lTim,
+                                    Entries = new List<CompetitionEntryEntity> {
+
+                                            new CompetitionEntryEntity { Section = lPhotoGrafis2021Colour, Image = lPortalEight, IsAwarded = false, IsAccepted = true, Score=0 },
+                                            new CompetitionEntryEntity { Section = lPhotoGrafis2021Colour, Image = lMemoriesOfATatteredShadow, IsAwarded = false, IsAccepted = true, Score=0 },
+                                          
+                                                    },
+                                            },
+                                        });
+
+                        // Issyk Kul 2021
+                        var lWaterfallPower = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Waterfall Power" };
+
+                        var lIssykKul2021 = new SalonYearEntity { Name = "Issyk Kul", Salon = lSalonIssykKul, Year = 2021, ClosingDate = new DateTime(2021, 2, 22), JudgeDate = new DateTime(2021, 3, 15), NotificationDate = new DateTime(2021, 3, 29), CataloguesPostedDate = new DateTime(2021, 3, 29) };
+
+                                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2021/176", PhotoOrganisation = lFiapLevels, SalonYear = lIssykKul2021 },
+                                        });
+
+                                        var lIssykKul2021Water = new SectionEntity() { SalonYear = lIssykKul2021, SectionType = lSectionTypeColourPdi };
+                                      
+
+                                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                    IsJudged = true,
+                                                    EntryCost = 24.52M,
+                                                    SalonYear = lIssykKul2021,
+                                                    EntryDate = new DateTime(2021, 2, 21),
+                                                    Person = lTim,
+                                                    Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lIssykKul2021Water, Image = lWaterfallPower, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lIssykKul2021Water, Image = lBirdAndWaterfall, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                                                                                    
+                                                                   },
+                                                            },
+                                                        });             
+
+                        // Varna 2021
+                        var lFox = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Fox" };
+                        var lSalonVarna = new SalonEntity { Name = "Varna", Website = "", Country = lCountryBulgaria };
+                        var lVarna2021 = new SalonYearEntity { Name = "Varna", Salon = lSalonVarna, Year = 2021, ClosingDate = new DateTime(2021, 2, 22), JudgeDate = new DateTime(2021, 3, 15), NotificationDate = new DateTime(2021, 3, 29), CataloguesPostedDate = new DateTime(2021, 3, 29) };
+
+                                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2021/175", PhotoOrganisation = lFiapLevels, SalonYear = lVarna2021 },
+                                                    new AccreditationEntity() { SalonNumber = "2021/1284", PhotoOrganisation = lPsa, SalonYear = lVarna2021 },
+                                        });
+
+                                        var lVarna2021Nature = new SectionEntity() { SalonYear = lVarna2021, SectionType = lSectionTypeNaturePdi };
+                                      
+
+                                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                    IsJudged = true,
+                                                    EntryCost = 23.30M,
+                                                    SalonYear = lVarna2021,
+                                                    EntryDate = new DateTime(2021, 2, 21),
+                                                    Person = lTim,
+                                                    Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lVarna2021Nature, Image = lFox, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lVarna2021Nature, Image = lContentedOwl, IsAwarded = true, AwardDetails="Gold", IsAccepted = true, Score=0 },
+                                                                                                                    
+                                                                   },
+                                                            },
+                                                        });       
+
+                        // Quillat 2021
+                        var lTwoTreeTriptych = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Two Tree Triptych" };
+                        var lWaterfallMoon = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Waterfall Moon" };
+                        var lWoodlandBubbles = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Woodland Bubbles" };
+                        var lRavenQueen = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Raven Queen" };
+                        
+                        var lQuillat = new SalonEntity { Name = "Quillat", Website = "", Country = lCountrySpain };
+                        var lQuillat2021 = new SalonYearEntity { Name = "Quillat", Salon = lQuillat, Year = 2021, ClosingDate = new DateTime(2021, 2, 22), JudgeDate = new DateTime(2021, 3, 15), NotificationDate = new DateTime(2021, 3, 29), CataloguesPostedDate = new DateTime(2021, 3, 29) };
+
+                                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2021/239", PhotoOrganisation = lFiapLevels, SalonYear = lQuillat2021 },
+                                                    new AccreditationEntity() { SalonNumber = "2021/?", PhotoOrganisation = lPsa, SalonYear = lQuillat2021 },
+                                        });
+
+                                        var lQuillat2021Colour = new SectionEntity() { SalonYear = lQuillat2021, SectionType = lSectionTypeColourPdi };
+                                        var lQuillat2021Mono= new SectionEntity() { SalonYear = lQuillat2021, SectionType = lSectionTypeMonoPdi };
+                                        var lQuillat2021Creative = new SectionEntity() { SalonYear = lQuillat2021, SectionType = lSectionTypeCreativePdi };
+                                        var lQuillat2021Portait = new SectionEntity() { SalonYear = lQuillat2021, SectionType = lSectionTypePortraitPdi };
+                                        var lQuillat2021StillLife= new SectionEntity() { SalonYear = lQuillat2021, SectionType = lSectionTypeColourPdi };
+                                      
+
+                                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                    IsJudged = true,
+                                                    EntryCost = 22.41M,
+                                                    SalonYear = lQuillat2021,
+                                                    EntryDate = new DateTime(2021, 2, 21),
+                                                    Person = lTim,
+                                                    Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lIssykKul2021Water, Image = lTwoTreeTriptych, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lIssykKul2021Water, Image = lTheWishingTree, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lIssykKul2021Water, Image = lForestGlow, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lIssykKul2021Water, Image = lWaterfallMoon, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lIssykKul2021Water, Image = lWoodlandBubbles, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lIssykKul2021Water, Image = lRavenQueen, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lIssykKul2021Water, Image = lTwoRosesInRed, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                                                                                    
+                                                                   },
+                                                            },
+                                                        });             
+      
+
 
                         lContext.SaveChanges();
                     }
