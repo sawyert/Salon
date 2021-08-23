@@ -57,6 +57,8 @@ namespace SalonServices.Migrations
                     var lCountryBosniaAndHerzegovina = new CountryEntity { Name = "Bosnia and Herzegovina", };
                     var lCountryGuatamala = new CountryEntity { Name = "Guatamala", };
                     var lCountryBelarus = new CountryEntity { Name = "Belarus", };
+                    var lCountryKenya = new CountryEntity { Name = "Kenya", };
+                    var lCountryIceland = new CountryEntity { Name = "Iceland", };
 
 
                     try
@@ -9192,8 +9194,122 @@ namespace SalonServices.Migrations
                                                             new CompetitionEntryEntity { Section = lSalonDanubeBelarus2021Nature, Image = lContentedOwl, IsAwarded = false, IsAccepted = true, Score=0 },
                                                                    },
                                                             },
-                                                        });                                                                                                                                                                        
+                                                        });     
 
+                        // Giraffe
+                        var lSalonGiraffe = new SalonEntity { Name = "Giraffe", Website = "", Country = lCountryKenya };
+                        var lSalonGiraffe2021 = new SalonYearEntity { Name = "Griaffe", Salon = lSalonGiraffe, Year = 2021, ClosingDate = new DateTime(2021, 7, 12), JudgeDate = new DateTime(2021, 7, 26), NotificationDate = new DateTime(2021, 7, 28), CataloguesPostedDate = new DateTime(2021, 9, 25) };                                                                                                                                                                   
+                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2021/318", PhotoOrganisation = lFiapLevels, SalonYear = lSalonGiraffe2021 },
+                                                    new AccreditationEntity() { SalonNumber = "2021-1388", PhotoOrganisation = lPsa, SalonYear = lSalonGiraffe2021 },
+                                        });
+                        var lSalonGiraffe2021Nature = new SectionEntity() { SalonYear = lSalonGiraffe2021, SectionType = lSectionTypeNaturePdi };
+                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                    IsJudged = true,
+                                                    EntryCost = 17.91M,
+                                                    SalonYear = lSalonGiraffe2021,
+                                                    EntryDate = new DateTime(2021, 7, 12),
+                                                    Person = lTim,
+                                                    Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lSalonGiraffe2021Nature, Image = lLeopardGecko, IsAwarded = true, AwardDetails="Salon Diploma", IsAccepted = true, Score=0 },
+                                                                   },
+                                                            },
+                                                        });
+
+                        // Victor Polynsky 2021
+                        var lCouple = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Couple" };
+                        var lTheMagiciansHouse = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "The Magician's House" };
+                       
+                        var lVictorPolynsky2021 = new SalonYearEntity { Name = "Victor Polynsky", Salon = lSalonVictorPolynsky, Year = 2021, ClosingDate = new DateTime(2021, 6, 30), JudgeDate = new DateTime(2021, 7, 14), NotificationDate = new DateTime(2021, 7, 28), CataloguesPostedDate = new DateTime(2021, 7, 29) };
+
+                                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2021/336", PhotoOrganisation = lFiapLevels, SalonYear = lVictorPolynsky2021 },
+                                        });
+
+                                        var lVictorPolynsky2021Portrait = new SectionEntity() { SalonYear = lVictorPolynsky2021, SectionType = lSectionTypePortraitPdi };
+                                        var lVictorPolynsky2021Landscape = new SectionEntity() { SalonYear = lVictorPolynsky2021, SectionType = lSectionTypeScapesPdi };
+                                        var lVictorPolynsky2021AlteredReality = new SectionEntity() { SalonYear = lVictorPolynsky2021, SectionType = lSectionTypeCreativePdi };
+                                    
+                                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                    IsJudged = true,
+                                                    EntryCost = 24.21M,
+                                                    SalonYear = lVictorPolynsky2021,
+                                                    EntryDate = new DateTime(2021, 6, 30),
+                                                    Person = lTim,
+                                                    Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lVictorPolynsky2021Portrait, Image = lCouple, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lVictorPolynsky2021Portrait, Image = lDomiAtTheBall, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lVictorPolynsky2021Landscape, Image = lIntoTheWild, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lVictorPolynsky2021Landscape, Image = lSummit, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lVictorPolynsky2021AlteredReality, Image = lPyramidOverTheValley, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lVictorPolynsky2021AlteredReality, Image = lTheMagiciansHouse, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                                                                                    
+                                                                   },
+                                                            },
+                                                        });             
+                                                              
+
+                        // This Is Life Finland 2021
+                        var lBeneathTheTexturedTree = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Beneath The Textured Tree" };
+                        
+                        var lSalonThisIsLife2021 = new SalonYearEntity { Name = "This Is Life", Salon = lSalonThisIsLife, Year = 2021, ClosingDate = new DateTime(2021, 8, 8), JudgeDate = new DateTime(2021, 8, 8), NotificationDate = new DateTime(2021, 8, 8), CataloguesPostedDate = new DateTime(2021, 8, 8) };
+
+                                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2021/118", PhotoOrganisation = lFiapLevels, SalonYear = lSalonThisIsLife2021 },
+                                        });
+
+                                        var lSalonThisIsLife2021Mono = new SectionEntity() { SalonYear = lSalonThisIsLife2021, SectionType = lSectionTypeMonoPdi };
+                                        var lSalonThisIsLife2021Nature = new SectionEntity() { SalonYear = lSalonThisIsLife2021, SectionType = lSectionTypeNaturePdi };
+                                    
+                                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                    IsJudged = true,
+                                                    EntryCost = 26.43M,
+                                                    SalonYear = lSalonThisIsLife2021,
+                                                    EntryDate = new DateTime(2021, 7, 5),
+                                                    Person = lTim,
+                                                    Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lSalonThisIsLife2021Mono, Image = lBeneathTheTexturedTree, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonThisIsLife2021Nature, Image = lPeacockTreeFrogTrio, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                                                                                        
+                                                                   },
+                                                            },
+                                                        });          
+
+                        // BIG NORTH STORY Iceland 2021
+                        var lBeacon = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Beacon" };
+                        
+                        var lSalonBigNorthStory = new SalonEntity { Name = "Big North Story", Website = "", Country = lCountryIceland };
+                        var lSalonBigNorthStory2021 = new SalonYearEntity { Name = "Big North Story", Salon = lSalonBigNorthStory, Year = 2021, ClosingDate = new DateTime(2021, 8, 13), JudgeDate = new DateTime(2021, 8, 25), NotificationDate = new DateTime(2021, 8, 27), CataloguesPostedDate = new DateTime(2021, 8, 27) };
+
+                                        lContext.Accreditations.AddRange(new List<AccreditationEntity> {
+                                                    new AccreditationEntity() { SalonNumber = "2021/500", PhotoOrganisation = lFiapLevels, SalonYear = lSalonBigNorthStory2021 },
+                                                    new AccreditationEntity() { SalonNumber = "2021-5418", PhotoOrganisation = lPsa, SalonYear = lSalonBigNorthStory2021 },
+                                        });
+
+                                        var lSalonBigNorthStory2021Colour = new SectionEntity() { SalonYear = lSalonBigNorthStory2021, SectionType = lSectionTypeColourPdi };
+                                        
+                                    
+                                        lContext.Submissions.AddRange(new List<SubmissionEntity> {
+                                                    new SubmissionEntity(){
+                                                    IsJudged = true,
+                                                    EntryCost = 17.72M,
+                                                    SalonYear = lSalonBigNorthStory2021,
+                                                    EntryDate = new DateTime(2021, 8, 13),
+                                                    Person = lTim,
+                                                    Entries = new List<CompetitionEntryEntity> {
+
+                                                            new CompetitionEntryEntity { Section = lSalonThisIsLife2021Mono, Image = lTheMagiciansHouse, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                            new CompetitionEntryEntity { Section = lSalonThisIsLife2021Nature, Image = lBeacon, IsAwarded = false, IsAccepted = true, Score=0 },
+                                                                                                                        
+                                                                   },
+                                                            },
+                                                        });                                                                  
 
                         lContext.SaveChanges();
                     }
