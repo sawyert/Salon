@@ -7526,7 +7526,7 @@ namespace SalonServices.Migrations
                         var lVictorianRailwayTravel = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Victorial Railway Travel" };
                         var lBridgewaterPlaceAndCanal = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Bridgewater Place And Canal" };
                         var lATexturedTree = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "A Textured Tree" };
-                        var lATowerByTheSea = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Tower By The Sea" };
+                        var lATowerByTheSea = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "A Tower By The Sea" };
                         var lCommonToadOnRock = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Common Toad on Rock" };
                         var lChileanRoseTarantulaOnTree = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Chilean Rose Tarantula On Tree" };
                         var lLeopardGecko = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Leopard Gecko" };
@@ -7765,7 +7765,7 @@ namespace SalonServices.Migrations
 						     var lSalonYearGradac2020 = new SalonYearEntity { Name = "Gradac", Salon = lSalonGradac, Year = 2020, ClosingDate = new DateTime(2020, 6, 25), JudgeDate = new DateTime(2020, 7, 1), NotificationDate = new DateTime(2020, 7, 15), CataloguesPostedDate = new DateTime(2020, 7, 15) };
 
                                         lContext.Accreditations.AddRange(new List<AccreditationEntity> {
-                                                    new AccreditationEntity() { SalonNumber = "2020/017", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearGradac2020 },
+                                                    new AccreditationEntity() { SalonNumber = "2020/360", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearGradac2020 },
                                         });
 
                                         var llSalonYeaGradac2020Mono = new SectionEntity() { SalonYear = lSalonYearGradac2020, SectionType = lSectionTypeMonoPdi };
@@ -7830,8 +7830,8 @@ namespace SalonServices.Migrations
                         var lSalonDanubeRomania = new SalonEntity { Name = "Danube - Romania", Website = "http://photoclub-danube.com/", Country = lCountryRomania};
                         var lSalonDanubeBulgaria = new SalonEntity { Name = "Danube - Bulgaria", Website = "http://photoclub-danube.com/", Country = lCountryBulgaria};
 
-                        var lSalonYearDanubeRomania2020 = new SalonYearEntity { Name = "Danube - Romania", Salon = lSalonAutumnElema, Year = 2020, ClosingDate = new DateTime(2020, 6, 27), JudgeDate = new DateTime(2020, 7, 1), NotificationDate = new DateTime(2020, 7, 15), CataloguesPostedDate = new DateTime(2020, 7, 15), Circuit = lDanubeCircuit2020 };
-                        var lSalonYearDanubeBulgaria2020 = new SalonYearEntity { Name = "Danube - Bulgaria", Salon = lSalonAutumnElema, Year = 2020, ClosingDate = new DateTime(2020, 6, 27), JudgeDate = new DateTime(2020, 7, 1), NotificationDate = new DateTime(2020, 7, 15), CataloguesPostedDate = new DateTime(2020, 7, 15), Circuit = lDanubeCircuit2020 };
+                        var lSalonYearDanubeRomania2020 = new SalonYearEntity { Name = "Danube - Romania", Salon = lSalonDanubeRomania, Year = 2020, ClosingDate = new DateTime(2020, 6, 27), JudgeDate = new DateTime(2020, 7, 1), NotificationDate = new DateTime(2020, 7, 15), CataloguesPostedDate = new DateTime(2020, 7, 15), Circuit = lDanubeCircuit2020 };
+                        var lSalonYearDanubeBulgaria2020 = new SalonYearEntity { Name = "Danube - Bulgaria", Salon = lSalonDanubeBulgaria, Year = 2020, ClosingDate = new DateTime(2020, 6, 27), JudgeDate = new DateTime(2020, 7, 1), NotificationDate = new DateTime(2020, 7, 15), CataloguesPostedDate = new DateTime(2020, 7, 15), Circuit = lDanubeCircuit2020 };
 
                         lContext.Accreditations.AddRange(new List<AccreditationEntity> {
                                                     new AccreditationEntity() { SalonNumber = "2020/248", PhotoOrganisation = lFiapLevels, SalonYear = lSalonYearDanubeRomania2020 },
@@ -8066,7 +8066,7 @@ namespace SalonServices.Migrations
                         var lDomiAtTheBall = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Domi At The Ball" };
                         var lWindswept = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Windswept" };
 
-                        var lSalonSummerSeaSun = new SalonEntity { Name = "Summer, Sea, Sun", Website = "https://summerseasun.fotoklubkrk.hr/", Country = lCountryRomania};
+                        var lSalonSummerSeaSun = new SalonEntity { Name = "Summer, Sea, Sun", Website = "https://summerseasun.fotoklubkrk.hr/", Country = lCountryCroatia};
                         var lSalonSummerSeaSun2020 = new SalonYearEntity { Name = "Summer, Sea, Sun", Salon = lSalonSummerSeaSun, Year = 2020, ClosingDate = new DateTime(2020, 9, 20), JudgeDate = new DateTime(2020, 9, 27), NotificationDate = new DateTime(2020, 10, 5), CataloguesPostedDate = new DateTime(2020, 10, 27) };
 
                                         lContext.Accreditations.AddRange(new List<AccreditationEntity> {
@@ -8334,13 +8334,13 @@ namespace SalonServices.Migrations
                         var lSummit = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Summit" };
                         var lSnowPeak = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Snow Peak" };
 
-                        var lSalonBorDesire2020Nature = new SectionEntity() { SalonYear = lSalonKouvolaFinland2020, SectionType = lSectionTypeNaturePdi };
-                        var lSalonBorDesire2020Mountain = new SectionEntity() { SalonYear = lSalonKouvolaFinland2020, SectionType = lSectionTypeColourPdi };
-                        var lSalonLiassolDesire2020Mono = new SectionEntity() { SalonYear = lSalonKuopioFinland2020, SectionType = lSectionTypeMonoPdi };
-                        var lSalonOradeaDesire2020Nature = new SectionEntity() { SalonYear = lSalonKuopioFinland2020, SectionType = lSectionTypeNaturePdi };
-                        var lSalonOradeaDesire2020Mountain = new SectionEntity() { SalonYear = lSalonTampereFinland2020, SectionType = lSectionTypeColourPdi };
-                        var lSalonResiteDesire2020Nature = new SectionEntity() { SalonYear = lSalonTampereFinland2020, SectionType = lSectionTypeNaturePdi };
-                        var lSalonResiteDesire2020Mountain = new SectionEntity() { SalonYear = lSalonTampereFinland2020, SectionType = lSectionTypeColourPdi };
+                        var lSalonBorDesire2020Nature = new SectionEntity() { SalonYear = lSalonBorDesire2020, SectionType = lSectionTypeNaturePdi };
+                        var lSalonBorDesire2020Mountain = new SectionEntity() { SalonYear = lSalonBorDesire2020, SectionType = lSectionTypeColourPdi };
+                        var lSalonLiassolDesire2020Mono = new SectionEntity() { SalonYear = lSalonLiassolDesire2020, SectionType = lSectionTypeMonoPdi };
+                        var lSalonOradeaDesire2020Nature = new SectionEntity() { SalonYear = lSalonOradeaDesire2020, SectionType = lSectionTypeNaturePdi };
+                        var lSalonOradeaDesire2020Mountain = new SectionEntity() { SalonYear = lSalonOradeaDesire2020, SectionType = lSectionTypeColourPdi };
+                        var lSalonResiteDesire2020Nature = new SectionEntity() { SalonYear = lSalonResiteDesire2020, SectionType = lSectionTypeNaturePdi };
+                        var lSalonResiteDesire2020Mountain = new SectionEntity() { SalonYear = lSalonResiteDesire2020, SectionType = lSectionTypeColourPdi };
 
                         lContext.Submissions.AddRange(new List<SubmissionEntity> {
                                                     new SubmissionEntity(){
@@ -8513,7 +8513,7 @@ namespace SalonServices.Migrations
                         var lSalonAutumnMladost2020 = new SalonYearEntity { Name = "Autumn - Mladost", Salon = lSalonAutumnMladost, Year = 2020, ClosingDate = new DateTime(2020, 11, 8), JudgeDate = new DateTime(2020, 11, 19), NotificationDate = new DateTime(2020, 11, 20), CataloguesPostedDate = new DateTime(2020, 11, 20), Circuit = lAutumnCircuit2020 };
                         
                         lContext.Accreditations.AddRange(new List<AccreditationEntity> {
-                                                    new AccreditationEntity() { SalonNumber = "2020/490", PhotoOrganisation = lFiapLevels, SalonYear = lSalonAutumnMladost2020 },
+                                                    new AccreditationEntity() { SalonNumber = "2020/491", PhotoOrganisation = lFiapLevels, SalonYear = lSalonAutumnMladost2020 },
                                                 });
                        
                         var lSalonAutumnMladost2020People = new SectionEntity() { SalonYear = lSalonAutumnMladost2020, SectionType = lSectionTypePeoplePdi };
@@ -8570,7 +8570,7 @@ namespace SalonServices.Migrations
                         // Fidelity
                         var lEdibleFrog = new ImageEntity() { ThumbnailLocation = @"C:\SalonImages\NA.jpg", Person = lTim, Name = "Edible Frog" };
 
-                        var lSalonFidelity = new SalonEntity { Name = "Fidelity", Website = "http://sopronifotoklub.hu/", Country = lCountryArgentina };
+                        var lSalonFidelity = new SalonEntity { Name = "Fidelity", Website = "http://sopronifotoklub.hu/", Country = lCountryHungary };
                         var lSalonFidelity2020 = new SalonYearEntity { Name = "Fidelity", Salon = lSalonFidelity, Year = 2020, ClosingDate = new DateTime(2020, 11, 23), JudgeDate = new DateTime(2020, 11, 28), NotificationDate = new DateTime(2020, 12, 8), CataloguesPostedDate = new DateTime(2020, 12, 8) };
 
                                         lContext.Accreditations.AddRange(new List<AccreditationEntity> {
